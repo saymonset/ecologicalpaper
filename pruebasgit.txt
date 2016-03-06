@@ -6,5 +6,5 @@ git remote add origin https://github.com/saymonset/ecologicalpaper.git
 
 git remote set-url origin https://github.com/saymonset/ecologicalpaper.git
 
-git remote --verbose
+git remote --verbose  excelent
 
