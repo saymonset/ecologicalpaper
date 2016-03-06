@@ -1,0 +1,10 @@
+$ git remote set-url origin https://github.com/saymonset/ecologicalpaper.git
+
+git remote set-url origin git@github.com:saymonset/ecologicalpaper.git
+
+git remote add origin https://github.com/saymonset/ecologicalpaper.git
+
+git remote set-url origin https://github.com/saymonset/ecologicalpaper.git
+
+git remote --verbose
+
