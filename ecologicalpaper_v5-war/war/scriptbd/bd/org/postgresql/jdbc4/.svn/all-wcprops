@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4
+END
+Jdbc4Statement.class
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4Statement.class
+END
+Jdbc4Blob.class
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4Blob.class
+END
+Jdbc4Connection.class
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4Connection.class
+END
+AbstractJdbc4Statement.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4Statement.class
+END
+Jdbc4PreparedStatement.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4PreparedStatement.class
+END
+Jdbc4ResultSetMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4ResultSetMetaData.class
+END
+AbstractJdbc4ResultSetMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4ResultSetMetaData.class
+END
+Jdbc4CallableStatement.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4CallableStatement.class
+END
+Jdbc4ParameterMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4ParameterMetaData.class
+END
+Jdbc4Array.class
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4Array.class
+END
+AbstractJdbc4ParameterMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4ParameterMetaData.class
+END
+AbstractJdbc4DatabaseMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4DatabaseMetaData.class
+END
+Jdbc4DatabaseMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4DatabaseMetaData.class
+END
+Jdbc4ResultSet.class
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4ResultSet.class
+END
+AbstractJdbc4ResultSet.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4ResultSet.class
+END
+AbstractJdbc4Clob.class
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4Clob.class
+END
+AbstractJdbc4Blob.class
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4Blob.class
+END
+Jdbc4Clob.class
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/Jdbc4Clob.class
+END
+AbstractJdbc4Connection.class
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc4/AbstractJdbc4Connection.class
+END

@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportedetallefacturaciontotal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<subDataset name="dataset1"/>
+	<subDataset name="dataset2"/>
+	<parameter name="valor" class="java.lang.String">
+		<defaultValueExpression><![CDATA["VORI401"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ciclo" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[49]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[/*
+POR CADA VALOR QU ES EL LOTE DE VARIOS LOTES QUE TIENE UN BANCO Y SU CICLO.. HAGO LOS CALCULOS
+*/
+/*imprimir es enviar mas agencias*/
+/*enviar es imprimir - agencias*/
+
+select (
+  t6.total_a_imprimir + t7.noseimprimieron) cuentasrecibidas
+,(t5.retenerFitrados) cuentasfiltradas
+,t3.cuentasZZ,
+(t2.cuentas_agencias + t17.cuentas_agenciasespeciales) cuentas_agencias,
+ t6.total_a_imprimir,
+(t12.cuentas_agenciasMaster + t14.total_a_enviarMaster) totalenviarcntasmaster,
+(t13.cuentas_agenciasVisa + t15.total_a_enviarVisa) totalenviarcntasvisa
+,t16.corporativo
+,
+t18.hojasadicionales ,(t6.total_a_imprimir-t16.corporativo) sumartotal_a_imprimir,
+(t6.total_a_imprimir - (t2.cuentas_agencias + t17.cuentas_agenciasespeciales)) total_a_enviar, 
+abs(t6.total_a_imprimir - (t2.cuentas_agencias + t17.cuentas_agenciasespeciales) - t16.corporativo) sumarenviar
+from
+ (
+select count(distinct dxp.id) cuentas_agencias
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='agencia')
+  and ixd2.valor = 'true')
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+
+    and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where i2.nombre = 'retener'
+     and i2.cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+
+  and ixd2.valor = 'false')
+
+and dxp.id in 
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ')
+
+) t2,
+(
+select count(distinct dxp.id) cuentasZZ
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+ and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+and
+
+  dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor <> 'true')
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor = 'ZZ'))
+
+
+
+  t3
+
+ ,
+
+(
+
+select count(distinct dxp.id) retenerFitrados
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+ and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+  and         dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'true') )  t5
+
+
+   ,
+
+(
+select count(distinct dxp.id) total_a_imprimir
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+
+
+    and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'false')
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ'))
+
+  t6
+ ,
+ (
+select count(distinct dxp.id) noseimprimieron
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+ and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+and (dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'true')
+
+or dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor = 'ZZ'))
+ )
+
+ t7,
+(                            
+select count(distinct dxp.id) cuentas_agenciasMaster
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='agencia')
+  and ixd2.valor = 'true')
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='tipo_tarjeta')
+  and ixd2.valor = 'master')
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'false')
+
+and dxp.id in 
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ')
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+)
+t12
+,
+(
+select count(distinct dxp.id) cuentas_agenciasVisa
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='agencia')
+  and ixd2.valor = 'true')
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='tipo_tarjeta')
+  and ixd2.valor = 'visa')
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'false')
+
+and dxp.id in 
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ')
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+)
+
+t13
+,
+
+(
+
+
+select count(distinct dxp.id) total_a_enviarMaster
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor <> 'MBOP915')
+
+
+
+/*validando que esto sea para corpbanca tambien,porque MOFU401es privada y se cuenta
+*/
+
+and
+
+(      dxp.id in
+          (select ixd2.documento_x_persona_id
+           from indice_x_documento ixd2
+           inner join indice_x_producto i2 on
+           i2.id = ixd2.indice_x_producto_id
+           where
+           i2.id=(select id from indice_x_producto
+           where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+           and nombre='tipo_tarjeta')
+           and ixd2.valor = 'master')
+   or
+
+
+        (dxp.id in
+          (select ixd2.documento_x_persona_id
+           from indice_x_documento ixd2
+           inner join indice_x_producto i2 on
+           i2.id = ixd2.indice_x_producto_id
+           where
+           i2.id=(select id from indice_x_producto
+           where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+           and nombre='tipo_tarjeta')
+           and ixd2.valor = 'privada')
+
+           and
+
+          dxp.id in
+          (select ixd2.documento_x_persona_id
+           from indice_x_documento ixd2
+           inner join indice_x_producto i2 on
+           i2.id = ixd2.indice_x_producto_id
+           where
+           i2.id=(select id from indice_x_producto
+           where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+           and nombre='lote')
+           and (ixd2.valor = 'MOFU401' or ixd2.valor = 'MORC401'))
+         )
+
+)
+
+/*fin validando para corpbanca tambien*/
+
+
+
+
+
+
+
+
+
+
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='agencia')
+  and ixd2.valor = 'false')
+
+  and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'false')
+
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ')
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='corporativo')
+  and ixd2.valor = 'false')
+
+ )
+
+  t14
+,
+(select count(distinct dxp.id) total_a_enviarVisa
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+/*
+ESTE SE NIEGA PORQUE ES UNA VISA PLATINO.. Y LA AGARRAN COMO PRIVADAS
+*/
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor <> 'VBOP915')
+
+
+ 
+
+
+and
+
+(      dxp.id in
+          (select ixd2.documento_x_persona_id
+           from indice_x_documento ixd2
+           inner join indice_x_producto i2 on
+           i2.id = ixd2.indice_x_producto_id
+           where
+           i2.id=(select id from indice_x_producto
+           where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+           and nombre='tipo_tarjeta')
+           and ixd2.valor = 'visa')
+   or
+
+
+        (dxp.id in
+          (select ixd2.documento_x_persona_id
+           from indice_x_documento ixd2
+           inner join indice_x_producto i2 on
+           i2.id = ixd2.indice_x_producto_id
+           where
+           i2.id=(select id from indice_x_producto
+           where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+           and nombre='tipo_tarjeta')
+           and ixd2.valor = 'privada')
+
+           and
+
+          dxp.id in
+          (select ixd2.documento_x_persona_id
+           from indice_x_documento ixd2
+           inner join indice_x_producto i2 on
+           i2.id = ixd2.indice_x_producto_id
+           where
+           i2.id=(select id from indice_x_producto
+           where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+           and nombre='lote')
+           and (ixd2.valor = 'VOFU401' or ixd2.valor = 'VORC401'))
+         )
+
+)
+
+
+
+
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='agencia')
+  and ixd2.valor = 'false')
+
+  and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'false')
+
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ')
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='corporativo')
+  and ixd2.valor = 'false') )
+
+  t15
+,
+
+(
+select count(distinct dxp.id) corporativo
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+ and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+and dxp.id in
+         (select ixd2.documento_x_persona_id
+                from indice_x_documento ixd2
+                inner join indice_x_producto i2 on
+                           i2.id = ixd2.indice_x_producto_id
+                where
+                           i2.id=(select id from indice_x_producto
+                                            where cliente_id=
+                                           (select cliente_id from descripcion_ciclo
+                                             where id =
+                                            (select descripcion_ciclo_id
+                                             from ciclo where id=$P{ciclo}))
+                           and nombre='corporativo')
+
+                and
+                          ixd2.valor = 'true')
+
+and         dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor <> 'true')
+
+)
+
+t16
+
+,
+(select count(distinct dxp.id) cuentas_agenciasespeciales
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo
+where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor =$P{valor} and  ixd2.valor = 'PCNA915')) 
+
+t17
+,
+
+
+(
+
+select  (sum(CEILING((valor-32)/32)) + 0) hojasadicionales
+from lote_producto lp
+  inner join documento_x_persona dxp on
+    dxp.lote_producto_id = lp.id
+  inner join indice_x_documento ixd on
+    ixd.documento_x_persona_id = dxp.id
+  inner join indice_x_producto i on
+    i.id = ixd.indice_x_producto_id
+where lp.ciclo_id = $P{ciclo}
+
+and
+i.id=(select id from indice_x_producto
+                where
+                cliente_id=(select cliente_id
+                           from descripcion_ciclo
+                           where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo})
+                           )
+  and nombre='movimientos'
+
+ )
+and ixd.valor > 32
+
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where
+i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+  and ixd2.valor = $P{valor})
+
+
+  and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='retener')
+  and ixd2.valor = 'false')
+
+
+
+and dxp.id in
+(select ixd2.documento_x_persona_id
+from indice_x_documento ixd2
+  inner join indice_x_producto i2 on
+    i2.id = ixd2.indice_x_producto_id
+where 
+ i2.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='estado')
+  and ixd2.valor <> 'ZZ')
+
+ 
+
+
+
+  ) t18]]>
+	</queryString>
+	<field name="cuentasrecibidas" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentasfiltradas" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentasZZ" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cuentas_agencias" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_a_imprimir" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalenviarcntasmaster" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalenviarcntasvisa" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="corporativo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hojasadicionales" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sumartotal_a_imprimir" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_a_enviar" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sumarenviar" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="sumacuentas_agencias" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{cuentas_agencias}]]></variableExpression>
+	</variable>
+	<variable name="sumartotal_a_imprimir" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{sumartotal_a_imprimir}]]></variableExpression>
+	</variable>
+	<variable name="sumarenviar" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{sumarenviar}]]></variableExpression>
+	</variable>
+	<variable name="cuentas_agenciasVisa" class="java.lang.Long"/>
+	<variable name="total_a_enviarVisa" class="java.lang.String"/>
+	<variable name="totalenviarcntasmaster" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{totalenviarcntasmaster}]]></variableExpression>
+	</variable>
+	<variable name="totalenviarcntasvisa" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{totalenviarcntasvisa}]]></variableExpression>
+	</variable>
+	<variable name="edcImpresos" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$V{sumacuentas_agencias}+$V{sumarenviar}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="hojadicionaes" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{hojadicionaes}]]></variableExpression>
+	</variable>
+	<variable name="impresionesduplex" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$V{hojadicionaes}+$V{sumartotal_a_imprimir}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="corporativo" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{corporativo}]]></variableExpression>
+	</variable>
+	<variable name="cuentasfiltradas" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{cuentasfiltradas}]]></variableExpression>
+	</variable>
+	<variable name="hojasadicionales" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{hojasadicionales}]]></variableExpression>
+	</variable>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="220" y="0" width="30" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentasfiltradas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="0" width="48" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentasZZ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="41" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentas_agencias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="0" width="45" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{total_a_imprimir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="0" width="35" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{total_a_enviar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="0" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cuentasrecibidas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="53" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="517" y="0" width="35" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{hojasadicionales}==null?0:$F{hojasadicionales}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

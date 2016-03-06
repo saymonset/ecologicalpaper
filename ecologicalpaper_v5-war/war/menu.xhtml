@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+	<ui:define name="menu">
+		<h:form>
+
+			<rich:dataTable value="#{clienteTreeMenu.seguridad_session}" width="auto"
+				var="detallexxx" iterationStatusVar="it"
+				rows="#{Utilidades.verNumeroDeRegistros}">
+			</rich:dataTable>
+
+
+			<p:dock>
+
+				<p:menuitem value="#{txt.perfil}" icon="#{conftxt.img_seguridadkey}"
+					url="/editUsuarioPerfil.jsf" />
+
+				<p:menuitem value="#{txt.menu_listarUsuario}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListUsuarios or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_usuario}" url="/listarUsuarios.jsf" />
+
+				<p:menuitem value="#{txt.menu_listarprofesion}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListProfesiones or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_profesion}" url="/listarProfesion.jsf" />
+
+				<p:menuitem value="#{txt.listardiashabiles}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListarDiasHabiles or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_diashabiles}"
+					url="/listarDiasHabilesByHoras.jsf" />
+
+				<p:menuitem value="#{txt.listardiasferiados}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListarDiasFeriados or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_diasferiados}" url="/listarDiasFeriados.jsf" />
+
+				<p:menuitem value="#{txt.menu_listarRole}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListGrupos or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_group}" url="/listarRole.jsf" />
+
+				<p:menuitem value="#{txt.menu_listarRoleWorkFlow}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListGruposWorkflow or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_groupflow}" url="/listarRoleWorkFlow.jsf" />
+
+				<p:menuitem value="#{txt.menu_tipoDocumentos}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_tipodoc}" url="/listarDoc_Tipo.jsf" />
+					
+					
+						<p:menuitem value="#{txt.areadocumento}" icon="#{conftxt.img_control_panel}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListarArea or clienteTreeMenu.swSuperUsuario)}"
+					url="/listarAreaDocumentos.jsf" />
+					
+
+				<p:menuitem value="#{txt.extensionFile}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_tipodoc3}" url="/listarExtensionFile.jsf" />
+
+				<p:menuitem value="#{txt.extensionFileHijos}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_tipodoc2}" url="/listarExtensionFileHijos.jsf" />
+
+
+
+				<p:menuitem value="#{txt.menu_confDocumentos}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.confSeguridadGlobal or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_configuracion}" url="/listarConfiguracion.jsf" />
+
+				<p:menuitem value="#{txt.toAddRaiz}"
+					rendered="#{(clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_raiz}" url="/listarTreeEmpresas.jsf" />
+
+
+				<p:menuitem value="#{txt.svnurlbase}" icon="#{conftxt.img_svn}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					url="/listarSVNUrlBase.jsf" />
+
+				<p:menuitem value="#{txt.svnnombreaplicacion}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					icon="#{conftxt.img_svn2}" url="/listarSVNNombreAplicacion.jsf" />
+
+				<p:menuitem value="#{txt.svntipoambiente}"
+					icon="#{conftxt.img_svn1}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					url="/listarSVNTipodeAmbiente.jsf" />
+
+				<p:menuitem value="#{txt.svnmodulo}" icon="#{conftxt.img_svn3}"
+					rendered="#{(clienteTreeMenu.seguridadMenu.toListTipoDocumentos or clienteTreeMenu.swSuperUsuario)}"
+					url="/listarSVNModulo.jsf" />
+
+				<p:menuitem value="#{txt.menu_exit}" icon="#{conftxt.img_exit}"
+					url="/index.jsf" />
+
+			</p:dock>
+		</h:form>
+	</ui:define>
+
+
+	<ui:define name="body">
+		 
+
+	</ui:define>
+</ui:composition>
+</html>

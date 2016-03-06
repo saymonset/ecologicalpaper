@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+
+ 
+	</ui:define>
+
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+		<a4j:status onstart="#{rich:component('statPane')}.show()"
+			onstop="#{rich:component('statPane')}.hide()" />
+
+		<h:form id="form">
+
+		<center>
+			<h1><h:outputText styleClass="form" value="#{txt.menu_listarprofesion}" /></h1>
+			</center>
+
+
+
+			<a4j:jsFunction name="remove" render="table" execute="@this"
+				oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="confirmPane"
+				domElementAttachment="parent" width="800" height="400">
+				<h:panelGrid columns="1">
+					<rich:messages></rich:messages>
+
+				</h:panelGrid>
+
+
+
+				<h:outputText value="#{txt.deleteconfirma}" />
+
+
+				<a4j:commandButton value="#{txt.delete}"
+					action="#{profesionView.remove}" render="table"
+					execute="confirmPane"
+					oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('confirmPane')}.hide();}" />
+
+				<a4j:commandButton value="#{txt.cancelar}"
+					onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+
+
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="editPane"
+				domElementAttachment="parent" width="800" height="400">
+				<rich:messages></rich:messages>
+				<h:panelGroup />
+				<h:panelGroup />
+
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.profesion_titulo}">
+
+						<h:panelGrid columns="3" id="editGrid">
+
+
+							<h:panelGrid columns="2">
+								<h:panelGrid columns="3">
+									<h:outputText value="#{txt.profesion_nombre}" />
+									<h:panelGroup>
+										<h:inputText value="#{profesionView.objectItem.nombre}"
+											id="campo1" required="true">
+											<f:validateLength minimum="4" maximum="60" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="campo1" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+
+									<h:outputText value="#{txt.profesion_descripcion}" />
+									<h:panelGroup>
+										<h:inputText id="campo2"
+											value="#{profesionView.objectItem.descripcion}"
+											required="true">
+											<f:validateLength maximum="100" minimum="0" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="campo2" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+
+
+
+
+
+
+								</h:panelGrid>
+
+
+							</h:panelGrid>
+						</h:panelGrid>
+					</rich:tab>
+
+				</rich:tabPanel>
+
+				<h:panelGroup />
+				<h:panelGrid columns="2">
+					<a4j:commandButton value="#{txt.guardar}"
+						action="#{profesionView.editar}" render="table" execute="editPane"
+						oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('editPane')}.hide();}" />
+					<a4j:commandButton value="#{txt.cancelar}"
+						action="#{profesionView.aceptar}"
+						onclick="#{rich:component('editPane')}.hide(); return false;" />
+				</h:panelGrid>
+				<h:panelGroup />
+			</rich:popupPanel>
+
+
+
+			<rich:tabPanel switchType="client">
+				<rich:tab header="#{txt.menu_listarprofesion}">
+					<rich:dataTable value="#{profesionView.allObjectItems}" var="car"
+						iterationStatusVar="it" id="table"
+						rows="#{Utilidades.verNumeroDeRegistros}">
+						<rich:column>
+							<f:facet name="header">#</f:facet>
+                #{it.index}
+            </rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.nombre}" />
+							</f:facet>
+							<h:outputText value="#{car.nombre}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.profesion_descripcion}" />
+							</f:facet>
+							<h:outputText value="#{car.descripcion}" />
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:panelGrid columns="3">
+
+									<a4j:commandLink rendered="#{CrearProfesion.swAdd}"
+									styleClass="no-decor"
+										render="editGrid listshuffle" execute="@this"
+										oncomplete="#{rich:component('editPane')}.show()">
+										<h:graphicImage title="#{txt.new}" url="#{conftxt.img_new}" />
+										<a4j:param value="#{it.index}"
+											assignTo="#{profesionView.currentCarIndex}" />
+
+										<a4j:param value="false" assignTo="#{profesionView.swEditar}" />
+
+										<f:setPropertyActionListener target="#{profesionView.title}"
+											value="#{txt.new} #{txt.menu_Usuario}" />
+
+										<f:setPropertyActionListener
+											target="#{profesionView.objectItem}"
+											value="#{profesionView.objeto}" />
+									</a4j:commandLink>
+
+
+								</h:panelGrid>
+
+							</f:facet>
+							<h:panelGrid columns="3">
+								<h:panelGroup>
+									<h:panelGrid columns="1">
+										<!--							<%/* new */%>-->
+									</h:panelGrid>
+								</h:panelGroup>
+								<a4j:commandLink styleClass="no-decor"
+								rendered="#{CrearProfesion.swMod}" render="editGrid"
+									execute="@this"
+									oncomplete="#{rich:component('editPane')}.show()">
+									<h:graphicImage title="#{txt.edit}" url="#{conftxt.img_editar}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{profesionView.currentCarIndex}" />
+
+									<f:setPropertyActionListener
+										target="#{profesionView.objectItem}" value="#{car}" />
+									<f:setPropertyActionListener target="#{profesionView.swEditar}"
+										value="true" />
+
+									<f:setPropertyActionListener target="#{profesionView.title}"
+										value="#{txt.edit} #{txt.menu_Usuario}" />
+
+								</a4j:commandLink>
+
+								<a4j:commandLink
+								 rendered="#{car.delete}"
+								 styleClass="no-decor" execute="@this"
+									render="@none"
+									oncomplete="#{rich:component('confirmPane')}.show()">
+									<h:graphicImage title="#{txt.delete}"
+										url="#{conftxt.img_erase}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{profesionView.currentCarIndex}" />
+
+									<f:setPropertyActionListener
+										target="#{profesionView.objectItem}" value="#{car}" />
+
+								</a4j:commandLink>
+
+							</h:panelGrid>
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:dataScroller page="#{profesionView.page}" />
+						</f:facet>
+					</rich:dataTable>
+				</rich:tab>
+			</rich:tabPanel>
+
+		</h:form>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title><h:outputText
+			value=":: Ecological Paper ::#{tree.user_logueado}:#{tree.cadenaFecha}:#{tree.diasVence}" />
+		<ui:define name="title">
+
+		</ui:define>
+	</title>
+
+
+	<script type="text/javascript">
+	var formId; // reference to the main form
+	var winId; // reference to the popup window
+	// This function calls the popup window.
+	//
+	function showFlowUser(action, title) {
+		//	features = "height=330,width=450,status=yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		winId = window.open(action, title, features); // open an empty window
+	}
+
+	function cambiar() {
+		document.getElementById('izq').className = 'columna_izquierdamitad'
+	}
+
+	function cambiarmenosxxx() {
+
+		var mydiv = document.getElementById("izq");
+		var curr_width = mydiv.style.width;
+		mydiv.style.width = curr_width - 10;
+
+		//document.getElementById("izq").style.width = parseInt(100)+'px';
+
+	}
+
+
+	/**
+	 * Handler for onkeypress that clicks {@code targetElement} if the
+	 * enter key is pressed.
+	 */
+	function ifEnterClick(event, targetElement) {
+	    event = event || window.event;
+	    if (event.keyCode == 13) {
+	        // normalize event target, so it looks the same for all browsers
+	        if (!event.target) {
+	            event.target = event.srcElement;
+	        }
+
+	        // don't do anything if the element handles the enter key on its own
+	        if (event.target.nodeName == 'A') {
+	            return;
+	        }
+	        if (event.target.nodeName == 'INPUT') {
+	            if (event.target.type == 'button' || event.target.type == 'submit') {
+	                if (strEndsWith(event.target.id, 'focusKeeper')) {
+	                    // inside some Richfaces component such as rich:listShuttle
+	                } else {
+	                    return;
+	                }
+	            }
+	        }
+	        if (event.target.nodeName =='TEXTAREA') {
+	            return;
+	        }
+
+	        // swallow event
+	        if (event.preventDefault) {
+	            // Firefox
+	            event.stopPropagation();
+	            event.preventDefault();
+	        } else {
+	            // IE
+	            event.cancelBubble = true;
+	            event.returnValue = false;
+	        }
+
+	        targetElement.click();
+	    }
+	}
+		
+ 
+</script>
+
+
+	<script language="JavaScript">
+	function menos() {
+		var mydiv = document.getElementById("izq");
+		var mydivCentral = document.getElementById("central1");
+		var curr_width = parseInt(mydiv.style.width); // removes the "px" at the end
+		var curr_widthCentral = parseInt(mydivCentral.style.width);
+		//esto para el java script
+		mydiv.style.width = (curr_width - 10) + "px";
+		mydivCentral.style.width = (curr_widthCentral - 10) + "px";
+
+	     //esto para el bean
+		var anchoLeft = (curr_width - 10) + "px"
+		jsFunc1(anchoLeft);
+
+	}
+
+	function displayResult() {
+		var mydiv2 = document.getElementById("central1");
+		var curr_width2 = parseInt(mydiv2.style.marginLeft); // removes the "px" at the end
+		mydiv2.style.marginLeft = (curr_width2 - 10) + "px";
+
+	}
+	function mas() {
+		var mydiv = document.getElementById("izq");
+		var mydivCentral = document.getElementById("central1");
+		var curr_width = parseInt(mydiv.style.width); // removes the "px" at the end
+		var curr_widthCentral = parseInt(mydivCentral.style.width);
+		//esto para el java script
+		mydiv.style.width = (curr_width + 10) + "px";
+		mydivCentral.style.width = (curr_widthCentral + 10) + "px";
+		
+		   //esto para el bean
+		var anchoLeft = (curr_width + 10) + "px"
+		jsFunc1(anchoLeft);
+
+	}
+</script>
+
+	<style type="text/css">
+body {
+	margin: 0;
+	font-size: 80%;
+}
+
+.marco { /*width: 0px; /*1200px;*/
+	/*margin: 10px auto 10px auto;  Centrado horizontal */
+	
+}
+
+.cabecera {
+	border: none /*solid orange 1px;*/
+	padding: 10px;
+}
+
+/*
+.cuerpo {
+	padding: 10px 0 10px 0;
+	overflow-x: hidden;
+	overflow-y: auto;  
+	height: 100%;  
+}
+*/
+.columna_derecha {
+	float: right; /* Alineación a la derecha */
+	width: 0px; /*70px*/
+	border: none /*solid lightblue 1px;*/
+	padding: 0px; /*10px*/
+}
+
+.columna_izquierda {
+	float: left; /* Alineación a la izquierda */
+	width: 250px; /*//170px*/
+	border: none /*solid lightblue 1px;*/
+	padding: 10px;
+}
+
+.columna_central {
+	margin-left: 270px; /* 500px Espacio para la columna izquierda */
+	margin-right: 0px; /*300px; Espacio para la columna derecha */
+	border:none /*solid navy 1px;*/
+	padding: 10px;
+}
+
+.pie {
+	border: none /*solid orange 1px;*/
+	padding: 10px;
+	text-align: right; /*center;*/
+	font-size: 80%;
+	clear: both;
+}
+</style>
+
+
+
+	<h:outputStylesheet>
+	        .top {
+        width: 200px;
+        height: 100px;
+        }
+	
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+	<link rel="stylesheet" type="text/css"
+		href="bienvenido_archivos/comun.css" />
+
+
+	<script type="text/javascript" src="./tree/dtree.js"></script>
+	<script type="text/javascript" src="./tree/jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="./validacione.js">
+	
+</script>
+
+	<meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
+</h:head>
+
+<h:body>
+	<f:loadBundle basename="com.ecological.resource.ecologicalpaper"
+		var="txt_ecolo" />
+	<f:loadBundle basename="com.ecological.resource.ecologicalpaper"
+		var="txt" />
+	<f:loadBundle
+		basename="org.apache.myfaces.examples.resource.example_messages"
+		var="example_messages" />
+	<f:loadBundle basename="com.util.resource.ecological_conf"
+		var="conftxt" />
+
+
+	<!--	<div class="marco">-->
+	<div class="cabecera">
+		<ui:include src="../tope.xhtml" />
+		<ui:insert name="title">
+
+		</ui:insert>
+	</div>
+	<div class="cuerpo">
+		<div class="columna_derecha"></div>
+
+
+		<h:form>
+			<a4j:jsFunction name="jsFunc1" action="#{tree.shouldBeConfirmed}">
+				<a4j:param name="name" assignTo="#{tree.text}" />
+			</a4j:jsFunction>
+		</h:form>
+		<h:panelGroup layout="block" id="izq"
+			style="width: #{tree.anchoLeftTree}" class="columna_izquierda">
+
+
+
+			<a styleClass="no-decor" href="javaScript:menos();"> <h:graphicImage
+					title="-" styleClass="no-decor" url="#{conftxt.img_arbolmenos}"
+					alt="-" /> -</a>
+			<a href="javaScript:mas();" styleClass="no-decor"> <h:graphicImage
+					title="+" styleClass="no-decor" url="#{conftxt.img_arbolmas}"
+					alt="+" /> </a>
+<!-- 					AQUI ESTA EL ARBOL DE ECOLOGICAL -->
+			<ui:include src="../ecological.xhtml" />
+			<a href="javaScript:menos();">-</a>
+			<a href="javaScript:mas();">+</a>
+
+
+		</h:panelGroup>
+		<h:panelGroup layout="block" id="central1"
+			style="margin-left: #{tree.anchoCentrelTree}" class="columna_central">
+			<a4j:outputPanel id="out2" layout="block">
+				<ui:insert name="body">
+
+				</ui:insert>
+			</a4j:outputPanel>
+		</h:panelGroup>
+	</div>
+	<div class="pie">
+		<ui:insert name="menu">
+
+
+		</ui:insert>
+		<ui:insert name="pie">
+
+			<table style="background: url('./img/bg_arriba.jpg') no-repeat"
+				width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr style="background: url(img/bg_arriba.jpg)">
+					<td width="28%"><img src="img/logo.jpg" width="276"
+						height="90" /></td>
+					<td width="72%">&nbsp;</td>
+				</tr>
+			</table>
+
+
+		</ui:insert>
+	</div>
+	<!--	</div>-->
+
+
+
+
+
+
+</h:body>
+</html>

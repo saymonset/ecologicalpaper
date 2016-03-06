@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+
+
+
+
+
+
+		<!--						<a4j:status onstart="#{rich:component('statPane')}.show()"-->
+		<!--							onstop="#{rich:component('statPane')}.hide()" />-->
+		<!--			-->
+		<!--						<rich:popupPanel id="statPane" autosized="true">-->
+		<!--							<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />-->
+		<!--							<h:outputText value="#{txt.esperar}" />-->
+		<!--						</rich:popupPanel>-->
+
+
+
+
+		<h:panelGrid columns="1">
+			<rich:messages></rich:messages>
+		</h:panelGrid>
+
+
+		<h:panelGrid columns="1">
+
+
+
+			
+			<h:form id="form" onkeypress="ifEnterClick(event, #{rich:element('enter')});">
+			
+				<center>
+				<h1><h:outputText styleClass="form"
+					value="#{txt.flows_trab_doc}: #{Flows.treeNodoActual.nombre}" /></h1>
+				</center>
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.usuario_login}">
+
+						<h:panelGrid columns="1">
+
+
+							<h:panelGrid columns="1" id="echopanel2">
+								<p:pickList value="#{Flows.operacionesUsuario}" var="objeto"
+									itemLabel="#{objeto}" itemValue="#{objeto}"
+									converter="ConverUsuarios" iconOnly="true"
+									showSourceControls="true" showTargetControls="true">
+									<f:facet name="sourceCaption">#{txt.usuario_varios}</f:facet>
+									<f:facet name="targetCaption">#{txt.flow_users}</f:facet>
+								</p:pickList>
+							</h:panelGrid>
+
+							<h:panelGrid columns="1">
+								<h:panelGroup>
+									<h:commandButton styleClass="boton" value="#{txt.btn_cancelar}"
+										onclick="this.style.display='none';"
+										action="#{newVersion.regresarOfFlow}" />
+								</h:panelGroup>
+							</h:panelGrid>
+
+						</h:panelGrid>
+					</rich:tab>
+
+					<rich:tab header="#{txt.menu_listarRoleWorkFlow}">
+
+						<h:panelGrid columns="1">
+
+							<h:panelGrid columns="1" id="echopanel212">
+								<p:pickList value="#{Flows.operacionesRole}" var="objeto"
+									itemLabel="#{objeto.nombre}" itemValue="#{objeto}"
+									converter="ConverRoles" iconOnly="true"
+									showSourceControls="true" showTargetControls="true">
+									<f:facet name="sourceCaption">#{txt.grupos}</f:facet>
+									<f:facet name="targetCaption">#{txt.flows_role}</f:facet>
+								</p:pickList>
+							</h:panelGrid>
+
+							<h:commandButton title="#{txt.flows_role}" styleClass="no-decor"
+								image="#{conftxt.info}">
+								<rich:componentControl target="popup2" operation="show" />
+							</h:commandButton>
+							<rich:popupPanel id="popup2" modal="false" autosized="true"
+								resizeable="false">
+								<f:facet name="header">
+									<h:outputText value="#{txt.flows_role}" />
+								</f:facet>
+								<f:facet name="controls">
+									<h:outputLink value="#"
+										onclick="#{rich:component('popup2')}.hide(); return false;">
+                    X
+                </h:outputLink>
+								</f:facet>
+								<rich:dataTable var="vendorList"
+									value="#{Flows.participantesGruposPlantila}"
+									iterationStatusVar="it"
+									rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.grupo.nombre}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.participante}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.permiso}" />
+									</rich:column>
+								</rich:dataTable>
+ 
+							</rich:popupPanel>
+
+						</h:panelGrid>
+
+
+
+
+					</rich:tab>
+
+<!--     INICIO PARA NOTIFICAR SOLAMENTE A UN GRUPO DE USUARIOS SI LO DESEA -->
+					<rich:tab header="#{txt.notificacion} #{txt.to}">
+
+						<h:panelGrid columns="1">
+
+							<h:panelGrid columns="1" id="echopanel2121">
+								<p:pickList value="#{Flows.operacionesRoleNotificacion}" var="objeto"
+									itemLabel="#{objeto.nombre}" itemValue="#{objeto}"
+									converter="ConverRoles" iconOnly="true"
+									showSourceControls="true" showTargetControls="true">
+									<f:facet name="sourceCaption">#{txt.grupos}</f:facet>
+									<f:facet name="targetCaption">#{txt.flows_role}</f:facet>
+								</p:pickList>
+							</h:panelGrid>
+
+							<h:commandButton title="#{txt.flows_role}" styleClass="no-decor"
+								image="#{conftxt.info}">
+								<rich:componentControl target="popup3" operation="show" />
+							</h:commandButton>
+							<rich:popupPanel id="popup3" modal="false" autosized="true"
+								resizeable="false">
+								<f:facet name="header">
+									<h:outputText value="#{txt.flows_role}" />
+								</f:facet>
+								<f:facet name="controls">
+									<h:outputLink value="#"
+										onclick="#{rich:component('popup3')}.hide(); return false;">
+                    X
+                </h:outputLink>
+								</f:facet>
+								<rich:dataTable var="vendorList" 
+									value="#{Flows.participantesGruposPlantila}"
+									iterationStatusVar="it"
+									rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.grupo.nombre}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.participante}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.permiso}" />
+									</rich:column>
+								</rich:dataTable>
+							</rich:popupPanel>
+						</h:panelGrid>
+					</rich:tab>
+<!--     FIN PARA NOTIFICAR SOLAMENTE A UN GRUPO DE USUARIOS SI LO DESEA -->
+    
+
+
+
+
+					<rich:tab header="#{txt.flows_trab_doc}"
+					>
+
+						<h:panelGrid columns="1"
+						>
+							<h:panelGrid columns="2">
+
+								<a4j:commandButton value="#{txt.siguiente}"
+								id ="aButton"
+									action="#{Flows.saveDatosBasicos_actionRichFaces}" />
+							</h:panelGrid>
+
+
+
+
+							<h:panelGrid columns="2">
+								<h:outputText value="#{txt.flow_tipos}" />
+								<h:selectOneRadio id="r1" value="#{Flows.tipoFlow}"
+									disabled="#{Flows.swDeshabilitarflowAprobacionParalelo}">
+									<f:selectItem
+										itemDisabled="#{Flows.swDeshabilitarflowAprobacion
+			or !Flows.seguridadTree.toDoFlow}"
+										itemValue="#{Flows.tipoFlow}"
+										itemLabel="#{txt.flow_enAprobacion}" />
+									<f:selectItem itemValue="#{!Flows.tipoFlow}"
+										itemDisabled="#{!Flows.seguridadTree.toDoFlowRevision}"
+										itemLabel="#{txt.flow_enRevision}" />
+								</h:selectOneRadio>
+
+								<h:panelGroup></h:panelGroup>
+								<h:panelGrid columns="2">
+
+
+
+									<h:selectBooleanCheckbox
+										disabled="#{Flows.swDeshabilitarflowAprobacionParalelo
+				 or (!Flows.seguridadTree.toDoFlow)}"
+										value="#{Flows.flow.plantilla}" immediate="true" />
+									<h:outputText
+										value="#{txt.plantilla} #{txt.solo_flow_aprobacion}
+				" />
+
+									<h:selectBooleanCheckbox
+										disabled="#{Flows.swDeshabilitarflowAprobacion
+				 or (!Flows.seguridadTree.toDoFlow)}"
+										value="#{Flows.flow.condicional}" immediate="true" />
+									<h:outputText
+										value="#{txt.flow_Condicional} #{txt.solo_flow_aprobacion}" />
+
+
+
+
+
+									<h:selectBooleanCheckbox value="#{Flows.flow.secuencial}"
+										immediate="true" />
+									<h:outputText value="#{txt.flow_Secuencial}" />
+
+									<h:selectBooleanCheckbox
+										disabled="#{Flows.swDeshabilitarEditaSolicitudimpresion}"
+										value="#{Flows.flow.lectores}" immediate="true" />
+									<h:outputText value="#{txt.flow_lectores}" />
+
+									<h:selectBooleanCheckbox
+										rendered="#{Flows.swCanSolicitudimpresion}"
+										value="#{Flows.swSolicitudimpresion}" immediate="true" />
+									<h:outputText rendered="#{Flows.swCanSolicitudimpresion}"
+										value="#{txt.solicitudImpresion}" />
+
+
+									<h:selectBooleanCheckbox value="#{Flows.flow.notificacionMail}"
+										immediate="true" />
+									<h:outputText value="#{txt.flow_envio_mail}" />
+
+								</h:panelGrid>
+
+
+
+
+
+								<h:outputText value="#{txt.struct_nombre} #{txt.flowsub}" />
+								<h:inputText id="txt1" size="80" maxlength="79"
+								
+									disabled="#{Flows.swDeshabilitarEditaSolicitudimpresion}"
+									value="#{Flows.flow.nombredelflujo}" immediate="false">
+									<f:validator validatorId="caracteresinvalidos" />
+									   
+								</h:inputText>
+								<h:outputText value="#{txt.doc_descripciontab}" />
+								<h:inputTextarea cols="100" rows="10"
+									value="#{Flows.flow.comentarios}" >
+								 
+									</h:inputTextarea>
+									
+
+
+
+
+
+
+
+
+
+								<h:panelGrid columns="2">
+
+									<a4j:commandButton id="enter" value="#{txt.siguiente}"  
+									
+										action="#{Flows.saveDatosBasicos_actionRichFaces}" />
+										
+									 
+
+								</h:panelGrid>
+							</h:panelGrid>
+
+
+
+
+
+
+						</h:panelGrid>
+
+
+					</rich:tab>
+
+				</rich:tabPanel>
+
+
+
+			</h:form>
+
+
+
+
+
+
+		</h:panelGrid>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

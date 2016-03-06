@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/ecologicalpaper/!svn/ver/240/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes
+END
+01_FIDEICOMISO_INVERSION.jrxml
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/01_FIDEICOMISO_INVERSION.jrxml
+END
+00_FIDEICOMISO_DOCS.jrxml
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/00_FIDEICOMISO_DOCS.jrxml
+END
+reportedocumentos.jrxml
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/240/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/reportedocumentos.jrxml
+END
+reporteflujos.jrxml
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/ecologicalpaper/!svn/ver/240/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/reporteflujos.jrxml
+END
+ServletReporte.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/ServletReporte.java
+END
+ServletReporteDocumentos.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/ecologicalpaper/!svn/ver/240/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/ServletReporteDocumentos.java
+END
+ReporteExcel.java
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/ReporteExcel.java
+END
+01_FIDEICOMISO_OBRAS.jrxml
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/01_FIDEICOMISO_OBRAS.jrxml
+END
+logo.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/logo.jpg
+END
+reporteflujos.jasper
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/ecologicalpaper/!svn/ver/240/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/reporteflujos.jasper
+END
+02_detallecomiso.jrxml
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/02_detallecomiso.jrxml
+END
+reportedocumentos.jasper
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/ecologicalpaper/!svn/ver/240/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente/reportes/reportedocumentos.jasper
+END

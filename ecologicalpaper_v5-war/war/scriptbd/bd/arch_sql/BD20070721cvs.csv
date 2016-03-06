@@ -1,0 +1,40 @@
+CODIGO	OPERACION	DESCRIPCION
+28	mnuaddusuario	Agregar Usuario en el mnu Administracion
+29	mnumodusuario	Modificar Usuario en el mnu Administracion
+30	mnudelusuario	Eliminar Usuario en el mnu Administracion
+31	mnuviewusuario	Listar Usuarios en el mnu Administracion
+32	mnuviewprofesion	Listar Profeion en el mnu Administracion
+33	mnuaddprofesion	Agregar Profeion en el mnu Administracion
+34	mnudelprofesion	Eliminar Profeion en el mnu Administracion
+35	mnumodprofesion	Modificar Profeion en el mnu Administracion
+36	mnumodrole	Modificar Role en el mnu Administracion
+37	mnudelrole	Eliminar Role en el mnu Administracion
+38	mnuviewrole	Listar Role en el mnu Administracion
+39	mnuaddrole	Sumar Role en el mnu Administracion
+40	mnuaddoperaciones	Sumar Operacione en el mnu Administracion(No se Modifican ni Eliminan)
+41	mnuaviewoperaciones	Listar Operacione en el mnu Administracion(No se Modifican ni Eliminan)
+3	TO_MNU_Vieworg	Ver Menu Organizacion
+4	MNU_ViewAdmin	Ver Menu Administracion
+5	toaddraiz	Agregar Raiz
+6	toaddloc	Agregar Localidad
+7	toaddarea	Agregar Area
+8	toaddcargo	Agregar Cargo
+9	toaddfolder	Agregar Carpeta
+10	toaddproceso	Agregar Proceso
+11	toadddoc	Agregar Documento
+12	tomodraiz	Modificar Raiz
+13	tomodloc	Modificar Localidad
+14	tomodarea	Modificar Area
+15	tomodcargo	Modificar Cargo
+16	tomodfolder	Modificar Carpeta
+17	tomodproceso	Modificar Proceso
+18	tomoddoc	Modificar Documento
+19	todelraiz	Eliminar Raiz
+20	todelloc	Eliminar Localidad
+21	todelarea	Eliminar Area
+22	todelcargo	Eliminar Cargo
+23	todelfolder	Eliminar Carpeta
+24	todelproceso	Eliminar Proceso
+25	todeldoc	Eliminar Documento
+26	toflowreviewdoc	Flujos de Revision
+27	toflowaprovdoc	Flujos de Aprobacion

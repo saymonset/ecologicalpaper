@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteensayo1" language="groovy" pageWidth="555" pageHeight="822" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="lote" class="java.lang.String">
+		<defaultValueExpression><![CDATA["VCNI965"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ciclo" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[49]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:/img/probando/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[/*ESTE QUERY COLOCANDO EL CICLO  Y LOTE PRINCIPAL DEL BANCO... ME TRAE TODOS
+LOS LOTES DE ESE BANCO PARA SER TRATADOS COMO PARAMETRO ->( VALOR ) Y PASADOS AL SIGUIENTE SUBREPORTE
+VALOR POR VALOR PARA SACAR SUS CALCULOS ..*/
+
+select t1.valor,t2.banco from (select distinct(valor) from indice_x_producto ixp
+                       inner join cliente cli on  ixp.cliente_id=cli.id
+                       inner join indice_x_documento ixd on ixp.id=ixd.indice_x_producto_id
+                       inner join descripcion_ciclo desciclo on desciclo.cliente_id=cli.id
+                       inner join ciclo clo on clo.descripcion_ciclo_id=desciclo.id
+                       where clo.id=$P{ciclo}
+ and ixp.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote')
+ and right(valor,3)=right($P{lote},3) order by right(valor,3)  )
+
+ t1
+,
+(
+
+SELECT CASE RIGHT($P{lote}, 3)
+WHEN "401" THEN 'CORPBANCA'
+WHEN '860' THEN 'ACTIVO'
+WHEN "840" THEN 'AGRICOLA'
+WHEN "915" THEN 'B.O.D.'
+WHEN "830" THEN 'TESORO'
+WHEN "965" THEN 'CARONI'
+WHEN "925" THEN 'BANCORO'
+WHEN "990" THEN 'DEL SUR'
+WHEN "501" THEN 'BANFOANDES'
+WHEN "960" THEN 'BANINVEST'
+WHEN "955" THEN 'BANORTE'
+WHEN "805" THEN 'BANPLUS'
+WHEN "910" THEN 'BANPRO'
+WHEN "815" THEN 'BANVALOR'
+WHEN "975" THEN 'BOLIVAR'
+WHEN "950" THEN 'CANARIAS'
+WHEN "970" THEN 'CASA PROPIA'
+WHEN "920" THEN 'GUAYANA'
+WHEN "945" THEN 'PLAZA'
+WHEN "985" THEN 'TOTAL BANK'
+
+
+
+
+
+ELSE 'otros' END BANCO
+
+ )
+
+ t2]]>
+	</queryString>
+	<field name="valor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="banco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="sumacuentas_agencias" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{sumacuentas_agencias}]]></variableExpression>
+	</variable>
+	<variable name="sumartotal_a_imprimir" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{sumartotal_a_imprimir}]]></variableExpression>
+	</variable>
+	<variable name="sumarenviar" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{sumarenviar}]]></variableExpression>
+	</variable>
+	<variable name="totalenviarcntasmaster" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{totalenviarcntasmaster}]]></variableExpression>
+	</variable>
+	<variable name="totalenviarcntasvisa" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{totalenviarcntasvisa}]]></variableExpression>
+	</variable>
+	<variable name="edcImpresos" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{edcImpresos}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="impresionesduplex" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{impresionesduplex}]]></variableExpression>
+	</variable>
+	<variable name="sobresnro11" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{edcImpresos}]]></variableExpression>
+	</variable>
+	<variable name="ensobradonormal" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{sumartotal_a_imprimir}]]></variableExpression>
+	</variable>
+	<variable name="ensobradoagencias" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{sumacuentas_agencias}]]></variableExpression>
+	</variable>
+	<variable name="corporativo" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{corporativo}]]></variableExpression>
+	</variable>
+	<variable name="cuentasfiltradas" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{cuentasfiltradas}]]></variableExpression>
+	</variable>
+	<variable name="hojasadicionales" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{hojasadicionales}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="0" width="546" height="1"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="109" y="4" width="75" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cntas Recibidas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="260" y="4" width="49" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cntas ZZZ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="184" y="4" width="76" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cntas Filtradas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="67" y="4" width="41" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lotes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="309" y="4" width="61" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cntas Agencias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="426" y="4" width="52" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a Enviar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="370" y="4" width="56" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a Imprimir]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="4" y="4" width="63" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="6" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{banco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="479" y="4" width="73" height="12"/>
+				<textElement textAlignment="Center">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hojas Adicionales]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="6" splitType="Stretch">
+			<subreport>
+				<reportElement x="1" y="0" width="555" height="6"/>
+				<subreportParameter name="valor">
+					<subreportParameterExpression><![CDATA[$F{valor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ciclo">
+					<subreportParameterExpression><![CDATA[$P{ciclo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="sumacuentas_agencias" toVariable="sumacuentas_agencias" calculation="Sum"/>
+				<returnValue subreportVariable="sumartotal_a_imprimir" toVariable="sumartotal_a_imprimir" calculation="Sum"/>
+				<returnValue subreportVariable="sumarenviar" toVariable="sumarenviar" calculation="Sum"/>
+				<returnValue subreportVariable="totalenviarcntasmaster" toVariable="totalenviarcntasmaster" calculation="Sum"/>
+				<returnValue subreportVariable="totalenviarcntasvisa" toVariable="totalenviarcntasvisa" calculation="Sum"/>
+				<returnValue subreportVariable="edcImpresos" toVariable="edcImpresos" calculation="Sum"/>
+				<returnValue subreportVariable="impresionesduplex" toVariable="impresionesduplex" calculation="Sum"/>
+				<returnValue subreportVariable="corporativo" toVariable="corporativo" calculation="Sum"/>
+				<returnValue subreportVariable="cuentasfiltradas" toVariable="cuentasfiltradas" calculation="Sum"/>
+				<returnValue subreportVariable="hojasadicionales" toVariable="hojasadicionales" calculation="Sum"/>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "reportfacturaporbancodetalle2.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="89">
+			<textField>
+				<reportElement x="148" y="50" width="123" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{totalenviarcntasmaster}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="50" width="111" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total cuentas Master:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="61" width="114" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total cuentas  Visa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="0" width="64" height="13"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banco:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="2" width="123" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{banco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="73" width="119" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{hojasadicionales}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="73" width="114" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[hojasadicionales:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="61" width="121" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{totalenviarcntasvisa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="13" width="114" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NroEC Agencias: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="149" y="15" width="123" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{sumacuentas_agencias}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="38" width="114" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NroEC Total a Enviar:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="148" y="39" width="117" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{sumarenviar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="27" width="122" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{sumartotal_a_imprimir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="16" y="25" width="114" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NroEC Total a Imprimir:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="86" width="546" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

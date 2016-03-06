@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportefacturacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="annonumero" class="java.lang.String">
+		<defaultValueExpression><![CDATA[2010]]></defaultValueExpression>
+	</parameter>
+	<parameter name="mesnumero" class="java.lang.String">
+		<defaultValueExpression><![CDATA[6]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nip" class="java.lang.String">
+		<defaultValueExpression><![CDATA[00000000-0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipnip" class="java.lang.String">
+		<defaultValueExpression><![CDATA[J]]></defaultValueExpression>
+	</parameter>
+	<parameter name="razon_social" class="java.lang.String">
+		<defaultValueExpression><![CDATA[CrediCard]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\img\\probando\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[/*
+ME DEVUELVE TODOS LOS CICLO 
+QUE VOY A PROCESAR,
+
+*/
+
+select ciclo,descripcion,fecha  from (select c.id ciclo,dc.descripcion from ciclo c
+     inner join descripcion_ciclo dc
+     on c.descripcion_ciclo_id = dc.id
+     inner join lote_producto lp on
+     lp.ciclo_id=c.id
+     where anno=$P{annonumero} and mes=$P{mesnumero} and
+     c.descripcion_ciclo_id= (select id from descripcion_ciclo
+         where  cliente_id=(select id from cliente
+         where nip= $P{nip} and tipnip = $P{tipnip}
+and razon_social= $P{razon_social} ))
+     group by c.id ) t1
+,(
+ select now() fecha
+)t8;]]>
+	</queryString>
+	<field name="ciclo" class="java.lang.Long"/>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70">
+			<rectangle radius="5">
+				<reportElement mode="Opaque" x="2" y="-2" width="546" height="72" backcolor="#F5F5F5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="93" y="12" width="371" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE FACTURACION CREDICARD]]></text>
+			</staticText>
+			<image>
+				<reportElement x="15" y="16" width="70" height="50"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:/img/probando/LOGOJMCSINFONDO.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="95" y="32" width="66" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="163" y="31" width="211" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="95" y="50" width="44" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="162" y="51" width="211" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="65">
+			<subreport>
+				<reportElement x="7" y="3" width="521" height="62"/>
+				<subreportParameter name="SUBREPORT_DIR"/>
+				<subreportParameter name="ciclo">
+					<subreportParameterExpression><![CDATA[$F{ciclo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "reportfacturaporbancoprincipal.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

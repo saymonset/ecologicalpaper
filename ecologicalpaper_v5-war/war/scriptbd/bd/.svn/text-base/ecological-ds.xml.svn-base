@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+    <local-tx-datasource> 
+   <jndi-name>ecologicalDS</jndi-name> 
+<!--   <connection-url>jdbc:postgresql://localhost:5432/ecological</connection-url>  -->
+<!--  <driver-class>org.postgresql.Driver</driver-class>  -->
+ <connection-url>jdbc:oracle:thin:@saymon:1521:orcl</connection-url> 
+<driver-class>oracle.jdbc.driver.OracleDriver</driver-class> 
+
+<!-- <connection-url>jdbc:jtds:sqlserver://saymon:1433/ecological</connection-url> 
+<driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class> -->
+  <user-name>ecological</user-name> 
+   <password>ecological</password> 
+   <!-- the minimum size of the connection pool -->
+    <min-pool-size>1</min-pool-size> 
+   <!-- The maximum connections in a pool/sub-pool -->
+     <max-pool-size>4</max-pool-size>
+  </local-tx-datasource>
+</datasources>

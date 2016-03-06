@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+
+		<!--						<a4j:status onstart="#{rich:component('statPane')}.show()"-->
+		<!--							onstop="#{rich:component('statPane')}.hide()" />-->
+		<!--			-->
+		<!--						<rich:popupPanel id="statPane" autosized="true">-->
+		<!--							<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />-->
+		<!--							<h:outputText value="#{txt.esperar}" />-->
+		<!--						</rich:popupPanel>-->
+
+
+		<center>
+		<h1><h:outputText styleClass="form"
+			value="#{txt.struct_confNodo} #{viewTreeDocumentos.treeNodoActual.nombre}" /></h1>
+		</center>
+
+		<rich:panel header="" style="width:500px">
+			<h:panelGrid columns="1">
+				<rich:messages></rich:messages>
+			</h:panelGrid>
+
+
+			<h:panelGrid columns="1">
+
+
+
+
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.privilegios}">
+						<h:form>
+							<h:panelGrid columns="1">
+								<h:panelGrid columns="2">
+									<a4j:commandButton value="#{txt.guardar}"
+										action="#{viewTreeDocumentos.saveUsuario_OperacionesRichFaces}" />
+
+									<a4j:commandButton value="#{txt.btn_menu}" immediate="true"
+										action="#{viewTreeDocumentos.aceptar}" />
+								</h:panelGrid>
+								<h:panelGrid columns="2">
+
+
+									<h:outputText value="#{txt.menu_Usuario}" />
+									<h:selectOneMenu immediate="true" converter="ConverUsuarios"
+										binding="#{viewTreeDocumentos.selectUsuario}"
+										value="#{viewTreeDocumentos.usuario}">
+										<f:ajax event="change" render="echopanel2"
+											action="#{viewTreeDocumentos.operaciones}" execute="@this" />
+										<f:selectItems value="#{DatosCombo.usuariosUnoVacio}" />
+									</h:selectOneMenu>
+									<h:outputText
+										value="#{txt.heredarPermisos}  #{txt.nodo_origen}" />
+									<h:selectBooleanCheckbox id="hereda"
+										value="#{viewTreeDocumentos.heredaSeguridad}">
+									</h:selectBooleanCheckbox>
+								</h:panelGrid>
+
+								<h:panelGrid columns="1" id="echopanel2">
+									<p:pickList value="#{viewTreeDocumentos.operaciones}"
+										var="objeto" itemLabel="#{objeto.operacion}"
+										itemValue="#{objeto}" converter="ConverOperaciones"
+										iconOnly="true" showSourceControls="true"
+										showTargetControls="true">
+										<f:facet name="sourceCaption">#{txt.Operaciones_noSelec}</f:facet>
+										<f:facet name="targetCaption">#{txt.Operaciones_Selec}</f:facet>
+									</p:pickList>
+								</h:panelGrid>
+
+
+								<h:panelGrid columns="2">
+									<a4j:commandButton value="#{txt.guardar}"
+										action="#{viewTreeDocumentos.saveUsuario_OperacionesRichFaces}" />
+
+									<a4j:commandButton value="#{txt.btn_menu}" immediate="true"
+										action="#{viewTreeDocumentos.aceptar}" />
+								</h:panelGrid>
+							</h:panelGrid>
+
+
+
+						</h:form>
+					</rich:tab>
+
+					<rich:tab header="#{txt.menu_listarRole}">
+						<h:form>
+							<h:panelGrid columns="1">
+								<h:panelGrid columns="2">
+									<a4j:commandButton value="#{txt.guardar}"
+										action="#{viewTreeDocumentos.saveRole}" />
+
+									<a4j:commandButton value="#{txt.btn_menu}" immediate="true"
+										action="#{viewTreeDocumentos.aceptar}" />
+								</h:panelGrid>
+								<h:panelGrid columns="2">
+									<h:outputText
+										value="#{txt.heredarPermisos}  #{txt.nodo_origen}" />
+									<h:selectBooleanCheckbox
+										value="#{viewTreeDocumentos.heredaSeguridad}">
+									</h:selectBooleanCheckbox>
+								</h:panelGrid>
+								<h:outputText value=".#{SeguridadRole.heredaDependeDeTipoNodo}" />
+								<h:panelGrid columns="1" id="echopanel212">
+									<p:pickList value="#{viewTreeDocumentos.operacionesRole}"
+										var="objeto" itemLabel="#{objeto.nombre}"
+										itemValue="#{objeto}" converter="ConverRoles" iconOnly="true"
+										showSourceControls="true" showTargetControls="true">
+										<f:facet name="sourceCaption">#{txt.Operaciones_noSelec}</f:facet>
+										<f:facet name="targetCaption">#{txt.Operaciones_Selec}</f:facet>
+									</p:pickList>
+								</h:panelGrid>
+
+
+								<h:commandButton title="#{txt.menu_listarRole}"
+									styleClass="no-decor" image="#{conftxt.info}">
+									<rich:componentControl target="popup2" operation="show" />
+								</h:commandButton>
+								<rich:popupPanel id="popup2" modal="true" resizeable="true">
+									<f:facet name="header">
+										<h:outputText value="#{txt.menu_listarRole}" />
+									</f:facet>
+									<f:facet name="controls">
+										<h:outputLink value="#"
+											onclick="#{rich:component('popup2')}.hide(); return false;">
+                    X
+                </h:outputLink>
+									</f:facet>
+									<rich:dataTable var="vendorList"
+										value="#{viewTreeDocumentos.participantesGruposPlantila}"
+										iterationStatusVar="it"
+										rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+										<rich:column style="border-width: 0px;">
+											<f:facet name="header">
+											</f:facet>
+											<h:outputText value="#{vendorList.grupo.nombre}" />
+										</rich:column>
+
+										<rich:column style="border-width: 0px;">
+											<f:facet name="header">
+											</f:facet>
+											<h:outputText value="#{vendorList.participante}" />
+										</rich:column>
+
+										<rich:column style="border-width: 0px;">
+											<f:facet name="header">
+											</f:facet>
+											<h:outputText value="#{vendorList.permiso}" />
+										</rich:column>
+										<f:facet name="footer">
+											<rich:dataScroller page="#{viewTreeDocDetalles.page}" />
+										</f:facet>
+									</rich:dataTable>
+
+								</rich:popupPanel>
+
+
+
+								<h:panelGrid columns="2">
+									<a4j:commandButton value="#{txt.guardar}"
+										action="#{viewTreeDocumentos.saveRole}" />
+
+									<a4j:commandButton value="#{txt.btn_menu}" immediate="true"
+										action="#{viewTreeDocumentos.aceptar}" />
+								</h:panelGrid>
+							</h:panelGrid>
+
+
+						</h:form>
+
+					</rich:tab>
+				</rich:tabPanel>
+
+
+
+
+
+
+
+
+			</h:panelGrid>
+
+
+
+		</rich:panel>
+
+
+	</ui:define>
+</ui:composition>
+</html>

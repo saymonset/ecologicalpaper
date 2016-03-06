@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportefacturacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/opt/workspace/ecologicalpaper_v5-ejb/ejbModule/com/ecological/reportes/modelo/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="flujo" class="java.lang.String"/>
+	<parameter name="fechacreado" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="flujo" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="comentario" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="subFlowsDS" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="firma" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70">
+			<rectangle radius="5">
+				<reportElement mode="Opaque" x="0" y="3" width="546" height="66" backcolor="#F5F5F5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="133" y="12" width="194" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="32" width="70" height="16"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="33" width="382" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{flujo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="92" y="50" width="69" height="16"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha creado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="51" width="221" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{fechacreado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="5" width="85" height="25"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[""+$P{logo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="15">
+			<staticText>
+				<reportElement x="3" y="0" width="51" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SubFlujo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="51" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="0" width="41" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="1" width="52" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="0" width="41" height="13"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33">
+			<textField>
+				<reportElement x="7" y="0" width="47" height="19"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{flujo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="0" width="59" height="19"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="64" height="19"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="0" width="82" height="19"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="12" width="491" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{comentario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="82" height="19"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{firma}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

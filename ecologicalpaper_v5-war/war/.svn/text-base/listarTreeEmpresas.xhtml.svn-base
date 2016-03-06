@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+		<a4j:status onstart="#{rich:component('statPane')}.show()"
+			onstop="#{rich:component('statPane')}.hide()" />
+
+		<h:form id="form">
+
+
+			<center>
+				<h1>
+					<h:outputText styleClass="form" value="#{txt.toAddRaiz}" />
+				</h1>
+			</center>
+
+			<a4j:jsFunction name="remove" render="table" execute="@this"
+				oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="confirmPane"
+				domElementAttachment="parent" width="800" height="400">
+
+				<h:panelGrid columns="1">
+					<rich:messages></rich:messages>
+					<h:outputText
+						value=" #{txt.btn_erase}:#{viewTree.objectItem.nombre}" />
+
+
+
+					<h:inputTextarea cols="100" rows="10"
+						value="#{viewTree.cualquierComentario}" />
+
+				</h:panelGrid>
+
+
+
+				<h:outputText value="#{txt.deleteconfirma}" />
+
+
+				<a4j:commandButton value="#{txt.delete}" action="#{viewTree.remove}"
+					render="table" execute="confirmPane"
+					oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('confirmPane')}.hide();}" />
+
+				<a4j:commandButton value="#{txt.cancelar}"
+					onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+
+
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="editPane"
+				domElementAttachment="parent" width="800" height="400">
+				<rich:messages></rich:messages>
+				<h:panelGroup />
+				<h:panelGroup />
+
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.doc_tipotab}">
+
+						<h:panelGrid columns="3" id="editGrid">
+							<h:outputLabel value="#{txt_ecolo.struct_nombre}" />
+							<h:inputText id="inputTextNombre" size="70"
+								value="#{viewTree.objectItem.nombre}" maxlength="40"
+								immediate="false">
+								<f:validator validatorId="caracteresinvalidos" />
+							</h:inputText>
+							<rich:message for="inputTextNombre" />
+							<h:outputLabel value="#{txt_ecolo.abreviatura}" />
+							<h:inputText id="abreviatura" size="20"
+								value="#{viewTree.objectItem.abreviatura}" maxlength="19"
+								immediate="false">
+								<f:validator validatorId="caracteresinvalidos" />
+							</h:inputText>
+							<rich:message for="abreviatura" />
+
+							<h:outputLabel
+								value="#{conftxt.licencia} #{txt_ecolo.menu_crearUsuario}" />
+							<h:inputText id="userByEmpresa" size="7"
+								value="#{viewTree.objectItem.userByEmpresa}" maxlength="6"
+								immediate="false">
+								<f:validator validatorId="isNumerico" />
+							</h:inputText>
+							<rich:message for="userByEmpresa" />
+
+
+							<h:outputLabel value="#{txt_ecolo.struct_descripcion}" />
+							<h:inputTextarea cols="100" rows="10"
+								value="#{viewTree.objectItem.descripcion}" />
+							<rich:message for="inputTextDescripcion" />
+
+							<h:panelGroup rendered="#{viewTree.swEditar}">
+								<h:outputText id="name11" rendered="#{viewTree.swEditar}"
+									value="#{txt.imagenCorporativa} " />
+
+								<p:fileUpload id="documentToUpload"
+									rendered="#{viewTree.swEditar}"
+									fileUploadListener="#{viewTree.handleFileUpload}"
+									mode="advanced" update="messages" auto="true"
+									allowTypes="#{viewTreeDocDetalles.extensiones}" />
+								<p:growl id="messages" showDetail="true" sticky="false"
+									life="300000" />
+							</h:panelGroup>
+						</h:panelGrid>
+
+					</rich:tab>
+
+				</rich:tabPanel>
+
+				<h:panelGroup />
+				<h:panelGrid columns="2">
+					<a4j:commandButton value="#{txt.guardar}"
+						action="#{viewTree.editar}" render="table" execute="editPane"
+						oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('editPane')}.hide();}" />
+					<a4j:commandButton value="#{txt.cancelar}"
+						action="#{viewTree.aceptar}"
+						onclick="#{rich:component('editPane')}.hide(); return false;" />
+				</h:panelGrid>
+				<h:panelGroup />
+			</rich:popupPanel>
+
+
+
+			<rich:tabPanel switchType="client">
+				<rich:tab header="#{txt.toAddRaiz}">
+					<rich:dataTable value="#{viewTree.allObjectItems}" var="car"
+						iterationStatusVar="it" id="table"
+						rows="#{Utilidades.verNumeroDeRegistros}">
+						<rich:column>
+							<f:facet name="header">#</f:facet>
+                #{it.index}
+            </rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.nombre}" />
+							</f:facet>
+							<h:outputText value="#{car.nombre}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.doc_descripcion}" />
+							</f:facet>
+							<h:outputText value="#{car.descripcion}" />
+						</rich:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.abreviatura}" />
+							</f:facet>
+							<h:outputText value="#{car.abreviatura}" />
+						</h:column>
+
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{conftxt.licencia} #{txt_ecolo.menu_crearUsuario}" />
+							</f:facet>
+							<h:outputText value="#{car.userByEmpresa}" />
+						</h:column>
+
+
+
+						<rich:column>
+							<f:facet name="header">
+								<h:panelGrid columns="3">
+
+									<a4j:commandLink styleClass="no-decor"
+										render="editGrid listshuffle" execute="@this"
+										oncomplete="#{rich:component('editPane')}.show()">
+										<h:graphicImage title="#{txt.new}" url="#{conftxt.img_new}" />
+										<a4j:param value="#{it.index}"
+											assignTo="#{viewTree.currentCarIndex}" />
+
+										<a4j:param value="false" assignTo="#{viewTree.swEditar}" />
+
+										<f:setPropertyActionListener target="#{viewTree.objectItem}"
+											value="#{viewTree.objeto}" />
+									</a4j:commandLink>
+
+
+								</h:panelGrid>
+
+							</f:facet>
+							<h:panelGrid columns="3">
+								<h:panelGroup>
+									<h:panelGrid columns="1">
+										<!--							<%/* new */%>-->
+									</h:panelGrid>
+								</h:panelGroup>
+								<a4j:commandLink styleClass="no-decor" render="editGrid"
+									execute="@this"
+									oncomplete="#{rich:component('editPane')}.show()">
+									<h:graphicImage title="#{txt.edit}" url="#{conftxt.img_editar}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewTree.currentCarIndex}" />
+
+									<f:setPropertyActionListener target="#{viewTree.objectItem}"
+										value="#{car}" />
+									<f:setPropertyActionListener target="#{viewTree.swEditar}"
+										value="true" />
+
+
+								</a4j:commandLink>
+
+								<a4j:commandLink styleClass="no-decor" execute="@this"
+									render="@none"
+									oncomplete="#{rich:component('confirmPane')}.show()">
+									<h:graphicImage title="#{txt.delete}"
+										url="#{conftxt.img_erase}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewTree.currentCarIndex}" />
+
+									<f:setPropertyActionListener target="#{viewTree.objectItem}"
+										value="#{car}" />
+
+								</a4j:commandLink>
+
+							</h:panelGrid>
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:dataScroller page="#{viewTree.page}" />
+						</f:facet>
+					</rich:dataTable>
+				</rich:tab>
+			</rich:tabPanel>
+
+		</h:form>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

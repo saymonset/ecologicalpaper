@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+	<ui:define name="menu">
+
+	</ui:define>
+
+
+	<ui:define name="body">
+
+
+		<center>
+			<h1>
+				<h:outputText styleClass="form"
+					value="#{viewTreeDocumentos.treeNodoActual.nombre}" />
+			</h1>
+		</center>
+		<h:panelGroup rendered="#{tree.swTreeNodoActual}">
+			<div id="izq" style="width: 250px" class="columna_izquierda">
+				<h:form id="form">
+					<h:panelGrid columns="1">
+						<rich:messages></rich:messages>
+
+					</h:panelGrid>
+
+
+
+
+
+
+					<!--			<a4j:status onstart="#{rich:component('statPane')}.show()"-->
+					<!--				onstop="#{rich:component('statPane')}.hide()" />-->
+
+
+
+
+					<a4j:jsFunction name="remove" render="table" execute="@this"
+						oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+					<!--			<rich:popupPanel id="statPane" autosized="true">-->
+					<!--				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />-->
+					<!--				<h:outputText value="#{txt.esperar}" />-->
+					<!--			</rich:popupPanel>-->
+
+					<!--<%/* PARA BORRAR  */%>-->
+					<rich:popupPanel header="..." id="confirmPane"
+						domElementAttachment="parent" width="800" height="400">
+
+
+
+						<h:outputText value="#{txt.deleteconfirma}" />
+
+
+						<a4j:commandButton value="#{txt.delete}"
+							action="#{viewTreeDocumentos.remove}" render="table"
+							execute="confirmPane"
+							oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('confirmPane')}.hide();}" />
+
+						<a4j:commandButton value="#{txt.cancelar}"
+							onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+
+
+					</rich:popupPanel>
+					<!--<%/* FIN PARA BORRAR  */%>-->
+
+
+
+
+
+
+					<!--<%/* PARA LISTAR DOCUMENTOS  */%>-->
+
+
+					<h:panelGrid columns="1">
+						<rich:toolbar height="26" itemSeparator="grid">
+							<rich:toolbarGroup>
+
+								<!--<%/* PARA NUEVO DOCUMENTO  */%>-->
+
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddDocumentos or viewTreeDocumentos.swSuperUsuario)
+							and (viewTreeDocumentos.swNodoCarpeta )
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.createDocumento}">
+									<h:graphicImage title="#{txt.menu_agregarDocumento}"
+										url="#{conftxt.img_doc}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewTreeDocumentos.currentCarIndex}" />
+
+									<a4j:param value="false"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+								</a4j:commandLink>
+
+								<!--<%/* FIN PARA NUEVO DOCUMENTO  */%>-->
+
+								<!--                      <% /* AGREGAR CARPETA */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddCarpeta or viewTreeDocumentos.swSuperUsuario)
+							and (viewTreeDocumentos.swNodoPrincipal  or  viewTreeDocumentos.swNodoArea
+							or viewTreeDocumentos.swNodoCargo or viewTreeDocumentos.swNodoProceso
+							or viewTreeDocumentos.swNodoCarpeta)
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.crearTreePropiedades}">
+									<h:graphicImage title="#{txt.menu_agregarCarpeta}"
+										url="#{conftxt.img_carpeta}" />
+
+
+									<a4j:param value="4"
+										assignTo="#{viewTreeDocumentos.tipoNodoCrear}" />
+
+									<a4j:param value="false"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+								</a4j:commandLink>
+
+
+
+
+								<!--                      <% /* FIN AGREGAR CARPETA */  %>-->
+
+
+								<!--<%/* PARA SCANEAR  */%>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddDocumentos or viewTreeDocumentos.swSuperUsuario)
+							and (viewTreeDocumentos.swNodoCarpeta )
+						}"
+									onmousedown="showFlowUser('scanearDocumento.jsf?solicitudimpresion=-1&amp;numcopias=1&amp;detalle_id=#{currentMaestro.codigo}','')"
+									immediate="true" onclick="return false">
+									<h:panelGrid columns="2">
+
+										<h:graphicImage style="border-width: 0px;"
+											title="#{txt.scanear}" url="#{conftxt.img_scanner}" />
+									</h:panelGrid>
+								</a4j:commandLink>
+								<!--<%/* FIN PARA SCANEAR  */%>-->
+
+								<!--                      <% /* MOVER CARPETA*/  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{!viewTreeDocumentos.toGenerarRegistroII  and (viewTreeDocumentos.seguridadTree.toMove
+							 or viewTreeDocumentos.swSuperUsuario)}"
+									onclick="this.style.display='none';"
+									action="#{Documento.mover}">
+									<f:setPropertyActionListener
+										target="#{Documento.treeNodoActual}"
+										value="#{viewTreeDocumentos.treeNodoActual}" />
+
+									<h:graphicImage title="#{txt.doc_cute}"
+										url="#{conftxt.img_cute}" />
+								</a4j:commandLink>
+
+
+
+								<!--                      <% /* GENERAR REGISTROS PEGAR*/  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toGenerarRegistroII)}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.generarRegistroII}">
+									<h:graphicImage title="#{txt.doc_page}"
+										url="#{conftxt.img_page}" />
+								</a4j:commandLink>
+
+								<!--                      <% /* GENERAR REGISTROS CANCELAR */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toGenerarRegistroII)}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.cancelpage}">
+									<h:graphicImage title="#{txt.cancelar}"
+										url="#{conftxt.img_cancelpage}" />
+								</a4j:commandLink>
+
+								<!--                      <% /* PROPIEDADES crearTreePropiedades.xhtml */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{viewTreeDocumentos.seguridadTree.toSaveDataBasic or viewTreeDocumentos.swSuperUsuario
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.editTreePropiedades}">
+									<h:graphicImage
+										title="#{txt.propiedades} #{viewTreeDocumentos.treeNodoActual.nombre}"
+										url="#{conftxt.img_popiedades}" />
+
+
+									<a4j:param value="true"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+								</a4j:commandLink>
+								<!--                      <% /* FIN PROPIEDADES */  %>-->
+
+
+
+								<!--                      <% /* SEGURIDAD */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{viewTreeDocumentos.seguridadTree.confSeguridad or viewTreeDocumentos.swSuperUsuario
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.crearTreeSeguridad}">
+									<h:graphicImage
+										title="#{txt.struct_confNodo} #{viewTreeDocumentos.treeNodoActual.nombre}"
+										url="#{conftxt.img_locked}" />
+
+
+
+								</a4j:commandLink>
+								<!--               FIN       <% /* SEGURIDAD */  %>-->
+								<!--                      <% /* AGREGAR SUCURSAL */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddPrincipal or viewTreeDocumentos.swSuperUsuario)
+							 and viewTreeDocumentos.swNodoRaiz
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.crearTreePropiedades}">
+									<h:graphicImage title="#{txt.menu_agregarPrincipal}"
+										url="#{conftxt.img_principal}" />
+									<a4j:param value="false"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+
+									<a4j:param value="0"
+										assignTo="#{viewTreeDocumentos.tipoNodoCrear}" />
+
+								</a4j:commandLink>
+								<!--                      <% /* FIN AGREGAR SUCURSAL */  %>-->
+								<!--                      <% /* AGREGAR AREAS */  %>-->
+
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddArea or viewTreeDocumentos.swSuperUsuario)
+							 and (viewTreeDocumentos.swNodoPrincipal)
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.crearTreePropiedades}">
+									<h:graphicImage title="#{txt.menu_agregarArea}"
+										url="#{conftxt.img_area}" />
+
+
+									<a4j:param value="1"
+										assignTo="#{viewTreeDocumentos.tipoNodoCrear}" />
+
+									<a4j:param value="false"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+								</a4j:commandLink>
+								<!--     FIN                 <% /* AGREGAR AREAS */  %>-->
+
+								<!--                      <% /* AGREGAR CARGOS */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddCargo or viewTreeDocumentos.swSuperUsuario)
+							and (viewTreeDocumentos.swNodoArea  )
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.crearTreePropiedades}">
+									<h:graphicImage title="#{txt.menu_agregarCargo}"
+										url="#{conftxt.img_cargo}" />
+
+									<a4j:param value="2"
+										assignTo="#{viewTreeDocumentos.tipoNodoCrear}" />
+
+									<a4j:param value="false"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+								</a4j:commandLink>
+								<!--                      <% /* FIN AGREGAR CARGOS */  %>-->
+
+								<!--                      <% /* AGREGAR PROCESOS */  %>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.toAddProceso or viewTreeDocumentos.swSuperUsuario)
+							and (viewTreeDocumentos.swNodoPrincipal or  viewTreeDocumentos.swNodoArea
+							or viewTreeDocumentos.swNodoCargo)
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.crearTreePropiedades}">
+									<h:graphicImage title="#{txt.menu_agregarProceso}"
+										url="#{conftxt.img_proceso}" />
+
+									<a4j:param value="3"
+										assignTo="#{viewTreeDocumentos.tipoNodoCrear}" />
+
+									<a4j:param value="false"
+										assignTo="#{viewTreeDocumentos.swEditar}" />
+								</a4j:commandLink>
+								<!--                      <% /* FIN AGREGAR PROCESOS */  %>-->
+
+
+
+
+
+
+								<!--<%/* PARA ELIMINAR  */%>-->
+								<a4j:commandLink styleClass="no-decor"
+									rendered="#{(viewTreeDocumentos.swToDel or viewTreeDocumentos.swSuperUsuario)
+						
+						}"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.deleteTreePropiedades}">
+									<h:graphicImage title="#{txt.toDel}" url="#{conftxt.img_erase}" />
+
+
+									<a4j:param value="true"
+										assignTo="#{viewTreeDocumentos.swToDel}" />
+
+								</a4j:commandLink>
+								<!--<%/* FIN PARA ELIMINAR  */%>-->
+
+								<!--<%/* REFRESCAR  */%>-->
+								<a4j:commandLink styleClass="no-decor"
+									onclick="this.style.display='none';"
+									action="#{viewTreeDocumentos.refresh}">
+									<h:graphicImage title="#{txt.actualizartree}"
+										url="#{conftxt.img_refresh}" />
+								</a4j:commandLink>
+								<!--<%/* fin REFRESCAR  */%>-->
+
+
+
+							</rich:toolbarGroup>
+
+
+						</rich:toolbar>
+					</h:panelGrid>
+
+					<h:panelGrid columns="1">
+
+
+						<h:panelGroup>
+							<h:outputText value="#{txt.filtrar_por}" />
+
+							<h:panelGrid columns="2">
+								<h:outputText value="#{txt.doc_tipotab}" />
+								<h:selectOneMenu value="#{tree.doc_tipo}"
+									converter="ConverDoc_tipo">
+									<f:selectItems value="#{DatosCombo.doc_tipoOneVacio}" />
+									<f:ajax event="change" render="data" execute="@this" />
+								</h:selectOneMenu>
+								<h:outputText value="#{txt.doc_consecutivotab}" />
+								<h:inputText id="searchtext" value="#{tree.strBuscar}"
+									immediate="true">
+									<f:ajax event="keyup" render="data" execute="@this" />
+								</h:inputText>
+							</h:panelGrid>
+							  <a4j:status>
+            <f:facet name="start">
+                <h:graphicImage value="/images/ai.gif" alt="ai" />
+            </f:facet>
+        </a4j:status>
+						</h:panelGroup>
+						<!--INICIO VEMOS EL DOCUMENTO -->
+						<a4j:outputPanel id="out">
+							<h:panelGroup rendered="#{viewTreeDocumentos.swMostraDocIframe}">
+
+								<iframe src="/ClienteDocumentoGenerarFlowParalelo.jsf"
+									style="width: 100%; height: 510px;"> </iframe>
+							</h:panelGroup>
+						</a4j:outputPanel>
+						<!--FIN VEMOS EL DOCUMENTO -->
+						
+						
+						<rich:dataTable width="auto" value="#{tree.mostrarListDocumentos}"
+							var="car" iterationStatusVar="it" id="data"
+							rows="#{Utilidades.verNumeroDeRegistros}">
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header"></f:facet>
+									<!--INICIO VEMOS EL DOCUMENTO II-->
+									<a4j:commandButton image="#{car.doc_detalle.icono}"
+										action="#{viewTreeDocumentos.mostrarDocEnIframe}"
+										actionListener="#{viewTreeDocumentos.mostrarDocEnIframeEvent}"
+										render="out" execute="@form">
+										<f:param id="editId2verdoc" name="id2verdoc"
+											value="#{car.doc_detalle.codigo}" />
+										<f:setPropertyActionListener
+											target="#{viewTreeDocumentos.doc_detalle_ver}"
+											value="#{car.doc_detalle}" />
+									</a4j:commandButton>
+									<!--FIN VEMOS EL DOCUMENTO II-->
+
+							</rich:column>
+							
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header"></f:facet>
+									<!--                        SE COLOCA DOWNLOAD PARA QUE SE BAJEN EL DOCUMENTO -->
+									<a4j:commandLink styleClass="no-decor"
+										rendered="#{car.doc_detalle.swAttachment or !car.doc_detalle.swAttachment}"
+										onmousedown="showFlowUser('clienteDocumentoDownloadFile.jsf?detalle_id=#{car.doc_detalle.codigo}','')"
+										immediate="true" onclick="return false">
+										<h:graphicImage title="#{txt.doc_detalle}"
+											url="#{conftxt.img_attachment}" />
+									</a4j:commandLink>
+
+
+
+							</rich:column>
+							
+							
+
+
+
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:panelGrid columns="3">
+
+
+
+									</h:panelGrid>
+
+								</f:facet>
+								<h:panelGrid columns="3">
+									<h:panelGroup>
+										<h:panelGrid columns="1">
+
+										</h:panelGrid>
+									</h:panelGroup>
+
+									<!--<%/* PARA MAS DOCUMENTO  */%>-->
+									<a4j:commandLink styleClass="no-decor"
+										onclick="this.style.display='none';"
+										action="#{viewTreeDocumentos.mas}">
+										<h:graphicImage title="#{txt.mas}" url="#{conftxt.img_mas}" />
+
+
+										<f:setPropertyActionListener
+											target="#{viewTreeDocumentos.objectItem}" value="#{car}" />
+									</a4j:commandLink>
+									<!--<%/* PARA FIN MAS DOCUMENTO  */%>-->
+
+
+								</h:panelGrid>
+							</rich:column>
+
+
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.doc_nombre}" />
+								</f:facet>
+								<h:outputText value="#{car.nombre}" />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.doc_estadotab}" />
+								</f:facet>
+								<h:outputText value="#{car.doc_detalle.doc_estado.nombre}" />
+
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.doc_version}" />
+								</f:facet>
+								<h:outputText
+									value="#{car.doc_detalle.mayorVer}.#{car.doc_detalle.minorVer}" />
+
+							</rich:column>
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.doc_consecutivotab}" />
+								</f:facet>
+								<h:outputText value="#{car.consecutivo}" />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.areadocumento}" />
+								</f:facet>
+								<h:outputText
+									value="#{car.doc_detalle.areaDocumentos!=null?
+					car.doc_detalle.areaDocumentos.nombre:''}" />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.doc_tipotab}" />
+								</f:facet>
+								<h:outputText value="#{car.doc_tipo.nombre}" />
+
+							</rich:column>
+
+
+
+
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.doc_dueniotab}" />
+								</f:facet>
+
+								<h:outputText value="#{car.doc_detalle.duenio} " />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.usuario_fechac}" />
+								</f:facet>
+								<h:outputText value="#{car.fecha_mostrar}" />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+									<h:outputText value="#{txt.pesomgb}" />
+								</f:facet>
+								<h:outputText styleClass="node"
+									value="#{car.doc_detalle.size_doc}" />
+							</rich:column>
+
+
+							<!--							<rich:column style="border-width: 0px;">-->
+							<!--								<f:facet name="header">-->
+							<!---->
+							<!--								</f:facet>-->
+							<!--								<%/* PARA BORRAR DOCUMENTO  */%>-->
+							<!--								<a4j:commandLink styleClass="no-decor" execute="@this"-->
+							<!--									render="@none"-->
+							<!--									oncomplete="#{rich:component('confirmPane')}.show()">-->
+							<!--									<h:graphicImage title="#{txt.delete}"-->
+							<!--										url="#{conftxt.img_erase}" />-->
+							<!--									<a4j:param value="#{it.index}"-->
+							<!--										assignTo="#{viewTreeDocumentos.currentCarIndex}" />-->
+							<!---->
+							<!--									<f:setPropertyActionListener-->
+							<!--										target="#{viewTreeDocumentos.objectItem}"-->
+							<!--										value="#{car.doc_maestro}" />-->
+							<!--								</a4j:commandLink>-->
+							<!--								<%/* FIN PARA BORRAR DOCUMENTO  */%>-->
+							<!--							</rich:column>-->
+
+
+
+
+
+
+							<f:facet name="footer">
+								<rich:dataScroller page="#{viewTreeDocumentos.page}" />
+							</f:facet>
+						</rich:dataTable>
+
+
+						<!--<%/* FIN PARA LISTAR DOCUMENTOS  */%>-->
+					</h:panelGrid>
+
+
+				</h:form>
+			</div>
+
+
+		</h:panelGroup>
+
+	</ui:define>
+</ui:composition>
+</html>

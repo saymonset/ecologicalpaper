@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+		<h:form>
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+		<h:form>
+			<a4j:status onstart="#{rich:component('statPane')}.show()"
+				onstop="#{rich:component('statPane')}.hide()" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:panel header="#{txt.doc_descripciontab}" style="width:500px">
+				<h:panelGrid columns="1" id="panelGrid1">
+					<h:panelGrid columns="3">
+						<f:verbatim></f:verbatim>
+						<h:outputText styleClass="form"
+							value="#{
+                            Documento.publicadosUsuComent.doc_detalle.doc_maestro.nombre}" />
+						<f:verbatim></f:verbatim>
+					</h:panelGrid>
+
+					<h:panelGrid columns="1" cellspacing="0" border="0" width="75%">
+						<h:inputTextarea cols="100" rows="10"
+							value="#{Documento.publicadosUsuComent.comentario}" />
+					</h:panelGrid>
+
+					<h:panelGroup id="btones">
+
+						<h:panelGrid columns="3">
+							<f:verbatim></f:verbatim>
+							<h:panelGrid columns="2">
+								<a4j:commandButton id="btncancel" value="#{txt.btn_cancelar}"
+									action="#{Documento.cancelarPublicadoComentario}" />
+								<a4j:commandButton id="btnDelete" value="#{txt.btn_aceptar}"
+									action="#{Documento.savePublicadoComentario}" />
+							</h:panelGrid>
+							<f:verbatim></f:verbatim>
+						</h:panelGrid>
+					</h:panelGroup>
+					<f:verbatim></f:verbatim>
+				</h:panelGrid>
+			</rich:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>

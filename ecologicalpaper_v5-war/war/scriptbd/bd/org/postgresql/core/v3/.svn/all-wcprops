@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3
+END
+ProtocolConnectionImpl.class
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/ProtocolConnectionImpl.class
+END
+SimpleQuery.class
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/SimpleQuery.class
+END
+QueryExecutorImpl$ErrorTrackingResultHandler.class
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/QueryExecutorImpl$ErrorTrackingResultHandler.class
+END
+ConnectionFactoryImpl$1.class
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/ConnectionFactoryImpl$1.class
+END
+ConnectionFactoryImpl$UnsupportedProtocolException.class
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/ConnectionFactoryImpl$UnsupportedProtocolException.class
+END
+QueryExecutorImpl.class
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/QueryExecutorImpl.class
+END
+CompositeParameterList.class
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/CompositeParameterList.class
+END
+CompositeQuery.class
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/CompositeQuery.class
+END
+QueryExecutorImpl$1.class
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/QueryExecutorImpl$1.class
+END
+QueryExecutorImpl$2.class
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/QueryExecutorImpl$2.class
+END
+QueryExecutorImpl$3.class
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/QueryExecutorImpl$3.class
+END
+V3ParameterList.class
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/V3ParameterList.class
+END
+V3Query.class
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/V3Query.class
+END
+Portal.class
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/Portal.class
+END
+ConnectionFactoryImpl.class
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/ConnectionFactoryImpl.class
+END
+SimpleParameterList.class
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/core/v3/SimpleParameterList.class
+END

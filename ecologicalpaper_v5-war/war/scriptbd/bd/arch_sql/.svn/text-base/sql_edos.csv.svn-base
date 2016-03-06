@@ -1,0 +1,13 @@
+
+select * from ECOLOGICAL.DOC_ESTADO
+
+CODIGO,NOMBRE,DESCRIPCION
+1,Obsoleto,Obsoleto
+2,Borrador,Borrador
+3,Version Anterior,Version Anterior
+9,Rechazado,Rechazado
+7,Revisado,Revisado
+8,Aprobado,Aprobado
+4,Vigente,Vigente
+5,En Revision,En Revision
+6,En Aprobacion,En Aprobacion

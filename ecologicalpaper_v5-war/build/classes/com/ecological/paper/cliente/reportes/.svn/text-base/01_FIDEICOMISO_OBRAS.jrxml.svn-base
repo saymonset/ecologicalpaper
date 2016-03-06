@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FIDEILIBRITO" language="groovy" pageWidth="396" pageHeight="609" columnWidth="396" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="IMAGE_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\IMAGEDIR BANCOMISO\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR1" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\02_detallecomiso.jasper"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/Cuentas/Documento/fideicomitente]]>
+	</queryString>
+	<field name="fideicomitente" class="java.lang.String">
+		<fieldDescription><![CDATA[child::text()]]></fieldDescription>
+	</field>
+	<field name="periodo" class="java.lang.String">
+		<fieldDescription><![CDATA[periodo]]></fieldDescription>
+	</field>
+	<field name="periodo2" class="java.lang.String">
+		<fieldDescription><![CDATA[periodo/periodo]]></fieldDescription>
+	</field>
+	<field name="numPortafolio" class="java.lang.String">
+		<fieldDescription><![CDATA[periodo/numPortafolio]]></fieldDescription>
+	</field>
+	<field name="portafolio" class="java.lang.String">
+		<fieldDescription><![CDATA[portafolio]]></fieldDescription>
+	</field>
+	<field name="numFondo" class="java.lang.String">
+		<fieldDescription><![CDATA[portafolio/numFondo]]></fieldDescription>
+	</field>
+	<field name="empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[portafolio/empresa]]></fieldDescription>
+	</field>
+	<field name="encabezado1" class="java.lang.String">
+		<fieldDescription><![CDATA[encabezado1]]></fieldDescription>
+	</field>
+	<field name="rifEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[encabezado1/rifEmpresa]]></fieldDescription>
+	</field>
+	<field name="tipoFideicomiso" class="java.lang.String">
+		<fieldDescription><![CDATA[encabezado1/tipoFideicomiso]]></fieldDescription>
+	</field>
+	<field name="encabezado" class="java.lang.String">
+		<fieldDescription><![CDATA[encabezado]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[encabezado/nombre]]></fieldDescription>
+	</field>
+	<field name="numCedula" class="java.lang.String">
+		<fieldDescription><![CDATA[encabezado/numCedula]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion]]></fieldDescription>
+	</field>
+	<field name="direccion2" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion[1]/direccion]]></fieldDescription>
+	</field>
+	<field name="direccion3" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion]]></fieldDescription>
+	</field>
+	<field name="direccion4" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion[2]/direccion]]></fieldDescription>
+	</field>
+	<field name="datOficina" class="java.lang.String">
+		<fieldDescription><![CDATA[datOficina]]></fieldDescription>
+	</field>
+	<field name="numTelefono" class="java.lang.String">
+		<fieldDescription><![CDATA[datOficina/numTelefono]]></fieldDescription>
+	</field>
+	<field name="numOficina" class="java.lang.String">
+		<fieldDescription><![CDATA[datOficina/numOficina]]></fieldDescription>
+	</field>
+	<field name="numClasif" class="java.lang.String">
+		<fieldDescription><![CDATA[numClasif]]></fieldDescription>
+	</field>
+	<field name="numClasif2" class="java.lang.String">
+		<fieldDescription><![CDATA[numClasif/numClasif]]></fieldDescription>
+	</field>
+	<field name="formaPago" class="java.lang.String">
+		<fieldDescription><![CDATA[formaPago]]></fieldDescription>
+	</field>
+	<field name="formaPago2" class="java.lang.String">
+		<fieldDescription><![CDATA[formaPago/formaPago]]></fieldDescription>
+	</field>
+	<field name="numCuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[formaPago/numCuenta]]></fieldDescription>
+	</field>
+	<field name="intMes" class="java.lang.String">
+		<fieldDescription><![CDATA[intMes]]></fieldDescription>
+	</field>
+	<field name="intMes2" class="java.lang.String">
+		<fieldDescription><![CDATA[intMes/intMes]]></fieldDescription>
+	</field>
+	<field name="saldoMes" class="java.lang.String">
+		<fieldDescription><![CDATA[saldoMes]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[saldoMes[1]/fecha]]></fieldDescription>
+	</field>
+	<field name="totalMes" class="java.lang.String">
+		<fieldDescription><![CDATA[saldoMes[1]/totalMes]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos2" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos[1]/otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos3" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos4" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos[2]/otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos5" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos6" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos[3]/otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos7" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="otrosSaldos8" class="java.lang.String">
+		<fieldDescription><![CDATA[otrosSaldos[4]/otrosSaldos]]></fieldDescription>
+	</field>
+	<field name="saldoMes2" class="java.lang.String">
+		<fieldDescription><![CDATA[saldoMes]]></fieldDescription>
+	</field>
+	<field name="fecha2" class="java.lang.String">
+		<fieldDescription><![CDATA[saldoMes[2]/fecha]]></fieldDescription>
+	</field>
+	<field name="totalMes2" class="java.lang.String">
+		<fieldDescription><![CDATA[saldoMes[2]/totalMes]]></fieldDescription>
+	</field>
+	<field name="mensaje1" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[1]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje2" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[2]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje3" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[3]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje4" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[4]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje5" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[5]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje6" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[6]/mensaje]]></fieldDescription>
+	</field>
+	<field name="detalle" class="java.lang.String">
+		<fieldDescription><![CDATA[detalle]]></fieldDescription>
+	</field>
+	<field name="fecha3" class="java.lang.String">
+		<fieldDescription><![CDATA[detalle/fecha]]></fieldDescription>
+	</field>
+	<field name="descTransacc" class="java.lang.String">
+		<fieldDescription><![CDATA[detalle/descTransacc]]></fieldDescription>
+	</field>
+	<field name="montoCredito" class="java.lang.String">
+		<fieldDescription><![CDATA[detalle/montoCredito]]></fieldDescription>
+	</field>
+	<field name="montoDebito" class="java.lang.String">
+		<fieldDescription><![CDATA[detalle/montoDebito]]></fieldDescription>
+	</field>
+	<field name="mensaje22" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje2]]></fieldDescription>
+	</field>
+	<field name="mensaje23" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje2/mensaje2]]></fieldDescription>
+	</field>
+	<field name="mensaje11" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje12" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje13" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje14" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje15" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje16" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje17" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje18" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje19" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje110" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje111" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje112" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje113" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje114" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje1/mensaje1]]></fieldDescription>
+	</field>
+	<field name="periodo3" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/encabezado1/periodo]]></fieldDescription>
+	</field>
+	<field name="montoParticip" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/encabezado4/montoParticip]]></fieldDescription>
+	</field>
+	<field name="montoDetalle" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[1]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle2" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[2]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle3" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[3]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle4" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[4]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle5" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[5]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle6" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[6]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle7" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[7]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle8" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[8]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle9" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[9]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle10" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[10]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle11" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[11]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle12" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[12]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle13" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[13]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle14" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[14]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle15" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[15]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle16" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[16]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle17" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[17]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle18" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[18]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle19" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[19]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle20" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[20]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle21" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[21]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle22" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[22]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle23" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[23]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle24" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[24]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle25" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[25]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle26" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[26]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle27" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[27]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle28" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[28]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle29" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[29]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle30" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[30]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle31" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[31]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle32" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[32]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle33" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[33]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="montoDetalle34" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/detalle[34]/montoDetalle]]></fieldDescription>
+	</field>
+	<field name="mensaje7" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[7]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje8" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[8]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje9" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[9]/mensaje]]></fieldDescription>
+	</field>
+	<field name="mensaje10" class="java.lang.String">
+		<fieldDescription><![CDATA[mensaje[10]/mensaje]]></fieldDescription>
+	</field>
+	<field name="numPortafolio2" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/encabezado2/numPortafolio]]></fieldDescription>
+	</field>
+	<field name="tipoFideicomiso2" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/encabezado2/tipoFideicomiso]]></fieldDescription>
+	</field>
+	<field name="numFondo2" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/encabezado3/numFondo]]></fieldDescription>
+	</field>
+	<field name="empresa2" class="java.lang.String">
+		<fieldDescription><![CDATA[Balance/encabezado3/empresa]]></fieldDescription>
+	</field>
+	<group name="1y4">
+		<groupExpression><![CDATA[$F{numCedula}]]></groupExpression>
+		<groupHeader>
+			<band height="533">
+				<textField isBlankWhenNull="true">
+					<reportElement x="151" y="43" width="230" height="30"/>
+					<textElement markup="none">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[( $F{direccion2} == null ? " " : $F{direccion2}) +
+"\n" +
+( $F{direccion4} == null ? " " : $F{direccion4})]]></textFieldExpression>
+				</textField>
+				<textField bookmarkLevel="1">
+					<reportElement x="151" y="30" width="230" height="18"/>
+					<textElement markup="none">
+						<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
+					<anchorNameExpression><![CDATA[$F{numCedula}]]></anchorNameExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="70" y="184" width="58" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{rifEmpresa}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="80" y="204" width="165" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="49" y="128" width="332" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{periodo2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="14" y="100" width="367" height="154"/>
+					<textElement lineSpacing="Double" markup="none">
+						<font fontName="Arial" size="9" isStrikeThrough="false" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[ESTADO DE CUENTA DE FIDEICOMISO
+Desde:                                                                                
+Nro. de Portafolio:                    Tipo de Fideicomiso:
+No. Fondo:                                Empresa: 
+Nro. Cliente:                           
+Fideicomitente:                                                                      Nro. Cédula: 
+Dirección de Correo-e:
+Teléfono:                                                                               Nro. de Oficina:
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="64" y="165" width="77" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numFondo}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="314" y="204" width="58" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numCedula}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="318" y="241" width="58" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numOficina}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="222" y="147" width="159" height="12" forecolor="#000000"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{tipoFideicomiso}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="58" y="241" width="104" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numTelefono}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="182" y="165" width="199" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{empresa}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="91" y="147" width="50" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numPortafolio}]]></textFieldExpression>
+				</textField>
+				<image hAlign="Center">
+					<reportElement x="14" y="283" width="368" height="223"/>
+					<imageExpression class="java.lang.String"><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\IMAGEDIR BANCOMISO\\PUBLICIDAD JULIO 2010.jpg"]]></imageExpression>
+				</image>
+				<rectangle>
+					<reportElement mode="Transparent" x="8" y="101" width="379" height="155"/>
+					<graphicElement>
+						<pen lineWidth="0.1"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+			<band height="533">
+				<rectangle>
+					<reportElement mode="Opaque" x="8" y="121" width="379" height="64" backcolor="#F0F0F0"/>
+					<graphicElement>
+						<pen lineWidth="0.1"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="17" y="135" width="92" height="43"/>
+					<textElement lineSpacing="1_1_2">
+						<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Forma de Pago:                                                               
+                                                           
+Rendimiento del  mes :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="271" y="126" width="71" height="11"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[Cuenta Número:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="17" y="202" width="109" height="156"/>
+					<textElement lineSpacing="Double">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<text><![CDATA[SALDO AL:           
+Embargos / Bloqueos:
+Créditos:  
+Incrementos                       	                  
+Amortizaciones                                                      
+Débitos:
+Retiros 		                    
+SALDO AL FINAL:                               
+
+]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="66" y="39" width="35" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numFondo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="183" y="39" width="202" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{empresa}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="83" y="57" width="95" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="306" y="57" width="78" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numCedula}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="91" y="140" width="114" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{formaPago2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="229" y="140" width="152" height="12"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numCuenta}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="108" y="165" width="114" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{intMes2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="107" y="211" width="97" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="107" y="342" width="97" height="12"/>
+					<textElement>
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{fecha2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="230" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{otrosSaldos2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="324" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{otrosSaldos8}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="249" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="268" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{otrosSaldos4}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="286" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{otrosSaldos6}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="306" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="342" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{totalMes2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="264" y="211" width="97" height="12"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="7"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{totalMes}]]></textFieldExpression>
+				</textField>
+				<textField bookmarkLevel="2">
+					<reportElement x="205" y="531" width="7" height="2"/>
+					<textElement>
+						<font size="1"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[" "]]></textFieldExpression>
+					<anchorNameExpression><![CDATA["PA"]]></anchorNameExpression>
+				</textField>
+				<staticText>
+					<reportElement x="17" y="10" width="365" height="103"/>
+					<textElement lineSpacing="Double" markup="none">
+						<font fontName="Arial" size="9" isStrikeThrough="false" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[ESTADO DE CUENTA DE FIDEICOMISO
+No. Fondo:                                Empresa: 
+Fideicomitente:                                                                      Nro. Cédula: 
+
+Nombre del Proyecto:]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Transparent" x="8" y="10" width="379" height="103"/>
+					<graphicElement>
+						<pen lineWidth="0.1"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="8" y="195" width="379" height="165"/>
+					<graphicElement>
+						<pen lineWidth="0.1"/>
+					</graphicElement>
+				</rectangle>
+				<textField>
+					<reportElement mode="Transparent" x="17" y="414" width="361" height="95"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($F{mensaje1} == null ? " " : $F{mensaje1}) + "\n" + 
+($F{mensaje2} == null ? " " : $F{mensaje2}) + "\n" + 
+($F{mensaje3} == null ? " " : $F{mensaje3}) + "\n" + 
+($F{mensaje4} == null ? " " : $F{mensaje4}) + "\n" + 
+($F{mensaje5} == null ? " " : $F{mensaje5}) + "\n" + 
+($F{mensaje6} == null ? " " : $F{mensaje6}) + "\n" + 
+($F{mensaje7} == null ? " " : $F{mensaje7}) + "\n" + 
+($F{mensaje8} == null ? " " : $F{mensaje8}) + "\n" + 
+($F{mensaje9} == null ? " " : $F{mensaje9}) + "\n" + 
+($F{mensaje10} == null ? " " : $F{mensaje10})]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Transparent" x="8" y="408" width="379" height="104"/>
+					<graphicElement>
+						<pen lineWidth="0.1"/>
+					</graphicElement>
+				</rectangle>
+			</band>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="537" splitType="Stretch">
+				<printWhenExpression><![CDATA[$F{periodo3} != null]]></printWhenExpression>
+				<rectangle>
+					<reportElement mode="Transparent" x="38" y="57" width="308" height="345"/>
+					<graphicElement>
+						<pen lineWidth="0.1"/>
+					</graphicElement>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="273" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle21}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="311" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle25}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="261" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle20}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="85" y="120" width="106" height="9"/>
+					<textElement>
+						<font fontName="Arial" size="6" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[ACTIVO DE LOS FIDEICOMITENTES
+DISPONIBILIDADES
+DEPOSITOS EN LA INSTITUCION
+OTRAS DISPONIBILIDADES
+INVERSIONES EN TITULOS VALORES
+INVERSIONES PARA NEGOCIAR
+INVERSIONES DISPONIBLES PARA LA VENTA
+INVERSIONES MANTENIDAS HASTA VENCIMIENTO
+COLOCACIONES EN BANCO CENTRAL VENEZUELA
+INVERSIONES DE DISPONIBILIDAD RESTRINGIDA
+INVERSIONES EN OTROS TITULOS VALORES
+(PROVISION PARA INVERSIONES TITULOS VALORES)
+CARTERA DE CREDITOS
+CREDITOS VIGENTES
+CREDITOS REESTRUCTURADOS
+CREDITOS VENCIDOS
+CREDITOS EN LITIGIO
+INTERESES Y COMISIONES POR COBRAR
+BIENES REALIZABLES
+BIENES RECIBIDOS PARA SU ADMINISTRACION
+OTROS ACTIVOS
+TOTAL ACTIVO
+PASIVO DE LOS FIDEICOMITENTES
+OBLIGACIONES FINANCIERAS
+OTRAS CUENTAS POR PAGAR
+PROVISIONES
+OTROS PASIVOS
+TOTAL PASIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="54" y="129" width="109" height="7"/>
+					<textElement>
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[DISPONIBILIDADES
+DEPOSITOS EN LA INSTITUCION
+OTRAS DISPONIBILIDADES
+INVERSIONES EN TITULOS VALORES
+INVERSIONES PARA NEGOCIAR
+INVERSIONES DISPONIBLES PARA LA VENTA
+INVERSIONES MANTENIDAS HASTA VENCIMIENTO
+COLOCACIONES EN BANCO CENTRAL VENEZUELA
+INVERSIONES DE DISPONIBILIDAD RESTRINGIDA
+INVERSIONES EN OTROS TITULOS VALORES
+(PROVISION PARA INVERSIONES TITULOS VALORES)
+CARTERA DE CREDITOS
+CREDITOS VIGENTES
+CREDITOS REESTRUCTURADOS
+CREDITOS VENCIDOS
+CREDITOS EN LITIGIO
+INTERESES Y COMISIONES POR COBRAR
+BIENES REALIZABLES
+BIENES RECIBIDOS PARA SU ADMINISTRACION
+OTROS ACTIVOS
+	TOTAL ACTIVO
+
+	PASIVO DE LOS FIDEICOMITENTES
+
+OBLIGACIONES FINANCIERAS
+OTRAS CUENTAS POR PAGAR
+PROVISIONES
+OTROS PASIVOS
+	TOTAL PASIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+	TOTAL PATRIMONIO
+	TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="85" y="325" width="112" height="8"/>
+					<textElement>
+						<font fontName="Arial" size="6" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[TOTAL PASIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="145" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle3}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="206" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle12}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="325" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle27}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="85" y="284" width="114" height="8"/>
+					<textElement>
+						<font fontName="Arial" size="6" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[PASIVO DE LOS FIDEICOMITENTES
+OBLIGACIONES FINANCIERAS
+OTRAS CUENTAS POR PAGAR
+PROVISIONES
+OTROS PASIVOS
+TOTAL PASIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="212" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle13}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="367" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle32}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="232" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle16}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="158" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle5}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="225" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle15}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="85" y="273" width="112" height="8"/>
+					<textElement>
+						<font fontName="Arial" size="6" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[TOTAL ACTIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="54" y="151" width="156" height="119"/>
+					<textElement>
+						<font fontName="Arial" size="6" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[INVERSIONES EN TITULOS VALORES
+INVERSIONES PARA NEGOCIAR
+INVERSIONES DISPONIBLES PARA LA VENTA
+INVERSIONES MANTENIDAS HASTA VENCIMIENTO
+COLOCACIONES EN BANCO CENTRAL VENEZUELA
+INVERSIONES DE DISPONIBILIDAD RESTRINGIDA
+INVERSIONES EN OTROS TITULOS VALORES
+(PROVISION PARA INVERSIONES TITULOS VALORES)
+CARTERA DE CREDITOS
+CREDITOS VIGENTES
+CREDITOS REESTRUCTURADOS
+CREDITOS VENCIDOS
+CREDITOS EN LITIGIO
+INTERESES Y COMISIONES POR COBRAR
+BIENES REALIZABLES
+BIENES RECIBIDOS PARA SU ADMINISTRACION
+OTROS ACTIVOS
+TOTAL ACTIVO
+PASIVO DE LOS FIDEICOMITENTES
+OBLIGACIONES FINANCIERAS
+OTRAS CUENTAS POR PAGAR
+PROVISIONES
+OTROS PASIVOS
+TOTAL PASIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="360" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle31}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="110" y="102" width="100" height="8"/>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoParticip}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="45" y="71" width="297" height="11"/>
+					<textElement textAlignment="Center">
+						<font size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["BALANCE GENERAL AL " + $F{periodo3}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="377" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle33}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="137" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle2}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="199" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle11}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="219" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle14}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="164" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle6}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="254" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle19}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="178" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle8}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="85" y="333" width="110" height="8"/>
+					<textElement>
+						<font fontName="Arial" size="6" isBold="true" isUnderline="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="129" width="82" height="7"/>
+					<textElement textAlignment="Right" markup="none">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="54" y="347" width="156" height="28"/>
+					<textElement>
+						<font fontName="Arial" size="6" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="85" y="377" width="125" height="14"/>
+					<textElement>
+						<font fontName="Arial" size="6" isBold="true" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<text><![CDATA[TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="185" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle9}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="54" y="297" width="131" height="28"/>
+					<textElement>
+						<font fontName="Arial" size="6" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[OBLIGACIONES FINANCIERAS
+OTRAS CUENTAS POR PAGAR
+PROVISIONES
+OTROS PASIVOS
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="354" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle30}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="240" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle17}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="304" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle24}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="318" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle26}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="152" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle4}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="84" y="137" width="96" height="15"/>
+					<textElement>
+						<font fontName="Arial" size="6" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[DEPOSITOS EN LA INSTITUCION
+OTRAS DISPONIBILIDADES
+INVERSIONES EN TITULOS VALORES
+INVERSIONES PARA NEGOCIAR
+INVERSIONES DISPONIBLES PARA LA VENTA
+INVERSIONES MANTENIDAS HASTA VENCIMIENTO
+COLOCACIONES EN BANCO CENTRAL VENEZUELA
+INVERSIONES DE DISPONIBILIDAD RESTRINGIDA
+INVERSIONES EN OTROS TITULOS VALORES
+(PROVISION PARA INVERSIONES TITULOS VALORES)
+CARTERA DE CREDITOS
+CREDITOS VIGENTES
+CREDITOS REESTRUCTURADOS
+CREDITOS VENCIDOS
+CREDITOS EN LITIGIO
+INTERESES Y COMISIONES POR COBRAR
+BIENES REALIZABLES
+BIENES RECIBIDOS PARA SU ADMINISTRACION
+OTROS ACTIVOS
+TOTAL ACTIVO
+PASIVO DE LOS FIDEICOMITENTES
+OBLIGACIONES FINANCIERAS
+OTRAS CUENTAS POR PAGAR
+PROVISIONES
+OTROS PASIVOS
+TOTAL PASIVO
+PATRIMONIO DE LOS FIDEICOMISOS
+PATRIMONIO ASIGNADO DE LOS FIDEICOMISOS
+RESERVAS
+AJUSTES AL PATRIMONIO
+RESULTADOS ACUMULADOS
+TOTAL PATRIMONIO
+TOTAL PASIVO Y PATRIMONIO
+]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="297" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle23}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="192" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle10}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="45" y="102" width="109" height="10"/>
+					<textElement>
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[% PARTICIPACION: ]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="247" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle18}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="384" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle34}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="347" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle29}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="247" y="171" width="82" height="7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{montoDetalle7}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="45" y="92" width="109" height="10"/>
+					<textElement>
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[CONTRATO:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="45" y="82" width="109" height="10"/>
+					<textElement>
+						<font fontName="Arial" size="6"/>
+					</textElement>
+					<text><![CDATA[PORTAFOLIO:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="85" y="82" width="20" height="8"/>
+					<textElement textAlignment="Right">
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numPortafolio2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="82" width="180" height="8"/>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{tipoFideicomiso2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="85" y="92" width="20" height="8"/>
+					<textElement textAlignment="Right">
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{numFondo2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="92" width="180" height="8"/>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{empresa2}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="396" height="60"/>
+				<imageExpression class="java.lang.String"><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\IMAGEDIR BANCOMISO\\CINTILLO.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="537" splitType="Stretch">
+			<subreport runToBottom="true">
+				<reportElement x="12" y="0" width="373" height="537"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("/fideicomitente/detalle")]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR1}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="12" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="396" height="12"/>
+				<imageExpression class="java.lang.String"><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\IMAGEDIR BANCOMISO\\BANDA PIE.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="533">
+			<staticText>
+				<reportElement x="54" y="260" width="262" height="12"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Página dejada intencionalmente en blanco para futuro uso del banco]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

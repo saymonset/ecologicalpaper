@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <firstName>Carlos</firstName>
+        <lastName>Rodrigues</lastName>
+        <age>34</age>
+        <id>12345678</id>
+    </user>
+    <user>
+        <firstName>Esteban</firstName>
+        <lastName>Arce</lastName>
+        <age>21</age>
+        <id>00000001</id>
+    </user>
+    <user>
+        <firstName>Milton</firstName>
+        <lastName>Laura</lastName>
+        <age>50</age>
+        <id>12003001</id>
+    </user>
+    <user>
+        <firstName>Luis</firstName>
+        <lastName>Pimentel</lastName>
+        <age>45</age>
+        <id>11004011</id>
+    </user>
+</users>

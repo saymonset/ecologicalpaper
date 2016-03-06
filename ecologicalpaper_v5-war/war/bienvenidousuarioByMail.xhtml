@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="title">www.ecologicalpaper.com</ui:define>
+
+	<ui:define name="body">
+
+		<!-- 	INTRUCCION DE IMAGEN DE FACHADA -->
+		<table cellSpacing="1" cellPadding="0" width="750" align="center"
+			bgColor="#666666" border="0">
+			<tbody>
+				<tr>
+					<td vAlign="top" bgColor="#ffffff" height="473">
+						<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+							<tbody>
+								<tr>
+									<td vAlign="top"><h:graphicImage
+											title="#{txt.doc_detalle}" url="#{login.imgLogoEmpresa}"
+											height="317" width="748" /></td>
+								</tr>
+								<tr>
+									<td height="19">
+										<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+											<tbody>
+												<tr>
+													<td width="58%">
+														<div align="right"></div>
+													</td>
+													<td width="20%">
+														<div align="right">
+															<h:panelGrid columns="2">
+																<img height="95" src="bienvenido_archivos/cerrojo.jpg"
+																	width="97"> </img>
+
+
+
+
+																<h:commandButton value="#{txt.login}"
+																	onclick="dlg.show()" title="login"
+																	id="commandButtondssxxxa" />
+															</h:panelGrid>
+														</div>
+													</td>
+													<td width="20%">
+														<div align="right">
+
+
+															<h:outputText value="#{requestScope.usuario_nologueado} " />
+
+
+
+
+														</div>
+													</td>
+
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!--  FIN	INTRUCCION DE IMAGEN DE FACHADA -->
+
+
+		<p:growl id="growl" showDetail="true" life="3000" />
+
+		<p:dialog showEffect="explode" hideEffect="bounce" id="dialog"
+			header="Login" widgetVar="dlg">
+			<h:form>
+
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<h:outputText  value="#{txt.usuario_empresa}"
+						title="#{txt.usuario_empresa}" />
+					<h:outputLabel 
+						value="#{loginByMail.user_logueado.empresa.nombre}" />
+					<h:outputLabel for="username" value="#{txt.login}:" />
+					<h:outputLabel id="username" value="#{loginByMail.user_logueado.login}" />
+
+					<h:outputLabel for="password" value="#{txt.usuario_password}:" />
+					<h:inputSecret value="#{loginByMail.password}" id="password"
+						required="true" label="#{txt.usuario_password}" />
+
+
+
+					<f:facet name="footer">
+
+						<h:panelGrid columns="2">
+							<p:commandButton id="loginButton"
+								action="#{loginByMail.loginSend}" value="#{txt.btn_aceptar}"
+								update=":growl" actionListener="#{loginByMail.login}"
+								oncomplete="handleLoginRequest(xhr, status, args)" />
+
+							<p:commandButton id="loginCancelar" immediate="true"
+								action="#{loginByMail.cancelar}" value="#{txt.cancelar}" />
+
+						</h:panelGrid>
+
+
+					</f:facet>
+				</h:panelGrid>
+
+			</h:form>
+		</p:dialog>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				dlg.show();
+			});
+
+			function handleLoginRequest(xhr, status, args) {
+				if (args.validationFailed || !args.loggedIn) {
+					jQuery('#dialog').effect("shake", {
+						times : 3
+					}, 100);
+				} else {
+					dlg.hide();
+					jQuery('#loginLink').fadeOut();
+				}
+			}
+		</script>
+
+
+	</ui:define>
+</ui:composition>
+
+</html>

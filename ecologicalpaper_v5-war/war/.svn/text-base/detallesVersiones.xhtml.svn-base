@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+<script type="text/javascript">
+	var formId; // reference to the main form
+	var winId; // reference to the popup window
+	// This function calls the popup window.
+	//
+	function showFlowUser(action, title) {
+		features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		winId = window.open(action, title, features); // open an empty window
+	}
+</script>
+
+
+
+
+
+
+<rich:messages></rich:messages>
+
+
+
+<rich:dataTable value="#{viewTreeDocDetalles.doc_detallesAux}"
+	var="detalle" iterationStatusVar="it"
+	rows="#{Utilidades.verNumeroDeRegistros}">
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_detalle}" />
+		</f:facet>
+		<h:commandLink id="detalle" styleClass="no-decor"
+			onmousedown="showFlowUser('ClienteDocumentoGenerarFlowParalelo.jsf?detalle_id=#{detalle.codigo}','')"
+			immediate="true" onclick="return false">
+			<h:graphicImage title="#{txt.doc_detalle}" url="#{detalle.icono}" />
+		</h:commandLink>
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_nombre}" />
+		</f:facet>
+		<h:outputText value="#{detalle.doc_maestro.nombre}" />
+	</rich:column>
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_consecutivotab}" />
+		</f:facet>
+		<h:outputText value="#{detalle.doc_maestro.consecutivo}" />
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.estado}" />
+		</f:facet>
+		<h:outputText value="#{detalle.doc_estado.nombre}" />
+
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_version}" />
+		</f:facet>
+
+		<h:outputText value="#{detalle.mayorVer}.#{detalle.minorVer}" />
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_dueniotab}" />
+		</f:facet>
+
+		<h:outputText value="#{detalle.duenio} " />
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:graphicImage title="#{txt.doc_publico}"
+				url="#{conftxt.img_publico}" />
+
+		</f:facet>
+
+		<h:graphicImage rendered="#{detalle.doc_maestro.publico}"
+			title="#{txt.doc_publico}" url="#{conftxt.img_publico}" />
+	</rich:column>
+
+
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_creado}" />
+		</f:facet>
+		<h:outputText value="#{detalle.doc_maestro.fecha_mostrar}" />
+	</rich:column>
+
+
+	<rich:column  rendered="#{detalle.swLocked}">
+		<f:facet name="header">
+			<h:graphicImage rendered="#{detalle.swLocked}"
+				title="#{txt.doc_bloqueado}" url="#{conftxt.img_locked}" />
+		</f:facet>
+		<h:outputText rendered="#{detalle.swLocked}"
+			value="#{detalle.modificadoPor} " />
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.pesomgb}" />
+		</f:facet>
+		<h:outputText value="#{detalle.size_doc}" />
+	</rich:column>
+
+
+
+
+
+
+
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_modificadopor}" />
+		</f:facet>
+
+		<h:outputText value="#{detalle.modificadoPor} " />
+	</rich:column>
+
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.doc_cambio}" />
+		</f:facet>
+
+		<h:outputText value="#{detalle.datecambioStr} " />
+	</rich:column>
+	<rich:column>
+		<f:facet name="header">
+			<h:outputText value="#{txt.razondecambio}" />
+		</f:facet>
+
+		<h:outputText rendered="#{not empty detalle.descripcion}"
+			value="#{detalle.descripcion} " />
+	</rich:column>
+
+
+
+
+	<f:facet name="footer">
+		<rich:dataScroller page="#{viewTreeDocDetalles.page}" />
+	</f:facet>
+</rich:dataTable>
+
+
+
+
+</html>

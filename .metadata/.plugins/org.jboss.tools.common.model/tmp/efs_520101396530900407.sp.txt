@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+		<script language="javascript">
+			var formId; // reference to the main form
+			var winId; // reference to the popup window
+			// This function calls the popup window.
+			//
+			function showFlowUser(action, title) {
+				features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+				winId = window.open(action, title, features); // open an empty window
+			}
+		 
+		</script>
+
+
+
+		<a4j:status onstart="#{rich:component('statPane')}.show()"
+			onstop="#{rich:component('statPane')}.hide()" />
+		<h:form id="form">
+
+			<center>
+				<h1>
+					<h:outputText styleClass="form" value="#{txt.menu_listarUsuario}" />
+				</h1>
+				<br></br>
+				<h1>
+					<h:outputLabel
+						rendered="#{ClienteUsuario.user_logueado.empresa.userByEmpresa!=null}"
+						value="  #{conftxt.licencia} #{txt_ecolo.menu_crearUsuario} #{ClienteUsuario.user_logueado.empresa.userByEmpresa}" />
+				</h1>
+			</center>
+
+
+			<a4j:jsFunction name="remove" action="#{usuarioView.remove}"
+				render="table" execute="@this"
+				oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="confirmPane"
+				domElementAttachment="parent" width="800" height="400">
+				<h:panelGrid columns="1">
+					<rich:messages></rich:messages>
+					<h:outputText
+						value="#{txt.remplaza_usuario}:#{usuarioView.usuarioEliminar}" />
+					<h:selectOneMenu immediate="true" converter="ConverUsuarios"
+						value="#{usuarioView.usuarioRemplazo}">
+						<f:selectItems value="#{DatosCombo.usuarios}" />
+					</h:selectOneMenu>
+					<h:inputTextarea cols="100" rows="10"
+						value="#{usuarioView.cualquierComentario}" />
+
+				</h:panelGrid>
+
+
+
+				<h:outputText value="#{txt.deleteconfirma}" />
+
+
+				<a4j:commandButton value="#{txt.delete}"
+					action="#{usuarioView.removeUsuario}" render="table"
+					execute="confirmPane"
+					oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('confirmPane')}.hide();}" />
+
+				<a4j:commandButton value="#{txt.cancelar}"
+					onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+
+
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="editPane"
+				domElementAttachment="parent" width="800" height="400">
+				<rich:messages></rich:messages>
+				<h:panelGroup />
+				<h:panelGroup />
+
+
+
+
+			</rich:popupPanel>
+
+
+			<h1>
+				<h:outputText styleClass="form" value="#{txt.search_buscar}" />
+			</h1>
+			<f:verbatim>&nbsp;</f:verbatim>
+			<h:panelGroup id="buscar">
+				<h:inputText id="searchtext" value="#{ClienteUsuario.strBuscar}"
+					immediate="true">
+					<f:ajax event="keyup" render="data" execute="@this" />
+				</h:inputText>
+				<h:graphicImage value="#{conftxt.img_search}" />
+				<h:outputText value="#{txt.search_buscar}" />
+			</h:panelGroup>
+			<h:panelGroup>
+				<h:selectOneRadio id="r1" value="#{ClienteUsuario.buscarPor}"
+					immediate="true">
+					<f:ajax event="change" render="searchtext" execute="@this" />
+					<f:selectItem itemValue="#{ClienteUsuario.searchLogin}"
+						itemLabel="#{txt.login}" />
+					<f:selectItem itemValue="#{ClienteUsuario.searchCargo}"
+						itemLabel="#{txt.usuario_cargo}" />
+					<f:selectItem itemValue="#{ClienteUsuario.searchNombre}"
+						itemLabel="#{txt.usuario_nombre}" />
+					<f:selectItem itemValue="#{ClienteUsuario.searchApellido}"
+						itemLabel="#{txt.usuario_apellido}" />
+				</h:selectOneRadio>
+			</h:panelGroup>
+
+
+
+
+
+
+			<rich:tabPanel switchType="client">
+				<rich:tab header="#{txt.menu_listarUsuario}">
+					<rich:dataTable value="#{ClienteUsuario.usuarios}" var="car"
+						iterationStatusVar="it" id="data"
+						rows="#{Utilidades.verNumeroDeRegistros}">
+
+						<rich:column>
+							<f:facet name="header">
+								<h:panelGroup rendered="#{ClienteUsuario.swAddUsuario}">
+									<h:panelGrid columns="3">
+										<!--	
+															<%/* new */%>-->
+										<a4j:commandLink styleClass="no-decor" render="editGrid"
+											execute="@this" action="#{usuarioView.nuevo}">
+											<h:graphicImage title="#{txt.new}" url="#{conftxt.img_new}" />
+											<a4j:param value="#{it.index}"
+												assignTo="#{usuarioView.currentCarIndex}" />
+
+											<a4j:param value="false"
+												assignTo="#{usuarioView.swEditarUsuario}" />
+
+											<f:setPropertyActionListener target="#{usuarioView.title}"
+												value="#{txt.new} #{txt.menu_Usuario}" />
+
+											<f:setPropertyActionListener
+												target="#{usuarioView.objectItem}"
+												value="#{usuarioView.usuario}" />
+										</a4j:commandLink>
+									</h:panelGrid>
+								</h:panelGroup>
+							</f:facet>
+							<h:panelGrid columns="3">
+								<h:panelGroup>
+								</h:panelGroup>
+								<h:panelGroup rendered="#{ClienteUsuario.swModUsuario}">
+									<a4j:commandLink styleClass="no-decor" render="editGrid"
+										execute="@this" action="#{usuarioView.edit}">
+										<h:graphicImage title="#{txt.edit}"
+											url="#{conftxt.img_editar}" />
+
+										<a4j:param value="#{car.password}"
+											assignTo="#{usuarioView.passwordOculta}" />
+										<f:setPropertyActionListener
+											target="#{usuarioView.objectItem}" value="#{car}" />
+										<f:setPropertyActionListener
+											target="#{usuarioView.swEditarUsuario}" value="true" />
+
+										<f:setPropertyActionListener target="#{usuarioView.title}"
+											value="#{txt.edit} #{txt.menu_Usuario}" />
+
+									</a4j:commandLink>
+								</h:panelGroup>
+
+
+
+
+								<h:panelGroup rendered="#{car.status}">
+									<a4j:commandLink rendered="#{car.status}" id="Desconectar"
+										action="#{ClienteUsuario.listtUsuario}"
+										actionListener="#{ClienteUsuario.sacardeApplicationUsuario}"
+										onclick="if (!confirm('#{txt.desconectar_usuario}')) return false">
+										<h:outputText styleClass="node"
+											value="#{car.apellido} [#{car.cargo.nombre}]" />
+										<f:param id="desconectarId" name="desconectar_id"
+											value="#{car.id}" />
+									</a4j:commandLink>
+								</h:panelGroup>
+
+								<h:panelGroup rendered="#{!car.status}">
+									<a4j:commandLink styleClass="no-decor" execute="@this"
+										rendered="#{car.delete}" render="@none"
+										oncomplete="#{rich:component('confirmPane')}.show()">
+										<h:graphicImage title="#{txt.delete}"
+											url="#{conftxt.img_erase}" />
+										<a4j:param value="#{it.index}"
+											assignTo="#{usuarioView.currentCarIndex}" />
+
+										<f:setPropertyActionListener
+											target="#{usuarioView.usuarioEliminar}" value="#{car}" />
+
+
+										<f:setPropertyActionListener target="#{usuarioView.title}"
+											value="#{txt.delete} #{txt.menu_Usuario}" />
+									</a4j:commandLink>
+
+								</h:panelGroup>
+
+
+
+
+							</h:panelGrid>
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.login}" />
+							</f:facet>
+							<h:outputText value="#{car.login}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.usuario_apellido}" />
+							</f:facet>
+							<h:outputText value="#{car.apellido}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.usuario_nombre}" />
+							</f:facet>
+							<h:outputText value="#{car.nombre}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.usuario_cargo}" />
+							</f:facet>
+							<h:outputText value="[#{car.cargo.nombre}]" />
+						</rich:column>
+
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.usuario_empresa}" />
+							</f:facet>
+							<h:outputText value="#{car.empresa.nombre}" />
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.usuario_fechac}" />
+							</f:facet>
+							<h:outputText value="#{car.fecha_creadotxt}" />
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.mail_cliente}" />
+							</f:facet>
+							<h:outputText value="#{car.mail_principal}" />
+						</rich:column>
+
+
+
+
+						<rich:column>
+							<f:facet name="header">
+
+							</f:facet>
+
+							<h:commandButton styleClass="no-decor"
+								image="#{conftxt.img_grafico}" immediate="true"
+								onmousedown="showFlowUser('UsuarioFlowStadisticasGraficar.jsf?codigo=#{car.id}','_blank')"
+								onclick="return false">
+							</h:commandButton>
+						</rich:column>
+
+
+
+
+
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText styleClass="grees" value="#{txt.doc_hist}" />
+							</f:facet>
+							<h:commandLink id="hist"
+								action="#{ClienteUsuario.historicoActivo}"
+								actionListener="#{ClienteUsuario.selectUsuario}">
+
+								<h:outputText styleClass="node" value="#{txt.doc_hist}" />
+								<f:param id="editId" name="idHist" value="#{car.id}" />
+							</h:commandLink>
+						</rich:column>
+
+
+
+
+
+						<f:facet name="footer">
+							<rich:dataScroller page="#{usuarioView.page}" />
+						</f:facet>
+					</rich:dataTable>
+				</rich:tab>
+			</rich:tabPanel>
+
+		</h:form>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

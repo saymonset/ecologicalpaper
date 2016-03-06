@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+
+	 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+		<script language="javascript">
+	var formId; // reference to the main form
+	var winId; // reference to the popup window
+	// This function calls the popup window.
+	//
+	function showFlowUser(action, title) {
+		features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		winId = window.open(action, title, features); // open an empty window
+	}
+	function showPlaceList(action, form, target) {
+		features = "height=800,width=800,status=yes,toolbar=no,menubar=no,location=yes,scrollbars=yes";
+		winId = window.open('ClienteDocumentoGenerar', 'list', features); // open an empty window
+
+	}
+</script>
+
+
+
+		<rich:panel
+			header="#{txt.struct_confNodo} #{Flows.treeNodoActual.nombre}"
+			style="width:500px">
+			<h:panelGrid columns="1">
+				<rich:messages></rich:messages>
+			</h:panelGrid>
+
+
+			<h:form id="viewForm">
+
+
+				<!-- 
+            CUERPO DEL MENSAJE 
+            -->
+
+
+				<title><h:outputText value="#{txt.btn_erase}" /></title>
+				<h1></h1>
+				<center>
+				<h2><h:outputText
+					value="#{txt.doc_razodelcambio} #{txt.toModFlow}
+                                                  #{FlowsResponse.participanteOLd.nombre}
+                                          #{FlowsResponse.participanteOLd.apellido}[#{FlowsResponse.participanteOLd.cargo.nombre}]" /></h2>
+				</center>
+				<p></p>
+
+
+				<h:panelGrid columns="1">
+					<h:outputText value="#{txt.toModFlow}" />
+					<h:selectOneRadio title="" immediate="true"
+						value="#{FlowsResponse.tipoDeCambio}">
+						<f:selectItem itemValue="0"
+							itemLabel="#{txt.cambioParticipanteActual}" />
+						<f:selectItem itemValue="1"
+							itemLabel="#{txt.cambioParticipanteInFlow}" />
+						<f:selectItem itemValue="2"
+							itemLabel="#{txt.cambioParticipanteAllFlow}" />
+					</h:selectOneRadio>
+					<h:selectOneMenu immediate="true" converter="ConverUsuarios"
+						value="#{FlowsResponse.usuarioRemplazo}">
+						<f:selectItems value="#{DatosCombo.usuarios}" />
+					</h:selectOneMenu>
+
+
+
+
+					<h:panelGrid columns="1" cellspacing="0" border="0" width="75%">
+
+						<h:inputTextarea cols="100" rows="10"
+							value="#{FlowsResponse.cualquierComentario}"></h:inputTextarea>
+
+
+					</h:panelGrid>
+
+					<h:panelGroup id="btones">
+						<h:panelGrid columns="2" id="panelGrid2">
+							<a4j:commandButton id="btncancel" value="#{txt.btn_cancelar}"
+								action="#{FlowsResponse.cancelar}" />
+							<a4j:commandButton id="btnDelete" value="#{txt.btn_aceptar}"
+								action="#{FlowsResponse.remplazandoParticipante}" />
+						</h:panelGrid>
+					</h:panelGroup>
+					<f:verbatim></f:verbatim>
+				</h:panelGrid>
+			</h:form>
+		</rich:panel>
+
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="detallecomiso" language="groovy" pageWidth="368" pageHeight="311" columnWidth="368" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<queryString language="xPath">
+		<![CDATA[/Cuentas/Documento/fideicomitente/detalle]]>
+	</queryString>
+	<field name="detalle" class="java.lang.String">
+		<fieldDescription><![CDATA[child::text()]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha]]></fieldDescription>
+	</field>
+	<field name="descTransacc" class="java.lang.String">
+		<fieldDescription><![CDATA[descTransacc]]></fieldDescription>
+	</field>
+	<field name="montoDebito" class="java.lang.String">
+		<fieldDescription><![CDATA[montoDebito]]></fieldDescription>
+	</field>
+	<field name="montoCredito" class="java.lang.String">
+		<fieldDescription><![CDATA[montoCredito]]></fieldDescription>
+	</field>
+	<field name="mensaje11" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[1]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje12" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[2]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje13" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[3]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje14" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[4]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje15" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[5]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje16" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[6]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje17" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[7]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje18" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[8]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje19" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[9]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje110" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje1[10]/mensaje1]]></fieldDescription>
+	</field>
+	<field name="mensaje2" class="java.lang.String">
+		<fieldDescription><![CDATA[../mensaje2/mensaje2]]></fieldDescription>
+	</field>
+	<variable name="CANT_DETALLE" class="java.lang.Integer" resetType="Page" incrementType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{detalle}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="26">
+			<staticText>
+				<reportElement x="0" y="0" width="134" height="13"/>
+				<textElement markup="none">
+					<font size="9" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Detalle de Operaciones
+]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="14" width="368" height="12" backcolor="#F0F0F0"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="14" width="368" height="11"/>
+				<textElement markup="none">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Fecha      Concepto                                                                          Créditos            Débitos
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="9" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="36" height="9"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="186" height="9"/>
+				<textElement>
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{descTransacc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="55" height="9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( $F{montoDebito} == null ? " " : $F{montoDebito} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="0" width="55" height="9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[( $F{montoCredito} == null ? " " : $F{montoCredito} )]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="145">
+			<rectangle>
+				<reportElement mode="Opaque" x="3" y="3" width="362" height="120" backcolor="#F5F5F5"/>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="17" y="6" width="121" height="14"/>
+				<textElement>
+					<font pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[Posición de Inversiones al:
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="138" y="9" width="97" height="12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mensaje2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="25" width="313" height="95"/>
+				<textElement>
+					<font fontName="Courier New" size="8" pdfFontName="Courier"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mensaje11} + "\n" + 
+$F{mensaje12} + "\n" + 
+$F{mensaje13} + "\n" + 
+$F{mensaje14} + "\n" + 
+$F{mensaje15} + "\n" + 
+$F{mensaje16} + "\n" + 
+$F{mensaje17} + "\n" + 
+$F{mensaje18} + "\n" + 
+$F{mensaje19} + "\n" + 
+$F{mensaje110}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

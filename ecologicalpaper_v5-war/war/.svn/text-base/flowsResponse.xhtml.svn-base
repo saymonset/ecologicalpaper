@@ -1,0 +1,590 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+		.myWidth {width:500px;}
+		
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+
+
+
+.tooltip {
+    background-color: #{ richSkin.generalBackgroundColor};
+    border-width:3px;
+}
+.tooltip-custom-body {
+    background-color: orange;
+}
+ 
+.tooltip-text {
+    width: 400px;
+    height: 80px;
+    cursor: arrow;
+    border-width: 2px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+ 
+.tooltipData {
+    font-weight: bold;
+}
+
+</h:outputStylesheet>
+
+
+		<script language="javascript">
+			var formId; // reference to the main form
+			var winId; // reference to the popup window
+			// This function calls the popup window.
+			//
+			function showFlowUser(action, title) {
+				features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+				winId = window.open(action, title, features); // open an empty window
+			}
+			function showPlaceList(action, form, target) {
+				features = "height=800,width=800,status=yes,toolbar=no,menubar=no,location=yes,scrollbars=yes";
+				winId = window
+						.open('ClienteDocumentoGenerar', 'list', features); // open an empty window
+
+			}
+		</script>
+
+
+
+
+
+		<!--INICIO VEMOS EL DOCUMENTO -->
+		<a4j:outputPanel id="out">
+			<h:panelGroup rendered="#{FlowsResponse.swMostraDocIframe}">
+				<iframe src="/ClienteDocumentoGenerarFlowParalelo.jsf"
+					style="width: 100%; height: 510px;"> </iframe>
+			</h:panelGroup>
+		</a4j:outputPanel>
+		<!--INICIO VEMOS EL DOCUMENTO -->
+
+
+
+
+
+		<h:form id="viewForm">
+
+			<center>
+				<h1>
+					<h:outputText styleClass="form"
+						value="#{txt.flows_trab_doc}: #{FlowsResponse.nomCompletoFlowDoc}" />
+				</h1>
+			</center>
+			<rich:messages></rich:messages>
+
+			<h:panelGrid columns="2" border="0">
+				<h:panelGroup></h:panelGroup>
+				<h:panelGroup>
+					<h:panelGrid columns="2" border="0">
+						<h:outputText value="#{FlowsResponse.nomCompletoFlowDoc}" />
+						<f:verbatim></f:verbatim>
+					</h:panelGrid>
+
+					<h:panelGrid columns="2" border="0">
+						<h:outputText value="#{txt.flow_Condicional} " />
+						<h:selectBooleanCheckbox value="#{FlowsResponse.flow.condicional}"
+							disabled="true" />
+						<h:outputText value="#{txt.flow_Secuencial}" />
+						<h:selectBooleanCheckbox value="#{FlowsResponse.flow.secuencial}"
+							disabled="true" />
+
+						<h:outputText value="#{txt.flow_envio_mail}" />
+						<h:selectBooleanCheckbox
+							value="#{FlowsResponse.flow.notificacionMail}" disabled="true" />
+						<h:outputText
+							value="#{listarControlFlowByTime.fechaActualServidor}" />
+						<f:verbatim></f:verbatim>
+						<h:outputText
+							value="#{listarControlFlowByTime.diaDeLaSemanaServidor}" />
+						<f:verbatim></f:verbatim>
+						<h:outputText value="#{listarControlFlowByTime.horaServidior}" />
+						<f:verbatim></f:verbatim>
+						<h:outputText value="#{txt.flows_trab_doc}" />
+						<h:commandButton styleClass="no-decor"
+							image="#{conftxt.img_grafico}" immediate="true"
+							onmousedown="showFlowUser('UsuarioFlowStadisticasGraficar.jsf?codigo=#{FlowsResponse.user_logueado.id}','_blank')"
+							onclick="return false">
+						</h:commandButton>
+					</h:panelGrid>
+				</h:panelGroup>
+
+
+
+				<!--			<%-->
+				<!--				/*flowWithParticipantes ES COLLECION DE LA CLASE DEL FLOW*/-->
+				<!--			%>-->
+
+				<rich:dataTable value="#{FlowsResponse.flowWithParticipantes}"
+					width="auto" var="flowWithParticipantes" iterationStatusVar="it"
+					rows="#{Utilidades.verNumeroDeRegistros}">
+
+
+
+
+					<rich:column style="border-width: 0px;"
+						rendered="#{FlowsResponse.flow.secuencial}">
+						<f:facet name="header">
+							<h:outputText
+								value="#{txt.flow_Secuencial} #{txt.flow_Firma} #{txt.flow_firmar}" />
+						</f:facet>
+						<h:outputText
+							value="#{FlowsResponse.usuarioFirmaSecuencial.nombre} 
+                          #{FlowsResponse.usuarioFirmaSecuencial.apellido} #{FlowsResponse.usuarioFirmaSecuencial.cargo.nombre}" />
+					</rich:column>
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:graphicImage title="#{txt.cancelar}"
+								url="#{conftxt.img_cancelflow}" />
+
+						</f:facet>
+						<h:panelGroup rendered="#{FlowsResponse.swIsDuenio}">
+							<h:commandLink styleClass="no-decor"
+								action="#{FlowsResponse.canceladoByDuenio}"
+								onclick="if (!confirm('¿#{txt.cancelar}?')) return false">
+								<h:graphicImage title="#{txt.cancelar}"
+									url="#{conftxt.img_cancelflow}" />
+
+								<f:setPropertyActionListener target="#{FlowsResponse.flow}"
+									value="#{FlowsResponse.flow}" />
+
+
+							</h:commandLink>
+						</h:panelGroup>
+
+					</rich:column>
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText value="#{txt.autor_flujo} #{txt.flowsub}" />
+						</f:facet>
+						<h:outputText
+							value="#{FlowsResponse.duenioFlow.apellido} #{FlowsResponse.duenioFlow.nombre} [#{FlowsResponse.duenioFlow.cargo.nombre}]" />
+					</rich:column>
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText value="#{txt.doc_estadotab}" />
+						</f:facet>
+						<!--					<%-->
+						<!--						/*ES EL DUE;O DEL FLOW*/-->
+						<!--					%>-->
+						<h:outputText value="#{flowWithParticipantes.firmaPrincipalStr}" />
+					</rich:column>
+
+
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:graphicImage title="#{pdf}" url="#{conftxt.img_pdf}" />
+						</f:facet>
+						<h:commandLink styleClass="no-decor" type="submit"
+							action="#{FlowsResponse.reporte}">
+							<h:graphicImage title="#{pdf}" url="#{conftxt.img_pdf}" />
+						</h:commandLink>
+					</rich:column>
+
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText value="#{txt.doc_creado}" />
+						</f:facet>
+
+						<h:outputText value="#{flowWithParticipantes.fecha_creadoStr}" />
+
+					</rich:column>
+
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText value="#{txt.comentario}" />
+						</f:facet>
+						<rich:collapsiblePanel header="" expanded="true"
+							switchType="client">
+							<h:outputText value="#{flowWithParticipantes.comentarios}" />
+						</rich:collapsiblePanel>
+					</rich:column>
+
+
+
+
+					<rich:column rendered="#{FlowsResponse.swPuedeBorrarHistTree}">
+						<f:facet name="header">
+							<h:graphicImage title="#{txt.btn_erase}"
+								url="#{conftxt.img_erase}" />
+
+						</f:facet>
+						<h:commandLink
+							action="#{FlowsResponse.erasedDetalleTreeHistoricoPersonalInFlow}"
+							actionListener="#{FlowsResponse.erasedDetalleTreeHistoricoPersonalInFlow}">
+							<h:graphicImage title="#{txt.btn_erase}"
+								url="#{conftxt.img_erase}" />
+
+							<f:setPropertyActionListener target="#{FlowsResponse.flow}"
+								value="#{FlowsResponse.flow}" />
+
+						</h:commandLink>
+
+					</rich:column>
+				</rich:dataTable>
+			</h:panelGrid>
+
+			<!--					<%-->
+			<!--					/* LOS DETALLES-->
+			<!--																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	 ___________________________________________________________________________________________-->
+			<!--									 *___________________________________________________________________________________________-->
+			<!--									 *___________________________________________________________________________________________-->
+			<!--																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	-->
+			<!--									 */-->
+			<!--				%>-->
+			<!--					-->
+
+			<rich:dataTable value="#{FlowsResponse.participantesFlowsDetalle}"
+				var="detalle" iterationStatusVar="it" width="auto">
+
+				<rich:column style="border-width: 0px;">
+					<h:panelGrid columns="1">
+						<h:commandLink rendered="#{detalle.toModFlow}"
+							action="#{FlowsResponse.action_CambiarUsuario}">
+							<h:outputText value="#{txt.toModFlow}" style="font-size: 11px" />
+
+							<f:setPropertyActionListener
+								target="#{FlowsResponse.flow_Participante}" value="#{detalle}" />
+
+
+						</h:commandLink>
+						<h:outputText rendered="#{detalle.swRole}"
+							value="#{detalle.participante.nombre} 
+                                   #{detalle.participante.apellido} [#{detalle.participante.cargo.nombre}] #{detalle.role.nombre}->(#{detalle.flow.nombredelflujo})"
+							style="font-size: 11px" />
+
+						<h:outputText rendered="#{!detalle.swRole}"
+							value="#{detalle.participante.nombre} #{detalle.participante.apellido}[#{detalle.participante.cargo.nombre}]
+									->(#{detalle.flow.nombredelflujo})"
+							style="font-size: 11px" />
+					</h:panelGrid>
+				</rich:column>
+
+
+
+
+
+
+				<rich:column style="border-width: 0px;">
+					<h:panelGrid columns="4">
+						<!--								<%-->
+						<!--									/*	   PUEDE EDITAR DOCUMENTO  */-->
+						<!--								%>-->
+
+						 
+						<a4j:commandButton image="#{conftxt.img_applet}" render="applet"
+								rendered="#{detalle.auxdeFirma 
+							  and !FlowsResponse.flow.lectores}"
+							  title="#{txt.doc_editar}"
+						actionListener="#{FlowsResponse.mostrarDocEnIframeEvent2}"
+							execute="@form">
+						</a4j:commandButton>
+						 
+
+
+
+
+
+						<!--								<%-->
+						<!--									/*	    FIRMAR DOCUMENTO  */-->
+						<!--								%>-->
+						<h:commandLink rendered="#{detalle.auxdeFirma}" id="EditFirma"
+							action="#{FlowsResponse.action_verTabs}">
+							<h:outputText value="#{txt.flow_firmar}" style="font-size: 11px" />
+
+							<f:setPropertyActionListener
+								target="#{FlowsResponse.flow_Participante}" value="#{detalle}" />
+
+						</h:commandLink>
+
+
+						<h:outputText rendered="#{!detalle.auxdeFirma}"
+							value="#{detalle.firmaStr}" style="font-size: 11px" />
+
+					</h:panelGrid>
+				</rich:column>
+
+
+
+
+				<!--						<%-->
+				<!--							/*	   PUEDE REALIZAR  FLUJO EL DOCUMENTO  */-->
+				<!--						%>-->
+
+
+				<rich:column style="border-width: 0px;">
+					<!--							<%-->
+					<!--								/*  swCanRealizarFlow= sw puede realizar flujo */-->
+					<!--							%>-->
+					<h:commandLink
+						rendered="#{detalle.swCanRealizarFlow and FlowsResponse.toDoFlow}"
+						styleClass="no-decor" id="EditSubFlow"
+						action="#{FlowsResponse.flows_action}">
+						<h:graphicImage id="imageflow" title="#{txt.flow_someter}"
+							url="#{conftxt.img_flow}" />
+						<f:setPropertyActionListener
+							target="#{FlowsResponse.flow_Participante}" value="#{detalle}" />
+					</h:commandLink>
+				</rich:column>
+				<!--						<%-->
+				<!--							/*	   PUEDE REALIZAR PLANTILLA FLUJO EL DOCUMENTO  */-->
+				<!--						%>-->
+				<rich:column style="border-width: 0px;">
+					<h:commandLink id="Editflowplantilla" styleClass="no-decor"
+						rendered="#{detalle.swCanRealizarFlow and 
+								detalle.swPuedeRealizarFlowPlantilla and FlowsResponse.toDoFlow}"
+						action="#{FlowsResponse.listaPlantillaFlowParalelo}">
+						<h:graphicImage id="imageflowplantilla"
+							title="#{txt.flow} #{txt.plantilla} "
+							url="#{conftxt.img_flowplantilla}" />
+						<f:setPropertyActionListener
+							target="#{FlowsResponse.flow_Participante}" value="#{detalle}" />
+					</h:commandLink>
+				</rich:column>
+
+				<!--						<%-->
+				<!--							/*	   AVISO PARA PODER  REALIZAR PLANTILLA FLUJO EL DOCUMENTO  */-->
+				<!--						%>-->
+				<rich:column style="border-width: 0px;">
+
+					<h:commandButton
+						rendered="#{detalle.swCanRealizarFlow and 
+								 !FlowsResponse.toDoFlow}"
+						title="#{detalle.participante},Puede continuar este flujo con nuevos participantes si tiene permiso #{txt.toDoFlow}"
+						styleClass="no-decor" image="#{conftxt.info}">
+						<rich:componentControl target="popup2" operation="show" />
+					</h:commandButton>
+					<rich:popupPanel id="popup2" modal="true" resizeable="true">
+						<f:facet name="header">
+							<h:outputText value="" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('popup2')}.hide(); return false;">
+                    X
+                </h:outputLink>
+						</f:facet>
+
+						<h:outputText
+							value="#{detalle.participante},#{txt.flowcontinuar} #{txt.toDoFlow}" />
+					</rich:popupPanel>
+
+
+
+
+				</rich:column>
+
+
+
+
+
+
+
+				<rich:column style="border-width: 0px;">
+					<h:commandLink styleClass="no-decor"
+						rendered="#{detalle.swFlow_ParticipantesAttachment}"
+						action="#{FlowsResponse.viewDocumentoAttachment}">
+						<h:graphicImage id="imageAttach" title="#{txt.doc_verdocumento}"
+							url="#{conftxt.img_attachment}" />
+						<f:setPropertyActionListener
+							target="#{FlowsResponse.flow_Participante}" value="#{detalle}" />
+					</h:commandLink>
+				</rich:column>
+
+
+
+
+
+
+
+				<rich:column style="border-width: 0px;">
+					<h:panelGroup
+						rendered="#{detalle.swCanRealizarFlow 
+								and detalle.swAgregarDocumentosvnUpload}">
+						<h:panelGrid columns="1">
+
+							<h:panelGrid columns="2">
+								<!--								<h:selectOneRadio title="#{txt.cargarautomatico} #{txt.svn}"-->
+								<!--									id="subscriptions" value="#{FlowsResponse.automaticoCargaSvn}">-->
+								<!--									<f:selectItem itemValue="1" itemLabel="#{txt.si}" />-->
+								<!--																				<%-->
+								<!--																					/*<f:selectItem itemValue="0" itemLabel="#{txt.no}" />*/-->
+								<!--																				%>-->
+								<!--								</h:selectOneRadio>-->
+								<h:commandLink rendered="false" id="EditSvn"
+									styleClass="no-decor"
+									action="#{FlowsResponse.agregardocumentosvnupload}"
+									actionListener="#{FlowsResponse.versionIdPlantilla}">
+									<h:graphicImage id="imageSvn" width="16" height="16"
+										title="#{txt.subversion} " url="#{conftxt.img_svn}" />
+									<f:setPropertyActionListener
+										target="#{FlowsResponse.flow_Participante}" value="#{detalle}" />
+								</h:commandLink>
+							</h:panelGrid>
+						</h:panelGrid>
+					</h:panelGroup>
+				</rich:column>
+
+
+
+
+				<rich:column style="border-width: 0px;">
+					<h:panelGrid columns="1">
+						<h:panelGroup>
+							<h:outputText
+								rendered="#{detalle.horasAsignadas!=0 and not empty detalle.horasAsignadas}"
+								value="#{txt.asignadas_horas} #{detalle.horasAsignadas}"
+								style="font-size: 11px" />
+							<h:outputText
+								rendered="#{detalle.minutosAsignados!=0 and not empty detalle.minutosAsignados}"
+								value=", #{txt.asignadas_minutos} #{detalle.minutosAsignados}"
+								style="font-size: 11px" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</rich:column>
+
+
+
+				<rich:column style="border-width: 0px;">
+					<h:panelGrid columns="1">
+						<h:panelGroup>
+							<h:outputText
+								rendered="#{detalle.horasAcumuladas!=0 and not empty detalle.horasAcumuladas}"
+								value="#{txt.horas_acumuladas}  #{detalle.horasAcumuladas}"
+								style="font-size: 11px" />
+							<h:outputText
+								rendered="#{detalle.minutosAcumulados!=0 and not empty detalle.minutosAcumulados}"
+								value=", #{txt.minutos_acumulados} #{detalle.minutosAcumulados}"
+								style="font-size: 11px" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<h:panelGrid columns="1">
+						<h:panelGroup>
+							<h:outputText
+								rendered="#{detalle.horasRestantes!=0 and not empty detalle.horasRestantes}"
+								value="#{txt.horas_restantes}   #{detalle.horasRestantes}"
+								style="font-size: 11px" />
+							<h:outputText
+								rendered="#{detalle.minutosRestantes!=0  and not empty detalle.minutosRestantes}"
+								value=", #{txt.minutos_restantes} #{detalle.minutosRestantes}"
+								style="font-size: 11px" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</rich:column>
+				<rich:column rendered="#{!empty detalle.comentario}">
+					<rich:collapsiblePanel header="" expanded="true"
+						switchType="client">
+						<h:outputText value="#{detalle.comentario}" />
+					</rich:collapsiblePanel>
+				</rich:column>
+
+
+
+
+
+
+
+			</rich:dataTable>
+
+
+
+
+			<f:verbatim></f:verbatim>
+
+
+
+
+
+		</h:form>
+
+		<h:form>
+			<h:panelGrid columns="3" border="0">
+
+
+
+
+				<a4j:commandButton image="#{FlowsResponse.icono}"
+					action="#{FlowsResponse.mostrarDocEnIframe}"
+					actionListener="#{FlowsResponse.mostrarDocEnIframeEvent}"
+					render="out" execute="@form">
+				</a4j:commandButton>
+
+
+
+				<a4j:commandLink styleClass="no-decor"
+					onmousedown="showFlowUser('clienteDocumentoDownloadFile.jsf?detalle_id=#{FlowsResponse.codigoDetalle}','')"
+					immediate="true" onclick="return false">
+					<h:graphicImage title="#{txt.doc_detalle}"
+						url="#{conftxt.img_attachment}" />
+				</a4j:commandLink>
+
+
+				<h:commandLink rendered="#{FlowsResponse.swPermViewDoc}"
+					type="submit" styleClass="no-decor"
+					action="#{tree.desdeWorkFlowDocumento}"
+					onclick="this.style.display='none';">
+
+					<h:graphicImage title="#{txt.mas}" url="#{conftxt.img_mas}" />
+				</h:commandLink>
+
+
+
+
+
+			</h:panelGrid>
+		<!--INICIO EDITAMOS EL DOCUMENTO -->
+		<a4j:outputPanel id="applet">
+			<h:panelGroup  rendered="#{FlowsResponse.swMostraDocIframe2}">
+				<iframe src="/editarDocumento.jsf"
+					style="width: 100%; height: 510px;"> </iframe>
+			</h:panelGroup>
+		</a4j:outputPanel>
+		<!--FIN EDITAMOS EL DOCUMENTO -->
+		</h:form>
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+	</ui:define>
+
+</ui:composition>
+</html>

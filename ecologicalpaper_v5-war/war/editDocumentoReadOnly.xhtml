@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+
+
+
+		<script type="text/javascript">
+	var formId; // reference to the main form
+	var winId; // reference to the popup window
+	// This function calls the popup window.
+	//
+	function showFlowUser(action, title) {
+		//	features = "height=330,width=450,status=yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		winId = window.open(action, title, features); // open an empty window
+</script>
+
+
+
+		<center>
+		<h1><h:outputText styleClass="form"
+			value="#{txt.doc_crearDocumentotab}:#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.nombre}" /></h1>
+		</center>
+
+
+
+
+		<a4j:status onstart="#{rich:component('statPane')}.show()"
+			onstop="#{rich:component('statPane')}.hide()" />
+
+		<rich:popupPanel id="statPane" autosized="true">
+			<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+			<h:outputText value="#{txt.esperar}" />
+		</rich:popupPanel>
+
+
+		<h:form>
+			<h:panelGrid columns="1">
+				<rich:messages></rich:messages>
+			</h:panelGrid>
+			<h:panelGrid columns="3" border="0">
+
+				<h:outputText value="#{txt.doc_nombretab}" />
+				<h:outputText value="#{Documento.doc_maestroModifica.nombre}" />
+				<rich:message for="name1" showDetail="true" />
+
+				<h:outputText value="#{txt.doc_creado}" />
+				<h:outputText value="#{Documento.doc_maestro.fecha_mostrar}" />
+				<f:verbatim></f:verbatim>
+
+
+
+				<h:outputText value="#{txt.doc_tipotab}" />
+				<h:outputText value="#{Documento.doc_maestro.doc_tipo.nombre}" />
+				<rich:message for="maestro1" showDetail="true" />
+
+				<h:outputText value="#{txt.doc_mayorVertab}" />
+				<h:outputText
+					value="#{Documento.doc_detalleModifica.mayorVer}.#{Documento.doc_detalleModifica.minorVer}" />
+				<rich:message for="mayor_ver" showDetail="true" />
+
+
+				<h:outputText value="#{txt.doc_consecutivotab}" />
+				<h:outputText value="#{Documento.doc_maestroModifica.consecutivo}" />
+				<rich:message for="numconsecutivo" showDetail="true" />
+
+				<h:outputText value="#{txt.doc_dueniotab}" />
+				<h:outputText value="#{Documento.doc_detalleModifica.duenio}" />
+				<rich:message for="duenioxx" showDetail="true" />
+
+				<h:outputText value="#{txt.doc_estadotab}" />
+				<h:outputText value="#{Documento.doc_detalle.doc_estado.nombre}" />
+				<rich:message for="estado" showDetail="true" />
+
+				<h:outputText value="#{txt.doc_keystab}" />
+				<h:outputText value="#{Documento.doc_maestroModifica.busquedakeys}" />
+				<rich:message for="desc" showDetail="true" />
+
+				<h:outputText value="#{txt.doc_descripcion}" />
+				<h:outputText value="#{Documento.doc_detalleModifica.descripcion}" />
+				<rich:message for="desc2" showDetail="true" />
+
+				<h:outputText value="#{txt.size_doc}" />
+				<h:outputText value="#{Documento.doc_detalle.size_doc} " />
+				<f:verbatim></f:verbatim>
+
+				<f:verbatim></f:verbatim>
+				<h:outputText value="#{Documento.doc_detalle.contextType}" />
+				<f:verbatim></f:verbatim>
+
+
+
+
+
+
+
+
+				<!--<%/*  Si es publicador y esrta publicado, puede ir a ver el docuymento en listar documentos*/%>-->
+
+
+
+				<h:panelGroup>
+					<a4j:commandButton value="#{txt.btn_menu}" immediate="true"
+						action="#{Documento.regresar}" />
+						
+						
+				</h:panelGroup>
+				<!--<%/* PARA MAS DOCUMENTO  */%>-->
+				<a4j:commandLink styleClass="no-decor"
+				   rendered="#{Documento.seguridadTreeMas.toView}"
+					onclick="this.style.display='none';"
+					action="#{Documento.listarDocumentos}">
+					<h:graphicImage title="#{txt.mas}" url="#{conftxt.img_mas}" />
+					<f:setPropertyActionListener
+						target="#{Documento.doc_maestro}" value="#{Documento.doc_detalle.doc_maestro}" />
+				</a4j:commandLink>
+				<f:verbatim></f:verbatim>
+
+			</h:panelGrid>
+
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

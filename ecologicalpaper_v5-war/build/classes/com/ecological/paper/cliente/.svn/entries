@@ -1,0 +1,64 @@
+10
+
+dir
+245
+http://localhost/svn/ecologicalpaper/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/com/ecological/paper/cliente
+http://localhost/svn/ecologicalpaper
+
+
+
+2012-02-28T13:29:05.128946Z
+244
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+85bf9f25-8583-2d4d-97b2-acfb4a44fb19
+
+configuracion
+dir
+
+documentos
+dir
+
+flows
+dir
+
+historico
+dir
+
+impresion
+dir
+
+operaciones
+dir
+
+reportes
+dir
+
+role
+dir
+
+seguridad
+dir
+
+usuarios
+dir
+
+view
+dir
+
+viewimpl
+dir
+

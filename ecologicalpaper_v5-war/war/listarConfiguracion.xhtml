@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+		<a4j:status onstart="#{rich:component('statPane')}.show()"
+			onstop="#{rich:component('statPane')}.hide()" />
+
+		<h:form id="form">
+
+
+			<center>
+				<h1>
+					<h:outputText styleClass="form" value="#{txt.menu_confDocumentos}" />
+				</h1>
+			</center>
+
+
+			<a4j:jsFunction name="remove" render="table" execute="@this"
+				oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="confirmPane"
+				domElementAttachment="parent" width="800" height="400">
+				<h:panelGrid columns="1">
+					<rich:messages></rich:messages>
+
+				</h:panelGrid>
+
+
+
+				<h:outputText value="#{txt.deleteconfirma}" />
+
+
+				<a4j:commandButton value="#{txt.delete}"
+					action="#{viewConfiguracion.remove}" render="table"
+					execute="confirmPane"
+					oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('confirmPane')}.hide();}" />
+
+				<a4j:commandButton value="#{txt.cancelar}"
+					onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+
+
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="editPane"
+				domElementAttachment="parent" width="800" height="400">
+				<rich:messages></rich:messages>
+				<h:panelGroup />
+				<h:panelGroup />
+
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.configuracion}">
+
+						<h:panelGrid columns="3" id="editGrid">
+
+
+							<h:panelGrid columns="2">
+								<h:panelGrid columns="3">
+
+
+
+
+
+									<h:outputText value="#{txt.nombreCliente}" />
+									<h:panelGroup>
+										<h:selectOneMenu id="campo1"
+											value="#{viewConfiguracion.objectItem.nombreCliente}">
+											<f:selectItems value="#{ConfiguracionCliente.clientes}" />
+										</h:selectOneMenu>
+										<rich:message for="campo1" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+
+									<h:outputText id="bd" value="#{txt.bdpostgres}" />
+									<h:panelGrid columns="2">
+										<h:outputText value="----------------------------------->" />
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.objectItem.bdpostgres}" />
+									</h:panelGrid>
+									<rich:message for="bd" />
+
+
+									<h:outputText value="#{txt.smtpHost}" />
+									<h:inputText required="false" id="smtpHost" maxlength="100"
+										value="#{viewConfiguracion.objectItem.smtpHost}"
+										title="#{txt.smtpHost}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="smtpHost" />
+
+
+									<h:outputText value="#{txt.puerto}[587]" />
+									<h:inputText required="false" id="puerto" maxlength="8"
+										value="#{viewConfiguracion.objectItem.puerto}"
+										title="#{txt.puerto}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="puerto" />
+
+									<h:outputText id="smtpUsuario"
+										value="#{txt.smtpHost} #{txt.menu_Usuario}" />
+									<h:inputText required="false" maxlength="30"
+										value="#{viewConfiguracion.objectItem.smtpUsuario}"
+										title="#{txt.smtpHost} #{txt.menu_Usuario}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="smtpUsuario" />
+
+									<h:outputText id="smtppassword"
+										value="#{txt.smtpHost} #{txt.usuario_password}" />
+									<h:inputSecret required="false" maxlength="30"
+										value="#{viewConfiguracion.objectItem.smtpClave}"
+										title="#{txt.smtpHost} #{txt.usuario_password}"
+										immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputSecret>
+									<h:inputHidden id="smtpClaveHidden"
+										value="#{viewConfiguracion.objectItem.smtpClaveHidden}" />
+									
+
+
+
+
+
+
+									<h:outputText value="#{txt.endPoint}" />
+									<h:inputText required="false" id="endPoint" size="80"
+										maxlength="100"
+										value="#{viewConfiguracion.objectItem.endPoint}"
+										title="#{txt.endPoint}" />
+									<rich:message for="endPoint" />
+
+									<h:outputText value="#{txt.carpetaCompartida}" />
+									<h:inputText required="false" id="carpetaCompartida"
+										maxlength="29"
+										value="#{viewConfiguracion.objectItem.carpetaCompartida}"
+										title="#{txt.carpetaCompartida}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="carpetaCompartida" />
+
+									<h:outputText value="#{txt.mail_cliente}" />
+									<h:inputText required="false" id="mailCliente" maxlength="100"
+										value="#{viewConfiguracion.objectItem.mailCliente}"
+										title="#{txt.mail_cliente}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="mailCliente" />
+
+									<h:outputText id="selectOneMenuAppl_idioma"
+										value="#{txt.appl_idioma}" title="#{txt.appl_idioma}" />
+									<h:selectOneMenu
+										value="#{viewConfiguracion.objectItem.paisBundle}">
+										<f:selectItems value="#{ConfiguracionCliente.lenguajes}" />
+									</h:selectOneMenu>
+									<rich:message for="selectOneMenuProfesion" />
+
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.ldapactivedirectoryhost}" />
+									<h:panelGrid columns="3"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}">
+										<h:inputText required="false" id="ldapactivedirectoryhost"
+											maxlength="100"
+											value="#{viewConfiguracion.objectItem.ldapactivedirectoryhost}"
+											title="#{txt.ldapactivedirectoryhost}" immediate="false">
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.objectItem.swWindows}" />
+										<h:outputText value="#{txt.windows}" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.ldapbaseDN}[dc=example,dc=com]" />
+									<h:inputText required="false" id="ldapdominiodc"
+										maxlength="100"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.ldapdominiodc}"
+										title="#{txt.ldapdominiodc}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="ldapdominiodc"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.ldapalternateBaseDN}[ou=people,dc=example,dc=com]" />
+									<h:inputText required="false" id="ldaporganizacion"
+										maxlength="100"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.ldaporganizacion}"
+										title="#{txt.ldaporganizacion}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="ldaporganizacion"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+
+									<h:outputText value="#{txt.ldapUsuarioAdmin}"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+									<h:inputText required="false" id="ldapUsuarioAdmin"
+										maxlength="100"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.ldapUsuarioAdmin}"
+										title="#{txt.ldapUsuarioAdmin}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+									</h:inputText>
+									<rich:message for="ldapUsuarioAdmin"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+
+									<h:outputText value="#{txt.ldapPasswordAdmin}"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+									<h:panelGrid columns="3"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}">
+										<h:inputSecret required="false" id="ldapPasswordAdmin"
+											value="#{viewConfiguracion.objectItem.ldapPasswordAdmin}"
+											title="#{txt.ldapPasswordAdmin}" />
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.swLdapPasswordAdmin}" />
+										<h:outputText value="#{txt.encriptado}" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.usuario_passwordconfirm}" />
+									<h:inputSecret id="ldapPasswordAdminHidden" maxlength="100"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.ldapPasswordAdminHidden}"
+										title="#{txt.usuario_passwordconfirm}">
+									</h:inputSecret>
+									<h:inputHidden id="passwordOculta"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.passwordOcultaSincambio}" />
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.server}[#{txt.seguridad}]" />
+									<h:panelGrid columns="3"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}">
+										<h:inputText id="server" maxlength="100"
+											value="#{viewConfiguracion.objectItem.server}"
+											title="#{txt.server}" immediate="false">
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.swServerEncryp}" />
+										<h:outputText value="#{txt.encriptado}" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+									<h:outputText value="#{txt.ip}[#{txt.seguridad}]"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+									<h:panelGrid columns="3"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}">
+										<h:inputText required="false" id="ip"
+											value="#{viewConfiguracion.objectItem.serverIp}"
+											title="#{txt.server} #{txt.ip}" immediate="false"
+											maxlength="100">
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.swServerIpEncryp}" />
+										<h:outputText value="#{txt.encriptado}" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+									<h:outputText value="#{txt.serverPuerto}"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+									<h:inputText required="false" id="serverPuerto"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.serverPuerto}"
+										title="#{txt.serverPuerto}" />
+									<rich:message for="serverPuerto"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.numUsuarios}[#{txt.seguridad}]" />
+									<h:panelGrid columns="3"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}">
+										<h:inputText required="false" id="numUsuarios" maxlength="100"
+											value="#{viewConfiguracion.objectItem.numeroUsuarios}"
+											title="#{txt.numUsuarios}" immediate="false">
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.swNumeroUsuariosEncryp}" />
+										<h:outputText value="#{txt.encriptado}" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.comprado}[#{txt.seguridad}]" />
+									<h:panelGrid columns="3"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}">
+										<h:inputText required="false" id="comprado" maxlength="1"
+											value="#{viewConfiguracion.objectItem.comprado}"
+											title="#{txt.comprado}" immediate="false">
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<h:selectBooleanCheckbox immediate="true"
+											value="#{viewConfiguracion.swCompradoEncryp}" />
+										<h:outputText value="#{txt.encriptado}" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.usuario_fechab}[#{txt.seguridad}]" />
+									<rich:calendar
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.objectItem.fechaCaduca}"
+										locale="false" popup="true" datePattern="MM/dd/yyyy"
+										showApplyButton="false" cellWidth="24px" cellHeight="22px"
+										style="width:200px" />
+
+									<rich:message for="usuario_fechab"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+
+									<h:outputText rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{txt.usuario_password}" id="outputText2" />
+									<h:inputSecret id="inputSecret1"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}"
+										value="#{viewConfiguracion.passwordConf}">
+										<f:validateLength maximum="8" minimum="4" />
+									</h:inputSecret>
+									<rich:message for="inputSecret1"
+										rendered="#{ConfiguracionCliente.swSuperUsuario}" />
+
+									<rich:message for="btncancel" />
+									<h:panelGrid columns="2">
+										<a4j:commandButton value="#{txt.guardar}"
+											action="#{viewConfiguracion.editar}" render="table"
+											execute="editPane"
+											oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('editPane')}.hide();}" />
+										<a4j:commandButton value="#{txt.cancelar}"
+											action="#{viewConfiguracion.aceptar}"
+											onclick="#{rich:component('editPane')}.hide(); return false;" />
+									</h:panelGrid>
+									<f:verbatim></f:verbatim>
+
+								</h:panelGrid>
+
+
+							</h:panelGrid>
+						</h:panelGrid>
+					</rich:tab>
+
+				</rich:tabPanel>
+
+				<h:panelGroup />
+
+				<h:panelGroup />
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="editPane2"
+				domElementAttachment="parent" width="800" height="400">
+				<rich:messages></rich:messages>
+				<h:panelGroup />
+				<h:panelGroup />
+
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.configuracion}">
+
+						<h:panelGrid columns="3"
+							rendered="#{ConfiguracionCliente.swSuperUsuario}">
+							<h:panelGroup></h:panelGroup>
+							<h:panelGroup></h:panelGroup>
+							<h:panelGroup>
+								<h:outputText value="#{txt.menu_Usuario}" />
+								<h:inputText value="#{viewConfiguracion.usuarioProbarLdap}" />
+								<h:outputText value="#{txt.usuario_password}" />
+								<h:inputSecret value="#{viewConfiguracion.passwordProbarLdap}" />
+
+								<a4j:commandButton value="#{txt.guardar}"
+									action="#{viewConfiguracion.probarLdap}" execute="editPane2"
+									oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('editPane2')}.hide();}" />
+								<a4j:commandButton value="#{txt.cancelar}"
+									action="#{viewConfiguracion.aceptar}"
+									onclick="#{rich:component('editPane2')}.hide(); return false;" />
+
+							</h:panelGroup>
+						</h:panelGrid>
+
+					</rich:tab>
+
+				</rich:tabPanel>
+
+				<h:panelGroup />
+
+				<h:panelGroup />
+			</rich:popupPanel>
+
+
+
+			<rich:tabPanel switchType="client">
+				<rich:tab header="#{txt.menu_confDocumentos}">
+					<rich:dataTable value="#{viewConfiguracion.allObjectItems}"
+						var="car" iterationStatusVar="it" id="table"
+						rows="#{Utilidades.verNumeroDeRegistros}">
+						<rich:column>
+							<f:facet name="header">#</f:facet>
+                #{it.index}
+            </rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.smtpHost}" />
+							</f:facet>
+							<h:outputText value="#{car.smtpHost}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.bdpostgres}" />
+							</f:facet>
+							<h:outputText value="#{car.bdpostgres}" />
+						</rich:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.carpetaCompartida}" />
+							</f:facet>
+							<h:outputText value="#{car.carpetaCompartida}" />
+						</h:column>
+
+
+
+						<rich:column>
+							<f:facet name="header">
+								<h:panelGrid columns="3">
+
+									<a4j:commandLink styleClass="no-decor"
+										rendered="#{ConfiguracionCliente.swAdd}"
+										render="editGrid listshuffle" execute="@this"
+										oncomplete="#{rich:component('editPane')}.show()">
+										<h:graphicImage title="#{txt.new}" url="#{conftxt.img_new}" />
+										<a4j:param value="#{it.index}"
+											assignTo="#{viewConfiguracion.currentCarIndex}" />
+
+										<a4j:param value="false"
+											assignTo="#{viewConfiguracion.swEditar}" />
+
+										<f:setPropertyActionListener
+											target="#{viewConfiguracion.objectItem}"
+											value="#{viewConfiguracion.objeto}" />
+									</a4j:commandLink>
+
+
+								</h:panelGrid>
+
+							</f:facet>
+							<h:panelGrid columns="3">
+								<h:panelGroup>
+									<h:panelGrid columns="1">
+										<!--							<%/* new */%>-->
+									</h:panelGrid>
+								</h:panelGroup>
+								<a4j:commandLink styleClass="no-decor" render="editGrid"
+									execute="@this"
+									oncomplete="#{rich:component('editPane')}.show()">
+									<h:graphicImage title="#{txt.configuracion}"
+										url="#{conftxt.img_editar}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewConfiguracion.currentCarIndex}" />
+
+									<f:setPropertyActionListener
+										target="#{viewConfiguracion.objectItem}" value="#{car}" />
+									<f:setPropertyActionListener
+										target="#{viewConfiguracion.swEditar}" value="true" />
+
+								</a4j:commandLink>
+
+
+								<a4j:commandLink
+									rendered="#{ConfiguracionCliente.swSuperUsuario}"
+									styleClass="no-decor" render="editGrid2" execute="@this"
+									oncomplete="#{rich:component('editPane2')}.show()">
+									<h:graphicImage title="#{txt.ldaporganizacion}"
+										url="#{conftxt.img_editar}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewConfiguracion.currentCarIndex}" />
+
+									<f:setPropertyActionListener
+										target="#{viewConfiguracion.objectItem}" value="#{car}" />
+									<f:setPropertyActionListener
+										target="#{viewConfiguracion.swEditar}" value="true" />
+
+								</a4j:commandLink>
+
+								<!--								<a4j:commandLink styleClass="no-decor" execute="@this"-->
+								<!--									render="@none"-->
+								<!--									oncomplete="#{rich:component('confirmPane')}.show()">-->
+								<!--									<h:graphicImage title="#{txt.delete}"-->
+								<!--										url="#{conftxt.img_erase}" />-->
+								<!--									<a4j:param value="#{it.index}"-->
+								<!--										assignTo="#{viewConfiguracion.currentCarIndex}" />-->
+								<!---->
+								<!--									<f:setPropertyActionListener-->
+								<!--										target="#{viewConfiguracion.objectItem}" value="#{car}" />-->
+								<!---->
+								<!--								</a4j:commandLink>-->
+
+							</h:panelGrid>
+						</rich:column>
+						<f:facet name="footer">
+							<rich:dataScroller page="#{viewConfiguracion.page}" />
+						</f:facet>
+					</rich:dataTable>
+				</rich:tab>
+			</rich:tabPanel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+
+
+
+
+
+		<script type="text/javascript">
+	var formId; // reference to the main form
+	var winId; // reference to the popup window
+	// This function calls the popup window.
+	//
+	function showFlowUser(action, title) {
+		//	features = "height=330,width=450,status=yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		winId = window.open(action, title, features); // open an empty window
+</script>
+
+
+
+
+
+
+
+
+
+
+		<!--<%/* VER INFO DEL DOCUMENTO  */%>-->
+
+		<rich:messages></rich:messages>
+		<h:panelGroup />
+		<h:panelGroup />
+
+
+		<h:form>
+			<h1>
+				<h:outputText styleClass="form" value="#{txt.toHistFlow}" />
+			</h1>
+
+			<h:panelGroup id="body">
+				<rich:dataTable value="#{FlowsHistorico.flowsHistorico}" var="car"
+					iterationStatusVar="it" rows="#{Utilidades.verNumeroDeRegistros}"
+					width="auto">
+
+
+
+
+					<rich:column>
+						<f:facet name="header">
+
+						</f:facet>
+
+						<h:commandLink id="Edit"
+							action="#{FlowsHistorico.viewDocDetalleFlowHistorico}"
+							actionListener="#{FlowsHistorico.versionId}">
+							<h:graphicImage title="" url="#{conftxt.img_editar}" />
+
+							<f:setPropertyActionListener target="#{FlowsHistorico.flow}"
+								value="#{car.flow}" />
+							<f:setPropertyActionListener
+								target="#{FlowsHistorico.doc_detalle}"
+								value="#{car.doc_detalle}" />
+						</h:commandLink>
+
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{txt.doc_nombre}" />
+						</f:facet>
+
+						<h:outputText value="#{car.doc_detalle.doc_maestro.nombre}" />
+
+
+
+					</rich:column>
+
+
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{txt.flow_tipos}" />
+						</f:facet>
+						<h:outputText value="#{car.tipoFlujo}" />
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{txt.flow}" />
+						</f:facet>
+						<h:outputText value="#{car.flow.nombredelflujo}" />
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{txt.flow_fechacreado}" />
+						</f:facet>
+						<h:outputText value="#{car.fechaCreado}" />
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{txt.autor_flujo}" />
+						</f:facet>
+						<h:outputText
+							value="#{car.flow.duenio.nombre} #{car.flow.duenio.apellido} [#{car.flow.duenio.cargo.nombre}]" />
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="" />
+						</f:facet>
+						<h:outputText value="#{car.statusEnQedo}" />
+					</rich:column>
+
+				</rich:dataTable>
+
+
+
+
+				<h:panelGrid columns="3" id="panelGrid1">
+					<f:verbatim>&nbsp;</f:verbatim>
+					<h:commandButton value="#{txt.btn_cancelar}"
+						action="#{Documento.regresarVerDocumento}" />
+
+				</h:panelGrid>
+
+
+			</h:panelGroup>
+
+		</h:form>
+
+
+
+
+		<!--<%/* FIN VER INFO DEL DOCUMENTO  */%>-->
+
+
+
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

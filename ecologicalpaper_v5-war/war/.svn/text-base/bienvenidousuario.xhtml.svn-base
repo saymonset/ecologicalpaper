@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+
+
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="title">www.ecologicalpaper.com</ui:define>
+
+	<ui:define name="body">
+
+		<h:form id="forma">
+
+
+
+			<table cellSpacing="1" cellPadding="0" width="750" align="center"
+				bgColor="#666666" border="0">
+				<tbody>
+					<tr>
+						<td vAlign="top" bgColor="#ffffff" height="473">
+							<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+								<tbody>
+									<tr>
+										<td vAlign="top"><h:graphicImage
+												title="#{txt.doc_detalle}" url="#{login.imgLogoEmpresa}"
+												height="317" width="748" /></td>
+									</tr>
+									<tr>
+										<td height="19">
+											<table cellSpacing="0" cellPadding="0" width="100%"
+												border="0">
+												<tbody>
+													<tr>
+														<td width="58%">
+															<div align="right"></div>
+														</td>
+														<td width="20%">
+															<div align="right">
+																<img height="95" src="bienvenido_archivos/cerrojo.jpg"
+																	width="97"> </img>
+															</div>
+														</td>
+														<td width="20%">
+															<div align="right">
+																<!--  <a href="http://www.ecologicalpaper.com/" style="forms">http://www.ecologicalpaper.com/</a>-->
+
+																<h:outputText
+																	value="#{requestScope.usuario_nologueado} " />
+
+															</div>
+														</td>
+
+														<td ALIGN="left" width="28%"></td>
+														<td width="22%"><h:panelGrid columns="1">
+																<a4j:outputPanel ajaxRendered="true">
+																	<h:messages style="color:red" />
+																</a4j:outputPanel>
+															</h:panelGrid> <h:panelGroup rendered="#{!login.swEscojerempresa}">
+																<h:panelGrid columns="3" binding="#{login.panelGrid1}">
+																	<f:verbatim></f:verbatim>
+																	<h:panelGrid columns="2">
+																		<h:selectBooleanCheckbox
+																			rendered="#{login.swLdapdominiodc}"
+																			value="#{login.servidorLdap}" immediate="true" />
+																		<h:outputText rendered="#{login.swLdapdominiodc}"
+																			value="#{txt.ldapactivedirectoryhost}" />
+																	</h:panelGrid>
+																	<f:verbatim></f:verbatim>
+
+																	<h:outputText styleClass="forms" value="#{txt.login}"
+																		binding="#{login.outputText1}" />
+																	<h:inputText binding="#{login.inputText1}"
+																		id="inputText1" required="true"
+																		value="#{login.usuario.login}" />
+																	<f:verbatim></f:verbatim>
+																	<h:outputText styleClass="forms"
+																		value="#{txt.usuario_password}"
+																		binding="#{login.outputText2}" id="outputText2" />
+																	<h:inputSecret binding="#{login.inputSecret1}"
+																		id="inputSecret1" required="true"
+																		value="#{login.usuario.password}">
+																		<f:validateLength maximum="18" minimum="4" />
+																	</h:inputSecret>
+																	<f:verbatim></f:verbatim>
+
+
+																	<h:outputText styleClass="forms"
+																		value="#{conftxt.licencia}" />
+																	<h:outputText styleClass="forms"
+																		value="#{login.numero_usuarios} #{txt.usuario_varios}" />
+																	<f:verbatim>
+																	</f:verbatim>
+
+																	<h:outputText styleClass="forms"
+																		value="#{txt.expiraen}:"
+																		rendered="#{login.swNoComprado}" />
+																	<h:outputText styleClass="forms"
+																		value="#{login.diasSeVence} #{txt.dias}"
+																		rendered="#{login.swNoComprado}" />
+																	<f:verbatim>
+																	</f:verbatim>
+
+																</h:panelGrid>
+
+																<h:panelGrid columns="1">
+																	<h:outputLink target="_blank"
+																		value="http://www.ecologicalpaper.com">
+																		<h:outputText styleClass="forms"
+																			value="#{conftxt.txt_direccion}" />
+																	</h:outputLink>
+
+																	<a4j:commandButton id="commandButton1sss"
+																		value="#{txt.btn_aceptar}"
+																		action="#{login.login_actionbienvenido}" />
+
+																</h:panelGrid>
+															</h:panelGroup> <h:panelGroup rendered="#{login.swEscojerempresa}">
+																<h:panelGrid columns="3" id="panelGrid2xxx">
+
+
+																	<h:outputText styleClass="forms"
+																		value="#{txt.usuario_empresa}"
+																		title="#{txt.usuario_empresa}" />
+																	<h:selectOneMenu id="selectOneMenuEmpresaxxx"
+																		immediate="true" value="#{login.empresa}"
+																		converter="ConverTree">
+																		<f:selectItems value="#{login.lstEmpresas}" />
+																	</h:selectOneMenu>
+																	<f:verbatim></f:verbatim>
+
+																	<h:outputText styleClass="forms"
+																		value="#{conftxt.licencia}" />
+																	<h:outputText styleClass="forms"
+																		value="#{login.numero_usuarios} #{txt.usuario_varios}" />
+																	<f:verbatim></f:verbatim>
+
+																	<h:outputText styleClass="forms"
+																		value="#{txt.expiraen}:"
+																		rendered="#{login.swNoComprado}" />
+																	<h:outputText styleClass="forms"
+																		value="#{login.diasSeVence} #{txt.dias}"
+																		rendered="#{login.swNoComprado}" />
+																	<f:verbatim></f:verbatim>
+
+																</h:panelGrid>
+
+																<h:panelGrid columns="1">
+																	<h:outputLink target="_blank"
+																		value="http://www.ecologicalpaper.com">
+																		<h:outputText styleClass="forms"
+																			value="#{conftxt.txt_direccion}" />
+																	</h:outputLink>
+																	<h:panelGrid columns="2">
+
+																		<a4j:commandButton value="#{txt.cancelar}"
+																			id="commandButton1cancxelar" action="#{login.inicio}" />
+
+																		<a4j:commandButton value="#{txt.btn_aceptar}"
+																			id="commandButton1xxxa"
+																			action="#{login.login_action}" />
+																	</h:panelGrid>
+
+																</h:panelGrid>
+															</h:panelGroup></td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

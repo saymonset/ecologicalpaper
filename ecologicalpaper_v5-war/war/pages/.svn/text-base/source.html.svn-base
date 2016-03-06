@@ -1,0 +1,35 @@
+<pre>
+...
+		&lt;a4j:region id="stat1">
+			...
+			&lt;h:inputText>
+				&lt;a4j:support action="#{nameBean.DelayAct}" event="onkeyup">&lt;/a4j:support>
+			&lt;/h:inputText>
+			...
+			
+			&lt;a4j:status startText=" Performing Request" stopText=" Request Done"
+				for="stat1">
+			&lt;/a4j:status>
+			...
+			
+		&lt;/a4j:region>
+...
+		&lt;a4j:region id="stat2">
+			&lt;h:inputText>
+				&lt;a4j:support action="#{nameBean.DelayAct}" event="onkeyup">&lt;/a4j:support>
+			&lt;/h:inputText>
+			...
+			
+			&lt;a4j:status for="stat2">
+				&lt;f:facet name="start">
+					&lt;h:graphicImage value="/images/ajax_process.gif" />
+				&lt;/f:facet>
+				&lt;f:facet name="stop">
+					&lt;h:graphicImage value="/images/ajax_stoped.gif" />
+				&lt;/f:facet>
+			&lt;/a4j:status>
+			...
+			
+		&lt;/a4j:region&gt;
+...
+</pre>

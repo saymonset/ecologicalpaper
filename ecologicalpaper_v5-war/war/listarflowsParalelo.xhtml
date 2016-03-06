@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+
+		<center>
+			<h1>
+				<h:outputText styleClass="form"
+					value="#{txt.doc_crearDocumentotab}:#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.nombre}" />
+			</h1>
+		</center>
+
+
+
+		<h:form>
+
+			<rich:messages></rich:messages>
+
+
+			<h1>
+				<h:outputText styleClass="form" value="#{txt.search_buscar}" />
+			</h1>
+			<f:verbatim>&nbsp;</f:verbatim>
+			<h:panelGroup id="buscar">
+				<h:inputText id="searchtext"
+					value="#{clienteFlowsParalelo.strBuscar}" immediate="true">
+					<f:ajax event="keyup" render="data" execute="@this" />
+				</h:inputText>
+				<h:graphicImage value="#{conftxt.img_search}" />
+				<h:outputText value="#{txt.Operaciones_nombre}" />
+			</h:panelGroup>
+
+			<!--			<h:panelGroup>-->
+			<!--				<h:outputText value="#{txt.areadocumento}" />-->
+			<!--				<h:selectOneMenu immediate="true" converter="converAreadocumento"-->
+			<!--					value="#{clienteFlowsParalelo.areaDocumentos}">-->
+			<!--					<f:selectItems value="#{DatosCombo.areaDocumentos}" />-->
+			<!--					<f:ajax event="change" render="data" execute="@this" />-->
+			<!--				</h:selectOneMenu>-->
+			<!--				<h:outputText value="#{txt.doc_tipotab}" />-->
+			<!--				<h:selectOneMenu value="#{clienteFlowsParalelo.doc_tipo}"-->
+			<!--					converter="ConverDoc_tipo">-->
+			<!--					<f:selectItems value="#{DatosCombo.doc_tipo}" />-->
+			<!--					<f:ajax event="change" render="data" execute="@this" />-->
+			<!--				</h:selectOneMenu>-->
+			<!--			</h:panelGroup>-->
+
+
+
+			<rich:dataTable var="car"
+				value="#{clienteFlowsParalelo.listarParalelos}"
+				iterationStatusVar="it" id="data"
+				rows="#{Utilidades.verNumeroDeRegistros}">
+
+				<rich:column>
+					<f:facet name="header">
+						<h:panelGrid column="2">
+						</h:panelGrid>
+
+					</f:facet>
+
+					<h:commandLink id="flow_someterflowparalelo"
+						action="#{clienteFlowsParalelo.cambiarNombreComentarioDePlantilla}">
+						<h:graphicImage title="" url="#{conftxt.img_editar}" />
+						<f:setPropertyActionListener
+							target="#{clienteFlowsParalelo.flowParalelo}" value="#{car}" />
+
+					</h:commandLink>
+				</rich:column>
+
+
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="#{txt.Operaciones_nombre}" />
+					</f:facet>
+
+					<h:outputText value=" #{car.nombre}" />
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="#{txt.areadocumento}" />
+					</f:facet>
+					<h:outputText value="#{car.areaDocumentos.nombre}" />
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="#{txt.plantillaInDocFlowParalelo}" />
+					</f:facet>
+					<h:outputText value="#{car.doc_tipo.nombre}" />
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">
+						<h:outputText value="#{txt.comentario}" />
+					</f:facet>
+
+
+					<h:commandLink rendered="#{car.solicituImpresion}"
+						styleClass="no-decor"
+						action="#{clienteFlowsParalelo.listarSolicitudImpresion}"
+						actionListener="#{clienteFlowsParalelo.editSolicitudImpresion}">
+						<h:graphicImage styleClass="no-decor"
+							rendered="#{car.solicituImpresion}"
+							title="#{txt.solicitudImpresion}" url="#{conftxt.img_impresora}" />
+						<f:param id="editimprimirid" name="editimp_id"
+							value="#{car.codigo}" />
+					</h:commandLink>
+
+					<h:outputText rendered="#{!car.solicituImpresion}"
+						value="#{car.flow.comentarios}" />
+
+
+				</rich:column>
+
+
+
+
+				<rich:column>
+					<f:facet name="header">
+
+					</f:facet>
+					<h:commandLink styleClass="no-decor"
+						rendered="#{!car.swTipoPlantilladocumento
+					and !car.solicituImpresion}"
+						id="del" action="#{clienteFlowsParalelo.delete}"
+						actionListener="#{clienteFlowsParalelo.editFlowParalelo}"
+						onclick="if (!confirm('#{txt.seguroeliminar}')) return false">
+
+						<h:graphicImage title="#{txt.btn_erase}"
+							url="#{conftxt.img_erase}" />
+
+						<f:param id="editflowiddel" name="editflow_iddel"
+							value="#{car.codigo}" />
+					</h:commandLink>
+				</rich:column>
+				<rich:column>
+					<f:facet name="header">
+
+					</f:facet>
+
+					<!--                 <%/*   SI SON PLANTILLAS GLOBALES Y TIENE PREMISO PUEDE BORRAR*/%>-->
+					<h:commandLink styleClass="no-decor"
+						rendered="#{car.swTipoPlantilladocumento and car.swTipoPlantilladocumentoDelete
+						and !car.solicituImpresion}"
+						id="delPlantilla" action="#{clienteFlowsParalelo.delete}"
+						actionListener="#{clienteFlowsParalelo.editFlowParalelo}"
+						onclick="if (!confirm('#{txt.seguroeliminar}')) return false">
+
+						<h:graphicImage title="#{txt.btn_erase}"
+							url="#{conftxt.img_erase}" />
+
+						<f:param id="editflowiddelplantillaflowdocumento"
+							name="editflow_idelplantillaflowdocumento" value="#{car.codigo}" />
+					</h:commandLink>
+
+				</rich:column>
+
+				<rich:column>
+					<f:facet name="header">
+
+					</f:facet>
+
+					<h:commandLink styleClass="no-decor"
+						rendered="#{car.solicituImpresion
+						and clienteFlowsParalelo.seguridadMenu.toImprimirAdministrar
+						}"
+						action="#{clienteFlowsParalelo.delete}"
+						actionListener="#{clienteFlowsParalelo.editFlowParalelo}"
+						onclick="if (!confirm('#{txt.seguroeliminar}')) return false">
+
+						<h:graphicImage title="#{txt.btn_erase}"
+							url="#{conftxt.img_erase}" />
+
+						<f:param id="editflowiddelimp" name="editflow_iddelimp"
+							value="#{car.codigo}" />
+					</h:commandLink>
+
+				</rich:column>
+				<f:facet name="footer">
+					<rich:dataScroller page="#{viewTreeDocumentos.page}" />
+				</f:facet>
+			</rich:dataTable>
+
+
+
+
+			<h:panelGrid columns="2">
+				<h2>
+					<h:outputText value="#{txt.operacion_exitosa}" />
+				</h2>
+				<f:verbatim></f:verbatim>
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+				<h:panelGroup>
+					<h:commandButton styleClass="boton" value="#{txt.btn_cancelar}"
+						onclick="this.style.display='none';"
+						action="#{clienteFlowsParalelo.listar}" />
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>

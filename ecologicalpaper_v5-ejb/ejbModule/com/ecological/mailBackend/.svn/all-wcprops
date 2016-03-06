@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/ecologicalpaper/!svn/ver/269/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/mailBackend
+END
+TestGmailSendMailTLS.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/ecologicalpaper/!svn/ver/254/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/mailBackend/TestGmailSendMailTLS.java
+END
+TestMail.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/ecologicalpaper/!svn/ver/246/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/mailBackend/TestMail.java
+END
+SMSText.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/ecologicalpaper/!svn/ver/264/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/mailBackend/SMSText.java
+END
+MandarMail.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/ecologicalpaper/!svn/ver/269/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/mailBackend/MandarMail.java
+END

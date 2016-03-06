@@ -1,0 +1,1225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#bienvenidousuario.xhtml"
+  PATH="/bienvenidousuario.xhtml" SHAPE="48,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#bienvenidousuario.xhtml:0" NAME="item"
+   PATH="/bienvenidousuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="escojerempresa::#bienvenidousuario.xhtml"
+    NAME="output" PATH="/bienvenidousuario.xhtml"
+    TARGET="rules:#bienvenidousuario.xhtml" TITLE="escojerempresa" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="inicio::#bienvenidousuario.xhtml"
+    NAME="output1" PATH="/bienvenidousuario.xhtml"
+    TARGET="rules:#bienvenidousuario.xhtml" TITLE="inicio" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ir_aplicacion::#workflowdocs.xhtml"
+    NAME="output2" PATH="/workflowdocs.xhtml"
+    TARGET="rules:#workflowdocs.xhtml" TITLE="ir_aplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarTreeEmpresas.xhtml"
+  PATH="/listarTreeEmpresas.xhtml" SHAPE="544,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarTreeEmpresas.xhtml:0" NAME="item"
+   PATH="/listarTreeEmpresas.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editDocumento.xhtml"
+  PATH="/editDocumento.xhtml" SHAPE="32,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editDocumento.xhtml:0" NAME="item"
+   PATH="/editDocumento.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicaciondetalles.xhtml"
+    NAME="output1" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output2"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#crearDocumento.xhtml"
+  PATH="/crearDocumento.xhtml" SHAPE="544,1041,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#crearDocumento.xhtml:0" NAME="item"
+   PATH="/crearDocumento.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml"
+    NAME="output1" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#crearTreePropiedades.xhtml"
+  PATH="/crearTreePropiedades.xhtml" SHAPE="544,1217,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#crearTreePropiedades.xhtml:0" NAME="item"
+   PATH="/crearTreePropiedades.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml"
+    NAME="output1" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#treePropiedadesEliminar.xhtml"
+  PATH="/treePropiedadesEliminar.xhtml" SHAPE="544,1361,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#treePropiedadesEliminar.xhtml:0" NAME="item"
+   PATH="/treePropiedadesEliminar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml"
+    NAME="output1" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output2"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#seguridadTree.xhtml"
+  PATH="/seguridadTree.xhtml" SHAPE="1360,209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#seguridadTree.xhtml:0" NAME="item"
+   PATH="/seguridadTree.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml"
+    NAME="output1" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output2"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editDocumentoReadOnly.xhtml"
+  PATH="/editDocumentoReadOnly.xhtml" SHAPE="32,1041,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editDocumentoReadOnly.xhtml:0" NAME="item"
+   PATH="/editDocumentoReadOnly.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output1" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDocumentoSearchPublicados::#listarDocumentoSearchPublicados.xhtml"
+    NAME="output2" PATH="/listarDocumentoSearchPublicados.xhtml"
+    TARGET="rules:#listarDocumentoSearchPublicados.xhtml"
+    TITLE="listarDocumentoSearchPublicados" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#aplicaciondetalles.xhtml"
+  PATH="/aplicaciondetalles.xhtml" SHAPE="272,209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#aplicaciondetalles.xhtml:0" NAME="item"
+   PATH="/aplicaciondetalles.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="imprimirDocumento::#imprimirDocumento.jsf"
+    NAME="output1" PATH="/imprimirDocumento.jsf"
+    TARGET="rules:#imprimirDocumento.jsf" TITLE="imprimirDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicacionApplet::#aplicacionAppletFrame.xhtml" NAME="output2"
+    PATH="/aplicacionAppletFrame.xhtml"
+    TARGET="rules:#aplicacionAppletFrame.xhtml" TITLE="aplicacionApplet" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="acercaDeDocumento::#acercaDeDocumento.jsf"
+    NAME="output3" PATH="/acercaDeDocumento.jsf"
+    TARGET="rules:#acercaDeDocumento.jsf" TITLE="acercaDeDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="treePropiedadesEliminar::#treePropiedadesEliminar.xhtml"
+    NAME="output4" PATH="/treePropiedadesEliminar.xhtml"
+    TARGET="rules:#treePropiedadesEliminar.xhtml"
+    TITLE="treePropiedadesEliminar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarFlowsHistorico::#listarFlowsHistorico.xhtml"
+    NAME="output5" PATH="/listarFlowsHistorico.xhtml"
+    TARGET="rules:#listarFlowsHistorico.xhtml"
+    TITLE="listarFlowsHistorico" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="generarRegistro::#aplicacion.xhtml"
+    NAME="output6" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="generarRegistro" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="docVinculados::#listarDocumentosVinculados.xhtml" NAME="output7"
+    PATH="/listarDocumentosVinculados.xhtml"
+    TARGET="rules:#listarDocumentosVinculados.xhtml"
+    TITLE="docVinculados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="docPublicar::#listarDocumentosPublicar.xhtml" NAME="output8"
+    PATH="/listarDocumentosPublicar.xhtml"
+    TARGET="rules:#listarDocumentosPublicar.xhtml" TITLE="docPublicar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editDocumentoNuevaVersion::#editDocumentoNuevaVersion.xhtml"
+    NAME="output9" PATH="/editDocumentoNuevaVersion.xhtml"
+    TARGET="rules:#editDocumentoNuevaVersion.xhtml"
+    TITLE="editDocumentoNuevaVersion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flows::#flows.xhtml" NAME="output10"
+    PATH="/flows.xhtml" TARGET="rules:#flows.xhtml" TITLE="flows" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flowsResponse::#flowsResponse.xhtml"
+    NAME="output11" PATH="/flowsResponse.xhtml"
+    TARGET="rules:#flowsResponse.xhtml" TITLE="flowsResponse" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarflowsParalelo::#listarflowsParalelo.xhtml" NAME="output12"
+    PATH="/listarflowsParalelo.xhtml"
+    TARGET="rules:#listarflowsParalelo.xhtml"
+    TITLE="listarflowsParalelo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml"
+    NAME="output13" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editDocumentoReadOnly::#editDocumentoReadOnly.xhtml"
+    NAME="output14" PATH="/editDocumentoReadOnly.xhtml"
+    TARGET="rules:#editDocumentoReadOnly.xhtml"
+    TITLE="editDocumentoReadOnly" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editDocumento::#editDocumento.xhtml"
+    NAME="output15" PATH="/editDocumento.xhtml"
+    TARGET="rules:#editDocumento.xhtml" TITLE="editDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="seguridadTree::#seguridadTree.xhtml"
+    NAME="output16" PATH="/seguridadTree.xhtml"
+    TARGET="rules:#seguridadTree.xhtml" TITLE="seguridadTree" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output17"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#aplicacion.xhtml" PATH="/aplicacion.xhtml"
+  SHAPE="1088,193,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#aplicacion.xhtml:0" NAME="item"
+   PATH="/aplicacion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="generarRegistroII::#PuenteGenerarRegistroCopyDoc.jsf"
+    NAME="output" PATH="/PuenteGenerarRegistroCopyDoc.jsf"
+    TARGET="rules:#PuenteGenerarRegistroCopyDoc.jsf"
+    TITLE="generarRegistroII" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="cancelpage::#aplicacion.xhtml"
+    NAME="output1" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="cancelpage" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="seguridadTree::#seguridadTree.xhtml"
+    NAME="output2" PATH="/seguridadTree.xhtml"
+    TARGET="rules:#seguridadTree.xhtml" TITLE="seguridadTree" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="treePropiedadesEliminar::#treePropiedadesEliminar.xhtml"
+    NAME="output3" PATH="/treePropiedadesEliminar.xhtml"
+    TARGET="rules:#treePropiedadesEliminar.xhtml"
+    TITLE="treePropiedadesEliminar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="crearTreePropiedades::#crearTreePropiedades.xhtml"
+    NAME="output4" PATH="/crearTreePropiedades.xhtml"
+    TARGET="rules:#crearTreePropiedades.xhtml"
+    TITLE="crearTreePropiedades" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="crearDocumento::#crearDocumento.xhtml"
+    NAME="output5" PATH="/crearDocumento.xhtml"
+    TARGET="rules:#crearDocumento.xhtml" TITLE="crearDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output6"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml"
+    NAME="output7" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output8"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarConfiguracion.xhtml"
+  PATH="/listarConfiguracion.xhtml" SHAPE="544,1505,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarConfiguracion.xhtml:0" NAME="item"
+   PATH="/listarConfiguracion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editUsuarioPerfil.xhtml"
+  PATH="/editUsuarioPerfil.xhtml" SHAPE="544,1617,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editUsuarioPerfil.xhtml:0" NAME="item"
+   PATH="/editUsuarioPerfil.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editRole.xhtml" PATH="/editRole.xhtml"
+  SHAPE="272,1057,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editRole.xhtml:0" NAME="item"
+   PATH="/editRole.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listarRole::#listarRole.xhtml" NAME="output"
+    PATH="/listarRole.xhtml" TARGET="rules:#listarRole.xhtml"
+    TITLE="listarRole" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarRoleWorkFlow::#listarRoleWorkFlow.xhtml" NAME="output1"
+    PATH="/listarRoleWorkFlow.xhtml"
+    TARGET="rules:#listarRoleWorkFlow.xhtml" TITLE="listarRoleWorkFlow" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output2"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarRoleWorkFlow.xhtml"
+  PATH="/listarRoleWorkFlow.xhtml" SHAPE="32,1217,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarRoleWorkFlow.xhtml:0" NAME="item"
+   PATH="/listarRoleWorkFlow.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="edit::#editRole.xhtml" NAME="output"
+    PATH="/editRole.xhtml" TARGET="rules:#editRole.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarRole.xhtml" PATH="/listarRole.xhtml"
+  SHAPE="544,1729,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarRole.xhtml:0" NAME="item"
+   PATH="/listarRole.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="edit::#editRole.xhtml" NAME="output"
+    PATH="/editRole.xhtml" TARGET="rules:#editRole.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarSVNModulo.xhtml"
+  PATH="/listarSVNModulo.xhtml" SHAPE="544,1873,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarSVNModulo.xhtml:0" NAME="item"
+   PATH="/listarSVNModulo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarSVNTipodeAmbiente.xhtml"
+  PATH="/listarSVNTipodeAmbiente.xhtml" SHAPE="544,1985,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarSVNTipodeAmbiente.xhtml:0" NAME="item"
+   PATH="/listarSVNTipodeAmbiente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarSVNNombreAplicacion.xhtml"
+  PATH="/listarSVNNombreAplicacion.xhtml" SHAPE="544,2097,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarSVNNombreAplicacion.xhtml:0"
+   NAME="item" PATH="/listarSVNNombreAplicacion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarSVNUrlBase.xhtml"
+  PATH="/listarSVNUrlBase.xhtml" SHAPE="544,2209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarSVNUrlBase.xhtml:0" NAME="item"
+   PATH="/listarSVNUrlBase.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarExtensionFileHijos.xhtml"
+  PATH="/listarExtensionFileHijos.xhtml" SHAPE="544,2321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarExtensionFileHijos.xhtml:0" NAME="item"
+   PATH="/listarExtensionFileHijos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDoc_Tipo.xhtml"
+  PATH="/listarDoc_Tipo.xhtml" SHAPE="544,2433,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDoc_Tipo.xhtml:0" NAME="item"
+   PATH="/listarDoc_Tipo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDiasHabilesByHoras.xhtml"
+  PATH="/listarDiasHabilesByHoras.xhtml" SHAPE="544,2545,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDiasHabilesByHoras.xhtml:0" NAME="item"
+   PATH="/listarDiasHabilesByHoras.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editUsuario.xhtml" PATH="/editUsuario.xhtml"
+  SHAPE="272,1233,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editUsuario.xhtml:0" NAME="item"
+   PATH="/editUsuario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#listarUsuarios.xhtml" NAME="output"
+    PATH="/listarUsuarios.xhtml" TARGET="rules:#listarUsuarios.xhtml"
+    TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarUsuarios.xhtml"
+  PATH="/listarUsuarios.xhtml" SHAPE="544,2657,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarUsuarios.xhtml:0" NAME="item"
+   PATH="/listarUsuarios.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="historicoUsuarioActivo::#historicoUsuarioActivo.xhtml"
+    NAME="output" PATH="/historicoUsuarioActivo.xhtml"
+    TARGET="rules:#historicoUsuarioActivo.xhtml"
+    TITLE="historicoUsuarioActivo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#editUsuario.xhtml" NAME="output1"
+    PATH="/editUsuario.xhtml" TARGET="rules:#editUsuario.xhtml"
+    TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output2"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarProfesion.xhtml"
+  PATH="/listarProfesion.xhtml" SHAPE="544,2801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarProfesion.xhtml:0" NAME="item"
+   PATH="/listarProfesion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDiasFeriados.xhtml"
+  PATH="/listarDiasFeriados.xhtml" SHAPE="544,2913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDiasFeriados.xhtml:0" NAME="item"
+   PATH="/listarDiasFeriados.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#exitoso.xhtml" PATH="/exitoso.xhtml"
+  SHAPE="816,209,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#exitoso.xhtml:0" NAME="item"
+   PATH="/exitoso.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="docVinculados::#listarDocumentosVinculados.xhtml" NAME="output"
+    PATH="/listarDocumentosVinculados.xhtml"
+    TARGET="rules:#listarDocumentosVinculados.xhtml"
+    TITLE="docVinculados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="seguridadTree::#seguridadTree.xhtml"
+    NAME="output1" PATH="/seguridadTree.xhtml"
+    TARGET="rules:#seguridadTree.xhtml" TITLE="seguridadTree" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarTreeEmpresas::#listarTreeEmpresas.xhtml" NAME="output2"
+    PATH="/listarTreeEmpresas.xhtml"
+    TARGET="rules:#listarTreeEmpresas.xhtml" TITLE="listarTreeEmpresas" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarConfiguracion::#listarConfiguracion.xhtml" NAME="output3"
+    PATH="/listarConfiguracion.xhtml"
+    TARGET="rules:#listarConfiguracion.xhtml"
+    TITLE="listarConfiguracion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editUsuarioPerfil::#editUsuarioPerfil.xhtml"
+    NAME="output4" PATH="/editUsuarioPerfil.xhtml"
+    TARGET="rules:#editUsuarioPerfil.xhtml" TITLE="editUsuarioPerfil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarRoles::#listarRole.xhtml"
+    NAME="output5" PATH="/listarRole.xhtml"
+    TARGET="rules:#listarRole.xhtml" TITLE="listarRoles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarSVNModulo::#listarSVNModulo.xhtml"
+    NAME="output6" PATH="/listarSVNModulo.xhtml"
+    TARGET="rules:#listarSVNModulo.xhtml" TITLE="listarSVNModulo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarSVNTipodeAmbiente::#listarSVNTipodeAmbiente.xhtml"
+    NAME="output7" PATH="/listarSVNTipodeAmbiente.xhtml"
+    TARGET="rules:#listarSVNTipodeAmbiente.xhtml"
+    TITLE="listarSVNTipodeAmbiente" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarSVNUrlBase::#listarSVNUrlBase.xhtml"
+    NAME="output8" PATH="/listarSVNUrlBase.xhtml"
+    TARGET="rules:#listarSVNUrlBase.xhtml" TITLE="listarSVNUrlBase" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarExtensionFileHijos::#listarExtensionFileHijos.xhtml"
+    NAME="output9" PATH="/listarExtensionFileHijos.xhtml"
+    TARGET="rules:#listarExtensionFileHijos.xhtml"
+    TITLE="listarExtensionFileHijos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarDoc_Tipo::#listarDoc_Tipo.xhtml"
+    NAME="output10" PATH="/listarDoc_Tipo.xhtml"
+    TARGET="rules:#listarDoc_Tipo.xhtml" TITLE="listarDoc_Tipo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDiasHabiles::#listarDiasHabilesByHoras.xhtml"
+    NAME="output11" PATH="/listarDiasHabilesByHoras.xhtml"
+    TARGET="rules:#listarDiasHabilesByHoras.xhtml"
+    TITLE="listarDiasHabiles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDiasFeriados::#listarDiasFeriados.xhtml" NAME="output12"
+    PATH="/listarDiasFeriados.xhtml"
+    TARGET="rules:#listarDiasFeriados.xhtml" TITLE="listarDiasFeriados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ListarFletes_EUJ::#ListarFletes_EUJ.xhtml"
+    NAME="output13" PATH="/ListarFletes_EUJ.xhtml"
+    TARGET="rules:#ListarFletes_EUJ.xhtml" TITLE="ListarFletes_EUJ" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarCliente_EUJ::#ListarCliente_EUJ.xhtml"
+    NAME="output14" PATH="/ListarCliente_EUJ.xhtml"
+    TARGET="rules:#ListarCliente_EUJ.xhtml" TITLE="listarCliente_EUJ" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarCiudad::#listarCiudad.xhtml"
+    NAME="output15" PATH="/listarCiudad.xhtml"
+    TARGET="rules:#listarCiudad.xhtml" TITLE="listarCiudad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarEstados::#listarEstados.xhtml"
+    NAME="output16" PATH="/listarEstados.xhtml"
+    TARGET="rules:#listarEstados.xhtml" TITLE="listarEstados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarPaises::#listarPaises.xhtml"
+    NAME="output17" PATH="/listarPaises.xhtml"
+    TARGET="rules:#listarPaises.xhtml" TITLE="listarPaises" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarProfesion::#listarProfesion.xhtml"
+    NAME="output18" PATH="/listarProfesion.xhtml"
+    TARGET="rules:#listarProfesion.xhtml" TITLE="listarProfesion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flowsResponse::#flowsResponse.xhtml"
+    NAME="output19" PATH="/flowsResponse.xhtml"
+    TARGET="rules:#flowsResponse.xhtml" TITLE="flowsResponse" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flows::#flows.xhtml" NAME="output20"
+    PATH="/flows.xhtml" TARGET="rules:#flows.xhtml" TITLE="flows" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarDocumentos::#listarDocumentos.xhtml"
+    NAME="output21" PATH="/listarDocumentos.xhtml"
+    TARGET="rules:#listarDocumentos.xhtml" TITLE="listarDocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarUsuarios::#listarUsuarios.xhtml"
+    NAME="output22" PATH="/listarUsuarios.xhtml"
+    TARGET="rules:#listarUsuarios.xhtml" TITLE="listarUsuarios" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarAplicacion::#aplicacion.xhtml"
+    NAME="output23" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="listarAplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#ListarFletes_EUJ.xhtml"
+  PATH="/ListarFletes_EUJ.xhtml" SHAPE="1088,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listarCiudad.xhtml"
+  PATH="/listarCiudad.xhtml" SHAPE="1088,1361,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#workflowdocs.xhtml"
+  PATH="/workflowdocs.xhtml" SHAPE="288,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listarEstados.xhtml"
+  PATH="/listarEstados.xhtml" SHAPE="1088,1505,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ListarCliente_EUJ.xhtml"
+  PATH="/ListarCliente_EUJ.xhtml" SHAPE="1088,1217,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listarPaises.xhtml"
+  PATH="/listarPaises.xhtml" SHAPE="1088,1617,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#flows.xhtml" PATH="/flows.xhtml"
+  SHAPE="1088,1873,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flows.xhtml:0" NAME="item"
+   PATH="/flows.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarflowsParaleCambiarNomComent::#listarflowsParaleCambiarNomComent.xhtml"
+    NAME="output" PATH="/listarflowsParaleCambiarNomComent.xhtml"
+    TARGET="rules:#listarflowsParaleCambiarNomComent.xhtml"
+    TITLE="listarflowsParaleCambiarNomComent" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flowparalelo::#flowparalelo.xhtml"
+    NAME="output2" PATH="/flowparalelo.xhtml"
+    TARGET="rules:#flowparalelo.xhtml" TITLE="flowparalelo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output3" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicaciondetalles.xhtml"
+    NAME="output4" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#flowsResponse.xhtml"
+  PATH="/flowsResponse.xhtml" SHAPE="1088,1729,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flowsResponse.xhtml:0" NAME="item"
+   PATH="/flowsResponse.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="flowsResponseTab1::#flowsResponseTab1.xhtml"
+    NAME="output" PATH="/flowsResponseTab1.xhtml"
+    TARGET="rules:#flowsResponseTab1.xhtml" TITLE="flowsResponseTab1" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarDocumento::#editarDocumento.jsf"
+    NAME="output1" PATH="/editarDocumento.jsf"
+    TARGET="rules:#editarDocumento.jsf" TITLE="editarDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="flowCambiarUsuarioParticipante::#flowCambiarUsuarioParticipante.xhtml"
+    NAME="output2" PATH="/flowCambiarUsuarioParticipante.xhtml"
+    TARGET="rules:#flowCambiarUsuarioParticipante.xhtml"
+    TITLE="flowCambiarUsuarioParticipante" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="agregarDocumentosvnUpload::#crearDocumentosvnUpload.xhtml"
+    NAME="output3" PATH="/crearDocumentosvnUpload.xhtml"
+    TARGET="rules:#crearDocumentosvnUpload.xhtml"
+    TITLE="agregarDocumentosvnUpload" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="agregarDocumentosvn::#crearDocumentosvn.xhtml" NAME="output4"
+    PATH="/crearDocumentosvn.xhtml"
+    TARGET="rules:#crearDocumentosvn.xhtml" TITLE="agregarDocumentosvn" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reporte::#servletReporte.jsf" NAME="output5"
+    PATH="/servletReporte.jsf" TARGET="rules:#servletReporte.jsf"
+    TITLE="reporte" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="viewAttachment::#ClienteDocumentoGenerarAttachment.jsf"
+    NAME="output6" PATH="/ClienteDocumentoGenerarAttachment.jsf"
+    TARGET="rules:#ClienteDocumentoGenerarAttachment.jsf"
+    TITLE="viewAttachment" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flows::#flows.xhtml" NAME="output7"
+    PATH="/flows.xhtml" TARGET="rules:#flows.xhtml" TITLE="flows" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarAplicacion::#aplicacion.xhtml"
+    NAME="output8" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="listarAplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarDocumentos::#aplicaciondetalles.xhtml"
+    NAME="output9" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listarDocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewPDF::#ClienteDocumentoGenerar.jsf"
+    NAME="output10" PATH="/ClienteDocumentoGenerar.jsf"
+    TARGET="rules:#ClienteDocumentoGenerar.jsf" TITLE="viewPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="viewFlowReferenciaPDF::#ClienteDocumentoGenerarFlowParalelo.jsf"
+    NAME="output11" PATH="/ClienteDocumentoGenerarFlowParalelo.jsf"
+    TARGET="rules:#ClienteDocumentoGenerarFlowParalelo.jsf"
+    TITLE="viewFlowReferenciaPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarFlowParalelo::#listarflowsParalelo.xhtml" NAME="output12"
+    PATH="/listarflowsParalelo.xhtml"
+    TARGET="rules:#listarflowsParalelo.xhtml" TITLE="listarFlowParalelo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output13"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDocumentos.xhtml"
+  PATH="/listarDocumentos.xhtml" SHAPE="1088,1985,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#templatetree.xhtml"
+  PATH="/templatetree.xhtml" SHAPE="624,2625,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#templatetree.xhtml:0" NAME="item"
+   PATH="/templatetree.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listarUsuarios::#listarUsuarios.xhtml"
+    NAME="output" PATH="/listarUsuarios.xhtml"
+    TARGET="rules:#listarUsuarios.xhtml" TITLE="listarUsuarios" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="areadocumento::#listarAreaDocumentos.xhtml"
+    NAME="output1" PATH="/listarAreaDocumentos.xhtml"
+    TARGET="rules:#listarAreaDocumentos.xhtml" TITLE="areadocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="acercaDeDocumento::#acercaDeDocumento.jsf"
+    NAME="output2" PATH="/acercaDeDocumento.jsf"
+    TARGET="rules:#acercaDeDocumento.jsf" TITLE="acercaDeDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="bienvenidoUsuarioPagPrincipal::#index.xhtml"
+    NAME="output3" PATH="/index.xhtml" TARGET="rules:#index.xhtml"
+    TITLE="bienvenidoUsuarioPagPrincipal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarSvnExtension::#listarSvnExtension.xhtml" NAME="output4"
+    PATH="/listarSvnExtension.xhtml"
+    TARGET="rules:#listarSvnExtension.xhtml" TITLE="listarSvnExtension" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarSVNModulo::#listarSVNModulo.xhtml"
+    NAME="output5" PATH="/listarSVNModulo.xhtml"
+    TARGET="rules:#listarSVNModulo.xhtml" TITLE="listarSVNModulo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarSVNTipodeAmbiente::#listarSVNTipodeAmbiente.xhtml"
+    NAME="output6" PATH="/listarSVNTipodeAmbiente.xhtml"
+    TARGET="rules:#listarSVNTipodeAmbiente.xhtml"
+    TITLE="listarSVNTipodeAmbiente" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarSVNNombreAplicacion::#listarSVNNombreAplicacion.xhtml"
+    NAME="output7" PATH="/listarSVNNombreAplicacion.xhtml"
+    TARGET="rules:#listarSVNNombreAplicacion.xhtml"
+    TITLE="listarSVNNombreAplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarSVNUrlBase::#listarSVNUrlBase.xhtml"
+    NAME="output8" PATH="/listarSVNUrlBase.xhtml"
+    TARGET="rules:#listarSVNUrlBase.xhtml" TITLE="listarSVNUrlBase" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="extensionFile::#listarExtensionFile.xhtml"
+    NAME="output9" PATH="/listarExtensionFile.xhtml"
+    TARGET="rules:#listarExtensionFile.xhtml" TITLE="extensionFile" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="extensionFileHijos::#listarExtensionFileHijos.xhtml"
+    NAME="output10" PATH="/listarExtensionFileHijos.xhtml"
+    TARGET="rules:#listarExtensionFileHijos.xhtml"
+    TITLE="extensionFileHijos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewPDF::#ClienteDocumentoGenerar.jsf"
+    NAME="output11" PATH="/ClienteDocumentoGenerar.jsf"
+    TARGET="rules:#ClienteDocumentoGenerar.jsf" TITLE="viewPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="cambiarclave::#editCambioPassword.xhtml"
+    NAME="output12" PATH="/editCambioPassword.xhtml"
+    TARGET="rules:#editCambioPassword.xhtml" TITLE="cambiarclave" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listardiasferiados::#listarDiasFeriados.xhtml" NAME="output13"
+    PATH="/listarDiasFeriados.xhtml"
+    TARGET="rules:#listarDiasFeriados.xhtml" TITLE="listardiasferiados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listardiashabiles::#listarDiasHabilesByHoras.xhtml"
+    NAME="output14" PATH="/listarDiasHabilesByHoras.xhtml"
+    TARGET="rules:#listarDiasHabilesByHoras.xhtml"
+    TITLE="listardiashabiles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="configuracion::#listarConfiguracion.xhtml"
+    NAME="output15" PATH="/listarConfiguracion.xhtml"
+    TARGET="rules:#listarConfiguracion.xhtml" TITLE="configuracion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listareujfletes::#ListarFletes_EUJ.xhtml"
+    NAME="output16" PATH="/ListarFletes_EUJ.xhtml"
+    TARGET="rules:#ListarFletes_EUJ.xhtml" TITLE="listareujfletes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listareujclientes::#ListarCliente_EUJ.xhtml"
+    NAME="output17" PATH="/ListarCliente_EUJ.xhtml"
+    TARGET="rules:#ListarCliente_EUJ.xhtml" TITLE="listareujclientes" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarPaises::#listarPaises.xhtml"
+    NAME="output18" PATH="/listarPaises.xhtml"
+    TARGET="rules:#listarPaises.xhtml" TITLE="listarPaises" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarEstados::#listarEstados.xhtml"
+    NAME="output19" PATH="/listarEstados.xhtml"
+    TARGET="rules:#listarEstados.xhtml" TITLE="listarEstados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarCiudad::#listarCiudad.xhtml"
+    NAME="output20" PATH="/listarCiudad.xhtml"
+    TARGET="rules:#listarCiudad.xhtml" TITLE="listarCiudad" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Salir::#cerrarAplicacion.xhtml"
+    NAME="output21" PATH="/cerrarAplicacion.xhtml"
+    TARGET="rules:#cerrarAplicacion.xhtml" TITLE="Salir" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="doc_hist::#historicoTree.xhtml"
+    NAME="output22" PATH="/historicoTree.xhtml"
+    TARGET="rules:#historicoTree.xhtml" TITLE="doc_hist" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="toDel::#treePropiedadesEliminar.xhtml"
+    NAME="output23" PATH="/treePropiedadesEliminar.xhtml"
+    TARGET="rules:#treePropiedadesEliminar.xhtml" TITLE="toDel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="generarRegistroII::#PuenteGenerarRegistroCopyDoc.jsf"
+    NAME="output24" PATH="/PuenteGenerarRegistroCopyDoc.jsf"
+    TARGET="rules:#PuenteGenerarRegistroCopyDoc.jsf"
+    TITLE="generarRegistroII" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="cancelpage::#aplicacion.xhtml"
+    NAME="output25" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="cancelpage" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="agregarRaiz::#PuenteCrearRaiz.jsf"
+    NAME="output26" PATH="/PuenteCrearRaiz.jsf"
+    TARGET="rules:#PuenteCrearRaiz.jsf" TITLE="agregarRaiz" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="loadmasivosdocumentos::#crearDocumentoMasivos.xhtml"
+    NAME="output27" PATH="/crearDocumentoMasivos.xhtml"
+    TARGET="rules:#crearDocumentoMasivos.xhtml"
+    TITLE="loadmasivosdocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="menu_edoDocumentos::#listarDoc_Estado.xhtml"
+    NAME="output28" PATH="/listarDoc_Estado.xhtml"
+    TARGET="rules:#listarDoc_Estado.xhtml" TITLE="menu_edoDocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="menu_tipoDocumentos::#listarDoc_Tipo.xhtml"
+    NAME="output29" PATH="/listarDoc_Tipo.xhtml"
+    TARGET="rules:#listarDoc_Tipo.xhtml" TITLE="menu_tipoDocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="agregarConfNodo::#seguridadTree.xhtml"
+    NAME="output30" PATH="/seguridadTree.xhtml"
+    TARGET="rules:#seguridadTree.xhtml" TITLE="agregarConfNodo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarRole::#listarRole.xhtml"
+    NAME="output31" PATH="/listarRole.xhtml"
+    TARGET="rules:#listarRole.xhtml" TITLE="listarRole" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarRoleWorkFlow::#listarRole.xhtml"
+    NAME="output32" PATH="/listarRole.xhtml"
+    TARGET="rules:#listarRole.xhtml" TITLE="listarRoleWorkFlow" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarProfesion::#listarProfesion.xhtml"
+    NAME="output33" PATH="/listarProfesion.xhtml"
+    TARGET="rules:#listarProfesion.xhtml" TITLE="listarProfesion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="agregarDocumento::#crearDocumento.xhtml"
+    NAME="output34" PATH="/crearDocumento.xhtml"
+    TARGET="rules:#crearDocumento.xhtml" TITLE="agregarDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="agregarDocumentosvn::#crearDocumentosvn.xhtml" NAME="output35"
+    PATH="/crearDocumentosvn.xhtml"
+    TARGET="rules:#crearDocumentosvn.xhtml" TITLE="agregarDocumentosvn" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarDocumentos::#aplicaciondetalles.xhtml"
+    NAME="output36" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listarDocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="success::#principal.xhtml" NAME="output37"
+    PATH="/principal.xhtml" TARGET="rules:#principal.xhtml"
+    TITLE="success" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarAreaDocumentos.xhtml"
+  PATH="/listarAreaDocumentos.xhtml" SHAPE="896,2641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarAreaDocumentos.xhtml:0" NAME="item"
+   PATH="/listarAreaDocumentos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicacion.xhtml" NAME="output"
+    PATH="/aplicacion.xhtml" TARGET="rules:#aplicacion.xhtml"
+    TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="crear::#crearAreaDocumentos.xhtml"
+    NAME="output1" PATH="/crearAreaDocumentos.xhtml"
+    TARGET="rules:#crearAreaDocumentos.xhtml" TITLE="crear" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#editAreaDocumentos.xhtml"
+    NAME="output2" PATH="/editAreaDocumentos.xhtml"
+    TARGET="rules:#editAreaDocumentos.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#crearAreaDocumentos.xhtml"
+  PATH="/crearAreaDocumentos.xhtml" SHAPE="624,2065,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#crearAreaDocumentos.xhtml:0" NAME="item"
+   PATH="/crearAreaDocumentos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#listarAreaDocumentos.xhtml"
+    NAME="output" PATH="/listarAreaDocumentos.xhtml"
+    TARGET="rules:#listarAreaDocumentos.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editAreaDocumentos.xhtml"
+  PATH="/editAreaDocumentos.xhtml" SHAPE="624,1761,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editAreaDocumentos.xhtml:0" NAME="item"
+   PATH="/editAreaDocumentos.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#listarAreaDocumentos.xhtml"
+    NAME="output" PATH="/listarAreaDocumentos.xhtml"
+    TARGET="rules:#listarAreaDocumentos.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#verPublicosComentarios.xhtml"
+  PATH="/verPublicosComentarios.xhtml" SHAPE="1712,4321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#verPublicosComentarios.xhtml:0" NAME="item"
+   PATH="/verPublicosComentarios.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editarDocumento::#editarDocumento.jsf"
+    NAME="output" PATH="/editarDocumento.jsf"
+    TARGET="rules:#editarDocumento.jsf" TITLE="editarDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDocumentoSearchPublicados::#listarDocumentoSearchPublicados.xhtml"
+    NAME="output1" PATH="/listarDocumentoSearchPublicados.xhtml"
+    TARGET="rules:#listarDocumentoSearchPublicados.xhtml"
+    TITLE="listarDocumentoSearchPublicados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDocumentosPublicar::#listarDocumentosPublicar.xhtml"
+    NAME="output2" PATH="/listarDocumentosPublicar.xhtml"
+    TARGET="rules:#listarDocumentosPublicar.xhtml"
+    TITLE="listarDocumentosPublicar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output3" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output4"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#publicadoComentario.xhtml"
+  PATH="/publicadoComentario.xhtml" SHAPE="80,2065,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#publicadoComentario.xhtml:0" NAME="item"
+   PATH="/publicadoComentario.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewPDF::#ClienteDocumentoGenerar.jsf"
+    NAME="output" PATH="/ClienteDocumentoGenerar.jsf"
+    TARGET="rules:#ClienteDocumentoGenerar.jsf" TITLE="viewPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editDocumentoReadOnly::#editDocumentoReadOnly.xhtml"
+    NAME="output1" PATH="/editDocumentoReadOnly.xhtml"
+    TARGET="rules:#editDocumentoReadOnly.xhtml"
+    TITLE="editDocumentoReadOnly" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDocumentoSearchPublicados::#listarDocumentoSearchPublicados.xhtml"
+    NAME="output2" PATH="/listarDocumentoSearchPublicados.xhtml"
+    TARGET="rules:#listarDocumentoSearchPublicados.xhtml"
+    TITLE="listarDocumentoSearchPublicados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output3" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output4"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDocumentoSearchPublicados.xhtml"
+  PATH="/listarDocumentoSearchPublicados.xhtml" SHAPE="1440,5473,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDocumentoSearchPublicados.xhtml:0"
+   NAME="item" PATH="/listarDocumentoSearchPublicados.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="verPublicosComentarios::#verPublicosComentarios.xhtml"
+    NAME="output" PATH="/verPublicosComentarios.xhtml"
+    TARGET="rules:#verPublicosComentarios.xhtml"
+    TITLE="verPublicosComentarios" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="imprimirDocumento::#imprimirDocumento.jsf"
+    NAME="output1" PATH="/imprimirDocumento.jsf"
+    TARGET="rules:#imprimirDocumento.jsf" TITLE="imprimirDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitosorefresca::#exitoso.xhtml"
+    NAME="output2" PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitosorefresca" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output3"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="DocumentoStadisticasGraficar::#DocumentoStadisticasGraficar.jsf"
+    NAME="output4" PATH="/DocumentoStadisticasGraficar.jsf"
+    TARGET="rules:#DocumentoStadisticasGraficar.jsf"
+    TITLE="DocumentoStadisticasGraficar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewPDF::#ClienteDocumentoGenerar.jsf"
+    NAME="output5" PATH="/ClienteDocumentoGenerar.jsf"
+    TARGET="rules:#ClienteDocumentoGenerar.jsf" TITLE="viewPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewOnly::#editDocumentoReadOnly.xhtml"
+    NAME="output6" PATH="/editDocumentoReadOnly.xhtml"
+    TARGET="rules:#editDocumentoReadOnly.xhtml" TITLE="viewOnly" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listamaestra::#listarDocumentoSearchPublicados.xhtml"
+    NAME="output7" PATH="/listarDocumentoSearchPublicados.xhtml"
+    TARGET="rules:#listarDocumentoSearchPublicados.xhtml"
+    TITLE="listamaestra" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ReporteExcel::#ReporteExcel.jsf"
+    NAME="output8" PATH="/ReporteExcel.jsf"
+    TARGET="rules:#ReporteExcel.jsf" TITLE="ReporteExcel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="goDocument::#aplicaciondetalles.xhtml"
+    NAME="output9" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="goDocument" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarAplicacion::#aplicacion.xhtml"
+    NAME="output10" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="listarAplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDocumentoSearch.xhtml"
+  PATH="/listarDocumentoSearch.xhtml" SHAPE="80,1761,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDocumentoSearch.xhtml:0" NAME="item"
+   PATH="/listarDocumentoSearch.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="reporteDocumentos::#servletReporteDocumentos.jsf" NAME="output"
+    PATH="/servletReporteDocumentos.jsf"
+    TARGET="rules:#servletReporteDocumentos.jsf"
+    TITLE="reporteDocumentos" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="DocumentoStadisticasGraficar::#DocumentoStadisticasGraficar.jsf"
+    NAME="output1" PATH="/DocumentoStadisticasGraficar.jsf"
+    TARGET="rules:#DocumentoStadisticasGraficar.jsf"
+    TITLE="DocumentoStadisticasGraficar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewPDF::#ClienteDocumentoGenerar.jsf"
+    NAME="output2" PATH="/ClienteDocumentoGenerar.jsf"
+    TARGET="rules:#ClienteDocumentoGenerar.jsf" TITLE="viewPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewOnly::#editDocumentoReadOnly.xhtml"
+    NAME="output3" PATH="/editDocumentoReadOnly.xhtml"
+    TARGET="rules:#editDocumentoReadOnly.xhtml" TITLE="viewOnly" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listamaestra::#listarDocumentoSearchPublicados.xhtml"
+    NAME="output4" PATH="/listarDocumentoSearchPublicados.xhtml"
+    TARGET="rules:#listarDocumentoSearchPublicados.xhtml"
+    TITLE="listamaestra" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="ReporteExcel::#ReporteExcel.jsf"
+    NAME="output5" PATH="/ReporteExcel.jsf"
+    TARGET="rules:#ReporteExcel.jsf" TITLE="ReporteExcel" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listarAplicacion::#aplicacion.xhtml"
+    NAME="output6" PATH="/aplicacion.xhtml"
+    TARGET="rules:#aplicacion.xhtml" TITLE="listarAplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editFlowParalelo.xhtml"
+  PATH="/editFlowParalelo.xhtml" SHAPE="1168,6161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editFlowParalelo.xhtml:0" NAME="item"
+   PATH="/editFlowParalelo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flowparalelo::#flowparalelo.xhtml"
+    NAME="output1" PATH="/flowparalelo.xhtml"
+    TARGET="rules:#flowparalelo.xhtml" TITLE="flowparalelo" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#flowparalelo.xhtml"
+  PATH="/flowparalelo.xhtml" SHAPE="1440,6177,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flowparalelo.xhtml:0" NAME="item"
+   PATH="/flowparalelo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarControlFlowByTime::#listarControlFlowByTime.xhtml"
+    NAME="output" PATH="/listarControlFlowByTime.xhtml"
+    TARGET="rules:#listarControlFlowByTime.xhtml"
+    TITLE="listarControlFlowByTime" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#editFlowParalelo.xhtml"
+    NAME="output2" PATH="/editFlowParalelo.xhtml"
+    TARGET="rules:#editFlowParalelo.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flows::#flows.xhtml" NAME="output3"
+    PATH="/flows.xhtml" TARGET="rules:#flows.xhtml" TITLE="flows" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output4"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editControlFlowByTime.xhtml"
+  PATH="/editControlFlowByTime.xhtml" SHAPE="896,6417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editControlFlowByTime.xhtml:0" NAME="item"
+   PATH="/editControlFlowByTime.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#listarControlFlowByTime.xhtml"
+    NAME="output" PATH="/listarControlFlowByTime.xhtml"
+    TARGET="rules:#listarControlFlowByTime.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarControlFlowByTime.xhtml"
+  PATH="/listarControlFlowByTime.xhtml" SHAPE="1168,6401,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarControlFlowByTime.xhtml:0" NAME="item"
+   PATH="/listarControlFlowByTime.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#flowparalelo.xhtml" NAME="output"
+    PATH="/flowparalelo.xhtml" TARGET="rules:#flowparalelo.xhtml"
+    TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="edit::#editControlFlowByTime.xhtml"
+    NAME="output1" PATH="/editControlFlowByTime.xhtml"
+    TARGET="rules:#editControlFlowByTime.xhtml" TITLE="edit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarflowsParaleCambiarNomComent.xhtml"
+  PATH="/listarflowsParaleCambiarNomComent.xhtml" SHAPE="1168,5889,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarflowsParaleCambiarNomComent.xhtml:0"
+   NAME="item" PATH="/listarflowsParaleCambiarNomComent.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarSolicitudImpresion::#listarSolicitudImpresion.xhtml"
+    NAME="output" PATH="/listarSolicitudImpresion.xhtml"
+    TARGET="rules:#listarSolicitudImpresion.xhtml"
+    TITLE="listarSolicitudImpresion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarflowsParaleCambiarNomComent2daparte::#listarflowsParaleCambiarNomComent2daparte.xhtml"
+    NAME="output1"
+    PATH="/listarflowsParaleCambiarNomComent2daparte.xhtml"
+    TARGET="rules:#listarflowsParaleCambiarNomComent2daparte.xhtml"
+    TITLE="listarflowsParaleCambiarNomComent2daparte" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flows::#flows.xhtml" NAME="output2"
+    PATH="/flows.xhtml" TARGET="rules:#flows.xhtml" TITLE="flows" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarflowsParalelo::#listarflowsParalelo.xhtml" NAME="output3"
+    PATH="/listarflowsParalelo.xhtml"
+    TARGET="rules:#listarflowsParalelo.xhtml"
+    TITLE="listarflowsParalelo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output4"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output5"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarFlowParalelo.xhtml"
+  PATH="/listarFlowParalelo.xhtml" SHAPE="1168,6545,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarFlowParalelo.xhtml:0" NAME="item"
+   PATH="/listarFlowParalelo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarflowsParaleCambiarNomComent::#listarflowsParaleCambiarNomComent.xhtml"
+    NAME="output1" PATH="/listarflowsParaleCambiarNomComent.xhtml"
+    TARGET="rules:#listarflowsParaleCambiarNomComent.xhtml"
+    TITLE="listarflowsParaleCambiarNomComent" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="flowparalelo::#flowparalelo.xhtml"
+    NAME="output2" PATH="/flowparalelo.xhtml"
+    TARGET="rules:#flowparalelo.xhtml" TITLE="flowparalelo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output3"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#flowsResponseTab1.xhtml"
+  PATH="/flowsResponseTab1.xhtml" SHAPE="1440,5185,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flowsResponseTab1.xhtml:0" NAME="item"
+   PATH="/flowsResponseTab1.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="flowsResponse::#flowsResponse.xhtml"
+    NAME="output" PATH="/flowsResponse.xhtml"
+    TARGET="rules:#flowsResponse.xhtml" TITLE="flowsResponse" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#flowCambiarUsuarioParticipante.xhtml"
+  PATH="/flowCambiarUsuarioParticipante.xhtml" SHAPE="1440,5329,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#flowCambiarUsuarioParticipante.xhtml:0"
+   NAME="item" PATH="/flowCambiarUsuarioParticipante.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="flowsResponse::#flowsResponse.xhtml"
+    NAME="output" PATH="/flowsResponse.xhtml"
+    TARGET="rules:#flowsResponse.xhtml" TITLE="flowsResponse" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editDocumentoNuevaVersion.xhtml"
+  PATH="/editDocumentoNuevaVersion.xhtml" SHAPE="80,1585,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editDocumentoNuevaVersion.xhtml:0"
+   NAME="item" PATH="/editDocumentoNuevaVersion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="viewPDF::#ClienteDocumentoGenerar.jsf"
+    NAME="output" PATH="/ClienteDocumentoGenerar.jsf"
+    TARGET="rules:#ClienteDocumentoGenerar.jsf" TITLE="viewPDF" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output1" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output2"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDocumentosPublicar.xhtml"
+  PATH="/listarDocumentosPublicar.xhtml" SHAPE="1168,5457,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDocumentosPublicar.xhtml:0" NAME="item"
+   PATH="/listarDocumentosPublicar.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="verPublicosComentarios::#verPublicosComentarios.xhtml"
+    NAME="output" PATH="/verPublicosComentarios.xhtml"
+    TARGET="rules:#verPublicosComentarios.xhtml"
+    TITLE="verPublicosComentarios" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarDocumentoSearchPublicados::#listarDocumentoSearchPublicados.xhtml"
+    NAME="output1" PATH="/listarDocumentoSearchPublicados.xhtml"
+    TARGET="rules:#listarDocumentoSearchPublicados.xhtml"
+    TITLE="listarDocumentoSearchPublicados" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output2" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="aplicaciondetalles::#aplicaciondetalles.xhtml" NAME="output3"
+    PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicaciondetalles" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output4"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="menu::#aplicacion.xhtml" NAME="output5"
+    PATH="/aplicacion.xhtml" TARGET="rules:#aplicacion.xhtml"
+    TITLE="menu" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editDocumentosRelacionados.xhtml"
+  PATH="/editDocumentosRelacionados.xhtml" SHAPE="80,1041,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#editDocumentosRelacionados.xhtml:0"
+   NAME="item" PATH="/editDocumentosRelacionados.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listar::#listarDocumentosVinculados.xhtml"
+    NAME="output" PATH="/listarDocumentosVinculados.xhtml"
+    TARGET="rules:#listarDocumentosVinculados.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editVinculo::#editDocumentosRelacionados.xhtml" NAME="output1"
+    PATH="/editDocumentosRelacionados.xhtml"
+    TARGET="rules:#editDocumentosRelacionados.xhtml" TITLE="editVinculo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output2"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarDocumentosVinculados.xhtml"
+  PATH="/listarDocumentosVinculados.xhtml" SHAPE="352,1057,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarDocumentosVinculados.xhtml:0"
+   NAME="item" PATH="/listarDocumentosVinculados.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="goDocument::#aplicaciondetalles.xhtml"
+    NAME="output" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="goDocument" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editVinculo::#editDocumentosRelacionados.xhtml" NAME="output1"
+    PATH="/editDocumentosRelacionados.xhtml"
+    TARGET="rules:#editDocumentosRelacionados.xhtml" TITLE="editVinculo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output2" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output3"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarSolicitudImpresion.xhtml"
+  PATH="/listarSolicitudImpresion.xhtml" SHAPE="1440,5905,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarSolicitudImpresion.xhtml:0" NAME="item"
+   PATH="/listarSolicitudImpresion.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="flowsResponse::#flowsResponse.jsf"
+    NAME="output" PATH="/flowsResponse.jsf"
+    TARGET="rules:#flowsResponse.jsf" TITLE="flowsResponse" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="imprimirDocumento::#imprimirDocumento.jsf"
+    NAME="output1" PATH="/imprimirDocumento.jsf"
+    TARGET="rules:#imprimirDocumento.jsf" TITLE="imprimirDocumento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="solicitudImpresion::#solicitudImpresion.xhtml" NAME="output2"
+    PATH="/solicitudImpresion.xhtml"
+    TARGET="rules:#solicitudImpresion.xhtml" TITLE="solicitudImpresion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listarflowsParalelo::#listarflowsParalelo.xhtml" NAME="output3"
+    PATH="/listarflowsParalelo.xhtml"
+    TARGET="rules:#listarflowsParalelo.xhtml"
+    TITLE="listarflowsParalelo" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output4"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarflowsParalelo.xhtml"
+  PATH="/listarflowsParalelo.xhtml" SHAPE="1440,6561,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarflowsParalelo.xhtml:0" NAME="item"
+   PATH="/listarflowsParalelo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listarSolicitudImpresion::#listarSolicitudImpresion.xhtml"
+    NAME="output" PATH="/listarSolicitudImpresion.xhtml"
+    TARGET="rules:#listarSolicitudImpresion.xhtml"
+    TITLE="listarSolicitudImpresion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listarFlowsHistorico.xhtml"
+  PATH="/listarFlowsHistorico.xhtml" SHAPE="1440,2641,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#listarFlowsHistorico.xhtml:0" NAME="item"
+   PATH="/listarFlowsHistorico.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="flowsResponse::#flowsResponse.xhtml"
+    NAME="output" PATH="/flowsResponse.xhtml"
+    TARGET="rules:#flowsResponse.xhtml" TITLE="flowsResponse" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listar::#aplicaciondetalles.xhtml"
+    NAME="output1" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#aplicacionApplet.xhtml"
+  PATH="/aplicacionApplet.xhtml" SHAPE="352,1265,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#aplicacionApplet.xhtml:0" NAME="item"
+   PATH="/aplicacionApplet.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicaciondetalles.xhtml"
+    NAME="output" PATH="/aplicaciondetalles.xhtml"
+    TARGET="rules:#aplicaciondetalles.xhtml" TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#razonDeCambio.xhtml"
+  PATH="/razonDeCambio.xhtml" SHAPE="1440,1057,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#razonDeCambio.xhtml:0" NAME="item"
+   PATH="/razonDeCambio.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="aplicacion::#aplicacion.xhtml" NAME="output"
+    PATH="/aplicacion.xhtml" TARGET="rules:#aplicacion.xhtml"
+    TITLE="aplicacion" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="finexitoso::#exitoso.xhtml" NAME="output1"
+    PATH="/exitoso.xhtml" TARGET="rules:#exitoso.xhtml"
+    TITLE="finexitoso" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#historicoUsuarioActivo.xhtml"
+  PATH="/historicoUsuarioActivo.xhtml" SHAPE="624,6545,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#historicoUsuarioActivo.xhtml:0" NAME="item"
+   PATH="/historicoUsuarioActivo.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listarUsuarios::#listarUsuarios.xhtml"
+    NAME="output" PATH="/listarUsuarios.xhtml"
+    TARGET="rules:#listarUsuarios.xhtml" TITLE="listarUsuarios" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="896,2497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#listarflowsParaleCambiarNomComent2daparte.xhtml"
+  PATH="/listarflowsParaleCambiarNomComent2daparte.xhtml"
+  SHAPE="1440,6417,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#solicitudImpresion.xhtml"
+  PATH="/solicitudImpresion.xhtml" SHAPE="1712,6161,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#imprimirDocumento.jsf"
+  PATH="/imprimirDocumento.jsf" SHAPE="1712,5457,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#editarDocumento.jsf"
+  PATH="/editarDocumento.jsf" SHAPE="1984,4337,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#aplicacionAppletFrame.xhtml"
+  PATH="/aplicacionAppletFrame.xhtml" SHAPE="896,1057,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#PuenteGenerarRegistroCopyDoc.jsf"
+  PATH="/PuenteGenerarRegistroCopyDoc.jsf" SHAPE="1984,209,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#editCambioPassword.xhtml"
+  PATH="/editCambioPassword.xhtml" SHAPE="896,4225,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#crearDocumentosvn.xhtml"
+  PATH="/crearDocumentosvn.xhtml" SHAPE="1984,4225,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#cerrarAplicacion.xhtml"
+  PATH="/cerrarAplicacion.xhtml" SHAPE="896,2081,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#crearDocumentoMasivos.xhtml"
+  PATH="/crearDocumentoMasivos.xhtml" SHAPE="896,4865,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listarDoc_Estado.xhtml"
+  PATH="/listarDoc_Estado.xhtml" SHAPE="896,1601,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#crearDocumentosvnUpload.xhtml"
+  PATH="/crearDocumentosvnUpload.xhtml" SHAPE="1984,4865,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#historicoTree.xhtml"
+  PATH="/historicoTree.xhtml" SHAPE="896,4337,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#principal.xhtml" PATH="/principal.xhtml"
+  SHAPE="896,5073,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#flowsResponse.jsf" PATH="/flowsResponse.jsf"
+  SHAPE="1712,5889,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ClienteDocumentoGenerar.jsf"
+  PATH="/ClienteDocumentoGenerar.jsf" SHAPE="352,2081,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#servletReporte.jsf"
+  PATH="/servletReporte.jsf" SHAPE="1984,5073,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ClienteDocumentoGenerarAttachment.jsf"
+  PATH="/ClienteDocumentoGenerarAttachment.jsf" SHAPE="1984,4113,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ReporteExcel.jsf" PATH="/ReporteExcel.jsf"
+  SHAPE="352,1601,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listarExtensionFile.xhtml"
+  PATH="/listarExtensionFile.xhtml" SHAPE="896,2321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#listarSvnExtension.xhtml"
+  PATH="/listarSvnExtension.xhtml" SHAPE="896,4113,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#acercaDeDocumento.jsf"
+  PATH="/acercaDeDocumento.jsf" SHAPE="896,3937,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#PuenteCrearRaiz.jsf"
+  PATH="/PuenteCrearRaiz.jsf" SHAPE="896,1777,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#DocumentoStadisticasGraficar.jsf"
+  PATH="/DocumentoStadisticasGraficar.jsf" SHAPE="352,1777,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#ClienteDocumentoGenerarFlowParalelo.jsf"
+  PATH="/ClienteDocumentoGenerarFlowParalelo.jsf" SHAPE="1984,5185,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#servletReporteDocumentos.jsf"
+  PATH="/servletReporteDocumentos.jsf" SHAPE="352,3329,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

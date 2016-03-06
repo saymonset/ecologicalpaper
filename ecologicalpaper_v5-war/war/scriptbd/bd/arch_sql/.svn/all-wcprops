@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql
+END
+Crear_ECOLOGICAL.sql
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/Crear_ECOLOGICAL.sql
+END
+crear_ecolo_oracle.sql
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/crear_ecolo_oracle.sql
+END
+oracle.sh
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/oracle.sh
+END
+sqlloadere1.csv
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/sqlloadere1.csv
+END
+constraints.sql
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/constraints.sql
+END
+operaciones
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/operaciones
+END
+BD20070721cvs.csv
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/BD20070721cvs.csv
+END
+bd.dmp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/bd.dmp
+END
+sql_edos.csv
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/sql_edos.csv
+END
+sqlloadere.csv
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/sqlloadere.csv
+END
+exportbd.sh
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/exportbd.sh
+END
+ALL_EXPORT.cmd
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/arch_sql/ALL_EXPORT.cmd
+END

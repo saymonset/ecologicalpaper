@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/templatetree.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+
+
+		<!--<%/* VER INFO DEL DOCUMENTO  */%>-->
+
+		<rich:messages></rich:messages>
+		<h:panelGroup />
+		<h:panelGroup />
+		<h:form>
+
+			<center>
+				<h1>
+					<h:outputText styleClass="form" value="#{txt.doc_publicados}" />
+				</h1>
+			</center>
+			<!--			<a4j:status onstart="#{rich:component('statPane')}.show()"-->
+			<!--				onstop="#{rich:component('statPane')}.hide()" />-->
+			<!---->
+			<!--			<rich:popupPanel id="statPane" autosized="true">-->
+			<!--				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />-->
+			<!--				<h:outputText value="#{txt.esperar}" />-->
+			<!--			</rich:popupPanel>-->
+
+			<h:panelGrid columns="2" binding="#{backing_login.panelGrid1}"
+				id="panelGrid1">
+
+
+
+
+
+				<f:verbatim>&nbsp;</f:verbatim>
+				<f:verbatim>&nbsp;</f:verbatim>
+				<f:verbatim>&nbsp;</f:verbatim>
+				<f:verbatim>&nbsp;</f:verbatim>
+			</h:panelGrid>
+
+			<h1></h1>
+			<f:verbatim>&nbsp;</f:verbatim>
+			<h:panelGrid columns="2">
+				<f:verbatim></f:verbatim>
+				<h:panelGroup>
+
+					<h:outputText value="#{txt.desde}" />
+					<rich:calendar
+						value="#{ClienteDocumentoSearchPublicados.fecha_creado}"
+						locale="false" popup="true" datePattern="MM/dd/yyyy"
+						showApplyButton="false" cellWidth="24px" cellHeight="22px"
+						style="width:200px">
+						<a4j:ajax event="change" render="findstadistica data" />
+					</rich:calendar>
+
+					<h:outputText value="#{txt.hasta}" />
+					<rich:calendar
+						value="#{ClienteDocumentoSearchPublicados.fecha_creadoFin}"
+						locale="false" popup="true" datePattern="MM/dd/yyyy"
+						showApplyButton="false" cellWidth="24px" cellHeight="22px"
+						style="width:200px">
+						<f:ajax event="change" render="findstadistica data"
+							execute="@this" />
+					</rich:calendar>
+
+
+					<h:panelGroup />
+
+
+
+
+
+				</h:panelGroup>
+
+				<h:outputText value="#{txt.doc_dueniotab}" />
+				<h:selectOneMenu immediate="true"
+					value="#{ClienteDocumentoSearchPublicados.usuarioId}">
+					<f:selectItems value="#{ClienteDocumentoSearchPublicados.usuarios}" />
+
+					<f:ajax event="change" render="findstadistica data" execute="@this" />
+				</h:selectOneMenu>
+
+
+
+
+				<h:outputText value="#{txt.doc_tipotab}" />
+				<h:selectOneMenu immediate="true"
+					value="#{ClienteDocumentoSearchPublicados.doc_tipoId}">
+					<f:selectItems
+						value="#{ClienteDocumentoSearchPublicados.doc_tipos}" />
+					<f:ajax event="change" render="findstadistica data" execute="@this" />
+				</h:selectOneMenu>
+
+				<h:outputText value="#{txt.doc_publico_expirado}" />
+				<h:panelGrid columns="2">
+					<h:graphicImage title="#{txt.doc_publico}"
+						url="#{conftxt.img_publico}" />
+					<h:selectBooleanCheckbox
+						value="#{ClienteDocumentoSearchPublicados.swPublicadosExpirados}"
+						immediate="true">
+						<f:ajax event="change" render="findstadistica data"
+							execute="@this" />
+					</h:selectBooleanCheckbox>
+				</h:panelGrid>
+
+
+
+
+			</h:panelGrid>
+
+
+			<h:panelGroup id="buscar">
+				<h:panelGrid columns="4">
+					<h:outputText value="#{txt.search_buscar}" />
+					<h:inputText id="searchtext" size="60"
+						value="#{ClienteDocumentoSearchPublicados.strBuscar}"
+						immediate="true">
+					</h:inputText>
+<!-- 					<h:outputText value="#{txt.por}" /> -->
+<!-- 					<h:selectOneMenu immediate="true" -->
+<!-- 						value="#{ClienteDocumentoSearchPublicados.doc_tiposSearchSTR}"> -->
+<!-- 						<f:selectItems -->
+<!-- 							value="#{ClienteDocumentoSearchPublicados.doc_tiposSearch}" /> -->
+<!-- 						<f:ajax event="change" render="data" execute="@this" /> -->
+<!-- 					</h:selectOneMenu> -->
+					<a4j:commandButton value="#{txt.search_buscar}" render="data"
+						execute="@form">
+
+					</a4j:commandButton>
+					  <a4j:status>
+            <f:facet name="start">
+                <h:graphicImage value="/images/ai.gif" alt="ai" />
+            </f:facet>
+        </a4j:status>
+				</h:panelGrid>
+
+
+			</h:panelGroup>
+
+
+			<h:panelGroup id="findstadistica">
+				<a4j:outputPanel layout="block">
+					<rich:dataTable id="data"
+						value="#{ClienteDocumentoSearchPublicados.doc_detalles}"
+						var="currentMaestro" iterationStatusVar="it"
+						rows="#{Utilidades.maxRegisterMostrarForTable}" width="auto">
+
+
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+							</f:facet>
+
+
+							<h:graphicImage styleClass="no-decor"
+								rendered="#{currentMaestro.swFechaPublicoExpiro and !currentMaestro.swIsPublicador}"
+								title="#{txt.doc_verdocumento}" url="#{currentMaestro.icono}" />
+
+							<h:commandLink styleClass="no-decor"
+								rendered="#{!currentMaestro.swFechaPublicoExpiro}"
+								onmousedown="showFlowUser('mostrarDocProtegido.jsf?detalle_id=#{currentMaestro.codigo}','')"
+								immediate="true" onclick="return false">
+								<h:graphicImage title="#{txt.doc_verdocumento}"
+									url="#{currentMaestro.icono}" />
+							</h:commandLink>
+
+							<h:commandLink styleClass="no-decor"
+								rendered="#{currentMaestro.swFechaPublicoExpiro and currentMaestro.swIsPublicador}"
+								onmousedown="showFlowUser('mostrarDocProtegido.jsf?detalle_id=#{currentMaestro.codigo}','')"
+								immediate="true" onclick="return false">
+								<h:graphicImage title="#{txt.doc_verdocumento}"
+									url="#{currentMaestro.icono}" />
+							</h:commandLink>
+
+						</rich:column>
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+							</f:facet>
+							<a4j:commandLink styleClass="no-decor"
+								onmousedown="showFlowUser('clienteDocumentoDownloadFile.jsf?detalle_id=#{currentMaestro.codigo}','')"
+								immediate="true" onclick="return false">
+								<h:graphicImage title="#{txt.doc_detalle}"
+									url="#{conftxt.img_attachment}" />
+							</a4j:commandLink>
+						</rich:column>
+
+
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:graphicImage title="" styleClass="no-decor"
+									url="#{conftxt.img_editar}" />
+							</f:facet>
+
+							<h:outputText
+								rendered="#{currentMaestro.swFechaPublicoExpiro and !currentMaestro.swIsPublicador}"
+								value="
+                                                  #{currentMaestro.doc_maestro.nombre}" />
+							<h:commandLink styleClass="no-decor"
+								rendered="#{!currentMaestro.swFechaPublicoExpiro}"
+								action="#{ClienteDocumentoSearchPublicados.goDocument}"
+								actionListener="#{ClienteDocumentoSearchPublicados.versionId}">
+								<h:outputText
+									value="
+                                                  #{currentMaestro.doc_maestro.nombre}" />
+
+								<f:param id="editId2" name="id"
+									value="#{currentMaestro.doc_maestro.codigo}" />
+							</h:commandLink>
+
+							<h:commandLink
+								rendered="#{currentMaestro.swFechaPublicoExpiro and currentMaestro.swIsPublicador}"
+								action="#{ClienteDocumentoSearchPublicados.goDocument}"
+								actionListener="#{ClienteDocumentoSearchPublicados.versionId}">
+								<h:outputText
+									value="
+                                                  #{currentMaestro.doc_maestro.nombre}" />
+
+								<f:param id="editId2_2" name="id"
+									value="#{currentMaestro.doc_maestro.codigo}" />
+							</h:commandLink>
+
+						</rich:column>
+
+
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:outputText value="#{txt.doc_descripciontab}" />
+							</f:facet>
+							<h:panelGrid columns="2">
+
+								<h:commandLink style="border-width: 0px;"
+									action="#{Documento.publicadoComentario}"
+									actionListener="#{ClienteDocumentoSearchPublicados.versionId}">
+									<h:graphicImage style="border-width: 0px;"
+										title="#{txt.comentario}" url="#{conftxt.img_comentario}" />
+									<f:param id="editIdComentario" name="idx2"
+										value="#{currentMaestro.doc_maestro.codigo}" />
+								</h:commandLink>
+
+
+								<h:commandLink style="border-width: 0px;"
+									rendered="#{currentMaestro.toViewComentPublic}"
+									action="#{Documento.verPublicosComentarios}"
+									actionListener="#{ClienteDocumentoSearchPublicados.versionId}">
+									<h:graphicImage style="border-width: 0px;"
+										title="#{txt.comentario}"
+										url="#{conftxt.img_ViewComentPublic}" />
+									<f:param id="editIdComentarioAll" name="idx2all"
+										value="#{currentMaestro.doc_maestro.codigo}" />
+								</h:commandLink>
+							</h:panelGrid>
+
+						</rich:column>
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:graphicImage title="#{txt.solicitudImpresion}"
+									url="#{conftxt.img_impresora}" />
+							</f:facet>
+
+							<a4j:commandLink styleClass="no-decor"
+								rendered="#{currentMaestro.swHabilitadoImprimir}"
+								onmousedown="showFlowUser('imprimirDocumento.jsf?solicitudimpresion=-1&amp;numcopias=1&amp;detalle_id=#{currentMaestro.codigo}','')"
+								immediate="true" onclick="return false">
+								<h:panelGrid columns="2">
+									<h:graphicImage style="border-width: 0px;"
+										title="#{txt.solicitudImpresion}"
+										url="#{conftxt.img_impresora}" />
+									<h:graphicImage style="border-width: 0px;"
+										rendered="#{currentMaestro.swHabilitadoImprimir}"
+										title="#{txt.solicitudImpresion}" url="#{conftxt.img_cheked}" />
+								</h:panelGrid>
+							</a4j:commandLink>
+
+							<a4j:commandLink
+								rendered="#{!currentMaestro.swHabilitadoImprimir}"
+								action="#{ClienteDocumentoSearchPublicados.hacerSendSolicitudImpresion}"
+								actionListener="#{ClienteDocumentoSearchPublicados.versionId}"
+								immediate="true" onclick="this.style.display='none';">
+								<h:panelGrid columns="2">
+									<h:graphicImage style="border-width: 0px;"
+										title="#{txt.solicitudImpresion}"
+										url="#{conftxt.img_impresora}" />
+									<h:graphicImage style="border-width: 0px;"
+										rendered="#{currentMaestro.swEstaInFlowToImprimir
+								and !currentMaestro.swHabilitadoImprimir}"
+										title="#{txt.solicitudImpresion}" url="#{conftxt.img_inflow}" />
+								</h:panelGrid>
+								<f:param id="editIdImprimir" name="idx"
+									value="#{currentMaestro.doc_maestro.codigo}" />
+							</a4j:commandLink>
+
+						</rich:column>
+
+
+
+
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:graphicImage title="#{txt.doc_publico}"
+									url="#{conftxt.img_publico}" />
+
+							</f:facet>
+
+							<h:graphicImage rendered="#{currentMaestro.doc_maestro.publico}"
+								title="#{txt.doc_publico}" url="#{conftxt.img_publico}" />
+						</rich:column>
+
+
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:outputText value="#{txt.doc_consecutivotab}" />
+							</f:facet>
+							<h:outputText
+								value="
+                                              #{currentMaestro.doc_maestro.consecutivo}" />
+						</rich:column>
+
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:outputText value="#{txt.doc_tipotab}" />
+							</f:facet>
+							<h:outputText
+								value="
+                                              #{currentMaestro.doc_maestro.doc_tipo.nombre}" />
+						</rich:column>
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:outputText value="#{txt.publicador}" />
+							</f:facet>
+							<h:outputText value="#{currentMaestro.publicador}" />
+						</rich:column>
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:outputText value="#{txt.fecha_publicado}" />
+							</f:facet>
+							<h:outputText value="#{currentMaestro.fechapubliStr}" />
+						</rich:column>
+
+						<rich:column style="border-width: 0px;">
+							<f:facet name="header">
+								<h:outputText value="#{txt.usuario_fechab}" />
+							</f:facet>
+							<h:outputText value="#{currentMaestro.fechaexpirapubliStr}" />
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:dataScroller page="#{viewTreeDocDetalles.page}" />
+						</f:facet>
+					</rich:dataTable>
+				</a4j:outputPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+			</h:panelGroup>
+
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>
+

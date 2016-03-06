@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/xa
+END
+PGXAConnection.class
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/xa/PGXAConnection.class
+END
+PGXAException.class
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/xa/PGXAException.class
+END
+RecoveredXid.class
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/xa/RecoveredXid.class
+END
+PGXADataSourceFactory.class
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/xa/PGXADataSourceFactory.class
+END
+PGXADataSource.class
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/xa/PGXADataSource.class
+END

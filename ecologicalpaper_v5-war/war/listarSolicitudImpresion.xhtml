@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+
+
+	<ui:define name="body">
+		 
+ 
+		<center>
+		<h1><h:outputText styleClass="form"
+			value="#{txt.toSolicitudImpresion}" /></h1>
+		</center>
+		<div id="izq" style="width: 800px" class="columna_izquierda"><h:form>
+			<rich:messages></rich:messages>
+
+<h:commandButton styleClass="boton" value="#{txt.btn_menu}"
+					action="#{listarSolicitudImpresion.regresar}" />
+			<rich:dataTable value="#{listarSolicitudImpresion.solicitudImpPartLst}"
+				var="car" iterationStatusVar="it"
+				rows="#{Utilidades.verNumeroDeRegistros}" width="auto">
+
+			
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText styleClass="grees"
+								value="#{txt.toSolicitudImpresion}" />
+						</f:facet>
+						<h:outputText styleClass="node" value="#{car.usuario} " />
+					</rich:column>
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText styleClass="grees" value="#{txt.doc_documento}" />
+						</f:facet>
+						<h:outputText styleClass="node"
+							value="#{car.solicitudimpresion.doc_detalle.doc_maestro.nombre}" />
+					</rich:column>
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText styleClass="grees" value="#{txt.estado}" />
+						</f:facet>
+						<h:outputText styleClass="node" value="#{txt[car.estado.nombre]}" />
+					</rich:column>
+
+
+
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText styleClass="grees"
+								value="#{txt.fecha} #{txt.toSolicitudImpresion}" />
+						</f:facet>
+						<h:outputText styleClass="node"
+							title="#{car.solicitudimpresion.fechaSolicitudtxt}"
+							value="#{car.solicitudimpresion.fechaSolicitudtxt}" />
+					</rich:column>
+
+
+
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText styleClass="grees"
+								value="#{txt.fecha} #{txt.desde}" />
+						</f:facet>
+						<h:outputText styleClass="node"
+							title="#{car.solicitudimpresion.fechadesdeimprimirtxt}"
+							value="#{car.solicitudimpresion.fechadesdeimprimirtxt}" />
+					</rich:column>
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+							<h:outputText styleClass="grees"
+								value="#{txt.fecha} #{txt.hasta}" />
+						</f:facet>
+						<h:outputText styleClass="node"
+							title="#{car.solicitudimpresion.fechahastaimprimirtxt}"
+							value="#{car.solicitudimpresion.fechahastaimprimirtxt}" />
+					</rich:column>
+
+
+
+
+					<rich:column style="border-width: 0px;">
+						<f:facet name="header">
+						</f:facet>
+						<h:outputText styleClass="node"
+							value="#{txt[car.solicitudimpresion.estado.nombre]}" />
+
+
+					</rich:column>
+
+
+
+					<rich:column
+						rendered="#{listarSolicitudImpresion.seguridadMenu.toImprimirAdministrar}">
+					 
+						<f:facet name="header">
+							<h:outputText value="#{txt.flow_firmar}" />
+						</f:facet>
+
+
+						<h:commandLink
+							rendered="#{car.cancelar and listarSolicitudImpresion.seguridadMenu.toImprimirAdministrar}"
+							action="#{listarSolicitudImpresion.firmarFlow}"
+							actionListener="#{listarSolicitudImpresion.firmarsolicitudImpParts}">
+							<h:outputText value="#{txt.flow_firmar}" />
+							<f:param id="usuarioImpresionId" name="noseusa_id"
+								value="#{car.codigo}" />
+						</h:commandLink>
+
+					</rich:column>
+
+ 
+
+					<rich:column
+						rendered="#{listarSolicitudImpresion.seguridadMenu.toImprimirAdministrar}">
+						 
+						<f:facet name="header">
+							<h:outputText value="#{txt.cancelar}" />
+						</f:facet>
+
+
+						<h:commandLink
+							rendered="#{car.cancelar and listarSolicitudImpresion.seguridadMenu.toImprimirAdministrar}"
+							action="#{listarSolicitudImpresion.aceptar}"
+							actionListener="#{listarSolicitudImpresion.cancelarsolicitudImpParts}">
+							<h:outputText value="#{txt.cancelar}" />
+							<f:param id="cancelarImpresionId" name="noseusa_idcancelar"
+								value="#{car.codigo}" />
+						</h:commandLink>
+
+					</rich:column>
+
+ 
+	<f:facet name="footer">
+					<rich:dataScroller page="#{viewTreeDocDetalles.page}" />
+				</f:facet>
+			</rich:dataTable>
+
+
+
+
+		</h:form> <!--<%/* FIN VER INFO DEL DOCUMENTO  */%>--></div>
+
+	</ui:define>
+</ui:composition>
+</html>

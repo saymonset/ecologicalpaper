@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="refresh" content=" 1; url = bienvenidousuario.jsf">
+</meta>
+
+<title>www.ecologicalpaper.com</title>
+</head>
+<ui:composition template="/templates/template1.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+
+		 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+
+
+.pic {
+    margin-right: 2px;
+}
+ 
+.barsearch {
+    height: 14px;
+    width: 100px;
+}
+ 
+.barsearchbutton {
+    border-width: 1px;
+    background-color: #{ a4jSkin.generalBackgroundColor
+}
+;
+}
+
+</h:outputStylesheet>
+
+<script type="text/javascript">
+function cerrar(){
+   
+   
+      
+   window.open("./index.jsf");
+
+   	 //top.frames['mainFrame'].location.href = './bienvenidousuario.jsf';
+  //  
+   // window.opener=''; window.close();
+    //top.frames['mainFrame'].close();
+}
+</script>
+    <body onload="cerrar()" >
+        <f:view>
+               <f:loadBundle
+                    basename="com.ecological.resource.ecologicalpaper"
+                    var="txt" />
+                <f:loadBundle
+                    basename="org.apache.myfaces.examples.resource.example_messages"
+                    var="example_messages" />
+                <f:loadBundle
+                    basename="com.util.resource.ecological_conf"
+                    var="conftxt" />
+                
+            <h:form>
+                <h:inputHidden immediate="true" value="#{backing_login.goSalir}"></h:inputHidden>                
+                  <h:outputText styleClass="form" value="#{txt.aplicacion_cerrada}"/>
+                  
+                   
+                     
+            </h:form>
+        </f:view>
+        <!-- 
+        <% /*
+ 
+        <jsp:forward page="./index.jsp" />
+         *
+        <jsp:forward page="./bienvenido.jsf" />
+ 
+         */ %> 
+            CUERPO DEL MENSAJE 
+            -->
+    </body>
+ 
+
+
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

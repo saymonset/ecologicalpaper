@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+
+
+
+
+
+		<script type="text/javascript">
+	var formId; // reference to the main form
+	var winId; // reference to the popup window
+	// This function calls the popup window.
+	//
+	function showFlowUser(action, title) {
+		//	features = "height=330,width=450,status=yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		features = "height=330,width=450,status=yes,resizable = yes,toolbar=no,menubar=no,location=no,scrollbars=yes";
+		winId = window.open(action, title, features); // open an empty window
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<h:form>
+			<rich:messages></rich:messages>
+			<h:panelGrid columns="3" border="0">
+				<h:outputText value="#{txt.doc_relacionados}" />
+				<f:verbatim></f:verbatim>
+				<h:outputText value="#{Doc_Vinculados.doc_maestro.nombre}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="1" cellspacing="0" border="0" width="75%">
+
+
+				<p:pickList value="#{Doc_Vinculados.operacionesDoc_maestro}"
+					var="objeto" itemLabel="#{objeto}" itemValue="#{objeto}"
+					converter="ConverDoc_Maestro" iconOnly="true"
+					showSourceControls="true" showTargetControls="true">
+					<f:facet name="sourceCaption">#{txt.doc_norelacionados}</f:facet>
+					<f:facet name="targetCaption">#{txt.doc_relacionados}</f:facet>
+				</p:pickList>
+			</h:panelGrid>
+			<h:panelGrid columns="2">
+				<h:commandButton styleClass="boton" value="#{txt.btn_cancelar}"
+					action="#{Doc_Vinculados.cancelarEditar}" />
+				<h:commandButton styleClass="boton" value="#{txt.usuario_guardar}"
+					action="#{Doc_Vinculados.saveRelacionados}" />
+			</h:panelGrid>
+
+		</h:form>
+
+
+
+
+		<!--<%/* FIN VER INFO DEL DOCUMENTO  */%>-->
+	</ui:define>
+</ui:composition>
+</html>

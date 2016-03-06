@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/largeobject
+END
+LargeObject.class
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/largeobject/LargeObject.class
+END
+BlobInputStream.class
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/largeobject/BlobInputStream.class
+END
+BlobOutputStream.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/largeobject/BlobOutputStream.class
+END
+LargeObjectManager.class
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/largeobject/LargeObjectManager.class
+END

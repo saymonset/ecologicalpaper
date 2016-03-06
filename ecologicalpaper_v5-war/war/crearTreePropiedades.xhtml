@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+
+	 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+   
+
+
+		<h:form>
+							<a4j:status onstart="#{rich:component('statPane')}.show()"
+							onstop="#{rich:component('statPane')}.hide()" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+<center>
+			<h1><h:outputText
+			rendered="#{!viewTreeDocumentos.swEditar}"
+			 styleClass="form"
+				value="#{txt.btn_crear}" />
+				
+				<h:outputText
+			rendered="#{viewTreeDocumentos.swEditar}"
+			 styleClass="form"
+				value="#{txt.menu_conf1}" />
+				</h1>
+			</center>
+
+			<rich:panel header="" style="width:500px">
+				<h:panelGrid columns="1">
+					<rich:messages></rich:messages>
+				</h:panelGrid>
+
+
+
+
+
+
+
+
+
+				<h:panelGrid columns="2">
+					<h:panelGrid columns="3">
+
+						<f:verbatim></f:verbatim>
+						<h:panelGrid columns="2">
+
+							<a4j:commandButton value="#{txt.guardar}"
+								rendered="#{!viewTreeDocumentos.swEditar}"
+								action="#{viewTreeDocumentos.createTree}" />
+
+							<a4j:commandButton value="#{txt.guardar}"
+								rendered="#{viewTreeDocumentos.swEditar}"
+								action="#{viewTreeDocumentos.editTree}" />
+
+							<a4j:commandButton value="#{txt.cancelar}" immediate="true"
+							
+								action="#{viewTreeDocumentos.aceptar}" />
+						</h:panelGrid>
+						<f:verbatim></f:verbatim>
+
+
+
+
+
+						<h:outputText
+							value="#{txt_ecolo.struct_nombre}" />
+						<h:inputText id="inputTextNombre" size="40"
+							value="#{viewTreeDocumentos.tree.nombre}" maxlength="39"
+							immediate="false">
+							<f:validator validatorId="caracteresinvalidos" />
+						</h:inputText>
+						<rich:message for="inputTextNombre" ajaxRendered="true" />
+
+						<h:outputText value="#{txt_ecolo.abreviatura}" />
+						<h:inputText id="abreviatura" size="10"
+							value="#{viewTreeDocumentos.tree.abreviatura}" maxlength="6"
+							immediate="false">
+							<f:validator validatorId="caracteresinvalidos" />
+						</h:inputText>
+						<rich:message for="abreviatura" ajaxRendered="true" />
+
+						<h:outputText id="descripcion"
+							value="#{txt_ecolo.struct_descripcion}" />
+						 <h:inputTextarea cols="100" rows="10" value="#{viewTreeDocumentos.tree.descripcion}"
+							/>
+						<rich:message for="descripcion" ajaxRendered="true" />
+
+
+						<h:outputText rendered="#{!viewTreeDocumentos.swEditar}"
+							value="#{txt.heredarPermisos}  #{txt.nodo_origen}" />
+						<h:selectBooleanCheckbox id="hereda"
+							rendered="#{!viewTreeDocumentos.swEditar}"
+							value="#{viewTreeDocumentos.swHeredarPermisos}">
+						</h:selectBooleanCheckbox>
+						<rich:message rendered="#{!viewTreeDocumentos.swEditar}"
+							for="hereda" ajaxRendered="true" />
+
+
+						<f:verbatim></f:verbatim>
+						<h:panelGrid columns="2">
+
+							<a4j:commandButton value="#{txt.guardar}"
+								rendered="#{!viewTreeDocumentos.swEditar}"
+								action="#{viewTreeDocumentos.createTree}" />
+
+							<a4j:commandButton value="#{txt.guardar}"
+								rendered="#{viewTreeDocumentos.swEditar}"
+								action="#{viewTreeDocumentos.editTree}" />
+
+							<a4j:commandButton value="#{txt.cancelar}" immediate="true"
+								action="#{viewTreeDocumentos.aceptar}" />
+						</h:panelGrid>
+						<f:verbatim></f:verbatim>
+
+					</h:panelGrid>
+
+				</h:panelGrid>
+
+			</rich:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>

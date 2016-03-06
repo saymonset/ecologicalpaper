@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<h:head>
+	<title><ui:define name="title"></ui:define></title>
+
+	<style type="text/css">
+BODY {
+	margin: 0;
+	font-size: 80%;
+}
+
+.marco {
+	width: 1200px;
+	margin: 10px auto 10px auto; /* Centrado horizontal */
+}
+
+.cabecera {
+	border: solid orange 1px;
+	padding: 10px;
+}
+
+.cuerpo {
+	padding: 10px 0 10px 0;
+	overflow-x: hidden;
+	overflow-y: auto; /* Hace que se ajuste a la columna más alta en ff */
+	height: 100%; /* Hace que se ajuste a la columna más alta  en ie6 */
+}
+
+.columna_derecha {
+	float: right; /* Alineación a la derecha */
+	width: 0px; /*70px*/
+	border: solid lightblue 1px;
+	padding: 0px; /*10px*/
+}
+
+.columna_izquierda {
+	float: left; /* Alineación a la izquierda */
+	width: 0px/*170px;*/
+	border: solid lightblue 1px;
+	padding: 10px;
+}
+
+.columna_central {
+	margin-left: 10px; /* 200pxEspacio para la columna izquierda */
+	margin-right: 0px; /* Espacio para la columna derecha */
+	border: solid navy 1px;
+	padding: 10px;
+}
+
+.pie {
+	border: solid orange 1px;
+	padding: 10px;
+	text-align: center;
+	font-size: 80%;
+	clear:both;
+	
+}
+</style>
+
+<link rel="stylesheet" type="text/css"
+		href="bienvenido_archivos/comun.css" />
+
+
+	<meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
+</h:head>
+
+<h:body>
+	<f:loadBundle basename="com.ecological.resource.ecologicalpaper"
+		var="txt_ecolo" />
+	<f:loadBundle basename="com.ecological.resource.ecologicalpaper"
+		var="txt" />
+	<f:loadBundle
+		basename="org.apache.myfaces.examples.resource.example_messages"
+		var="example_messages" />
+	<f:loadBundle basename="com.util.resource.ecological_conf"
+		var="conftxt" />
+		
+		
+		    <div class="marco">
+                <div class="cabecera">
+                   <ui:insert name="title">
+
+	               </ui:insert>
+                </div>
+                <div class="cuerpo">
+                    <div class="columna_derecha">
+                        <h2>Derecha</h2>
+                        Esta es la columna derecha, tiene un float right y entre
+                        el ancho (270px), relleno (10px+10px) y bordes(1px + 1px)
+                        tiene 292px;
+                    </div>
+                    <div class="columna_izquierda">
+                   
+                       
+                    </div>
+                    <div class="columna_central">
+                       <ui:insert
+		                  name="body">
+	                   </ui:insert>
+                    </div>
+                </div>
+                <div class="pie">
+                   <ui:insert
+		                  name="pie">
+                	</ui:insert>
+                </div>
+            </div>
+		
+		
+
+	 
+
+
+</h:body>
+</html>

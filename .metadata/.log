@@ -1,0 +1,634 @@
+!SESSION 2016-03-06 09:58:21.316 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_71
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data /opt/cosas/proyectos/ecologicalapaper/fuentes -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.springframework.ide.eclipse.batch 4 0 2016-03-06 09:58:23.174
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.batch [1170]
+  Unresolved requirement: Import-Package: org.springframework.ide.eclipse.config.ui.editors
+    -> Export-Package: org.springframework.ide.eclipse.config.ui.editors; bundle-symbolic-name="org.springframework.ide.eclipse.config.ui"; bundle-version="3.7.2.201511260958-RELEASE"; version="0.0.0"
+       org.springframework.ide.eclipse.config.ui [1190]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.wizard [1209]
+                Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+                  -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+                     org.springframework.web [1215]
+                       Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.bestpractices 4 0 2016-03-06 09:58:23.182
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.bestpractices [1182]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.quickfix
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.quickfix; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.quickfix [1201]
+         Unresolved requirement: Require-Bundle: org.springframework.web
+           -> Bundle-SymbolicName: org.springframework.web; bundle-version="4.2.3.20151116-RELEASE"
+              org.springframework.web [1215]
+                Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.buildship 4 0 2016-03-06 09:58:23.206
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.buildship [1187]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.wizard [1209]
+         Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+           -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+              org.springframework.web [1215]
+                Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.config.ui 4 0 2016-03-06 09:58:23.295
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.config.ui [1190]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.wizard [1209]
+         Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+           -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+              org.springframework.web [1215]
+                Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.gradle 4 0 2016-03-06 09:58:23.324
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.gradle [1193]
+  Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+    -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+       org.springframework.ide.eclipse.wizard [1209]
+         Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+           -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+              org.springframework.web [1215]
+                Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.metadata 4 0 2016-03-06 09:58:23.340
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.metadata [1196]
+  Unresolved requirement: Import-Package: org.springframework.web.bind.annotation; version="[4.0.0,4.3.0)"
+    -> Export-Package: org.springframework.web.bind.annotation; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.core.annotation,org.springframework.http,org.springframework.stereotype"
+       org.springframework.web [1215]
+         Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+         Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+         Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.osgi 4 0 2016-03-06 09:58:23.352
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.osgi [1198]
+  Unresolved requirement: Import-Package: org.springframework.ide.eclipse.config.ui.editors
+    -> Export-Package: org.springframework.ide.eclipse.config.ui.editors; bundle-symbolic-name="org.springframework.ide.eclipse.config.ui"; bundle-version="3.7.2.201511260958-RELEASE"; version="0.0.0"
+       org.springframework.ide.eclipse.config.ui [1190]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.wizard [1209]
+                Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+                  -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+                     org.springframework.web [1215]
+                       Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.quickfix 4 0 2016-03-06 09:58:23.361
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.quickfix [1201]
+  Unresolved requirement: Require-Bundle: org.springframework.web
+    -> Bundle-SymbolicName: org.springframework.web; bundle-version="4.2.3.20151116-RELEASE"
+       org.springframework.web [1215]
+         Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+         Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+         Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.webflow.ui 4 0 2016-03-06 09:58:23.383
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.webflow.ui [1206]
+  Unresolved requirement: Import-Package: org.springframework.ide.eclipse.config.ui.editors
+    -> Export-Package: org.springframework.ide.eclipse.config.ui.editors; bundle-symbolic-name="org.springframework.ide.eclipse.config.ui"; bundle-version="3.7.2.201511260958-RELEASE"; version="0.0.0"
+       org.springframework.ide.eclipse.config.ui [1190]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.wizard [1209]
+                Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+                  -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+                     org.springframework.web [1215]
+                       Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.webflow.ui.editor 4 0 2016-03-06 09:58:23.392
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.webflow.ui.editor [1207]
+  Unresolved requirement: Import-Package: org.springframework.ide.eclipse.config.ui.editors
+    -> Export-Package: org.springframework.ide.eclipse.config.ui.editors; bundle-symbolic-name="org.springframework.ide.eclipse.config.ui"; bundle-version="3.7.2.201511260958-RELEASE"; version="0.0.0"
+       org.springframework.ide.eclipse.config.ui [1190]
+         Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+           -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+              org.springframework.ide.eclipse.wizard [1209]
+                Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+                  -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+                     org.springframework.web [1215]
+                       Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                       Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                       Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                       Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.webflow.ui.graph 4 0 2016-03-06 09:58:23.403
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.webflow.ui.graph [1208]
+  Unresolved requirement: Import-Package: org.springframework.ide.eclipse.webflow.ui.editor
+    -> Export-Package: org.springframework.ide.eclipse.webflow.ui.editor; bundle-symbolic-name="org.springframework.ide.eclipse.webflow.ui.editor"; bundle-version="3.7.2.201511260958-RELEASE"; version="0.0.0"
+       org.springframework.ide.eclipse.webflow.ui.editor [1207]
+         Unresolved requirement: Import-Package: org.springframework.ide.eclipse.config.ui.editors
+           -> Export-Package: org.springframework.ide.eclipse.config.ui.editors; bundle-symbolic-name="org.springframework.ide.eclipse.config.ui"; bundle-version="3.7.2.201511260958-RELEASE"; version="0.0.0"
+              org.springframework.ide.eclipse.config.ui [1190]
+                Unresolved requirement: Require-Bundle: org.springframework.ide.eclipse.wizard
+                  -> Bundle-SymbolicName: org.springframework.ide.eclipse.wizard; bundle-version="3.7.2.201511260958-RELEASE"; singleton:="true"
+                     org.springframework.ide.eclipse.wizard [1209]
+                       Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+                         -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+                            org.springframework.web [1215]
+                              Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+                              Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+                              Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+                              Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+                              Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.springframework.ide.eclipse.wizard 4 0 2016-03-06 09:58:23.410
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.springframework.ide.eclipse.wizard [1209]
+  Unresolved requirement: Import-Package: org.springframework.http; version="[4.0.0,4.3.0)"
+    -> Export-Package: org.springframework.http; bundle-symbolic-name="org.springframework.web"; bundle-version="4.2.3.20151116-RELEASE"; version="4.2.3.20151116-RELEASE"; uses:="org.springframework.util"
+       org.springframework.web [1215]
+         Unresolved requirement: Import-Package: com.caucho.burlap.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.burlap.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.burlap.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.client; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.io; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.caucho.hessian.server; version="[3.2.1,5.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.fasterxml.jackson.dataformat.xml; version="[2.0.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: com.googlecode.protobuf.format; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed.atom; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.feed.rss; resolution:="optional"
+         Unresolved requirement: Import-Package: com.rometools.rome.io; resolution:="optional"
+         Unresolved requirement: Import-Package: com.squareup.okhttp; resolution:="optional"
+         Unresolved requirement: Import-Package: com.sun.net.httpserver; version="0.0.0"; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.bootstrap; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.buffer; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.nio; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.socket; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.channel.socket.nio; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.codec.http; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.ssl; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.handler.timeout; resolution:="optional"
+         Unresolved requirement: Import-Package: io.netty.util.concurrent; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.application; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.component; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.context; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.faces.event; version="[1.1.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.portlet; version="[2.0.0,3.0.0)"; resolution:="optional"
+         Unresolved requirement: Import-Package: javax.validation
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-03-06 09:59:21.768
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2016-03-06 09:59:21.793
+!MESSAGE IvyDE plugin started

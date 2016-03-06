@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+
+		 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+
+
+		<rich:panel
+			header="#{txt.struct_confNodo} #{Flows.treeNodoActual.nombre}"
+			style="width:500px">
+			<h:panelGrid columns="1">
+				<rich:messages></rich:messages>
+			</h:panelGrid>
+
+	
+
+			<!-- 
+            CUERPO DEL MENSAJE 
+            -->
+			<h:form>
+				<h:panelGrid columns="1" binding="#{backing_login.panelGrid1}"
+					id="panelGrid1">
+
+					<h:commandButton value="#{txt.btn_menu}"
+						action="#{listarControlFlowByTime.cancelarListar}" />
+
+					<h:outputText
+						value="#{listarControlFlowByTime.fechaActualServidor}" />
+					<h:outputText
+						value="#{listarControlFlowByTime.diaDeLaSemanaServidor}" />
+					<h:outputText value="#{listarControlFlowByTime.horaServidior}" />
+				</h:panelGrid>
+				<h1><h:outputText value="#{txt.asignacio_horas}" /></h1>
+
+				<rich:dataTable
+					value="#{listarControlFlowByTime.flowControlByUsuarioBeans}"
+					var="car" iterationStatusVar="it" id="table"
+					rows="#{Utilidades.verNumeroDeRegistros}">
+
+
+
+					<rich:column>
+						<f:facet name="header">
+							<h:graphicImage styleClass="grees" title=""
+								url="#{conftxt.img_editar}" />
+						</f:facet>
+						<h:panelGroup rendered="#{!car.swEsRole}">
+
+							<a4j:commandLink styleClass="no-decor"
+								onclick="this.style.display='none';" id="Edit"
+								action="#{listarControlFlowByTime.edit}"
+								>
+								<h:outputText styleClass="node"
+									value="#{car.flow_Participantes.participante.apellido}
+                                                #{car.flow_Participantes.participante.nombre}
+                                                [#{car.flow_Participantes.participante.cargo.nombre}]" />
+								<f:setPropertyActionListener target="#{listarControlFlowByTime.flowControlByUsuarioBean}"
+								value="#{car}" />
+							</a4j:commandLink>
+
+						</h:panelGroup>
+
+						<h:panelGroup rendered="#{car.swEsRole}">
+
+							<h:commandLink action="#{listarControlFlowByTime.edit}"
+								actionListener="#{listarControlFlowByTime.select}">
+								<h:outputText value="#{car.role.nombre}" />
+								<f:param id="editId2" name="id2" value="#{car.codigo}" />
+							</h:commandLink>
+
+						</h:panelGroup>
+
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText styleClass="grees" value="#{txt.asignadas_horas}" />
+						</f:facet>
+						<h:outputText styleClass="node" value="#{car.horasAsignadas}" />
+					</rich:column>
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText styleClass="grees" value="#{txt.asignadas_minutos}" />
+						</f:facet>
+						<h:outputText styleClass="node" value="#{car.minutosAsignados}" />
+					</rich:column>
+
+
+
+
+
+				</rich:dataTable>
+
+
+
+
+
+
+			</h:form>
+
+
+		</rich:panel>
+
+
+	</ui:define>
+</ui:composition>
+</html>

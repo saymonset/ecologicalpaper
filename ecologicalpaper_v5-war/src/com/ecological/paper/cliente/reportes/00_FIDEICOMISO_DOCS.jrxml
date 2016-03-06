@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="00_FIDEICOMISO_DOCS" language="groovy" pageWidth="396" pageHeight="580" columnWidth="396" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="SUBREPORT_DIR1" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\01_FIDEICOMISO_INVERSION.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR2" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\02_detallecomiso.jasper"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGE_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\BANCARIBE\\Plantillas\\FIDEICOMISO\\IMAGEDIR BANCOMISO\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="URL_BINARIA" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["http://alfa/binaria.ws.1/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="URL_SERVLET" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["DespachaRecurso?id="]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[/Cuentas/Documento]]>
+	</queryString>
+	<field name="IMAGEN_LOGO" class="java.lang.String">
+		<fieldDescription><![CDATA[Binaria/IMAGEN_LOGO]]></fieldDescription>
+	</field>
+	<field name="IMAGEN_PIE" class="java.lang.String">
+		<fieldDescription><![CDATA[Binaria/IMAGEN_PIE]]></fieldDescription>
+	</field>
+	<field name="IMAGEN_PORTADA" class="java.lang.String">
+		<fieldDescription><![CDATA[Binaria/IMAGEN_PORTADA]]></fieldDescription>
+	</field>
+	<field name="correlativo" class="java.lang.String">
+		<fieldDescription><![CDATA[Binaria/correlativo]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="580" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="396" height="580"/>
+				<subreportParameter name="URL_SERVLET">
+					<subreportParameterExpression><![CDATA[$P{URL_SERVLET}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGEN_PORTADA">
+					<subreportParameterExpression><![CDATA[$F{IMAGEN_PORTADA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGEN_LOGO">
+					<subreportParameterExpression><![CDATA[$F{IMAGEN_LOGO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGEN_PIE">
+					<subreportParameterExpression><![CDATA[$F{IMAGEN_PIE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR1">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="correlativo">
+					<subreportParameterExpression><![CDATA[$F{correlativo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="URL_BINARIA">
+					<subreportParameterExpression><![CDATA[$P{URL_BINARIA}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("Documento/fideicomitente")]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR1}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

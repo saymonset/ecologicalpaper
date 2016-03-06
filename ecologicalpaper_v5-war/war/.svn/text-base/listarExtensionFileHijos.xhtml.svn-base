@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+ 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+
+		<a4j:status onstart="#{rich:component('statPane')}.show()"
+			onstop="#{rich:component('statPane')}.hide()" />
+
+		<h:form id="form">
+		
+		
+<center>
+			<h1><h:outputText styleClass="form" value="#{txt.extensionFileHijos}" /></h1>
+			</center>
+		
+			<a4j:jsFunction name="remove" render="table" execute="@this"
+				oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="confirmPane"
+				domElementAttachment="parent" width="800" height="400">
+				<h:panelGrid columns="1">
+					<rich:messages></rich:messages>
+
+				</h:panelGrid>
+
+
+
+				<h:outputText value="#{txt.deleteconfirma}" />
+
+
+				<a4j:commandButton value="#{txt.delete}"
+					action="#{viewExtensionFileHijos.remove}" render="table"
+					execute="confirmPane"
+					oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('confirmPane')}.hide();}" />
+
+				<a4j:commandButton value="#{txt.cancelar}"
+					onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+
+
+			</rich:popupPanel>
+
+			<rich:popupPanel header="..." id="editPane"
+				domElementAttachment="parent" width="800" height="400">
+				<rich:messages></rich:messages>
+				<h:panelGroup />
+				<h:panelGroup />
+
+				<rich:tabPanel switchType="client">
+
+					<rich:tab header="#{txt.tipodearchivo}">
+
+						<h:panelGrid columns="3" id="editGrid">
+
+
+							<h:panelGrid columns="2">
+								<h:panelGrid columns="3">
+
+									<h:outputText value="#{txt.tipodeextensionuevo}" />
+									<h:panelGroup>
+										<h:inputText id="campo1"
+											value="#{viewExtensionFileHijos.objectItem.extension}"
+											required="true">
+											<f:validateLength maximum="20" minimum="0" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="campo1" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+									<h:outputText value="#{txt.tipodearchivo}" />
+									<h:panelGroup>
+										<h:outputText id="campo2"
+											value="#{viewExtensionFileHijos.objectItem.extensionFile.mimeType}">
+										</h:outputText>
+										<rich:message for="campo2" />
+									</h:panelGroup>
+									<h:panelGroup />
+								</h:panelGrid>
+
+
+							</h:panelGrid>
+						</h:panelGrid>
+					</rich:tab>
+
+				</rich:tabPanel>
+
+				<h:panelGroup />
+				<h:panelGrid columns="2">
+					<a4j:commandButton value="#{txt.guardar}"
+						action="#{viewExtensionFileHijos.editar}" render="table"
+						execute="editPane"
+						oncomplete="if (#{facesContext.maximumSeverity==null}) {#{rich:component('editPane')}.hide();}" />
+					<a4j:commandButton value="#{txt.cancelar}"
+						action="#{viewExtensionFileHijos.aceptar}"
+						onclick="#{rich:component('editPane')}.hide(); return false;" />
+				</h:panelGrid>
+				<h:panelGroup />
+			</rich:popupPanel>
+
+
+
+			<h:outputText id="selectOneMenuPais" value="#{txt.crearestadoen}  "
+				title="#{txt.crearestadoen}  " />
+			<h:outputText id="selectOneMenuPais2" value="#{txt.tipodearchivo}"
+				title="#{txt.tipodearchivo}" />
+			<h:selectOneMenu id="selectPais" immediate="true"
+				value="#{viewExtensionFileHijos.extensionFile}"
+				converter="ConverExtensionFile">
+				<f:ajax event="change" render="table"
+					action="#{extensionFileHijosCliente.colocarInSession}"
+					execute="@this" />
+				<f:selectItems value="#{DatosCombo.allExtensionFiles}" />
+			</h:selectOneMenu>
+			<rich:message for="selectOneMenuPais" />
+
+			<rich:tabPanel switchType="client">
+				<rich:tab header="#{txt.extensionFileHijos}">
+					<rich:dataTable value="#{viewExtensionFileHijos.allObjectItems}"
+						var="car" iterationStatusVar="it" id="table"
+						rows="#{Utilidades.verNumeroDeRegistros}">
+						<rich:column>
+							<f:facet name="header">#</f:facet>
+                #{it.index}
+            </rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.nombre}" />
+							</f:facet>
+							<h:outputText value="#{car.extension}" />
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">
+								<h:outputText value="#{txt.tipodearchivo}" />
+							</f:facet>
+							<h:outputText value="#{car.extensionFile.extension}" />
+						</rich:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="mimeType" />
+							</f:facet>
+							<h:outputText value="#{car.extensionFile.mimeType}" />
+						</h:column>
+
+
+
+						<rich:column>
+							<f:facet name="header">
+								<h:panelGrid columns="3">
+
+									<a4j:commandLink styleClass="no-decor"
+										render="editGrid listshuffle" execute="@this"
+										oncomplete="#{rich:component('editPane')}.show()">
+										<h:graphicImage title="#{txt.new}" url="#{conftxt.img_new}" />
+										<a4j:param value="#{it.index}"
+											assignTo="#{viewExtensionFileHijos.currentCarIndex}" />
+
+										<a4j:param value="false"
+											assignTo="#{viewExtensionFileHijos.swEditar}" />
+
+										<f:setPropertyActionListener
+											target="#{viewExtensionFileHijos.objectItem}"
+											value="#{viewExtensionFileHijos.objeto}" />
+
+										<f:setPropertyActionListener
+											target="#{viewExtensionFileHijos.objectItem.extensionFile}"
+											value="#{viewExtensionFileHijos.extensionFile}" />
+									</a4j:commandLink>
+
+
+								</h:panelGrid>
+
+							</f:facet>
+							<h:panelGrid columns="3">
+								<h:panelGroup>
+									<h:panelGrid columns="1">
+										<!--							<%/* new */%>-->
+									</h:panelGrid>
+								</h:panelGroup>
+								<a4j:commandLink styleClass="no-decor" render="editGrid"
+									execute="@this"
+									oncomplete="#{rich:component('editPane')}.show()">
+									<h:graphicImage title="#{txt.edit}" url="#{conftxt.img_editar}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewExtensionFileHijos.currentCarIndex}" />
+
+									<f:setPropertyActionListener
+										target="#{viewExtensionFileHijos.objectItem}" value="#{car}" />
+									<f:setPropertyActionListener
+										target="#{viewExtensionFileHijos.swEditar}" value="true" />
+
+
+								</a4j:commandLink>
+
+								<a4j:commandLink styleClass="no-decor" execute="@this"
+									render="@none"
+									oncomplete="#{rich:component('confirmPane')}.show()">
+									<h:graphicImage title="#{txt.delete}"
+										url="#{conftxt.img_erase}" />
+									<a4j:param value="#{it.index}"
+										assignTo="#{viewExtensionFileHijos.currentCarIndex}" />
+
+									<f:setPropertyActionListener
+										target="#{viewExtensionFileHijos.objectItem}" value="#{car}" />
+
+								</a4j:commandLink>
+
+							</h:panelGrid>
+						</rich:column>
+
+						<f:facet name="footer">
+							<rich:dataScroller page="#{viewExtensionFileHijos.page}" />
+						</f:facet>
+					</rich:dataTable>
+				</rich:tab>
+			</rich:tabPanel>
+
+		</h:form>
+
+
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

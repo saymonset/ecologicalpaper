@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/templatetree.xhtml">
+	<ui:define name="title">
+		
+	</ui:define>
+	<ui:define name="pie">
+
+		 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+		<h:form>
+			<rich:messages></rich:messages>
+			<h:panelGrid columns="2">
+				<a4j:commandButton value="#{txt.guardar}"
+					 action="#{viewRole.editar}" />
+				<a4j:commandButton value="#{txt.cancelar}" immediate="true"
+					action="#{viewRole.aceptar}" />
+			</h:panelGrid>
+			<rich:tabPanel switchType="client">
+
+				<rich:tab header="#{txt.grupos} #{viewRole.title}">
+
+					<h:panelGrid columns="3" id="editGrid">
+
+
+						<h:panelGrid columns="1">
+							<rich:tabPanel switchType="client">
+								<rich:tab header="#{txt.role_nombre}">
+									<h:panelGrid columns="1">
+										<rich:panel rendered="#{!viewRole.swEditar}">
+											<h:outputText value="#{txt.usuario_empresa}"
+												title="#{txt.usuario_empresa}" />
+											<h:selectOneMenu id="selectOneMenuEmpresa" immediate="true"
+											disabled="#{!viewRole.swSuperUsuario}"
+												value="#{viewRole.empresa}" converter="ConverTree">
+												<f:selectItems value="#{login.lstEmpresas}" />
+											</h:selectOneMenu>
+											<rich:message for="selectOneMenuEmpresa" />
+										</rich:panel>
+										<h:panelGroup>
+											<h:outputText value="#{txt.role_nombre}" />
+											<h:inputText id="campo1"
+												value="#{viewRole.objectItem.nombre}" required="true">
+												<f:validateLength maximum="100" minimum="0" />
+												<f:validator validatorId="caracteresinvalidos" />
+											</h:inputText>
+											<rich:message for="campo1" />
+											<h:outputText value="[#{viewRole.empresa.nombre}]" />
+										</h:panelGroup>
+
+										<h:inputTextarea cols="100" rows="10"  value="#{viewRole.objectItem.descripcion}"
+											 />
+										<h:panelGroup />
+									</h:panelGrid>
+								</rich:tab>
+
+								<rich:tab
+								
+								rendered="#{viewRole.swEditar}"
+								 header="#{txt.menu_Usuario}">
+									<h3><h:outputText value="#{txt.menu_Usuario}" /></h3>
+									<p:pickList value="#{viewRole.operaciones2}" var="objeto"
+										itemLabel="#{objeto}" itemValue="#{objeto}"
+										converter="ConverUsuarios" iconOnly="true"
+										showSourceControls="true" showTargetControls="true">
+										<f:facet name="sourceCaption">#{txt.no} #{txt.activos} </f:facet>
+										<f:facet name="targetCaption">#{txt.activos}</f:facet>
+									</p:pickList>
+								</rich:tab>
+								<rich:tab rendered="#{!viewRole.usadoParaCrearFlujo and viewRole.swEditar}" header="#{txt.menu_listarRole}">
+									<h3><h:outputText value="#{txt.menu_listarRole}" /></h3>
+									<p:pickList value="#{viewRole.operaciones}" var="objeto"
+										itemLabel="#{objeto.operacion}" itemValue="#{objeto}"
+										converter="ConverOperaciones" iconOnly="true"
+										showSourceControls="true" showTargetControls="true">
+										<f:facet name="sourceCaption">#{txt.Operaciones_noSelec}</f:facet>
+										<f:facet name="targetCaption">#{txt.Operaciones_Selec}</f:facet>
+									</p:pickList>
+								</rich:tab>
+
+
+							</rich:tabPanel>
+
+
+						</h:panelGrid>
+					</h:panelGrid>
+				</rich:tab>
+
+			</rich:tabPanel>
+
+			<h:panelGroup />
+			<h:panelGrid columns="2">
+				<a4j:commandButton value="#{txt.guardar}"
+					action="#{viewRole.editar}"  />
+				<a4j:commandButton value="#{txt.cancelar}"
+				immediate="true"
+					action="#{viewRole.aceptar}" />
+			</h:panelGrid>
+			<h:panelGroup />
+
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

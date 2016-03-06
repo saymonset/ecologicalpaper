@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql
+END
+Driver.class
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/Driver.class
+END
+PGStatement.class
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/PGStatement.class
+END
+Driver$ConnectThread.class
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/Driver$ConnectThread.class
+END
+PGResultSetMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/PGResultSetMetaData.class
+END
+PGNotification.class
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/PGNotification.class
+END
+PGRefCursorResultSet.class
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/PGRefCursorResultSet.class
+END
+PGConnection.class
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/PGConnection.class
+END
+Driver$1.class
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/Driver$1.class
+END

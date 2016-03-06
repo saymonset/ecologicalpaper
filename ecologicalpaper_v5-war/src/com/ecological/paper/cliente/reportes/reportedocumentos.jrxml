@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportefacturacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6c06fa17-7356-4041-b669-f6959468d48f">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="flujo" class="java.lang.String"/>
+	<parameter name="fechacreado" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="areadocumento" class="java.lang.String"/>
+	<field name="consecutivo" class="java.lang.String"/>
+	<field name="fecha_mostrar" class="java.lang.String"/>
+	<field name="duenio" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="doc_estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70">
+			<rectangle radius="5">
+				<reportElement mode="Opaque" x="0" y="3" width="546" height="66" backcolor="#F5F5F5" uuid="4a9d9249-d09e-47b2-851d-d1c7fa2ad9a3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="133" y="12" width="194" height="16" uuid="0ee81173-1721-47ad-a259-a3fbe51e30a0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="32" width="70" height="16" uuid="3c542308-ccb9-426b-9ac1-d5cfa505ea20"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripcion  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="33" width="382" height="16" uuid="940aa457-0d17-4e86-abc5-7377707c6df1"/>
+				<textFieldExpression><![CDATA[$P{flujo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="51" width="221" height="15" uuid="6477e467-3e0e-4be3-aeae-e40d719ca0af"/>
+				<textFieldExpression><![CDATA[$P{fechacreado}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="3" y="10" width="87" height="38" uuid="a7a8ba33-8cf1-436f-b920-7f9f1d28c383"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="94" y="50" width="70" height="16" uuid="21cc9982-22ec-434c-be33-868bc275e402"/>
+				<textElement textAlignment="Left">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Fecha           :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="15">
+			<staticText>
+				<reportElement x="169" y="0" width="87" height="13" uuid="e68cc91e-0d06-4c92-88ae-f6a6adeccd69"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Area Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="31" height="13" uuid="b0654547-c7f5-4309-965a-97b47f14e50e"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Creado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="1" width="72" height="13" uuid="06236c38-373e-4659-942b-b8fe2397270a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="1" width="72" height="13" uuid="2f956450-3edf-4fcf-8a24-2e7090d3e245"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="-1" width="87" height="13" uuid="0346adc1-e843-4718-9b55-befc085e149c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="133" y="0" width="81" height="13" uuid="385a61b1-7bb5-438e-ac4d-d228b344c526"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{areadocumento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="214" y="0" width="74" height="13" uuid="7b5f0893-a567-4080-88a0-a39f97114f15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{consecutivo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="288" y="0" width="95" height="13" uuid="3ced6d9a-54c1-4e8e-8025-46a034f8ddaa"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha_mostrar}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="393" y="4" width="70" height="10" uuid="fb815f2f-bd1b-4367-96b5-259737b10488"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{doc_estado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="8" y="0" width="122" height="13" uuid="04a9153f-d9bf-4188-91e2-94c9f51cdcb1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="465" y="4" width="81" height="9" uuid="6e1e3fd3-a5de-4192-ac2c-a3c1cc0e8998"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{duenio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="50">
+			<image>
+				<reportElement mode="Opaque" x="154" y="0" width="100" height="50" uuid="7728370e-e469-4d9c-bedd-81779da90fe7"/>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

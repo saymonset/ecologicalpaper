@@ -1,0 +1,109 @@
+package com.ecological.paper.documentos;
+
+import java.io.File;
+import java.io.Serializable;
+import java.sql.Blob;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.TableGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import com.ecological.paper.permisologia.role.Role;
+import com.ecological.paper.usuario.Usuario;
+import com.util.Utilidades;
+
+@Entity
+public class PublicadosUsuComent implements Serializable {
+	@TableGenerator(name = "publicadosComentarios", table = "SEQUENCE_ID_GEN", pkColumnName = "GEN_KEY", valueColumnName = "GEN_VALUE", pkColumnValue = "publicadosComentarios_ID", allocationSize = 1)
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE, generator = "publicadosComentarios")
+	private Long codigo;
+	@ManyToOne
+	@JoinColumn(name = "doc_detalle")
+	private Doc_detalle doc_detalle;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario")
+	private Usuario usuario;
+	
+	@Column(name = "fecha")
+	@Temporal(TemporalType.DATE)
+	private java.util.Date fecha;
+	@Transient
+	private String fechaStr;
+	private Blob data_doc;
+    private byte[] data_doc_postgres;
+    private File file2;
+    
+    @Column(name = "comentario", length = 4000)
+	private String comentario;
+	public Long getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
+	}
+	public Doc_detalle getDoc_detalle() {
+		return doc_detalle;
+	}
+	public void setDoc_detalle(Doc_detalle doc_detalle) {
+		this.doc_detalle = doc_detalle;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	public java.util.Date getFecha() {
+		return fecha;
+	}
+	public void setFecha(java.util.Date fecha) {
+		this.fecha = fecha;
+	}
+	public Blob getData_doc() {
+		return data_doc;
+	}
+	public void setData_doc(Blob data_doc) {
+		this.data_doc = data_doc;
+	}
+	public byte[] getData_doc_postgres() {
+		return data_doc_postgres;
+	}
+	public void setData_doc_postgres(byte[] data_doc_postgres) {
+		this.data_doc_postgres = data_doc_postgres;
+	}
+	public String getComentario() {
+		return comentario;
+	}
+	public void setComentario(String comentario) {
+		this.comentario = comentario;
+	}
+	public File getFile() {
+		return file2;
+	}
+	public void setFile(File file) {
+		this.file2 = file;
+	}
+	public String getFechaStr() {
+		fechaStr = "";
+		if (getFecha() != null) {
+			fechaStr = Utilidades.date1
+					.format(getFecha());
+		}
+		
+		return fechaStr;
+	}
+	public void setFechaStr(String fechaStr) {
+		this.fechaStr = fechaStr;
+	}
+
+}

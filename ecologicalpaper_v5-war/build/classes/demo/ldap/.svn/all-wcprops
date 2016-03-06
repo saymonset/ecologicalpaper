@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap
+END
+ldapminimo.java
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap/ldapminimo.java
+END
+LDAPTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap/LDAPTest.java
+END
+Conexion.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap/Conexion.java
+END
+Simple.java
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap/Simple.java
+END
+LdapAutenticarUsuario.java
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap/LdapAutenticarUsuario.java
+END
+ObtenerDN.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/src/demo/ldap/ObtenerDN.java
+END

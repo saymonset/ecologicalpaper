@@ -1,0 +1,46 @@
+10
+
+dir
+279
+http://localhost/svn/ecologicalpaper/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com
+http://localhost/svn/ecologicalpaper
+
+
+
+2012-10-27T21:10:05.816103Z
+278
+simon
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+85bf9f25-8583-2d4d-97b2-acfb4a44fb19
+
+ecological
+dir
+
+entity
+dir
+
+pruebas
+dir
+
+servicio
+dir
+
+software
+dir
+
+util
+dir
+

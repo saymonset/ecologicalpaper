@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/templatetree.xhtml">
+	<ui:define name="body">
+		<center>
+		<h1><h:outputText styleClass="form" value="#{txt.areadocumento}" /></h1>
+		</center>
+		<div id="izq" style="width: 800px" class="columna_izquierda"><h:form>
+			<h:panelGrid columns="3" id="panelGrid1">
+				<h:outputLabel styleClass="form" value="#{txt.profesion_nombre}" />
+				<h:inputText id="inputTextNombre"
+					value="#{areaDocumentosBean.areaDocumento.nombre}"
+					immediate="false">
+					<f:validateLength maximum="40" minimum="4" />
+					<f:validator validatorId="caracteresinvalidos" />
+				</h:inputText>
+				<h:message styleClass="form" for="inputTextNombre" />
+
+				<h:outputLabel styleClass="form"
+					value="#{txt.profesion_descripcion}" />
+				<h:inputTextarea cols="100" styleClass="form" rows="10"
+					value="#{areaDocumentosBean.areaDocumento.descripcion}"></h:inputTextarea>
+
+				<h:message styleClass="form" for="inputTextDescripcion" />
+
+				<h:message styleClass="form" for="btncancel" />
+				<h:panelGroup>
+					<h:commandButton styleClass="boton" id="btncancel"
+						value="#{txt.btn_cancelar}" immediate="true"
+						action="#{areaDocumentosBean.cancelarListar}" />
+
+					<h:commandButton styleClass="boton" value="#{txt.btn_guardar}"
+						action="#{areaDocumentosBean.saveObjeto}" />
+				</h:panelGroup>
+				<f:verbatim></f:verbatim>
+			</h:panelGrid>
+
+
+		</h:form> <!--<%/* FIN VER INFO DEL DOCUMENTO  */%>--></div>
+
+	</ui:define>
+</ui:composition>
+</html>

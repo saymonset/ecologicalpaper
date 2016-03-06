@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/ecologicalpaper/!svn/ver/278/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/util
+END
+ValidaVencimiento.java
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/util/ValidaVencimiento.java
+END
+Utilidades.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/ecologicalpaper/!svn/ver/277/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/util/Utilidades.java
+END
+EncryptorMD5.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/ecologicalpaper/!svn/ver/219/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/util/EncryptorMD5.java
+END
+ServicioLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/util/ServicioLogger.java
+END
+HibernateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/util/HibernateUtil.java
+END

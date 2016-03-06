@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+		
+	</ui:define>
+
+	<ui:define name="pie">
+
+		 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+
+
+		<rich:panel
+			header="#{txt.struct_confNodo} #{Flows.treeNodoActual.nombre}"
+			style="width:500px">
+			<h:panelGrid columns="1">
+				<rich:messages></rich:messages>
+			</h:panelGrid>
+
+		 
+
+		 
+	 
+			<title><h:outputText 
+				value="#{txt.asignacio_horas}" /></title>
+			<h1></h1>
+			<center>
+			<h2><h:outputText 
+				value="#{txt.asignacio_horas}" /></h2>
+			</center>
+			<p></p>
+
+			<h:form id="forma">
+				<h:panelGrid columns="3" id="panelGrid1">
+
+					<h:outputLabel  value="#{txt.profesion_nombre}" />
+					<h:outputText 
+						rendered="#{!listarControlFlowByTime.flowControlByUsuarioBean.swEsRole}"
+						value="#{listarControlFlowByTime.flowControlByUsuarioBean.flow_Participantes.participante.apellido}
+                                  #{listarControlFlowByTime.flowControlByUsuarioBean.flow_Participantes.participante.nombre}
+                                  [#{listarControlFlowByTime.flowControlByUsuarioBean.flow_Participantes.participante.cargo.nombre}]" />
+
+					<h:outputText 
+						rendered="#{listarControlFlowByTime.flowControlByUsuarioBean.swEsRole}"
+						value="#{listarControlFlowByTime.flowControlByUsuarioBean.role.nombre}" />
+					<rich:message  for="inputTextNombre" />
+
+<!--			<%-->
+<!--				/*    * Error de validaci�n-->
+<!--							 * Error de validaci�n-->
+<!--							 Se corrige en el metodo llenar horas colocar-->
+<!--							 hora es string, se cambia por integer-->
+<!--							 item=new SelectItem(new Integer(hora),hora);-->
+<!--							 */-->
+<!--			%>-->
+			<h:outputText  value="#{txt.num_horas}" />
+					<h:selectOneMenu id="horas31"
+						value="#{listarControlFlowByTime.flowControlByUsuarioBean.horasAsignadas}">
+						<f:selectItems value="#{listarControlFlowByTime.llenarHoras}" />
+					</h:selectOneMenu>
+					<f:verbatim></f:verbatim>
+
+					<h:outputText  value="#{txt.minutos}" />
+					<h:selectOneMenu id="horas32"
+						value="#{listarControlFlowByTime.flowControlByUsuarioBean.minutosAsignados}">
+						<f:selectItems value="#{listarControlFlowByTime.llenarMinutos}" />
+					</h:selectOneMenu>
+					<f:verbatim></f:verbatim>
+
+
+					<rich:message  for="btncancel" />
+					<h:panelGroup>
+						<h:panelGrid columns="2">
+							<h:commandButton styleClass="boton" id="btncancel"
+								value="#{txt.btn_cancelar}"
+								action="#{listarControlFlowByTime.cancelarListar}" />
+
+							<h:commandButton styleClass="boton" value="#{txt.btn_guardar}"
+								action="#{listarControlFlowByTime.saveObjeto}" />
+						</h:panelGrid>
+					</h:panelGroup>
+					<f:verbatim></f:verbatim>
+
+				</h:panelGrid>
+
+
+			</h:form>
+
+
+		</rich:panel>
+
+
+	</ui:define>
+</ui:composition>
+</html>

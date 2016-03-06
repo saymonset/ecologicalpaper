@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<script type="text/javascript">
+		var $arrayKeys = <h:outputText value="#{spotlight.listarPalabrasClaves}"  escape="false"/>;
+		var $arrayMenu = <h:outputText value="#{spotlight.opciones}"  escape="false"/>;
+	</script>
+	<script type="text/javascript" src="js/busqueda.js"></script>
+
+
+	<div class="spotlightBox">
+		<input id="busqueda_avanzada" type="text"
+			placeholder="busca en Mi Movistar" onkeyup="spotlight();" />		
+		<img id="img_spotlight" src="images/lupa_Spotlight.jpg" height="21"
+			width="21" alt="" /> 
+	</div>
+
+</ui:composition>

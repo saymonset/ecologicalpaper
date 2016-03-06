@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/ecologicalpaper/!svn/ver/269/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos
+END
+Solicitudimpresion.java
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Solicitudimpresion.java
+END
+Doc_detalle.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/ecologicalpaper/!svn/ver/268/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_detalle.java
+END
+Doc_consecutivo.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_consecutivo.java
+END
+Doc_estado.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_estado.java
+END
+AreaDocumentos.java
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/ecologicalpaper/!svn/ver/137/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/AreaDocumentos.java
+END
+Doc_dataPostgres.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_dataPostgres.java
+END
+Doc_maestro.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/ecologicalpaper/!svn/ver/269/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_maestro.java
+END
+Doc_historicoActivoDetalle.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_historicoActivoDetalle.java
+END
+TablaAuxiliar.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/TablaAuxiliar.java
+END
+Doc_relacionados.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_relacionados.java
+END
+SolicitudImpPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/SolicitudImpPart.java
+END
+Doc_tipo.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/ecologicalpaper/!svn/ver/156/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_tipo.java
+END
+RolesOnlyViewDocPublicados.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/RolesOnlyViewDocPublicados.java
+END
+ScannerDoc.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/ecologicalpaper/!svn/ver/191/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/ScannerDoc.java
+END
+Doc_historicoActivoMaestro.java
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/Doc_historicoActivoMaestro.java
+END
+PublicadosUsuComent.java
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/ecologicalpaper/!svn/ver/131/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-ejb/ejbModule/com/ecological/paper/documentos/PublicadosUsuComent.java
+END

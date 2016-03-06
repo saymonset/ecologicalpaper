@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/templatetree.xhtml">
+	<ui:define name="title">
+		
+	</ui:define>
+	<ui:define name="pie">
+
+		 
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+</h:outputStylesheet>
+
+
+		<h:form>
+			<rich:messages></rich:messages>
+			<h:panelGrid columns="2">
+				<a4j:commandButton value="#{txt.guardar}"
+					action="#{usuarioView.editar}" />
+				<a4j:commandButton value="#{txt.cancelar}" immediate="true"
+					onclick="this.style.display='none';"
+					action="#{usuarioView.aceptar}" />
+			</h:panelGrid>
+
+			<h:panelGrid columns="3" id="editGrid">
+				<h:panelGrid columns="1">
+					<rich:tabPanel switchType="client">
+						<rich:tab header="#{txt.perfil}">
+							<h:panelGrid columns="2">
+								<h:panelGrid columns="3">
+									<h:outputText value="#{txt.usuario_nombre} * " />
+									<h:panelGroup>
+										<h:inputText value="#{usuarioView.objectItem.nombre}" id="vin"
+										maxlength="99"	required="true">
+											<f:validateLength minimum="2" maximum="100" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="vin" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+
+									<h:outputText value="#{txt.usuario_apellido} * " />
+									<h:panelGroup>
+										<h:inputText id="apellido"
+										maxlength="99"
+											value="#{usuarioView.objectItem.apellido}" required="true">
+											<f:validateLength maximum="100" minimum="2" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="apellido" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+									<h:outputText value="#{txt.usuario_fechab}" />
+									<rich:calendar value="#{usuarioView.objectItem.fecha_caduca}"
+										locale="false" popup="true" datePattern="MM/dd/yyyy"
+										showApplyButton="false" cellWidth="24px" cellHeight="22px"
+										style="width:200px" />
+									<h:panelGroup />
+
+
+									<h:outputText value="#{txt.usuario_mail} * " />
+									<h:panelGroup>
+										<h:inputText id="mail"
+											value="#{usuarioView.objectItem.mail_principal}"
+											title="#{txt.usuario_mail}">
+											<f:validator validatorId="validatorMail" />
+										</h:inputText>
+										<rich:message for="mail" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+
+									<h:outputText value="#{txt.usuario_telefono_ofic}" />
+									<h:panelGroup>
+										<h:inputText id="telefono_ofic"
+											value="#{usuarioView.objectItem.telefono_ofic}"
+											title="#{txt.usuario_telefono_ofic}" immediate="false">
+											<f:validateLength maximum="40" minimum="0" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="telefono_ofic" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+									<h:outputText value="#{txt.usuario_telefono_casa}" />
+									<h:panelGroup>
+										<h:inputText id="telefono_casa"
+											value="#{usuarioView.objectItem.telefono_casa}"
+											title="#{txt.usuario_telefono_casa}" immediate="false">
+											<f:validateLength maximum="40" minimum="0" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="telefono_casa" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+									<h:outputText value="#{txt.usuario_telefono_cel}" />
+									<h:panelGroup>
+										<h:inputText id="telefono_cel"
+											value="#{usuarioView.objectItem.telefono_cel}"
+											title="#{txt.usuario_telefono_cel}" immediate="false">
+											<f:validateLength maximum="40" minimum="0" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputText>
+										<rich:message for="telefono_cel" />
+									</h:panelGroup>
+									<h:panelGroup />
+
+
+									<h:outputText value="#{txt.usuario_direccion}" />
+									<h:panelGroup>
+										<h:inputTextarea id="desc2" cols="40" rows="3"
+											value="#{usuarioView.objectItem.direccion}">
+											<f:validateLength maximum="3500" minimum="0" />
+											<f:validator validatorId="caracteresinvalidos" />
+										</h:inputTextarea>
+										<rich:message for="desc2" />
+									</h:panelGroup>
+									<h:panelGroup />
+								</h:panelGrid>
+
+								<h:panelGrid columns="3">
+									<h:outputText id="selectOneMenuProfesion"
+										value="#{txt.usuario_profesion}"
+										title="#{txt.usuario_profesion}" />
+									<h:selectOneMenu value="#{usuarioView.objectItem.profesion}"
+										converter="ConverProfesion">
+										<f:selectItems value="#{ClienteUsuario.allProfesion}" />
+									</h:selectOneMenu>
+									<rich:message for="selectOneMenuProfesion" />
+
+
+									<h:outputText
+										value="#{txt.usuario_empresa} [#{usuarioView.objectItem.empresa.nombre}] * "
+										title="#{txt.usuario_empresa}" />
+									<h:selectOneMenu id="selectOneMenuEmpresa" disabled="true"
+										immediate="true" binding="#{ClienteUsuario.selectEmpresa}"
+										value="#{usuarioView.objectItem.empresa}"
+										converter="ConverTree">
+										<f:ajax event="change"
+											render="selectOneMenuPrincipal selectOneMenuArea selectOneMenuCargo"
+											action="#{ClienteUsuario.changePrincipalP}" execute="@this" />
+										<f:selectItems value="#{ClienteUsuario.allEmpresas}" />
+									</h:selectOneMenu>
+									<rich:message for="selectOneMenuEmpresa" />
+
+									<h:outputText
+										value="#{txt.flow_commentPrincipal} [#{usuarioView.objectItem.principal.nombre}] * "
+										title="#{txt.flow_commentPrincipal}" />
+									<h:selectOneMenu id="selectOneMenuPrincipal"
+										disabled="#{usuarioView.swEditarUsuario}" immediate="true"
+										binding="#{ClienteUsuario.selectPrincipal}"
+										value="#{usuarioView.objectItem.principal}"
+										converter="ConverTree">
+
+										<f:ajax event="change"
+											render="selectOneMenuArea selectOneMenuCargo"
+											action="#{ClienteUsuario.changeAreaP}" execute="@this" />
+
+										<f:selectItems value="#{ClienteUsuario.allPrincipal}" />
+									</h:selectOneMenu>
+									<rich:message for="selectOneMenuPrincipal" />
+
+
+
+									<h:outputText
+										value="#{txt.usuario_area} [#{usuarioView.objectItem.area.nombre}] * "
+										title="#{txt.usuario_area}" />
+
+									<h:selectOneMenu id="selectOneMenuArea"
+										disabled="#{usuarioView.swEditarUsuario}" immediate="true"
+										binding="#{ClienteUsuario.selectArea}"
+										value="#{usuarioView.objectItem.area}" converter="ConverTree">
+										<f:ajax event="change" render="selectOneMenuCargo"
+											action="#{ClienteUsuario.changeAreaP}" execute="@this" />
+										<f:selectItems value="#{ClienteUsuario.allAreas}" />
+									</h:selectOneMenu>
+									<rich:message for="selectOneMenuArea" />
+
+
+									<h:outputText
+										value="#{txt.usuario_cargo} [ #{usuarioView.objectItem.cargo.nombre} ] * "
+										title="#{txt.usuario_cargo}" />
+
+									<h:selectOneMenu disabled="#{usuarioView.swEditarUsuario}"
+										id="selectOneMenuCargo"
+										value="#{usuarioView.objectItem.cargo}" converter="ConverTree">
+
+										<f:selectItems value="#{ClienteUsuario.allCargos}" />
+									</h:selectOneMenu>
+									<rich:message for="selectOneMenuCargo" />
+
+
+
+
+									<h:outputText value="#{txt.usuario_login} * " />
+									<h:inputText  
+										id="login" value="#{usuarioView.objectItem.login}"
+										title="#{txt.usuario_login}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+										<f:validateLength maximum="99" minimum="2" />
+									</h:inputText>
+									<rich:message for="login" />
+
+									<h:outputText value="#{txt.usuario_passwordnew} * " />
+									<h:inputSecret id="password"
+										value="#{usuarioView.objectItem.password}"
+										title="#{txt.usuario_passwordnew}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+										<f:validateLength minimum="4" />
+									</h:inputSecret>
+									<rich:message for="password" />
+
+									<h:outputText value="#{txt.usuario_passwordconfirm}" />
+									<h:inputSecret id="passwordnew"
+										value="#{usuarioView.passwordConfirm}"
+										title="#{txt.usuario_passwordconfirm}" immediate="false">
+										<f:validator validatorId="caracteresinvalidos" />
+										<f:validateLength minimum="4" />
+									</h:inputSecret>
+									<h:inputHidden id="passwordOculta"
+										value="#{usuarioView.passwordOculta}" />
+
+								</h:panelGrid>
+
+							</h:panelGrid>
+
+
+
+						</rich:tab>
+						<rich:tab 
+						rendered="#{usuarioView.swEditarUsuario}"
+						header="#{txt.menu_listarRole}">
+							<h3><h:outputText value="#{txt.menu_listarRole}" /></h3>
+							<p:pickList value="#{usuarioView.operaciones}" var="objeto"
+								itemLabel="#{objeto.nombre}" itemValue="#{objeto}"
+								converter="ConverRoles" iconOnly="true"
+								showSourceControls="true" showTargetControls="true">
+								<f:facet name="sourceCaption">#{txt.Operaciones_noSelec}</f:facet>
+								<f:facet name="targetCaption">#{txt.Operaciones_Selec}</f:facet>
+							</p:pickList>
+							
+							
+						</rich:tab>
+					</rich:tabPanel>
+				</h:panelGrid>
+			</h:panelGrid>
+
+
+			<h:panelGroup />
+			<h:panelGrid columns="2">
+				<a4j:commandButton value="#{txt.guardar}"
+					action="#{usuarioView.editar}" />
+				<a4j:commandButton value="#{txt.cancelar}"
+				immediate="true"
+					onclick="this.style.display='none';"
+					action="#{usuarioView.aceptar}" />
+			</h:panelGrid>
+			<h:panelGroup />
+
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

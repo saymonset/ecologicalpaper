@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+		<h:form>
+			 
+		</h:form>
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+		<center>
+		<h1><h:outputText styleClass="form"
+			value="#{txt.precede}:#{viewTreeDocumentos.treeNodoActual.nombre}" /></h1>
+		</center>
+
+
+		<h:panelGrid columns="1">
+			<rich:messages></rich:messages>
+		</h:panelGrid>
+		<h:form id="forma">
+			<h:panelGrid columns="3" id="panelGrid1">
+				<h:outputLabel value="#{txt.profesion_nombre}" />
+				<h:inputText id="inputTextNombre"
+					value="#{clienteFlowsParalelo.flow.nombredelflujo}"
+					immediate="false">
+					<f:validator validatorId="caracteresinvalidos" />
+				</h:inputText>
+				<rich:message for="inputTextNombre" />
+
+				<h:outputLabel
+					value="#{txt.precede}[#{clienteFlowsParalelo.puedenPredecer}]" />
+				<h:inputText id="inputTextDescripcion"
+					value="#{clienteFlowsParalelo.flow.precedencia}" immediate="false">
+					<f:validator validatorId="caracteresinvalidos" />
+				</h:inputText>
+				<rich:message for="inputTextDescripcion" />
+
+
+
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+				<h:panelGroup>
+
+					<h:commandButton styleClass="boton" id="btncancel"
+						value="#{txt.btn_cancelar}" immediate="true"
+						onclick="this.style.display='none';"
+						action="#{clienteFlowsParalelo.cancelarListar}" />
+
+
+					<h:commandButton value="#{txt.btn_guardar}"
+						onclick="this.style.display='none';"
+						action="#{clienteFlowsParalelo.saveObjeto}" />
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+ 
+
+		<h:form enctype="multipart/form-data">
+			<h:panelGrid columns="1">
+				<rich:messages></rich:messages>
+			</h:panelGrid>
+			<center>
+				<h1>
+					<h:outputText styleClass="form"
+						value="#{txt.btn_crear} #{txt.doc_documento}" />
+				</h1>
+			</center>
+
+			<a4j:status onstart="#{rich:component('statPane')}.show()"
+				onstop="#{rich:component('statPane')}.hide()" />
+
+			<rich:popupPanel id="statPane" autosized="true">
+				<h:graphicImage title="#{ai}" url="#{conftxt.img_esperar}" alt="ai" />
+				<h:outputText value="#{txt.esperar}" />
+			</rich:popupPanel>
+
+			<rich:panel header="#{txt.btn_crear} #{txt.doc_documento}"
+				style="width:500px">
+
+
+
+				<h:panelGrid columns="2">
+					<h:panelGrid columns="3">
+
+						<f:verbatim></f:verbatim>
+						<h:panelGrid columns="2">
+							<a4j:commandButton value="#{txt.guardar}"
+								action="#{viewTreeDocDetalles.editar}" />
+
+							<a4j:commandButton value="#{txt.cancelar}" immediate="true"
+								action="#{viewTreeDocumentos.aceptar}" />
+						</h:panelGrid>
+						<f:verbatim></f:verbatim>
+
+
+
+
+
+
+
+						<h:outputText value="#{txt.doc_nombretab}" />
+						<h:inputText size="40" maxlength="39" id="name1"
+							value="#{viewTreeDocDetalles.doc_detalle.doc_maestro.nombre}"
+							immediate="false">
+							<f:validator validatorId="caracteresinvalidos" />
+						</h:inputText>
+						<rich:message for="name1" style="color:blue" />
+
+						<h:outputText id="name11"
+							value="#{txt.doc_datosCargaDocumentotabp}" />
+						<p:fileUpload																		 
+							fileUploadListener="#{viewTreeDocDetalles.handleFileUpload}"
+							mode="advanced" update="messages" auto="true"  
+							allowTypes="#{viewTreeDocDetalles.extensiones}" />
+						<p:growl id="messages" showDetail="true" sticky="false"
+						life="300000"/>																																																																																																																																																																																																																																																																																																																																																																																																																																																														  
+					
+						<h:outputText value="#{txt.doc_consecutivotab}" />
+						<h:inputText id="numconsecutivo" maxlength="20"
+							value="#{viewTreeDocDetalles.doc_detalle.doc_maestro.consecutivo}"
+							immediate="false">
+							<f:validator validatorId="caracteresinvalidos" />
+						</h:inputText>
+						<rich:message for="numconsecutivo" showDetail="true" />
+
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
+						<h:outputText value="#{txt.doc_tipotab}" />
+						<h:selectOneMenu id="maestro1"
+							value="#{viewTreeDocDetalles.doc_detalle.doc_maestro.doc_tipo}"
+							converter="ConverDoc_tipo">
+							<f:selectItems value="#{DatosCombo.doc_tipo}" />
+						</h:selectOneMenu>
+						<rich:message for="maestro1" showDetail="true" />
+
+
+						<h:outputText value="#{txt.areadocumento}" />
+						<h:selectOneMenu id="areadocumento1"
+							value="#{viewTreeDocDetalles.doc_detalle.areaDocumentos}"
+							converter="converAreadocumento">
+							<f:selectItems value="#{DatosCombo.areaDocumentos}" />
+						</h:selectOneMenu>
+						<rich:message for="areadocumento1" showDetail="true" />
+
+
+
+
+             
+						<h:outputText
+							value="#{txt.doc_mayorVertab},#{txt.doc_menorVertab}" />
+						<h:panelGrid columns="3" id="panelGrid1">
+							<h:inputText id="mayor_ver" size="4" maxlength="4"
+								required="true"
+								value="#{viewTreeDocDetalles.doc_detalle.mayorVer}"
+								immediate="false">
+								<f:validator validatorId="caracteresinvalidos" />
+							</h:inputText>.
+                            <h:inputText id="minor_ver" size="4"
+								maxlength="4" required="true"
+								value="#{viewTreeDocDetalles.doc_detalle.minorVer}"
+								immediate="false">
+								<f:validator validatorId="caracteresinvalidos" />
+							</h:inputText>
+
+						</h:panelGrid>
+						<h:panelGroup>
+							<rich:message for="minor_ver" ajaxRendered="true" />
+							<rich:message for="mayor_ver" ajaxRendered="true" />
+						</h:panelGroup>
+
+
+
+
+						<h:outputText value="#{txt.doc_dueniotab}" />
+						<h:selectOneMenu id="duenio"
+							value="#{viewTreeDocDetalles.doc_detalle.duenio}"
+							converter="ConverUsuarios">
+							<f:selectItems value="#{DatosCombo.usuarios}" />
+						</h:selectOneMenu>
+						<rich:message for="duenio" showDetail="true" />
+
+ 
+						<h:outputText rendered="#{DatosCombo.swTodosLosRoles}"   value="#{txt.loadDocPermGrupo}" />
+						<h:panelGroup rendered="#{DatosCombo.swTodosLosRoles}">
+							<h:selectOneMenu id="rolesid"
+								value="#{viewTreeDocDetalles.roleParaPermisos}"
+								converter="ConverRoles">
+								<f:selectItems value="#{DatosCombo.todosLosRoles}" />
+							</h:selectOneMenu>
+							<h:selectBooleanCheckbox
+								value="#{viewTreeDocDetalles.swPermGrupo}" />
+
+							<h:commandButton title="#{txt.loadDocPermGrupo}"
+								styleClass="no-decor" image="#{conftxt.info}">
+								<rich:componentControl target="popup2" operation="show" />
+							</h:commandButton>
+							<rich:popupPanel id="popup2" modal="true" resizeable="true">
+								<f:facet name="header">
+									<h:outputText value="#{txt.loadDocPermGrupo}" />
+								</f:facet>
+								<f:facet name="controls">
+									<h:outputLink value="#"
+										onclick="#{rich:component('popup2')}.hide(); return false;">
+                    X
+                </h:outputLink>
+								</f:facet>
+
+								<rich:dataTable var="vendorList"
+									value="#{DatosCombo.participantesGruposPlantila}"
+									iterationStatusVar="it"
+									rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.grupo.nombre}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.participante}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.permiso}" />
+									</rich:column>
+								</rich:dataTable>
+							</rich:popupPanel>
+						</h:panelGroup>
+						<h:outputText rendered="#{DatosCombo.swTodosLosRoles}" value="" />
+
+
+
+						<h:outputText value="#{txt.doc_estadotab}" />
+						<h:selectOneMenu id="estado"
+							value="#{viewTreeDocDetalles.doc_detalle.doc_estado}"
+							converter="ConverDoc_Estado">
+							<f:selectItems value="#{DatosCombo.doc_Estados}" />
+						</h:selectOneMenu>
+						<rich:message for="estado" showDetail="true" />
+
+						<h:outputText value="#{txt.doc_keystab}" />
+						<h:inputTextarea id="desc" cols="40" rows="3"
+							value="#{viewTreeDocDetalles.doc_detalle.doc_maestro.busquedakeys}"
+							immediate="false">
+							<f:validator validatorId="caracteresinvalidos" />
+						</h:inputTextarea>
+						<rich:message for="desc" showDetail="true" />
+
+						<h:outputText value="#{txt.doc_descripcion}" />
+						<h:inputTextarea id="desc2" cols="40" rows="3"
+							value="#{viewTreeDocDetalles.doc_detalle.descripcion}"
+							immediate="false">
+							<f:validator validatorId="caracteresinvalidos" />
+						</h:inputTextarea>
+						<rich:message for="desc2" showDetail="true" />
+
+
+						<h:outputText rendered="#{Documento.swPublico}"
+							value="#{txt.doc_publicarDocumento}" />
+						<h:selectBooleanCheckbox rendered="#{Documento.swPublico}"
+							value="#{viewTreeDocDetalles.doc_detalle.doc_maestro.publico}">
+						</h:selectBooleanCheckbox>
+						<h:panelGroup rendered="#{Documento.swPublico}">
+							<f:verbatim></f:verbatim>
+						</h:panelGroup>
+						<h:outputText value="#{txt.heredarPermisos}#{txt.nodo_origen}" />
+						<h:selectBooleanCheckbox
+							value="#{viewTreeDocDetalles.swHeredarPermisos}">
+						</h:selectBooleanCheckbox>
+						<f:verbatim></f:verbatim>
+
+						<f:verbatim></f:verbatim>
+						<h:panelGrid columns="2">
+							<a4j:commandButton value="#{txt.guardar}"
+								action="#{viewTreeDocDetalles.editar}" />
+
+							<a4j:commandButton value="#{txt.cancelar}" immediate="true"
+								action="#{viewTreeDocumentos.aceptar}" />
+						</h:panelGrid>
+						<f:verbatim></f:verbatim>
+
+					</h:panelGrid>
+
+				</h:panelGrid>
+
+			</rich:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,6 @@
+INDEX VERSION 1.3+/opt/cosas/proyectos/ecologicalapaper/fuentes/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1486859688.index
+847009487.index
+4090003445.index
+1344797230.index
+2753671007.index

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3
+END
+AbstractJdbc3Statement.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3Statement.class
+END
+AbstractJdbc3ResultSet.class
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3ResultSet.class
+END
+AbstractJdbc3DatabaseMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3DatabaseMetaData.class
+END
+AbstractJdbc3Clob.class
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3Clob.class
+END
+AbstractJdbc3ParameterMetaData.class
+K 25
+svn:wc:ra_dav:version-url
+V 179
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3ParameterMetaData.class
+END
+AbstractJdbc3Blob.class
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3Blob.class
+END
+AbstractJdbc3Connection.class
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/AbstractJdbc3Connection.class
+END
+PSQLSavepoint.class
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc3/PSQLSavepoint.class
+END

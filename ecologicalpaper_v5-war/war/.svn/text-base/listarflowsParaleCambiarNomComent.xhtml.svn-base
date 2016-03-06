@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+
+
+.tooltip {
+    background-color: #{ richSkin.generalBackgroundColor};
+    border-width:3px;
+}
+.tooltip-custom-body {
+    background-color: orange;
+}
+ 
+.tooltip-text {
+    width: 350px;
+    height: 80px;
+    cursor: arrow;
+    border-width: 2px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+ 
+.tooltipData {
+    font-weight: bold;
+}
+</h:outputStylesheet>
+
+
+
+
+
+
+
+
+		<center>
+			<h1>
+				<h:outputText styleClass="form"
+					value="#{txt.doc_crearDocumentotab}:#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.nombre}" />
+			</h1>
+		</center>
+
+
+		<h:panelGrid columns="1">
+			<rich:messages></rich:messages>
+		</h:panelGrid>
+
+		<h:form id="forma">
+			<rich:messages />
+
+
+			<rich:dataTable var="car"
+				value="#{clienteFlowsParalelo.listaFlujosParalelos}"
+				iterationStatusVar="it" id="table"
+				rows="#{Utilidades.verNumeroDeRegistros}" width="auto">
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+					</f:facet>
+					<h:commandButton value="#{txt.flow_participantes}"
+					disabled="#{!clienteFlowsParalelo.swHayParticipantesFlow}">
+						<rich:componentControl target="popup1" operation="show" />
+					</h:commandButton>
+					<rich:popupPanel id="popup1" modal="false" autosized="true"
+						resizeable="false">
+						<f:facet name="header">
+							<h:outputText value="#{txt.flow_participantes}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('popup1')}.hide(); return false;">
+                    X
+                </h:outputLink>
+						</f:facet>
+
+						<rich:dataTable var="vendorList"
+							value="#{car.participantesPlantila}" iterationStatusVar="it"
+							rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+								</f:facet>
+								<h:outputText value="#{vendorList}" />
+							</rich:column>
+
+
+
+						</rich:dataTable>
+
+
+					</rich:popupPanel>
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+					</f:facet>
+					<h:commandButton value="#{txt.flows_role}"
+					disabled="#{!clienteFlowsParalelo.swHayGroupParticipantesFlow}">
+						<rich:componentControl target="popup2" operation="show" />
+					</h:commandButton>
+					<rich:popupPanel id="popup2" modal="false" autosized="true"
+						resizeable="false">
+						<f:facet name="header">
+							<h:outputText value="#{txt.flows_role}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('popup2')}.hide(); return false;">
+                    X
+                </h:outputLink>
+						</f:facet>
+						<rich:dataTable var="vendorList"
+							value="#{car.participantesGruposPlantila}"
+							iterationStatusVar="it"
+							rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+								</f:facet>
+								<h:outputText value="#{vendorList.grupo.nombre}" />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+								</f:facet>
+								<h:outputText value="#{vendorList.participante}" />
+							</rich:column>
+						</rich:dataTable>
+					</rich:popupPanel>
+				</rich:column>
+				
+				
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+					</f:facet>
+					<h:commandButton value="#{txt.notificacion}"
+					disabled="#{!clienteFlowsParalelo.swHayGroupParticipantesFlowNotificacion}">
+						<rich:componentControl target="popup3" operation="show" />
+					</h:commandButton>
+					<rich:popupPanel id="popup3" modal="false" autosized="true"
+						resizeable="false">
+						<f:facet name="header">
+							<h:outputText value="#{txt.flows_role}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('popup3')}.hide(); return false;">
+                    X
+                </h:outputLink>
+						</f:facet>
+						<rich:dataTable var="vendorList"
+							value="#{car.participantesGruposPlantilaNotificacion}"
+							iterationStatusVar="it"
+							rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+								</f:facet>
+								<h:outputText value="#{vendorList.grupo.nombre}" />
+							</rich:column>
+
+							<rich:column style="border-width: 0px;">
+								<f:facet name="header">
+								</f:facet>
+								<h:outputText value="#{vendorList.participante}" />
+							</rich:column>
+						</rich:dataTable>
+					</rich:popupPanel>
+				</rich:column>
+				
+
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+					
+					</f:facet>
+
+					<h:commandLink id="flow_someterflowparalelo"
+						rendered="#{car.swEdit}"
+						action="#{clienteFlowsParalelo.flows_action}">
+							<h:graphicImage title="" url="#{conftxt.img_editar}" />
+						<f:setPropertyActionListener target="#{clienteFlowsParalelo.flow}"
+							value="#{car}" />
+
+					</h:commandLink>
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText rendered="#{not empty car.precedencia}"
+							value="#{txt.precede}" />
+					</f:facet>
+					<h:inputText rendered="#{not empty car.precedencia}" id="txt1"
+						size="20" maxlength="300" value="#{car.precedencia}"
+						disabled="true">
+					</h:inputText>
+
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.flow}" />
+					</f:facet>
+					<h:outputText value="#{car.nombredelflujo}->(#{car.codigo})" />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_descripciontab}" />
+					</f:facet>
+					<h:commandButton title="#{txt.comentario}" styleClass="no-decor"
+						image="#{conftxt.comentario}">
+						<rich:componentControl target="popup0" operation="show" />
+					</h:commandButton>
+					<rich:popupPanel id="popup0" modal="false" autosized="true"
+						resizeable="false">
+						<f:facet name="header">
+							<h:outputText value="#{txt.comentario}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('popup0')}.hide(); return false;">
+                    X
+                </h:outputLink>
+						</f:facet>
+						<h:outputText value="#{car.comentarios}" />
+					</rich:popupPanel>
+
+				</rich:column>
+
+
+
+
+
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.flow_Condicional}" />
+					</f:facet>
+					<h:selectBooleanCheckbox value="#{car.condicional}" disabled="true" />
+				</rich:column>
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.flow_Secuencial}" />
+					</f:facet>
+					<h:selectBooleanCheckbox value="#{car.secuencial}" disabled="true" />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.flow_lectores}" />
+					</f:facet>
+					<h:selectBooleanCheckbox value="#{car.lectores}" disabled="true" />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.flow_envio_mail}" />
+					</f:facet>
+					<h:selectBooleanCheckbox value="#{car.notificacionMail}"
+						disabled="true" />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.flow}" />
+					</f:facet>
+					<h:outputText value=" #{car.tipoFlujoAux}" />
+				</rich:column>
+
+<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.author}" />
+					</f:facet>
+					<h:outputText value=" #{car.duenio}" />
+				</rich:column>
+
+
+
+			</rich:dataTable>
+
+
+
+
+			<h:panelGrid columns="3" id="panelGrid1">
+				<f:verbatim></f:verbatim>
+				<h:panelGroup>
+					<h:panelGrid columns="2">
+						<h:commandButton id="btncancel" value="#{txt.btn_cancelar}"
+							immediate="true" action="#{clienteFlowsParalelo.cancelar}" />
+						<p:commandButton id="showDialogButton"
+						disabled="#{!clienteFlowsParalelo.swHayGroupParticipantesFlow and !clienteFlowsParalelo.swHayParticipantesFlow}"
+							value="#{txt.flow_realizar}" onclick="confirmation.show()"
+							type="button" />
+					</h:panelGrid>
+				</h:panelGroup>
+				<f:verbatim></f:verbatim>
+
+			</h:panelGrid>
+  <p:growl id="messages" />  
+
+			<p:confirmDialog id="confirmDialog"
+				message="#{txt.flow_realizar}?"
+				header="#{txt.flow_realizar}" severity="alert"
+				widgetVar="confirmation">
+
+				<p:commandButton id="confirm" value="#{txt.si}" update="messages"
+					oncomplete="confirmation.hide()"
+					action="#{clienteFlowsParalelo.crearFlujoDesdeFlujoParalelo_action}" />
+				<p:commandButton id="decline" value="#{txt.no}"
+					onclick="confirmation.hide()" type="button" />
+
+			</p:confirmDialog>
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

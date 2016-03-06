@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 146
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric
+END
+PGcircle.class
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGcircle.class
+END
+PGpoint.class
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGpoint.class
+END
+PGline.class
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGline.class
+END
+PGpath.class
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGpath.class
+END
+PGlseg.class
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGlseg.class
+END
+PGpolygon.class
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGpolygon.class
+END
+PGbox.class
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/geometric/PGbox.class
+END

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<head>
+
+
+
+</head>
+<ui:composition template="/templates/templatetree.xhtml">
+
+	<ui:define name="title">
+
+	</ui:define>
+
+	<ui:define name="pie">
+
+	</ui:define>
+
+	<ui:define name="body">
+		<h:outputStylesheet>
+a.no-decor>img {
+    border: none;
+}
+.top {
+    vertical-align: top;
+}
+ 
+.info {
+    height: 202px;
+    overflow: auto;
+}
+</h:outputStylesheet>
+
+
+
+
+
+
+
+
+		<h:form>
+			<rich:messages></rich:messages>
+
+			<h:panelGrid columns="3">
+				<h:panelGrid columns="3">
+					<h:outputText value="#{txt.doc_publicar}" />
+					<h:graphicImage title="#{txt.doc_publicar}"
+						url="#{conftxt.img_publico}" />
+
+
+
+					<h:selectBooleanCheckbox
+						value="#{Documento.doc_detalle.doc_maestro.publico}">
+					</h:selectBooleanCheckbox>
+				</h:panelGrid>
+				<f:verbatim></f:verbatim>
+				<f:verbatim></f:verbatim>
+				<h:panelGrid columns="2">
+					<h:outputText value="#{txt.usuario_fechab}" />
+					<rich:calendar value="#{Documento.doc_detalle.fechaexpirapubli}"
+						locale="false" popup="true" datePattern="MM/dd/yyyy"
+						showApplyButton="false" cellWidth="24px" cellHeight="22px"
+						style="width:200px" />
+
+				</h:panelGrid>
+				<f:verbatim></f:verbatim>
+				<f:verbatim></f:verbatim>
+				<h:panelGrid columns="2">
+					<h:outputText value="#{txt.publicador}" />
+					<h:outputText value="#{doc_detalle.publicador}" />
+					<h:outputText value="#{txt.fecha_publicado}" />
+					<h:outputText value="#{doc_detalle.fechapubliStr}" />
+					<h:outputText value="#{txt.usuario_fechab}" />
+					<h:outputText value="#{doc_detalle.fechaexpirapubliStr}" />
+				</h:panelGrid>
+				<f:verbatim></f:verbatim>
+				<f:verbatim></f:verbatim>
+
+
+
+
+			</h:panelGrid>
+
+
+
+			<h:panelGroup id="body">
+				<rich:dataTable value="#{Documento.roles}" var="car"
+					iterationStatusVar="it" rows="#{Utilidades.verNumeroDeRegistros}"
+					width="auto">
+
+					 
+
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText value="#{txt.publicaronlygrupos}" />
+						</f:facet>
+						<!-- si  swDiferenciaEntreVersiones = true , es porque es un archivo binario
+							y no c puede comparar-->
+						<h:selectBooleanCheckbox
+							value="#{Documento.selectedIds[car.codigo]}" />
+					</rich:column>
+
+
+
+
+					<rich:column>
+						<f:facet name="header">
+							<h:outputText styleClass="grees"
+								value="#{txt.Operaciones_nombre}" />
+						</f:facet>
+						<h:outputText value="#{car.nombre} [#{car.empresa.nombre}]" />
+					</rich:column>
+
+					<f:facet name="footer">
+						<rich:dataScroller page="#{viewTreeDocDetalles.page}" />
+					</f:facet>
+				</rich:dataTable>
+				<h:panelGrid columns="2">
+
+					<h:commandButton title="#{txt.flows_role}" styleClass="no-decor"
+						image="#{conftxt.info}">
+						<rich:componentControl target="popup2" operation="show" />
+					</h:commandButton>
+					<rich:popupPanel id="popup2" modal="true" resizeable="true">
+						<f:facet name="header">
+							<h:outputText value="#{txt.flows_role}" />
+						</f:facet>
+						<f:facet name="controls">
+							<h:outputLink value="#"
+								onclick="#{rich:component('popup2')}.hide(); return false;">
+                    X
+                </h:outputLink>
+						</f:facet>
+						<rich:dataTable var="vendorList"
+									value="#{Documento.participantesGruposPlantila}"
+									iterationStatusVar="it"
+									rows="#{Utilidades.verNumeroDeRegistrosAll}" width="auto">
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.grupo.nombre}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.participante}" />
+									</rich:column>
+
+									<rich:column style="border-width: 0px;">
+										<f:facet name="header">
+										</f:facet>
+										<h:outputText value="#{vendorList.permiso}" />
+									</rich:column>
+								</rich:dataTable>
+
+					</rich:popupPanel>
+
+
+
+				</h:panelGrid>
+				<f:verbatim></f:verbatim>
+				<f:verbatim></f:verbatim>
+
+			</h:panelGroup>
+
+
+			<a4j:commandButton value="#{txt.btn_menu}" immediate="true"
+				action="#{Documento.regresarVerDocumento}" />
+
+			<a4j:commandButton value="#{txt.usuario_guardar}"
+				action="#{Documento.putPublico}">
+				<f:param name="idvinculo111112"
+					value="#{Documento.doc_maestro.codigo}" />
+			</a4j:commandButton>
+
+		</h:form>
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

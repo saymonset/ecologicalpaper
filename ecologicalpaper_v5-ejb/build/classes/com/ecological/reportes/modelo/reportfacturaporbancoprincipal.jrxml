@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportfacturaporbancoprincipal" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:/img/probando/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ciclo" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[/*
+   CON EL CICLO DE REFERENCIA... ME TRAIGO TODOS LOS BANCOS IDENTIFICADOSPOR LOTE
+*/
+
+select t1.valor,t1.descripcion,t1.anno,t1.mes,t1.numero,t1.ciclo,t8.fecha
+ from (select distinct(valor),descripcion,anno,mes,numero,clo.id ciclo from indice_x_producto ixp 
+                       inner join indice_x_documento ixd on ixp.id=ixd.indice_x_producto_id
+                       inner join cliente cli on  ixp.cliente_id=cli.id
+                       inner join descripcion_ciclo desciclo on desciclo.cliente_id=cli.id
+                       inner join ciclo clo on clo.descripcion_ciclo_id=desciclo.id
+                       where clo.id=$P{ciclo}
+
+ and ixp.id=(select id from indice_x_producto
+where cliente_id=(select cliente_id from descripcion_ciclo where id = (select descripcion_ciclo_id from ciclo where id=$P{ciclo}))
+  and nombre='lote'
+)
+ group by right(valor,3) order by right(valor,3) ) t1
+,(
+ select now() fecha
+)t8
+;]]>
+	</queryString>
+	<field name="valor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anno" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mes" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ciclo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="fecha" class="java.util.Date"/>
+	<variable name="edcImpresos" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{edcImpresos}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="16" splitType="Stretch">
+			<rectangle radius="5">
+				<reportElement mode="Opaque" x="5" y="0" width="546" height="16" backcolor="#F5F5F5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="190" y="0" width="44" height="14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mes:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="345" y="3" width="41" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="2" width="44" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="0" width="46" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Año:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="130" y="2" width="46" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{anno}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="297" y="0" width="41" height="14"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="0" width="62" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ciclo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="58" splitType="Stretch">
+			<subreport>
+				<reportElement x="-1" y="1" width="555" height="57"/>
+				<subreportParameter name="lote">
+					<subreportParameterExpression><![CDATA[$F{valor}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="ciclo">
+					<subreportParameterExpression><![CDATA[$F{ciclo}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="edcImpresos" toVariable="edcImpresos" calculation="Sum"/>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "reporteensayo1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc2/optional
+END
+SimpleDataSource.class
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc2/optional/SimpleDataSource.class
+END
+ConnectionPool.class
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc2/optional/ConnectionPool.class
+END
+PoolingDataSource.class
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/ecologicalpaper/!svn/ver/132/ecologicalpaper/branches/faceletsecologicalmerge/ecologicalpaper_v5-war/war/scriptbd/bd/org/postgresql/jdbc2/optional/PoolingDataSource.class
+END

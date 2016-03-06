@@ -1,0 +1,1893 @@
+<?xml version="1.0"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<!-- CONVERTIDORES -->
+	<converter>
+		<converter-id>ConverSvnModulo</converter-id>
+		<converter-class>com.ecological.convertidores.ConverSvnModulo</converter-class>
+	</converter>
+	<converter>
+		<converter-id>converSvnTipoAmbiente</converter-id>
+		<converter-class>com.ecological.convertidores.ConverSvnTipoAmbiente</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverSvnNombreAplicacion</converter-id>
+		<converter-class>com.ecological.convertidores.ConverSvnNombreAplicacion</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverSvnUrlBase</converter-id>
+		<converter-class>com.ecological.convertidores.ConverSvnUrlBase</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverExtensionFile</converter-id>
+		<converter-class>com.ecological.convertidores.ConverExtensionFile</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverCliente_EUJ</converter-id>
+		<converter-class>com.ecological.convertidores.ConverCliente_EUJ</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverCiudad</converter-id>
+		<converter-class>com.ecological.convertidores.ConverCiudad</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverEstado</converter-id>
+		<converter-class>com.ecological.convertidores.ConverEstado</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverPais</converter-id>
+		<converter-class>com.ecological.convertidores.ConverPais</converter-class>
+	</converter>
+	<converter>
+		<converter-id>MyHtmlValue</converter-id>
+		<converter-class>com.ecological.convertidores.MyHtmlValueConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverDoc_Maestro</converter-id>
+		<converter-class>com.ecological.convertidores.ConverDoc_Maestro</converter-class>
+	</converter>
+	<converter>
+		<converter-id>converAreadocumento</converter-id>
+		<converter-class>com.ecological.convertidores.ConverAreadocumento</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverDoc_tipo</converter-id>
+		<converter-class>com.ecological.convertidores.ConverDoc_tipo</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverDoc_Estado</converter-id>
+		<converter-class>com.ecological.convertidores.ConverDoc_Estado</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverUsuarios</converter-id>
+		<converter-class>com.ecological.convertidores.ConverUsuarios</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverProfesion</converter-id>
+		<converter-class>com.ecological.convertidores.ConverProfesion</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverRoles</converter-id>
+		<converter-class>com.ecological.convertidores.ConverRoles</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverOperaciones</converter-id>
+		<converter-class>com.ecological.convertidores.ConverOperaciones</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverTree</converter-id>
+		<converter-class>com.ecological.convertidores.ConverTree</converter-class>
+	</converter>
+	<converter>
+		<converter-id>ConverCargo</converter-id>
+		<converter-class>com.ecological.convertidores.ConverTree</converter-class>
+	</converter>
+	<!-- _________________________________________BEANS___________________________ 
+		Managed Beans for openDataTable.jsp -->
+	<managed-bean>
+		<managed-bean-name>newVersion</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.NewVersion</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>areaDocumentosBean</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.AreaDocumentosBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>listarSolicitudImpresion</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.impresion.ListarSolicitudImpresion</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ClienteUsuarioPassword</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.usuarios.ClienteUsuarioPassword</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>DiasFeriadosCliente</managed-bean-name>
+		<managed-bean-class>com.dias.feriados.DiasFeriadosCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>DiasHabilesByHoras</managed-bean-name>
+		<managed-bean-class>com.dias.habiles.DiasHabilesByHoras</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>listarControlFlowByTime</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.listarControlFlowByTime</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ConfiguracionCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.configuracion.ConfiguracionCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>crearFlete</managed-bean-name>
+		<managed-bean-class>com.sofytware.cliente.euj.crearFlete</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>CrearCliente_EUJ</managed-bean-name>
+		<managed-bean-class>com.sofytware.cliente.euj.CrearCliente_EUJ</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>CrearCiudad</managed-bean-name>
+		<managed-bean-class>com.ecological.zonas.CrearCiudad</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>CrearEstado</managed-bean-name>
+		<managed-bean-class>com.ecological.zonas.CrearEstado</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>CrearPais</managed-bean-name>
+		<managed-bean-class>com.ecological.zonas.CrearPais</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>extensionFileCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.extensionesfilecliente.ExtensionFileCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>extensionFileHijosCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.extensionesfilecliente.ExtensionFileHijosCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>EncryptorMD5</managed-bean-name>
+		<managed-bean-class>com.util.EncryptorMD5</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Exitoso</managed-bean-name>
+		<managed-bean-class>com.ecological.util.Exitoso</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Historico</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.historico.Historico</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>openDataList</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.listexample.OpenDataList</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- Managed Beans for tree2.jsp -->
+	<managed-bean>
+		<managed-bean-name>treeBacker</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.tree.TreeBacker</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ClienteDocumentoSearchPublicados</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.ClienteDocumentoSearchPublicados</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Utilidades</managed-bean-name>
+		<managed-bean-class>com.util.Utilidades</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FlowsResponse</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsResponse</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Flows_UserResponse</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsUsersResponse</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Flows_RoleResponse</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsRoleResponse</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Flows</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlows</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>clienteFlowsParalelo</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsParalelo</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Flows_User</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsUsers</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Flows_Role</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsRole</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Documento</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.ClientePadreDocumento</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>DocumentoSvn</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.DocumentoSvn</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>svnUrlBaseCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.SvnUrlBaseCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>svnTipoAmbienteCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.SvnTipoAmbienteCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>svnNombreAplicacionCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.SvnNombreAplicacionCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>svnModuloCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.SvnModuloCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>svnModuloCliente2</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.SvnModuloCliente2</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>svnExtensionCliente</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.SvnExtensionCliente</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Doc_tipo</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.ClienteDocumentoTipo</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Doc_edo</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.ClienteDocumentoEstado</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Seguridad</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.seguridad.ClienteSeguridad</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Seguridad_tab1</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.seguridad.ClienteSeguridadTab1</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Seguridad_tab2</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.seguridad.ClienteSeguridadTab2</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>SeguridadRole</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.seguridad.ClienteSeguridadRole</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Operaciones</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.operaciones.ClienteOperaciones</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FlowsHistorico</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.flows.ClienteFlowsHistorico</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Doc_Vinculados</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.ClienteDocumentosVinculados</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>clienteDocumentosVinculados</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.documentos.ClienteDocumentosVinculados</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>Rol</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.role.ClienteRole</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>backing_login</managed-bean-name>
+		<managed-bean-class>com.ecological.login.Login</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>login</managed-bean-name>
+		<managed-bean-class>com.ecological.login.Login</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>loginByMail</managed-bean-name>
+		<managed-bean-class>com.ecological.login.LoginByMail</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+
+
+	<managed-bean>
+		<managed-bean-name>ClientesManagedBean</managed-bean-name>
+		<managed-bean-class>org.monteagudo.web.ClientesManagedBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>clienteTreeMenu</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.tree.ClienteTreeMenu</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>tree</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.tree.ClienteTree</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>clienteTree</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.tree.ClienteTree</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ClienteUsuario</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.cliente.usuarios.ClienteUsuario</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>scrollerList</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.listexample.DataScrollerList</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<!-- EXAMPLES BEAN -->
+	<managed-bean>
+		<managed-bean-name>testCheckList</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.misc.TestCheckBoxList</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>testRadioButton</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.misc.TestRadioButton</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>tabbedPaneBean</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.misc.TabbedPaneBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>testCheckBox</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.misc.TestCheckBox</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>calendarBean</managed-bean-name>
+		<managed-bean-class>com.ecological.util.CalendarBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>CrearProfesion</managed-bean-name>
+		<managed-bean-class>com.ecological.paper.crearprofesionpkg.CrearProfesion</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>dynamicPageBean</managed-bean-name>
+		<managed-bean-class>com.ecological.util.DynamicPageBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>customizePageBean</managed-bean-name>
+		<managed-bean-class>com.ecological.util.CustomizePageBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>navigationMenu</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.misc.NavigationMenu</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>DatosCombo</managed-bean-name>
+		<managed-bean-class>com.ecological.datoscombo.DatosCombo</managed-bean-class>
+		<managed-bean-scope>application</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>fileUploadForm</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.misc.FileUploadForm</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>countryList</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.listexample.SimpleCountryList</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>countryForm</managed-bean-name>
+		<managed-bean-class>org.apache.myfaces.examples.listexample.SimpleCountryForm</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Input Value Holder</description>
+		<managed-bean-name>nameBean</managed-bean-name>
+		<managed-bean-class>demo.NameBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>userName</property-name>
+			<property-class>java.lang.String</property-class>
+			<value />
+		</managed-property>
+	</managed-bean>
+	<!-- <application> <locale-config> <default-locale>es_VE</default-locale> 
+		</locale-config> </application> -->
+
+
+	<navigation-rule>
+		<from-view-id>/bienvenidousuarioByMail.xhtml</from-view-id>
+
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancelar</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/templatetree.xhtml</from-view-id>
+		<!-- <from-view-id>/aplicacion.jsp</from-view-id> -->
+		<navigation-case>
+			<from-outcome>listarUsuarios</from-outcome>
+			<to-view-id>/listarUsuarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>areadocumento</from-outcome>
+			<to-view-id>/listarAreaDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>acercaDeDocumento</from-outcome>
+			<to-view-id>/acercaDeDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>bienvenidoUsuarioPagPrincipal</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSvnExtension</from-outcome>
+			<to-view-id>/listarSvnExtension.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNModulo</from-outcome>
+			<to-view-id>/listarSVNModulo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNTipodeAmbiente</from-outcome>
+			<to-view-id>/listarSVNTipodeAmbiente.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNNombreAplicacion</from-outcome>
+			<to-view-id>/listarSVNNombreAplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNUrlBase</from-outcome>
+			<to-view-id>/listarSVNUrlBase.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>extensionFile</from-outcome>
+			<to-view-id>/listarExtensionFile.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>extensionFileHijos</from-outcome>
+			<to-view-id>/listarExtensionFileHijos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cambiarclave</from-outcome>
+			<to-view-id>/editCambioPassword.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listardiasferiados</from-outcome>
+			<to-view-id>/listarDiasFeriados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listardiashabiles</from-outcome>
+			<to-view-id>/listarDiasHabilesByHoras.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>configuracion</from-outcome>
+			<to-view-id>/listarConfiguracion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listareujfletes</from-outcome>
+			<to-view-id>/ListarFletes_EUJ.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listareujclientes</from-outcome>
+			<to-view-id>/ListarCliente_EUJ.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarPaises</from-outcome>
+			<to-view-id>/listarPaises.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarEstados</from-outcome>
+			<to-view-id>/listarEstados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarCiudad</from-outcome>
+			<to-view-id>/listarCiudad.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Salir</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>doc_hist</from-outcome>
+			<to-view-id>/historicoTree.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>toDel</from-outcome>
+			<to-view-id>/treePropiedadesEliminar.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>generarRegistroII</from-outcome>
+			<to-view-id>/PuenteGenerarRegistroCopyDoc.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancelpage</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agregarRaiz</from-outcome>
+			<to-view-id>/PuenteCrearRaiz.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>loadmasivosdocumentos</from-outcome>
+			<to-view-id>/crearDocumentoMasivos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>menu_edoDocumentos</from-outcome>
+			<to-view-id>/listarDoc_Estado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>menu_tipoDocumentos</from-outcome>
+			<to-view-id>/listarDoc_Tipo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agregarConfNodo</from-outcome>
+			<to-view-id>/seguridadTree.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarRole</from-outcome>
+			<to-view-id>/listarRole.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarRoleWorkFlow</from-outcome>
+			<to-view-id>/listarRole.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarProfesion</from-outcome>
+			<to-view-id>/listarProfesion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agregarDocumento</from-outcome>
+			<to-view-id>/crearDocumento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agregarDocumentosvn</from-outcome>
+			<to-view-id>/crearDocumentosvn.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentos</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/principal.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarAreaDocumentos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>crear</from-outcome>
+			<to-view-id>/crearAreaDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/editAreaDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/crearAreaDocumentos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/listarAreaDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editAreaDocumentos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/listarAreaDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/verPublicosComentarios.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>editarDocumento</from-outcome>
+			<to-view-id>/editarDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentoSearchPublicados</from-outcome>
+			<to-view-id>/listarDocumentoSearchPublicados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentosPublicar</from-outcome>
+			<to-view-id>/listarDocumentosPublicar.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/publicadoComentario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>viewPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editDocumentoReadOnly</from-outcome>
+			<to-view-id>/editDocumentoReadOnly.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentoSearchPublicados</from-outcome>
+			<to-view-id>/listarDocumentoSearchPublicados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDocumentoSearchPublicados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>verPublicosComentarios</from-outcome>
+			<to-view-id>/verPublicosComentarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>imprimirDocumento</from-outcome>
+			<to-view-id>/imprimirDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitosorefresca</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>DocumentoStadisticasGraficar</from-outcome>
+			<to-view-id>/DocumentoStadisticasGraficar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewOnly</from-outcome>
+			<to-view-id>/editDocumentoReadOnly.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listamaestra</from-outcome>
+			<to-view-id>/listarDocumentoSearchPublicados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ReporteExcel</from-outcome>
+			<to-view-id>/ReporteExcel.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>goDocument</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarAplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDocumentoSearch.xhtml</from-view-id>
+
+<navigation-case>
+			<from-outcome>listarFlowsHistorico</from-outcome>
+			<to-view-id>/listarFlowsHistorico.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<!-- -->
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reporteDocumentos</from-outcome>
+			<to-view-id>/servletReporteDocumentos.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reporte</from-outcome>
+			<to-view-id>/servletReporte.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>DocumentoStadisticasGraficar</from-outcome>
+			<to-view-id>/DocumentoStadisticasGraficar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewOnly</from-outcome>
+			<to-view-id>/editDocumentoReadOnly.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listamaestra</from-outcome>
+			<to-view-id>/listarDocumentoSearchPublicados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ReporteExcel</from-outcome>
+			<to-view-id>/ReporteExcel.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>goDocument</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarAplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/bienvenidousuario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>escojerempresa</from-outcome>
+			<to-view-id>/bienvenidousuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>inicio</from-outcome>
+			<to-view-id>/bienvenidousuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ir_aplicacion</from-outcome>
+			<to-view-id>/workflowdocs.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarTreeEmpresas.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editDocumento.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/crearDocumento.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/crearTreePropiedades.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/treePropiedadesEliminar.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/seguridadTree.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editDocumentoReadOnly.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentoSearchPublicados</from-outcome>
+			<to-view-id>/listarDocumentoSearchPublicados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editFlowParalelo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowparalelo</from-outcome>
+			<to-view-id>/flowparalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/flowparalelo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listarControlFlowByTime</from-outcome>
+			<to-view-id>/listarControlFlowByTime.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/editFlowParalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flows</from-outcome>
+			<to-view-id>/flows.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editControlFlowByTime.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/listarControlFlowByTime.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarControlFlowByTime.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/flowparalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/editControlFlowByTime.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/flows.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listarflowsParaleCambiarNomComent</from-outcome>
+			<to-view-id>/listarflowsParaleCambiarNomComent.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowparalelo</from-outcome>
+			<to-view-id>/flowparalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarflowsParaleCambiarNomComent.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listarSolicitudImpresion</from-outcome>
+			<to-view-id>/listarSolicitudImpresion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarflowsParaleCambiarNomComent2daparte</from-outcome>
+			<to-view-id>/listarflowsParaleCambiarNomComent2daparte.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flows</from-outcome>
+			<to-view-id>/flows.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarflowsParalelo</from-outcome>
+			<to-view-id>/listarflowsParalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarFlowParalelo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarflowsParaleCambiarNomComent</from-outcome>
+			<to-view-id>/listarflowsParaleCambiarNomComent.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowparalelo</from-outcome>
+			<to-view-id>/flowparalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/flowsResponseTab1.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/flowCambiarUsuarioParticipante.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/flowsResponse.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>flowsResponseTab1</from-outcome>
+			<to-view-id>/flowsResponseTab1.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editarDocumento</from-outcome>
+			<to-view-id>/editarDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowCambiarUsuarioParticipante</from-outcome>
+			<to-view-id>/flowCambiarUsuarioParticipante.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agregarDocumentosvnUpload</from-outcome>
+			<to-view-id>/crearDocumentosvnUpload.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>agregarDocumentosvn</from-outcome>
+			<to-view-id>/crearDocumentosvn.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>reporte</from-outcome>
+			<to-view-id>/servletReporte.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewAttachment</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerarAttachment.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flows</from-outcome>
+			<to-view-id>/flows.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarAplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentos</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewFlowReferenciaPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerarFlowParalelo.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarFlowParalelo</from-outcome>
+			<to-view-id>/listarflowsParalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editDocumentoNuevaVersion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>viewPDF</from-outcome>
+			<to-view-id>/ClienteDocumentoGenerar.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDocumentosPublicar.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>verPublicosComentarios</from-outcome>
+			<to-view-id>/verPublicosComentarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentoSearchPublicados</from-outcome>
+			<to-view-id>/listarDocumentoSearchPublicados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>menu</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editDocumentosRelacionados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/listarDocumentosVinculados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editVinculo</from-outcome>
+			<to-view-id>/editDocumentosRelacionados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDocumentosVinculados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>goDocument</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editVinculo</from-outcome>
+			<to-view-id>/editDocumentosRelacionados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarSolicitudImpresion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>imprimirDocumento</from-outcome>
+			<to-view-id>/imprimirDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>solicitudImpresion</from-outcome>
+			<to-view-id>/solicitudImpresion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarflowsParalelo</from-outcome>
+			<to-view-id>/listarflowsParalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarflowsParalelo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listarSolicitudImpresion</from-outcome>
+			<to-view-id>/listarSolicitudImpresion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarFlowsHistorico.xhtml</from-view-id>
+				<navigation-case>
+			<from-outcome>listarDocumentoSearch</from-outcome>
+			<to-view-id>/listarDocumentoSearch.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/aplicacionApplet.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/aplicaciondetalles.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>imprimirDocumento</from-outcome>
+			<to-view-id>/imprimirDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacionApplet</from-outcome>
+			<to-view-id>/aplicacionAppletFrame.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>acercaDeDocumento</from-outcome>
+			<to-view-id>/acercaDeDocumento.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>treePropiedadesEliminar</from-outcome>
+			<to-view-id>/treePropiedadesEliminar.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarFlowsHistorico</from-outcome>
+			<to-view-id>/listarFlowsHistorico.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<!-- vengo de listar documentos -->
+			<from-outcome>generarRegistro</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>docVinculados</from-outcome>
+			<to-view-id>/listarDocumentosVinculados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>docPublicar</from-outcome>
+			<to-view-id>/listarDocumentosPublicar.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editDocumentoNuevaVersion</from-outcome>
+			<to-view-id>/editDocumentoNuevaVersion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flows</from-outcome>
+			<to-view-id>/flows.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarflowsParalelo</from-outcome>
+			<to-view-id>/listarflowsParalelo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editDocumentoReadOnly</from-outcome>
+			<to-view-id>/editDocumentoReadOnly.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editDocumento</from-outcome>
+			<to-view-id>/editDocumento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>seguridadTree</from-outcome>
+			<to-view-id>/seguridadTree.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>crearTreePropiedades</from-outcome>
+			<to-view-id>/crearTreePropiedades.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/razonDeCambio.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/aplicacion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>generarRegistroII</from-outcome>
+			<to-view-id>/PuenteGenerarRegistroCopyDoc.jsf</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>cancelpage</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>seguridadTree</from-outcome>
+			<to-view-id>/seguridadTree.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>treePropiedadesEliminar</from-outcome>
+			<to-view-id>/treePropiedadesEliminar.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>crearTreePropiedades</from-outcome>
+			<to-view-id>/crearTreePropiedades.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>crearDocumento</from-outcome>
+			<to-view-id>/crearDocumento.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicaciondetalles</from-outcome>
+			<to-view-id>/aplicaciondetalles.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>aplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarConfiguracion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editUsuarioPerfil.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editRole.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listarRole</from-outcome>
+			<to-view-id>/listarRole.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarRoleWorkFlow</from-outcome>
+			<to-view-id>/listarRoleWorkFlow.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarRoleWorkFlow.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/editRole.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarRole.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/editRole.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarSVNModulo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarSVNTipodeAmbiente.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarSVNNombreAplicacion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarSVNUrlBase.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarExtensionFileHijos.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDoc_Tipo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDiasHabilesByHoras.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editUsuario.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listar</from-outcome>
+			<to-view-id>/listarUsuarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/historicoUsuarioActivo.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listarUsuarios</from-outcome>
+			<to-view-id>/listarUsuarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarUsuarios.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>historicoUsuarioActivo</from-outcome>
+			<to-view-id>/historicoUsuarioActivo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/editUsuario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarProfesion.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listarDiasFeriados.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>finexitoso</from-outcome>
+			<to-view-id>/exitoso.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/exitoso.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>docVinculados</from-outcome>
+			<to-view-id>/listarDocumentosVinculados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>seguridadTree</from-outcome>
+			<to-view-id>/seguridadTree.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarTreeEmpresas</from-outcome>
+			<to-view-id>/listarTreeEmpresas.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarConfiguracion</from-outcome>
+			<to-view-id>/listarConfiguracion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>editUsuarioPerfil</from-outcome>
+			<to-view-id>/editUsuarioPerfil.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarRoles</from-outcome>
+			<to-view-id>/listarRole.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNModulo</from-outcome>
+			<to-view-id>/listarSVNModulo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNTipodeAmbiente</from-outcome>
+			<to-view-id>/listarSVNTipodeAmbiente.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNNombreAplicacion</from-outcome>
+			<to-view-id>/listarSVNNombreAplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarSVNUrlBase</from-outcome>
+			<to-view-id>/listarSVNUrlBase.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarExtensionFileHijos</from-outcome>
+			<to-view-id>/listarExtensionFileHijos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDoc_Tipo</from-outcome>
+			<to-view-id>/listarDoc_Tipo.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDiasHabiles</from-outcome>
+			<to-view-id>/listarDiasHabilesByHoras.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDiasFeriados</from-outcome>
+			<to-view-id>/listarDiasFeriados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ListarFletes_EUJ</from-outcome>
+			<to-view-id>/ListarFletes_EUJ.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarCliente_EUJ</from-outcome>
+			<to-view-id>/ListarCliente_EUJ.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarCiudad</from-outcome>
+			<to-view-id>/listarCiudad.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarEstados</from-outcome>
+			<to-view-id>/listarEstados.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarPaises</from-outcome>
+			<to-view-id>/listarPaises.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarProfesion</from-outcome>
+			<to-view-id>/listarProfesion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flowsResponse</from-outcome>
+			<to-view-id>/flowsResponse.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>flows</from-outcome>
+			<to-view-id>/flows.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarDocumentos</from-outcome>
+			<to-view-id>/listarDocumentos.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarUsuarios</from-outcome>
+			<to-view-id>/listarUsuarios.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>listarAplicacion</from-outcome>
+			<to-view-id>/aplicacion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<!-- VALIDADORES -->
+	<validator>
+		<validator-id>caracteresinvalidos</validator-id>
+		<validator-class>com.ecological.validator.Caracteresinvalidos</validator-class>
+	</validator>
+	<validator>
+		<validator-id>isNumerico</validator-id>
+		<validator-class>com.ecological.validator.IsNumerico</validator-class>
+	</validator>
+	
+	<validator>
+		<validator-id>validatorMail</validator-id>
+		<validator-class>com.ecological.validator.Caracteresinvalidos</validator-class>
+	</validator>
+	<application>
+		<locale-config>
+			<default-locale>es_VE</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>es</supported-locale>
+			<supported-locale>en_US</supported-locale>
+		</locale-config>
+		<message-bundle>com.ecological.resource.ecologicalpaper</message-bundle>
+	</application>
+</faces-config>

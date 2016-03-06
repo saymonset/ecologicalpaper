@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+
+<ui:composition template="/templates/templatetree.xhtml">
+
+
+
+	<ui:define name="body">
+		<!--              ESTO M E PERMITE TRAER TODOS LOS DOCUYMENTOS DETALLES EN UN SESSION-->
+			<!--                 YT TENEMOS EL DOCDETALLE PRINCIPAL Y PERMITEN FUNCIONAR LOSLINKS ABAJO-->
+			<rich:dataTable value="#{viewTreeDocumentos.doc_detallesAux_session}"
+				width="auto" var="detallexxx" iterationStatusVar="it"
+				rows="#{Utilidades.verNumeroDeRegistros}">
+			</rich:dataTable>
+		<center>
+		<h1><h:outputText styleClass="form"
+			value="#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.nombre}" /></h1>
+		</center>
+		<div id="izq" style="width: 250px" class="columna_izquierda"><h:form>
+			<rich:messages></rich:messages>
+			<h:panelGroup />
+			<h:panelGroup />
+
+		
+
+			<h:panelGrid columns="1">
+				<rich:toolbar height="26" itemSeparator="grid"
+					rendered="#{viewTreeDocumentos.swMnuOrganizacion}">
+					<rich:toolbarGroup>
+
+						<!--	<%-->
+						<!--						/*PUEDE REALIZAR  FLUJO EL DOCUMENTO*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swPuedeRealizarFlujo}"
+							action="#{viewTreeDocumentos.flows_action}"
+							onclick="this.style.display='none';">
+							<h:graphicImage id="imageflow" title="#{txt.flow_someter}"
+								url="#{conftxt.img_flow}" />
+						</a4j:commandLink>
+
+						<!--<%-->
+						<!--						/*  FLUJO ACTIVO YA EXTA EN FLUJO DOCUMENTO*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swFlujoActivo}"
+							action="#{Documento.flowsView_action}"
+							onclick="this.style.display='none';">
+
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+
+							<h:graphicImage id="imageflowActivo" title="#{txt.flow_activo}"
+								url="#{conftxt.img_flowactivo}" />
+
+						</a4j:commandLink>
+
+
+						<!--					<%-->
+						<!--						/*  PLANTILLA  DOCUMENTO FLOW */-->
+						<!--					%>-->
+
+
+
+
+
+
+
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{
+								(viewTreeDocumentos.doc_detallePrincipal_2.swPuedeRealizarFlujo	 and Documento.swHayPlantillasFlujosparalelos)}"
+							action="#{Documento.listaPlantillaFlowParalelo}"
+							actionListener="#{Documento.versionId}"
+							onclick="this.style.display='none';">
+							<h:graphicImage id="imageflowplantilla2222"
+								title="#{txt.flow} #{txt.plantilla}"
+								url="#{conftxt.img_flowplantilla}" />
+							<f:param id="editId2_flowplantilla" name="idflowplantilla"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2.codigo}" />
+						</a4j:commandLink>
+
+						<!--						<%-->
+						<!--						/*  NUEVA VERSiON*/-->
+						<!--					%>-->
+
+						<a4j:commandLink styleClass="no-decor"
+							action="#{Documento.crear_nuevaversion}"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swCheckOut}"
+							onclick="this.style.display='none';">
+							<h:graphicImage id="imageCheckOut"
+								title="#{txt.doc_version_nueva}" url="#{conftxt.img_checkout}" />
+
+							<f:setPropertyActionListener
+								target="#{Documento.doc_detallePrincipal_2}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+
+
+						</a4j:commandLink>
+
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swLockedwithkey}"
+							action="#{Documento.viewListarDocumento}"
+							onclick="if (!confirm('¿#{txt.doc_desbloquear}?')) return false"
+							actionListener="#{Documento.liberarBloqueoId}">
+							<h:graphicImage id="imageDesbloqueo"
+								title="#{txt.doc_desbloquear}"
+								url="#{conftxt.img_lockedwithkey}" />
+
+						</a4j:commandLink>
+
+						<!--<%-->
+						<!--						/*  EDITAR DOCUMENTOS y MODIFICARLO COMO TAL WORD EXCEL POWERPOINT ETC*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{
+								(viewTreeDocumentos.doc_detallePrincipal_2.swLockedwithkey or viewTreeDocumentos.doc_detallePrincipal_2.swFirstBorrador)
+						  }"
+							onmousedown="showFlowUser('editarDocumento.jsf?detalle_id=#{currentMaestro.primerClienteDocumentoDetalle.codigo}','')">
+							<h:graphicImage title="#{txt.doc_editar}"
+								url="#{conftxt.img_applet}" />
+
+						</a4j:commandLink>
+
+
+
+
+
+						<!--					<%-->
+						<!--						/* VER DCUMENTO SOLO LECTURA*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							action="#{viewTreeDocumentos.viewOnly}"
+							onclick="this.style.display='none';">
+							<h:graphicImage title="#{txt.doc_detalle}"
+								url="#{conftxt.img_detalledoc}" />
+							<!--	 	SOLO SE HACE POR REFERENCIA, ESTA VARIABLE -->
+							<!--											SALE AL BUSCAR TODOS LOS DOCUMENTOS DETALLES-->
+							<!--											EN viewTreeDocumentos.doc_detallesAux-->
+							<f:setPropertyActionListener
+								target="#{viewTreeDocumentos.doc_detallePrincipal_2}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+
+						</a4j:commandLink>
+						<!--					-->
+						<!--					<%-->
+						<!--						/* EDITAR META CARACTERES DOCUMENTOS */-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.seguridadTree.toMod}"
+							action="#{viewTreeDocumentos.editDocumento}"
+							onclick="this.style.display='none';">
+							<h:graphicImage title="#{txt.edit} #{txt.doc_detalle}"
+								url="#{conftxt.img_editmetacaracteresdoc}" />
+							<f:setPropertyActionListener
+								target="#{viewTreeDocumentos.doc_detallePrincipal_2}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+						</a4j:commandLink>
+
+
+						<!--					<%-->
+						<!--						/*  DOCUMENTO PUBLICO */-->
+						<!--					%>-->
+
+
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.seguridadTree.toDoPublico
+							and viewTreeDocumentos.doc_detallePrincipal_2.swCanDoPublicoIsVigente}"
+							action="#{viewTreeDocDetalles.docPublicar}" immediate="true"
+							onclick="this.style.display='none';">
+							<h:graphicImage title="#{txt.doc_publico}"
+								url="#{conftxt.img_publico}" />
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+						</a4j:commandLink>
+
+						<!--					<%-->
+						<!--						/*  VINCULAR DOCUMENTO */-->
+						<!--					%>-->
+
+
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swVincularDocumento}"
+							action="#{Documento.docVinculados}"
+							onclick="this.style.display='none';">
+							<h:graphicImage id="idvinculoimage" title="#{txt.doc_vinculado}"
+								url="#{conftxt.img_docvinculado}" />
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+						</a4j:commandLink>
+
+
+						<!--					<%-->
+						<!--						/* GENERAR REGISTROS*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swRegistro}"
+							action="#{Documento.generarRegistro}"
+							onclick="this.style.display='none';">
+							<h:graphicImage
+								rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swRegistro}"
+								id="imageCopiar" title="#{txt.registro}"
+								url="#{conftxt.img_copy}" />
+
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+						</a4j:commandLink>
+
+
+						<!--							<%-->
+						<!--						/*  HISTRICO DE FLOWS*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swHistFlow}"
+							action="#{Documento.viewHistorico}"
+							onclick="this.style.display='none';">
+							<h:graphicImage id="imageHist" title="#{txt.flows_trab_doc}"
+								url="#{conftxt.img_historicoflow}" />
+
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+
+						</a4j:commandLink>
+
+
+						<!--							<%-->
+						<!--						/* HISTORICO DE DOCUMENTOS*/-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swHistDoc}"
+							action="#{Documento.viewHistoricoDocActivo}"
+							onclick="this.style.display='none';">
+							<h:graphicImage id="imageHist2"
+								title="#{txt.doc_hist} #{txt.doc_documento}"
+								url="#{conftxt.img_historico2}" />
+
+							<f:setPropertyActionListener target="#{Documento.doc_detalle}"
+								value="#{viewTreeDocumentos.doc_detallePrincipal_2}" />
+
+						</a4j:commandLink>
+
+
+						<!--							<%-->
+						<!--						/*  SOLICITUD DE IMPRESION */-->
+						<!--					%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swImprimir
+						and !viewTreeDocumentos.doc_detallePrincipal_2.swFlujoActivo}"
+							action="#{Documento.hacerSendSolicitudImpresion}"
+							actionListener="#{Documento.listarSolicitudImpPartsToSendToImprimir}"
+							immediate="true" onclick="this.style.display='none';">
+
+
+							<h:panelGrid columns="2">
+								<h:graphicImage styleClass="no-decor"
+									title="#{txt.solicitudImpresion}"
+									url="#{conftxt.img_impresora}" />
+								<h:graphicImage styleClass="no-decor"
+									rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swHabilitadoImprimir}"
+									title="#{txt.solicitudImpresion}" url="#{conftxt.img_cheked}" />
+
+								<h:graphicImage styleClass="no-decor"
+									rendered="#{viewTreeDocumentos.doc_detallePrincipal_2.swEstaInFlowToImprimir
+								and !viewTreeDocumentos.doc_detallePrincipal_2.swHabilitadoImprimir}"
+									title="#{txt.solicitudImpresion}" url="#{conftxt.img_inflow}" />
+							</h:panelGrid>
+
+						</a4j:commandLink>
+
+						<!--                      <% /* SEGURIDAD */  %>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{viewTreeDocumentos.seguridadTree.confSeguridad or viewTreeDocumentos.swSuperUsuario
+						}"
+							action="#{viewTreeDocumentos.crearTreeSeguridad}">
+							<h:graphicImage
+								title="#{txt.struct_confNodo} #{viewTreeDocumentos.treeNodoActual.nombre}"
+								url="#{conftxt.img_locked}" />
+
+
+
+						</a4j:commandLink>
+						<!--               FIN       <% /* SEGURIDAD */  %>-->
+
+
+						<!--<%/* PARA ELIMINAR  */%>-->
+						<a4j:commandLink styleClass="no-decor"
+							rendered="#{(viewTreeDocumentos.seguridadTree.toDel or viewTreeDocumentos.swSuperUsuario)
+						
+						}"
+							action="#{viewTreeDocumentos.deleteTreePropiedades}">
+							<h:graphicImage title="#{txt.toDel}" url="#{conftxt.img_erase}" />
+
+							<a4j:param value="true" assignTo="#{viewTreeDocumentos.swEditar}" />
+
+						</a4j:commandLink>
+						<!--<%/* FIN PARA ELIMINAR  */%>-->
+
+
+						<!--<%/* PARA INSTALAR JAVA EN EL CLIENTE  */%>-->
+						<a4j:commandLink styleClass="no-decor"
+							onmousedown="showFlowUser('acercaDeDocumento.jsf','')"
+							immediate="true" onclick="return false">
+							<h:graphicImage title="#{txt.ecologicalpaper}"
+								url="#{conftxt.img_applet0}" />
+						</a4j:commandLink>
+
+
+						<!--<%/* PARA INSTALAR JAVA EN EL CLIENTE  */%>-->
+
+
+
+
+					</rich:toolbarGroup>
+
+
+				</rich:toolbar>
+			</h:panelGrid>
+
+
+			<rich:panel header="" style="border-width: 0px;width:500px">
+				<h:panelGrid columns="2" border="0">
+					<h:outputText value="#{txt.doc_nombre}" />
+					<h:outputText
+						value="#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.nombre}" />
+					<h:outputText value="#{txt.doc_consecutivotab}" />
+					<h:outputText
+						value="#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.consecutivo}" />
+					<h:outputText value="#{txt.areadocumento}" />
+					<h:outputText
+						value="#{viewTreeDocumentos.doc_detallePrincipal_2.areaDocumentos!=null?
+					viewTreeDocumentos.doc_detallePrincipal_2.areaDocumentos.nombre:''}" />
+					<h:outputText value="#{txt.doc_tipotab}" />
+					<h:outputText
+						value="#{viewTreeDocumentos.doc_detallePrincipal_2.doc_maestro.doc_tipo.nombre}" />
+				</h:panelGrid>
+			</rich:panel>
+
+
+
+
+
+		 
+			<rich:dataTable value="#{viewTreeDocumentos.doc_detallesAux_session}"
+				var="detalle" iterationStatusVar="it"
+				rows="#{Utilidades.verNumeroDeRegistros}" width="auto">
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_detalle}" />
+					</f:facet>
+					<h:commandLink id="detalle" styleClass="no-decor"
+						onmousedown="showFlowUser('ClienteDocumentoGenerarFlowParalelo.jsf?detalle_id=#{detalle.codigo}','')"
+						immediate="true" onclick="return false">
+						<h:graphicImage title="#{txt.doc_detalle}" url="#{detalle.icono}" />
+					</h:commandLink>
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.estado}" />
+					</f:facet>
+					<h:outputText value="#{detalle.doc_estado.nombre}" />
+
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_version}" />
+					</f:facet>
+
+					<h:outputText value="#{detalle.mayorVer}.#{detalle.minorVer}" />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_dueniotab}" />
+					</f:facet>
+
+					<h:outputText value="#{detalle.duenio} " />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:graphicImage styleClass="no-decor" title="#{txt.doc_publico}"
+							url="#{conftxt.img_publico}" />
+
+					</f:facet>
+
+					<h:graphicImage
+						rendered="#{detalle.doc_maestro.publico and detalle.swVigente}"
+						title="#{txt.doc_publico} #{detalle.doc_maestro.publico}  #{detalle.swVigente} #{detalle.codigo}"
+						url="#{conftxt.img_publico}" />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_creado}" />
+					</f:facet>
+					<h:outputText value="#{detalle.doc_maestro.fecha_mostrar}" />
+				</rich:column>
+
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:graphicImage styleClass="no-decor" title="#{txt.doc_bloqueado}"
+							url="#{conftxt.img_locked}" />
+					</f:facet>
+					<h:outputText rendered="#{detalle.swLocked}"
+						value="#{detalle.modificadoPor} " />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.pesomgb}" />
+					</f:facet>
+					<h:outputText value="#{detalle.size_doc}" />
+				</rich:column>
+
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_modificadopor}" />
+					</f:facet>
+
+					<h:outputText value="#{detalle.modificadoPor} " />
+				</rich:column>
+
+				<rich:column style="border-width: 0px;">
+					<f:facet name="header">
+						<h:outputText value="#{txt.doc_cambio}" />
+					</f:facet>
+
+					<h:outputText value="#{detalle.datecambioStr} " />
+				</rich:column>
+
+				<rich:column>
+
+					<f:facet name="header">
+						<h:outputText value="#{txt.razondecambio}" />
+					</f:facet>
+
+					<h:outputText rendered="#{not empty detalle.descripcion}"
+						value="#{detalle.descripcion} " />
+				</rich:column>
+
+				<f:facet name="footer">
+					<rich:dataScroller page="#{viewTreeDocDetalles.page}" />
+				</f:facet>
+			</rich:dataTable>
+
+
+
+
+
+
+
+
+
+
+		</h:form> <!--<%/* FIN VER INFO DEL DOCUMENTO  */%>--></div>
+
+	</ui:define>
+</ui:composition>
+</html>

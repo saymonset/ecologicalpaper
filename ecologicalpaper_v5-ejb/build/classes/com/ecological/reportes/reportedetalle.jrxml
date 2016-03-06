@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportedetallefacturaciontotal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<variable name="sumacuentas_agencias" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{cuentas_agencias}]]></variableExpression>
+	</variable>
+	<variable name="sumartotal_a_imprimir" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{sumartotal_a_imprimir}]]></variableExpression>
+	</variable>
+	<variable name="sumarenviar" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{sumarenviar}]]></variableExpression>
+	</variable>
+	<variable name="cuentas_agenciasVisa" class="java.lang.Long"/>
+	<variable name="total_a_enviarVisa" class="java.lang.String"/>
+	<variable name="totalenviarcntasmaster" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{totalenviarcntasmaster}]]></variableExpression>
+	</variable>
+	<variable name="totalenviarcntasvisa" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{totalenviarcntasvisa}]]></variableExpression>
+	</variable>
+	<variable name="edcImpresos" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$V{sumacuentas_agencias}+$V{sumarenviar}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="hojadicionaes" class="java.lang.Long">
+		<variableExpression><![CDATA[$V{hojadicionaes}]]></variableExpression>
+	</variable>
+	<variable name="impresionesduplex" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$V{hojadicionaes}+$V{sumartotal_a_imprimir}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="corporativo" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{corporativo}]]></variableExpression>
+	</variable>
+	<variable name="cuentasfiltradas" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{cuentasfiltradas}]]></variableExpression>
+	</variable>
+	<variable name="hojasadicionales" class="java.lang.Long">
+		<variableExpression><![CDATA[$F{hojasadicionales}]]></variableExpression>
+	</variable>
+	<detail>
+		<band height="14" splitType="Stretch"/>
+	</detail>
+</jasperReport>

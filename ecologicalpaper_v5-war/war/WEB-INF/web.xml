@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>Sample RichFaces 4 Application</display-name>
+	<context-param>
+		<param-name>com.sun.faces.verifyObjects</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	
+	
+		<context-param>
+		<param-name>org.richfaces.push.jms.enabled</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	
+	<context-param>
+		<param-name>javax.faces.SKIP_COMMENTS</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.richfaces.skin</param-name>
+		<param-value>blueSky</param-value>
+	</context-param>
+	<!-- primeFaces skin -->
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>bluesky</param-value>
+	</context-param>
+	<filter>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+		<init-param>
+			<param-name>thresholdSize</param-name>
+			<param-value>51200</param-value>
+		</init-param>
+		<init-param>
+			<param-name>uploadDirectory</param-name>
+			<param-value>/tmp</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>Pretty Filter</filter-name>
+		<filter-class>com.ocpsoft.pretty.PrettyFilter</filter-class>
+	</filter>
+
+
+	<!-- filtro de bienvenida -->
+	<filter>
+		<filter-name>indexFilter</filter-name>
+		<filter-class>com.ecological.filter.IndexFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>indexFilter</filter-name>
+		<url-pattern>/index.jsf</url-pattern>
+	</filter-mapping>
+
+	<!-- filtro session expirada -->
+	<filter>
+		<filter-name>sessionTimeoutFilter</filter-name>
+		<filter-class>com.ecological.filter.SessionTimeoutFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sessionTimeoutFilter</filter-name>
+	  <url-pattern>*.jsf</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>aplicacionCerradaFilter</filter-name>
+		<filter-class>com.ecological.filter.AplicacionCerradaFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>aplicacionCerradaFilter</filter-name>
+	  <url-pattern>/cerrarAplicacion.jsf</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>aplicacionCerradaFilter</filter-name>
+	  <url-pattern>/errorPage.jsf</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>sessionTimeoutFilter</filter-name>
+	  <url-pattern>*.jsf</url-pattern>
+	</filter-mapping>
+
+
+
+
+
+	<filter-mapping>
+		<filter-name>PrimeFaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Pretty Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<listener>
+		<description>ServletContextListener</description>
+		<listener-class>com.ecological.inicializando.InicializaAplication</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+<!-- 	primefaces 2.x -->
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>PrimeFacesResourceServlet</servlet-name> -->
+<!-- 		<servlet-class>org.primefaces.resource.ResourceServlet</servlet-class> -->
+<!-- 		<load-on-startup>1</load-on-startup> -->
+<!-- 	</servlet> -->
+	<servlet>
+		<servlet-name>ServletReporte</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.reportes.ServletReporte</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>servletReporteDocumentos</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.reportes.ServletReporteDocumentos</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Puente</servlet-name>
+		<servlet-class>com.ecological.paper.tree.Puente</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ClienteDocumentoGenerar</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ClienteDocumentoGenerar</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditarDocumento</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.EditarDocumento</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>BienvenidoUsuarioPagPrincipal</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.BienvenidoUsuarioPagPrincipal</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ImprimirDocumento</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ImprimirDocumento</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ScanearDocumento</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ScanearDocumento</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AcercaDeDocumento</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.AcercaDeDocumento</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>clienteDocumentoDownloadFile</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ClienteDocumentoDownloadFile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ClienteDocumentoGenerarFlowParalelo</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ClienteDocumentoGenerarFlowParalelo</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ClienteDocumentoDiferencia</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ClienteDocumentoDiferencia</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>prueba</servlet-name>
+		<servlet-class>com.ecological.util.Pruebas</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PuenteFlowResponse</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.flows.PuenteFlowResponse</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PuenteCrearRaiz</servlet-name>
+		<servlet-class>com.ecological.paper.tree.PuenteCrearRaiz</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PuenteGenerarRegistroCopyDoc</servlet-name>
+		<servlet-class>com.ecological.paper.tree.PuenteGenerarRegistroCopyDoc</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PuentedeTask</servlet-name>
+		<servlet-class>com.ecological.paper.tree.PuentedeTask</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ClienteDocumentoGen</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ClienteDocumentoGenerar</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ReporteExcel</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.reportes.ReporteExcel</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ejemploGraficasServlet</servlet-name>
+		<servlet-class>com.graficar.ejemploGraficasServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletReporteEUJOVANS</servlet-name>
+		<servlet-class>com.sofytware.cliente.euj.ServletReporteEUJOVANS</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletReporteREMESA</servlet-name>
+		<servlet-class>com.sofytware.cliente.euj.ServletReporteREMESA</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DocumentoStadisticasGraficar</servlet-name>
+		<servlet-class>com.graficar.DocumentoStadisticasGraficar</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>StadisticasGraficarByauthorfechastadoetc</servlet-name>
+		<servlet-class>com.graficar.StadisticasGraficarByauthorfechastadoetc</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UsuarioFlowStadisticasGraficar</servlet-name>
+		<servlet-class>com.graficar.UsuarioFlowStadisticasGraficar</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ClienteDocumentoGenerarAttachment</servlet-name>
+		<servlet-class>com.ecological.paper.cliente.documentos.ClienteDocumentoGenerarAttachment</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+<!-- 	primefaces 2.x -->
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>PrimeFacesResourceServlet</servlet-name> -->
+<!-- 		<url-pattern>/primefaces_resource/*</url-pattern> -->
+<!-- 	</servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>ejemploGraficasServlet</servlet-name>
+		<url-pattern>/ejemploGraficasServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>prueba</servlet-name>
+		<url-pattern>/prueba</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletReporte</servlet-name>
+		<url-pattern>/servletReporte.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>servletReporteDocumentos</servlet-name>
+		<url-pattern>/servletReporteDocumentos.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Puente</servlet-name>
+		<url-pattern>/puente.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReporteExcel</servlet-name>
+		<url-pattern>/ReporteExcel.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGenerar</servlet-name>
+		<url-pattern>/ClienteDocumentoGenerar</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditarDocumento</servlet-name>
+		<url-pattern>/editarDocumento.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BienvenidoUsuarioPagPrincipal</servlet-name>
+		<url-pattern>/bienvenidoUsuarioPagPrincipal.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ImprimirDocumento</servlet-name>
+		<url-pattern>/imprimirDocumento.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ScanearDocumento</servlet-name>
+		<url-pattern>/scanearDocumento.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AcercaDeDocumento</servlet-name>
+		<url-pattern>/acercaDeDocumento.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGenerar</servlet-name>
+		<url-pattern>/ClienteDocumentoGenerar.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGenerarFlowParalelo</servlet-name>
+		<url-pattern>/ClienteDocumentoGenerarFlowParalelo</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>clienteDocumentoDownloadFile</servlet-name>
+		<url-pattern>/clienteDocumentoDownloadFile.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGenerarFlowParalelo</servlet-name>
+		<url-pattern>/ClienteDocumentoGenerarFlowParalelo.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoDiferencia</servlet-name>
+		<url-pattern>/ClienteDocumentoDiferencia</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoDiferencia</servlet-name>
+		<url-pattern>/ClienteDocumentoDiferencia.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PuenteFlowResponse</servlet-name>
+		<url-pattern>/PuenteFlowResponse</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PuenteCrearRaiz</servlet-name>
+		<url-pattern>/PuenteCrearRaiz.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PuenteGenerarRegistroCopyDoc</servlet-name>
+		<url-pattern>/PuenteGenerarRegistroCopyDoc.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PuentedeTask</servlet-name>
+		<url-pattern>/PuentedeTask.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGen</servlet-name>
+		<url-pattern>/ClienteDocumentoGen.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ReporteExcel</servlet-name>
+		<url-pattern>/ReporteExcel</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletReporteEUJOVANS</servlet-name>
+		<url-pattern>/ServletReporteEUJOVANS.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletReporteREMESA</servlet-name>
+		<url-pattern>/ServletReporteREMESA.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletReporteREMESA</servlet-name>
+		<url-pattern>/ServletReporteREMESA</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DocumentoStadisticasGraficar</servlet-name>
+		<url-pattern>/DocumentoStadisticasGraficar.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StadisticasGraficarByauthorfechastadoetc</servlet-name>
+		<url-pattern>/StadisticasGraficarByauthorfechastadoetc.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UsuarioFlowStadisticasGraficar</servlet-name>
+		<url-pattern>/UsuarioFlowStadisticasGraficar.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGenerarAttachment</servlet-name>
+		<url-pattern>/ClienteDocumentoGenerarAttachment</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ClienteDocumentoGenerarAttachment</servlet-name>
+		<url-pattern>/ClienteDocumentoGenerarAttachment.jsf</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	<servlet-name>Imagen</servlet-name>
+	<servlet-class>ve.com.movistar.mmo.presentacion.spotlight.servlet.ImagenServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Imagen</servlet-name>
+	<url-pattern>/Imagen.jsf</url-pattern>
+</servlet-mapping>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<mime-mapping>
+		<extension>ecss</extension>
+		<mime-type>text/css</mime-type>
+	</mime-mapping>
+	<welcome-file-list>
+		<welcome-file>faces/index.xhtml</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+		<location>/index.xhtml</location>
+	</error-page>
+
+	
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorPage.xhtml</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/errorPage.xhtml</location>
+	</error-page>
+</web-app>
