@@ -120,10 +120,9 @@ public class ServicioDelegado implements Serializable {
 				 * 
 				 * } }
 				 */
-				System.out
-				.println("CREA PRINCIPAL CONEXION A BASE DE DATOS ECOLOGICAL");
-				instance= (DelegadoEJBLocal) ctx
-						.lookup("ecologicalpaper_v5/DelegadoEJBBean/local");
+
+				instance = (DelegadoEJBLocal) ctx.lookup("java:global/ecologicalpaper_v5/ecologicalpaper_v5-ejb/DelegadoEJBBean!com.ecological.paper.delegado.DelegadoEJBLocal");
+				System.out.println("CREA PRINCIPAL CONEXION A BASE DE DATOS ECOLOGICAL");
 				if (instance== null) {
 					throw new EcologicaExcepciones(
 							"no se conecta con base de datos");

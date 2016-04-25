@@ -11,14 +11,15 @@
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
-	
-	
-		<context-param>
+
+
+
+	<context-param>
 		<param-name>org.richfaces.push.jms.enabled</param-name>
 		<param-value>true</param-value>
 	</context-param>
-	
-	
+
+
 	<context-param>
 		<param-name>javax.faces.SKIP_COMMENTS</param-name>
 		<param-value>true</param-value>
@@ -40,6 +41,12 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>bluesky</param-value>
 	</context-param>
+
+	<context-param>
+		<param-name>com.ocpsoft.pretty.BASE_PACKAGES</param-name>
+		<param-value>none</param-value>
+	</context-param>
+
 	<filter>
 		<filter-name>PrimeFaces FileUpload Filter</filter-name>
 		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
@@ -75,7 +82,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>sessionTimeoutFilter</filter-name>
-	  <url-pattern>*.jsf</url-pattern>
+		<url-pattern>*.jsf</url-pattern>
 	</filter-mapping>
 	<filter>
 		<filter-name>aplicacionCerradaFilter</filter-name>
@@ -83,16 +90,16 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>aplicacionCerradaFilter</filter-name>
-	  <url-pattern>/cerrarAplicacion.jsf</url-pattern>
+		<url-pattern>/cerrarAplicacion.jsf</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>aplicacionCerradaFilter</filter-name>
-	  <url-pattern>/errorPage.jsf</url-pattern>
+		<url-pattern>/errorPage.jsf</url-pattern>
 	</filter-mapping>
-	
+
 	<filter-mapping>
 		<filter-name>sessionTimeoutFilter</filter-name>
-	  <url-pattern>*.jsf</url-pattern>
+		<url-pattern>*.jsf</url-pattern>
 	</filter-mapping>
 
 
@@ -118,12 +125,12 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-<!-- 	primefaces 2.x -->
-<!-- 	<servlet> -->
-<!-- 		<servlet-name>PrimeFacesResourceServlet</servlet-name> -->
-<!-- 		<servlet-class>org.primefaces.resource.ResourceServlet</servlet-class> -->
-<!-- 		<load-on-startup>1</load-on-startup> -->
-<!-- 	</servlet> -->
+	<!-- primefaces 2.x -->
+	<!-- <servlet> -->
+	<!-- <servlet-name>PrimeFacesResourceServlet</servlet-name> -->
+	<!-- <servlet-class>org.primefaces.resource.ResourceServlet</servlet-class> -->
+	<!-- <load-on-startup>1</load-on-startup> -->
+	<!-- </servlet> -->
 	<servlet>
 		<servlet-name>ServletReporte</servlet-name>
 		<servlet-class>com.ecological.paper.cliente.reportes.ServletReporte</servlet-class>
@@ -236,11 +243,11 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
-<!-- 	primefaces 2.x -->
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>PrimeFacesResourceServlet</servlet-name> -->
-<!-- 		<url-pattern>/primefaces_resource/*</url-pattern> -->
-<!-- 	</servlet-mapping> -->
+	<!-- primefaces 2.x -->
+	<!-- <servlet-mapping> -->
+	<!-- <servlet-name>PrimeFacesResourceServlet</servlet-name> -->
+	<!-- <url-pattern>/primefaces_resource/*</url-pattern> -->
+	<!-- </servlet-mapping> -->
 	<servlet-mapping>
 		<servlet-name>ejemploGraficasServlet</servlet-name>
 		<url-pattern>/ejemploGraficasServlet</url-pattern>
@@ -369,15 +376,8 @@
 		<servlet-name>ClienteDocumentoGenerarAttachment</servlet-name>
 		<url-pattern>/ClienteDocumentoGenerarAttachment.jsf</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-	<servlet-name>Imagen</servlet-name>
-	<servlet-class>ve.com.movistar.mmo.presentacion.spotlight.servlet.ImagenServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-	<servlet-name>Imagen</servlet-name>
-	<url-pattern>/Imagen.jsf</url-pattern>
-</servlet-mapping>
+
+
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
@@ -393,8 +393,8 @@
 		<location>/index.xhtml</location>
 	</error-page>
 
-	
-	
+
+
 	<error-page>
 		<error-code>500</error-code>
 		<location>/errorPage.xhtml</location>

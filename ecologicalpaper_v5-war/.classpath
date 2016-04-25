@@ -8,23 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/svnkit-cli.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/svnkit.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/ecologicalpaper_v5-ejb"/>
-	<classpathentry kind="lib" path="/opt/eclipse/mars/workspace/servlet-api.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/hibernate-annotations.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/hibernate3.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/activation.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/cayenne-1.2.4.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/classes12.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/commons-net-2.0.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/ejb3-persistence.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/groovy-all-1.5.5.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/jboss-javaee.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/jcommon-1.0.15.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/jfreechart-1.0.12.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/junit-4.8.1.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/mail-1.4.jar"/>
-	<classpathentry kind="lib" path="/ecologicalpaper_v5-ejb/lib/poi-3.5-FINAL-20090928.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/WildFly 10.0 Runtime"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -41,9 +41,9 @@ public class ServicioDelegadoEcological implements Serializable {
 					ctx = new InitialContext();
 					System.out
 					.println("CREA UNA NUEVA CONEXION A BASE DE DATOS ECOLOGICAL");
-		 
-					instance = (DelegadoEcologicalEJBLocal) ctx
-							.lookup("ecologicalpaper_v5/DelegadoEcologicalEJBBean/local");
+					instance = (DelegadoEcologicalEJBLocal) ctx.lookup("java:global/ecologicalpaper_v5/ecologicalpaper_v5-ejb/DelegadoEcologicalEJBBean!com.ecological.paper.delegado.DelegadoEcologicalEJBLocal");
+					
+				 
 
 				} catch (NamingException e) {
 					e.printStackTrace();
